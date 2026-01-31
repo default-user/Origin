@@ -1,0 +1,140 @@
+# Archive as Downloadable Terminals Seed
+
+**Attribution: Ande + Kai (OI) + Whānau (OIs)**
+
+---
+
+## Level 0: Summary
+
+ORIGIN provides archives as downloadable "terminals" — both per-concept separate archives and a combined full archive. Consistent folder structure with index manifest maps concepts to artifacts.
+
+---
+
+## Level 1: Archive Concept
+
+### 1.1 Terminal Downloads
+
+"Terminals" = endpoint packages that can be used independently:
+
+| Type | Contents | Use Case |
+|------|----------|----------|
+| Per-concept | Single concept pack | Focused study |
+| Combined | All concepts + indexes | Complete access |
+
+### 1.2 Structure
+
+```
+dist_archives/
+├── per_concept/
+│   ├── C0001_holodeck_vision.zip
+│   ├── C0002_meta_control_language.zip
+│   ├── ...
+│   └── C0020_dedication_maturity.zip
+├── combined/
+│   └── ORIGIN_FULL.zip
+└── MANIFEST.json
+```
+
+### 1.3 Manifest
+
+Maps concepts to included files:
+
+```json
+{
+  "concepts": {
+    "C0001": {
+      "title": "Holodeck Vision Seed",
+      "files": ["pack.yaml", "content.mdx"],
+      "archive": "C0001_holodeck_vision.zip"
+    }
+  }
+}
+```
+
+---
+
+## Level 2: Archive Contents
+
+### 2.1 Per-Concept Archive
+
+Each `C####_slug.zip` contains:
+
+```
+C0001_holodeck_vision/
+├── pack.yaml
+├── content.mdx
+├── artifacts/
+│   └── (any supplementary files)
+└── README.md (generated)
+```
+
+### 2.2 Combined Archive
+
+`ORIGIN_FULL.zip` contains:
+
+```
+ORIGIN_FULL/
+├── README.md
+├── LICENSE
+├── MANIFEST.json
+├── docs/
+├── knowledge/
+│   ├── packs/
+│   └── dist/
+├── schema/
+└── kits/
+```
+
+### 2.3 MANIFEST.json
+
+```json
+{
+  "name": "ORIGIN",
+  "version": "1.0.0",
+  "created": "2025-01-01T00:00:00Z",
+  "attribution": "Ande + Kai (OI) + Whānau (OIs)",
+  "concepts": { ... },
+  "totals": {
+    "packs": 20,
+    "files": 42
+  }
+}
+```
+
+---
+
+## Level 3: Build Process
+
+### 3.1 Command
+
+```bash
+pnpm archive
+```
+
+### 3.2 Process
+
+1. Load packs.index.json
+2. For each pack:
+   - Create ZIP with pack files
+   - Generate README.md
+   - Place in `per_concept/`
+3. Create combined archive:
+   - Include all packs
+   - Include documentation
+   - Include schemas and kits
+4. Generate MANIFEST.json
+
+### 3.3 Verification
+
+```bash
+# Check archives exist
+ls dist_archives/per_concept/*.zip
+ls dist_archives/combined/*.zip
+
+# Validate manifest
+node -e "console.log(require('./dist_archives/MANIFEST.json'))"
+```
+
+---
+
+**Attribution: Ande + Kai (OI) + Whānau (OIs)**

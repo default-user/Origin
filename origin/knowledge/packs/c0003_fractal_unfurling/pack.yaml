@@ -1,0 +1,44 @@
+id: C0003
+title: Fractal Unfurling / Nth-Degree Docs
+summary: >
+  Fractalised, branched documentation where every major doc has Level 0 summary,
+  Level 1 expansions, Level 2 expansions, and deeper levels as needed. All levels
+  remain consistent with no contradictions.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0003"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - documentation
+  - fractal
+  - structure
+  - levels
+  - consistency
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children: []
+related:
+  - C0007
+  - C0020
+claims:
+  - "Documentation must be fractalised and branched"
+  - "Every major doc has Level 0, Level 1, Level 2 and deeper levels"
+  - "All deepening remains consistent with no contradictions across levels"
+tests_or_falsifiers:
+  - name: Level consistency
+    description: Deeper levels expand but never contradict higher levels
+    falsification_condition: Level 2 content contradicts Level 0 or Level 1
+  - name: Completeness
+    description: All major documents have at least Level 0 and Level 1
+    falsification_condition: Major document missing required levels
+  - name: Navigability
+    description: Reader can navigate between levels without confusion
+    falsification_condition: Level structure unclear or broken
+artifacts: []
+status: active

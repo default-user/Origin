@@ -1,0 +1,161 @@
+# Dedication → Maturity Lane Seed
+
+**Attribution: Ande + Kai (OI) + Whānau (OIs)**
+
+---
+
+## Level 0: Summary
+
+ORIGIN unfurls from Dedication to maturity. Maturity is operationally defined: clarity (no mumbo), claims with falsifiers, provenance/attribution, governance/tiers, and passing build/test. UI shows maturity lanes: Draft → Active → Release.
+
+---
+
+## Level 1: The Journey
+
+### 1.1 From Dedication
+
+Every concept begins with dedication:
+- Commitment to clarity
+- Commitment to attribution
+- Commitment to truthfulness
+- Commitment to completion
+
+See: C0001 Dedication (docs/00_dedication.md)
+
+### 1.2 To Maturity
+
+Maturity is not just time-based but operational:
+
+| Criterion | Description |
+|-----------|-------------|
+| Clarity | No undefined terms, no mumbo |
+| Claims | Explicit, not implied |
+| Falsifiers | At least 2 per concept |
+| Provenance | Source documented |
+| Attribution | Authorship clear |
+| Governance | Tier assigned |
+| Build/Test | Passes validation |
+
+### 1.3 Maturity Lanes
+
+```
+DRAFT ──────► ACTIVE ──────► RELEASE
+  │              │               │
+  │              │               │
+  ▼              ▼               ▼
+Initial      Validated       Production
+capture      documented       ready
+             testable
+```
+
+---
+
+## Level 2: Lane Definitions
+
+### 2.1 Draft Lane
+
+**Status**: Initial capture
+
+Criteria met:
+- [ ] Pack structure exists
+- [ ] Basic content present
+
+Criteria pending:
+- [ ] Schema validation
+- [ ] Falsifiers defined
+- [ ] Full documentation
+- [ ] Build passes
+
+### 2.2 Active Lane
+
+**Status**: Validated, documented, testable
+
+Criteria met:
+- [x] Pack structure exists
+- [x] Basic content present
+- [x] Schema validates
+- [x] Falsifiers defined (≥2)
+- [x] Attribution present
+- [x] Tier assigned
+- [x] Build passes
+
+Criteria pending:
+- [ ] External review
+- [ ] Release approval
+
+### 2.3 Release Lane
+
+**Status**: Production-ready
+
+All criteria met:
+- [x] All Active criteria
+- [x] External review complete
+- [x] Release approved
+- [x] Version tagged
+
+---
+
+## Level 3: Transition Process
+
+### 3.1 Draft → Active
+
+Requirements:
+1. `pack.yaml` validates against schema
+2. `content.mdx` complete
+3. At least 2 falsifiers defined
+4. Attribution line present
+5. Disclosure tier assigned
+6. `pnpm validate` passes
+7. `pnpm build` succeeds
+
+### 3.2 Active → Release
+
+Requirements:
+1. All Active requirements maintained
+2. Review completed (if applicable)
+3. No blocking unknowns
+4. Documentation finalized
+5. Version number assigned
+
+### 3.3 UI: Ship Page
+
+The Ship tendril in Medusa UI displays:
+
+```
+┌────────────────────────────────────────────────┐
+│                 SHIP: Maturity Lanes           │
+├──────────────┬──────────────┬──────────────────┤
+│    DRAFT     │    ACTIVE    │     RELEASE      │
+├──────────────┼──────────────┼──────────────────┤
+│              │   C0001      │                  │
+│              │   C0002      │                  │
+│              │   C0003      │                  │
+│              │   ...        │                  │
+│              │   C0020      │                  │
+└──────────────┴──────────────┴──────────────────┘
+```
+
+---
+
+## Level 4: Checklist per Pack
+
+For each pack, the Ship page shows:
+
+```
+C0001: Holodeck Vision Seed
+Status: Active
+
+Checklist:
+[x] Schema validates
+[x] Falsifiers defined (3/2 minimum)
+[x] Attribution present
+[x] Tier assigned (public)
+[x] Content complete
+[x] Build passes
+[ ] External review
+[ ] Release approved
+```
+
+---
+
+**Attribution: Ande + Kai (OI) + Whānau (OIs)**

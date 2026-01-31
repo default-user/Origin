@@ -1,0 +1,44 @@
+id: C0019
+title: Archive as Downloadable Terminals Seed
+summary: >
+  Bucket terminals as downloads: multiple separate archives plus combined archive.
+  Consistent foldering with index manifest mapping concepts to artifacts.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0019"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - archive
+  - download
+  - terminal
+  - export
+  - manifest
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children: []
+related:
+  - C0007
+  - C0020
+claims:
+  - "Bucket terminals as downloads"
+  - "Multiple separate archives plus combined archive"
+  - "Consistent foldering"
+  - "Index manifest mapping concepts to artifacts"
+tests_or_falsifiers:
+  - name: Per-concept archives exist
+    description: Each concept has an individual downloadable archive
+    falsification_condition: Missing concept archive
+  - name: Combined archive exists
+    description: Full combined archive includes all concepts
+    falsification_condition: Combined archive missing or incomplete
+  - name: Manifest accuracy
+    description: MANIFEST.json correctly maps all concepts to files
+    falsification_condition: Manifest entries don't match actual files
+artifacts: []
+status: active

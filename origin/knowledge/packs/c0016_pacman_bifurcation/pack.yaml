@@ -1,0 +1,41 @@
+id: C0016
+title: Pac-Man Bifurcation / Evolution Narrative Seed
+summary: >
+  Uses Pac-Man as example to explain evolution in narrative form. Includes
+  bifurcation theory vibe. Reader-friendly narratives tied into holodeck arc.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0016"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - pacman
+  - evolution
+  - bifurcation
+  - narrative
+  - holodeck
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children: []
+related:
+  - C0001
+  - C0017
+claims:
+  - "Pac-Man as evolution narrative example"
+  - "Bifurcation theory vibe (conceptual)"
+  - "Reader-friendly narratives"
+  - "Tied into holodeck arc"
+tests_or_falsifiers:
+  - name: Narrative accessibility
+    description: Evolution narrative is readable by general audience
+    falsification_condition: Requires specialist knowledge to understand
+  - name: Holodeck connection
+    description: Narrative explicitly connects to Holodeck (C0001)
+    falsification_condition: No reference to holodeck concept
+artifacts: []
+status: active

@@ -1,0 +1,44 @@
+id: C0006
+title: Privacy Boundary
+summary: >
+  Encodes everything known except "personal personal data". No private names,
+  addresses, emails, phone numbers, health/financial identifiers, or identifying
+  relationship incidents. If PII appears, replace with [[REDACTED]].
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0006"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - privacy
+  - pii
+  - redaction
+  - security
+  - governance
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children: []
+related:
+  - C0005
+  - C0013
+claims:
+  - "Encode everything except personal personal data"
+  - "Exclude PII and sensitive personal info"
+  - "Replace accidental identifiers with [[REDACTED]] tokens"
+tests_or_falsifiers:
+  - name: No raw PII
+    description: No unredacted PII exists in any pack
+    falsification_condition: PII pattern detected in content
+  - name: Redaction applied
+    description: [[REDACTED]] tokens used where PII was removed
+    falsification_condition: Evidence of removed content without token
+  - name: Sensitivity accuracy
+    description: Pack sensitivity fields accurately reflect content
+    falsification_condition: High-risk pack marked as no-risk
+artifacts: []
+status: active

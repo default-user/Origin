@@ -1,0 +1,125 @@
+# CIF/CDI Disambiguation Seed
+
+**Attribution: Ande + Kai (OI) + Whānau (OIs)**
+
+---
+
+## Level 0: Summary
+
+CIF (Context Integrity Firewall) is the ingress/egress integrity boundary. CDI (Conscience Decision Interface) is the kernel judge for allow/deny/transform/degrade decisions. These governance-critical terms must never be blurred or confused.
+
+---
+
+## Level 1: Term Definitions
+
+### 1.1 CIF — Context Integrity Firewall
+
+**Definition**: Ingress/egress integrity boundary
+
+| Aspect | Description |
+|--------|-------------|
+| Role | Guard data/context boundaries |
+| Function | Verify integrity at entry/exit |
+| Scope | Ingress (coming in) + egress (going out) |
+| Purpose | Prevent integrity violations |
+
+### 1.2 CDI — Conscience Decision Interface
+
+**Definition**: Kernel judge for allow/deny/transform/degrade
+
+| Aspect | Description |
+|--------|-------------|
+| Role | Make governance decisions |
+| Function | Judge requests against policies |
+| Options | Allow, Deny, Transform, Degrade |
+| Purpose | Ethical/policy enforcement |
+
+### 1.3 Critical Distinction
+
+```
+CIF: "Is this data/context valid and intact?"
+     → Integrity check at boundary
+
+CDI: "Should this action proceed?"
+     → Decision based on conscience/policy
+```
+
+---
+
+## Level 2: Functional Details
+
+### 2.1 CIF Operations
+
+```
+INGRESS                    EGRESS
+   │                          │
+   ▼                          ▼
+┌─────────┐              ┌─────────┐
+│  CIF    │              │  CIF    │
+│ Verify  │              │ Verify  │
+│ Inbound │              │ Outbound│
+└────┬────┘              └────┬────┘
+     │                        │
+     ▼                        ▼
+ [PASS/FAIL]             [PASS/FAIL]
+```
+
+CIF checks:
+- Data integrity
+- Context validity
+- Boundary compliance
+
+### 2.2 CDI Operations
+
+```
+Request
+   │
+   ▼
+┌─────────────────┐
+│      CDI        │
+│  Kernel Judge   │
+└────────┬────────┘
+         │
+    ┌────┼────┬────────┐
+    ▼    ▼    ▼        ▼
+ ALLOW  DENY  TRANSFORM DEGRADE
+```
+
+CDI decisions:
+- **Allow**: Proceed as requested
+- **Deny**: Block entirely
+- **Transform**: Modify to acceptable form
+- **Degrade**: Proceed with reduced capability
+
+### 2.3 Integration
+
+```
+Input → CIF (integrity check) → CDI (decision) → Action
+                                      │
+                                      └→ CIF (egress check) → Output
+```
+
+CIF and CDI work together but are distinct:
+- CIF: Is it valid?
+- CDI: Is it allowed?
+
+---
+
+## Level 3: Governance Context
+
+### 3.1 Why Disambiguation Matters
+
+Blurring CIF/CDI leads to:
+- Security holes (integrity vs. policy confusion)
+- Governance failures (wrong checks at wrong times)
+- Architecture degradation (unclear boundaries)
+
+### 3.2 Relationship to Other Concepts
+
+- **C0002 (MCL)**: MCL contexts respect CIF boundaries
+- **C0009 (Kāti)**: Kāti governance includes CIF/CDI
+- **C0006 (Privacy)**: CDI enforces privacy decisions
+
+---
+
+**Attribution: Ande + Kai (OI) + Whānau (OIs)**

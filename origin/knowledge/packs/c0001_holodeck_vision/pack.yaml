@@ -1,0 +1,45 @@
+id: C0001
+title: Holodeck Vision Seed
+summary: >
+  A holodeck-style system specification combining immersive first-person experience
+  with God's-eye overview. Features the canonical "Pac-Man as Pac on a holodeck"
+  scenario with hovering map view.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0001"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - vision
+  - holodeck
+  - immersion
+  - interface
+  - pacman
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children: []
+related:
+  - C0004
+  - C0016
+claims:
+  - "Holodeck enables first-person immersion with simultaneous God's-eye view"
+  - "Pac-Man as canonical example of holodeck experience"
+  - "Full circle if Pac-Man becomes #1 game again in this medium"
+  - "System requires grounded build spec with modules, interfaces, safety, staging"
+tests_or_falsifiers:
+  - name: View switching coherence
+    description: Transition between first-person and God's-eye views must be seamless
+    falsification_condition: User experiences disorientation or lag during view switch
+  - name: Safety system effectiveness
+    description: Safety systems prevent physical harm during immersion
+    falsification_condition: User can exceed physical boundaries or experience harm
+  - name: Scenario playability
+    description: Pac-Man scenario is actually playable end-to-end
+    falsification_condition: Core Pac-Man mechanics cannot be implemented in holodeck
+artifacts: []
+status: active

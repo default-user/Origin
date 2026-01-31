@@ -1,0 +1,46 @@
+id: C0007
+title: O2C (Ultimate Archive + Dummie's Guide)
+summary: >
+  O2C is an "ark/arc capsule for all time" containing narrative, ethical root,
+  and system blueprint. Includes both "O2C for Dummies" and "O2C Ultimate Archive".
+  Must include code and complexity, not just prose.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0007"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - o2c
+  - archive
+  - ark
+  - documentation
+  - guide
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children: []
+related:
+  - C0003
+  - C0020
+claims:
+  - "O2C is an ark/arc capsule for all time"
+  - "Includes narrative, ethical root, and system blueprint"
+  - "O2C for Dummies provides accessible entry point"
+  - "O2C Ultimate Archive provides complete detail"
+  - "Must include code and complexity, not just prose"
+tests_or_falsifiers:
+  - name: Dual-level accessibility
+    description: Both Dummies guide and Ultimate Archive exist and are linked
+    falsification_condition: Only one level exists or they're disconnected
+  - name: Code inclusion
+    description: O2C includes actual runnable code, not just prose
+    falsification_condition: No executable code in O2C
+  - name: Self-documentation
+    description: O2C explains itself without external references
+    falsification_condition: Understanding requires external sources
+artifacts: []
+status: active

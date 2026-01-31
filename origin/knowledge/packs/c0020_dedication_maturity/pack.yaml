@@ -1,0 +1,46 @@
+id: C0020
+title: Dedication → Maturity Lane Seed
+summary: >
+  Repo unfurls from Dedication to maturity. Operational maturity definition includes
+  clarity (no mumbo), claims with falsifiers, provenance/attribution, governance/tiers,
+  and passing build/test. Maturity lanes in UI: Draft → Active → Release.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0020"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - maturity
+  - dedication
+  - lanes
+  - governance
+  - lifecycle
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children: []
+related:
+  - C0003
+  - C0007
+  - C0005
+claims:
+  - "Repo unfurls from Dedication to maturity"
+  - "Operational maturity definition"
+  - "Maturity lanes: Draft → Active → Release"
+  - "Criteria: clarity, claims/falsifiers, provenance, governance, build/test"
+tests_or_falsifiers:
+  - name: Lane progression
+    description: Packs can move through Draft → Active → Release
+    falsification_condition: No mechanism for lane transition
+  - name: Criteria defined
+    description: Each maturity criterion has clear definition
+    falsification_condition: Criterion referenced but undefined
+  - name: UI representation
+    description: Ship page shows maturity lanes
+    falsification_condition: Maturity lanes not visible in UI
+artifacts: []
+status: active

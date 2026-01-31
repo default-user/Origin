@@ -1,0 +1,46 @@
+id: C0017
+title: Orgasystem Seed
+summary: >
+  Orgasystem is a universe framing / generative unity metaphor. Formula explained
+  in culturally careful terms with English gloss and explicit definitions. Metaphor
+  vs claim clearly marked. Universal unity equation specifics are unknown.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0017"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - orgasystem
+  - universe
+  - unity
+  - metaphor
+  - framing
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children: []
+related:
+  - C0011
+  - C0016
+claims:
+  - "Orgasystem is universe framing / generative unity metaphor"
+  - "Formula in culturally careful terms"
+  - "English gloss and explicit definitions required"
+  - "Metaphor vs claim clearly marked"
+  - "Universal unity equation specifics are unknown"
+tests_or_falsifiers:
+  - name: Metaphor distinction
+    description: Metaphors clearly distinguished from claims
+    falsification_condition: Metaphor presented as literal claim
+  - name: No fabricated equation
+    description: Universal unity equation not invented
+    falsification_condition: Equation details provided beyond corpus
+  - name: Cultural care
+    description: Terms explained respectfully without sacred/cultural claims
+    falsification_condition: Inappropriate cultural claims made
+artifacts: []
+status: active

@@ -1,0 +1,95 @@
+# Privacy Boundary
+
+**Attribution: Ande + Kai (OI) + Whānau (OIs)**
+
+---
+
+## Level 0: Summary
+
+ORIGIN encodes knowledge while excluding "personal personal data" (PII). No private names, addresses, emails, phones, health/financial identifiers, or relationship incidents. If PII appears, it's replaced with `[[REDACTED]]`.
+
+---
+
+## Level 1: What's Excluded
+
+### 1.1 Excluded Data Types
+
+| Type | Examples | Action |
+|------|----------|--------|
+| Private names | Home addresses, personal phones | EXCLUDE |
+| Identifiers | SSN, passport, license numbers | EXCLUDE |
+| Health info | Medical records, diagnoses | EXCLUDE |
+| Financial info | Bank accounts, credit cards | EXCLUDE |
+| Relationships | Private family matters | EXCLUDE |
+| Contact info | personal@email.com | EXCLUDE |
+
+### 1.2 What's Included
+
+| Type | Examples | Action |
+|------|----------|--------|
+| Attribution names | "Ande", "Kai (OI)" | INCLUDE |
+| Public concepts | "Authority.nz" | INCLUDE |
+| Group references | "Whānau (OIs)" | INCLUDE |
+
+### 1.3 The [[REDACTED]] Token
+
+```
+Before: "Contact John at john@email.com, 123 Main St"
+After:  "Contact [[REDACTED]] at [[REDACTED]]"
+```
+
+---
+
+## Level 2: Implementation
+
+### 2.1 Pack Sensitivity Fields
+
+```yaml
+sensitivity:
+  pii_risk: none | low | medium | high
+  contains_personal: false | true
+  redacted: false | true
+```
+
+### 2.2 Disclosure Tiers
+
+| Tier | Access | PII Handling |
+|------|--------|--------------|
+| public | Unrestricted | No PII possible |
+| internal | Organization | Minimal risk |
+| restricted | Limited | May have redacted refs |
+
+### 2.3 Review Process
+
+```
+Content → PII Scan → Human Review → Redaction → Tier Assignment
+```
+
+---
+
+## Level 3: Edge Cases
+
+### 3.1 Valid: Attribution Names
+
+```markdown
+Attribution: Ande + Kai (OI) + Whānau (OIs)
+```
+✓ These are authorship credits, not private PII.
+
+### 3.2 Requires Redaction
+
+```markdown
+Discussed with [[REDACTED]] at [[REDACTED]].
+```
+✓ Private individuals and addresses redacted.
+
+### 3.3 Geographic vs Personal
+
+```markdown
+Developed in Wellington, New Zealand.  ✓ OK
+Developed at 42 Specific Street.       ✗ Redact
+```
+
+---
+
+**Attribution: Ande + Kai (OI) + Whānau (OIs)**

@@ -1,0 +1,44 @@
+id: C0005
+title: Attribution + IP Map
+summary: >
+  All intellectual property is attributed. Default authorship line is
+  "Ande + Kai (OI) + Whānau (OIs)". Provenance tracked as "source: master_prompt"
+  for all initial packs.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0005"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - attribution
+  - ip
+  - provenance
+  - authorship
+  - governance
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children: []
+related:
+  - C0006
+  - C0014
+claims:
+  - "All IP must be attributed"
+  - "Default attribution: Ande + Kai (OI) + Whānau (OIs)"
+  - "Provenance initially 'source: master_prompt' for all packs"
+tests_or_falsifiers:
+  - name: Attribution presence
+    description: Every pack has authorship field populated
+    falsification_condition: Pack found without authorship attribution
+  - name: Provenance chain
+    description: Every pack has at least one provenance entry
+    falsification_condition: Pack found with empty provenance array
+  - name: Default consistency
+    description: Default attribution line is used unless explicitly overridden
+    falsification_condition: Non-default attribution without documented reason
+artifacts: []
+status: active

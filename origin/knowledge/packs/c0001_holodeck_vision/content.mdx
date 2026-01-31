@@ -1,0 +1,107 @@
+# Holodeck Vision Seed
+
+**Attribution: Ande + Kai (OI) + Whānau (OIs)**
+
+---
+
+## Level 0: Summary
+
+The Holodeck Vision describes an immersive system where users experience environments from within (first-person) while maintaining access to external views (God's-eye). The canonical example: playing Pac-Man AS Pac-Man, with a hovering map view like the player UI.
+
+> "Intentionally funny and viral in framing, but containing a serious build spec."
+
+---
+
+## Level 1: Core Vision
+
+### 1.1 The Key Image
+
+Imagine playing Pac-Man — but you ARE Pac-Man. You're in the maze, the walls tower around you, and pellets glow at knee height. Ghosts aren't cute sprites; they're entities you see coming down the corridor.
+
+But you also have access to the classic view: a translucent map hovers in your peripheral vision, showing the whole maze, your position, and the ghosts. The best of both worlds.
+
+### 1.2 Full Circle Claim
+
+> "Full circle if Pac-Man becomes #1 game again" in this new medium.
+
+Classic games could be revitalized through holodeck experiences, creating a cultural loop where the oldest games become the newest innovations.
+
+### 1.3 Dual Perspective System
+
+| View | Experience | Purpose |
+|------|------------|---------|
+| First-person | Immersed in the maze | Presence, engagement |
+| God's-eye | Overhead map view | Strategy, awareness |
+| Hybrid | Both simultaneously | Complete experience |
+
+---
+
+## Level 2: Build Specification
+
+### 2.1 Module Architecture
+
+```
+HOLODECK SYSTEM
+├── Render Engine (visual projection)
+├── Physics Engine (movement, collision)
+├── World State (canonical game state)
+├── Haptics System (physical feedback)
+├── Audio System (spatial sound)
+├── View Controller (perspective switching)
+└── Safety Systems (boundaries, health, override)
+```
+
+### 2.2 Safety Requirements
+
+The holodeck must be safe:
+
+- **Physical boundaries**: Soft walls, haptic warnings
+- **User health monitoring**: Heart rate, motion sickness detection
+- **Emergency stop**: Voice command, physical button, auto-detect
+- **Graceful degradation**: Reduce intensity before failure
+
+### 2.3 Staging Plan
+
+1. Visual prototype (static scenes)
+2. View switching (first-person ↔ God's-eye)
+3. Interaction (user affects environment)
+4. Game integration (Pac-Man playable)
+5. Overlay system (mini-map works)
+6. Haptics (physical feedback)
+7. Safety validation
+8. Full integration
+
+### 2.4 Failure Modes
+
+| Failure | Response |
+|---------|----------|
+| Render failure | Fade to safe room |
+| Tracking loss | Freeze, audio alert |
+| User distress | De-immersion, exit |
+| System overload | Reduce fidelity |
+
+---
+
+## Level 3: Worked Scenario
+
+### Session: Pac-Man Holodeck
+
+1. **Entry**: User enters chamber, safety calibrates
+2. **Start**: Maze materializes, user is Pac-Man
+3. **Gameplay**: Walk corridors, collect dots (glowing orbs)
+4. **Map**: Hover map shows ghost positions
+5. **Chase**: Ghost approaches — visible ahead AND on map
+6. **Power-up**: Collect pellet, chase ghosts
+7. **End**: Score displayed, graceful de-immersion
+
+---
+
+## Constraints
+
+> Hidden/private meta layers beyond this specification are not disclosed.
+
+> [UNKNOWN: NOT IN CORPUS] - Hardware specifications, vendor requirements, cost estimates.
+
+---
+
+**Attribution: Ande + Kai (OI) + Whānau (OIs)**
