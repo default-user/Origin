@@ -1,0 +1,40 @@
+id: C0012
+title: Denotum (Meaning Compression) Seed
+summary: >
+  Denotum is a meaning-compression system treated as a core meaning/structure
+  layer. Mechanisms are unknown and must not be invented.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0012"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - denotum
+  - meaning
+  - compression
+  - structure
+  - layer
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children: []
+related:
+  - C0003
+  - C0018
+claims:
+  - "Denotum is a meaning-compression system"
+  - "Core meaning/structure layer"
+  - "Mechanisms are unknown"
+tests_or_falsifiers:
+  - name: No fabrication
+    description: Documentation does not invent Denotum mechanisms
+    falsification_condition: Mechanism details provided beyond corpus
+  - name: Concept presence
+    description: Denotum exists as documented concept pack
+    falsification_condition: Pack missing or incomplete
+artifacts: []
+status: active

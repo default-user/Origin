@@ -1,0 +1,123 @@
+# Anti-Mumbo Filter Seed
+
+**Attribution: Ande + Kai (OI) + Whānau (OIs)**
+
+---
+
+## Level 0: Summary
+
+The Anti-Mumbo Filter clarifies unclear text and produces clean canonical versions. Workflow: detect unclear spans, mark unknowns, propose corrections, preserve originals. Treated as capability/spec.
+
+---
+
+## Level 1: Core Concept
+
+### 1.1 What is "Mumbo"?
+
+"Mumbo" (as in mumbo-jumbo) refers to:
+- Unclear or undefined terms
+- Vague or ambiguous statements
+- Jargon without explanation
+- Circular definitions
+
+### 1.2 The Anti-Mumbo Filter
+
+A tool-like workflow to:
+1. **Detect** unclear spans in text
+2. **Mark** unknowns explicitly
+3. **Propose** clarifications or corrections
+4. **Preserve** original text for reference
+
+### 1.3 Purpose
+
+```
+Mumbo Input → Anti-Mumbo Filter → Clear Output
+                    │
+                    └→ Original preserved
+```
+
+The goal: clarity without loss.
+
+---
+
+## Level 2: Workflow
+
+### 2.1 Detection Phase
+
+Identify problematic patterns:
+
+| Pattern | Example |
+|---------|---------|
+| Undefined term | "The fluxor initiates" (what's a fluxor?) |
+| Vague claim | "It sort of works somehow" |
+| Circular definition | "X is defined as X-like" |
+| Unexplained jargon | "Apply the QWERTY transform" |
+
+### 2.2 Marking Phase
+
+Mark detected issues:
+
+```markdown
+Original: "The fluxor initiates the cascade"
+Marked:   "The [UNCLEAR: fluxor] initiates the cascade"
+```
+
+For completely unknown items:
+```markdown
+[UNKNOWN: NOT IN CORPUS]
+```
+
+### 2.3 Proposal Phase
+
+Suggest clarifications:
+
+```markdown
+Proposal: "The [fluxor → flux controller] initiates the cascade"
+```
+
+Or request definition:
+```markdown
+Proposal: "The fluxor [NEEDS DEFINITION] initiates the cascade"
+```
+
+### 2.4 Preservation Phase
+
+Keep originals:
+
+```markdown
+## Canonical Version
+The flux controller initiates the cascade.
+
+## Original Version (preserved)
+The fluxor initiates the cascade.
+
+## Changes
+- "fluxor" → "flux controller" (defined in glossary)
+```
+
+---
+
+## Level 3: Integration
+
+### 3.1 With Kāti (C0009)
+
+Kāti's "clarity" principle uses Anti-Mumbo:
+- All Kāti terms must pass filter
+- No undefined terms in governance
+
+### 3.2 With Documentation (C0003)
+
+Fractal documentation uses Anti-Mumbo:
+- Each level must be clear
+- Unknowns marked explicitly
+- No hidden confusion
+
+### 3.3 As Capability/Spec
+
+> Keep as capability/spec, not OCR claims.
+
+The Anti-Mumbo Filter is specified as a capability. Claims about OCR or other input processing are not made unless real input exists.
+
+---
+
+**Attribution: Ande + Kai (OI) + Whānau (OIs)**

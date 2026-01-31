@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://origin.local/schema/graph.schema.json",
+  "title": "ORIGIN Graph Schema",
+  "description": "Schema for validating ORIGIN knowledge graph JSON",
+  "type": "object",
+  "required": ["nodes", "edges", "metadata"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["generated_at", "version", "attribution"],
+      "properties": {
+        "generated_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp when graph was generated"
+        },
+        "version": {
+          "type": "string",
+          "description": "Version of the graph format"
+        },
+        "attribution": {
+          "type": "string",
+          "description": "Attribution line"
+        },
+        "node_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total number of nodes"
+        },
+        "edge_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total number of edges"
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "status", "tier"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^C[0-9]{4}$",
+            "description": "Concept ID"
+          },
+          "title": {
+            "type": "string",
+            "description": "Concept title"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Brief summary"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["draft", "active", "release"],
+            "description": "Maturity status"
+          },
+          "tier": {
+            "type": "string",
+            "enum": ["public", "internal", "restricted"],
+            "description": "Disclosure tier"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Concept tags"
+          }
+        }
+      },
+      "description": "Array of graph nodes (concepts)"
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "target", "type"],
+        "properties": {
+          "source": {
+            "type": "string",
+            "pattern": "^C[0-9]{4}$",
+            "description": "Source node ID"
+          },
+          "target": {
+            "type": "string",
+            "pattern": "^C[0-9]{4}$",
+            "description": "Target node ID"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["parent", "child", "related"],
+            "description": "Relationship type"
+          }
+        }
+      },
+      "description": "Array of graph edges (relationships)"
+    }
+  },
+  "additionalProperties": false
+}

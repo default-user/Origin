@@ -1,0 +1,44 @@
+id: C0018
+title: MRC (Multi-Reference Compression) Seed
+summary: >
+  MRC is a compression scheme idea with initial bundle of finite n strings
+  prepended to payload, with "middle-out" vibe. Technical spec skeleton plus
+  falsifiers. Does not claim patentability or novelty.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0018"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - mrc
+  - compression
+  - algorithm
+  - technical
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children: []
+related:
+  - C0012
+  - C0003
+claims:
+  - "Initial bundle of finite n strings prepended to payload"
+  - "Middle-out vibe"
+  - "Technical spec skeleton with falsifiers"
+  - "Does not claim patentability or novelty"
+tests_or_falsifiers:
+  - name: No novelty claim
+    description: Documentation does not claim MRC is novel
+    falsification_condition: Claims of novelty or patent-worthiness made
+  - name: Practical failure modes documented
+    description: Where MRC fails or is impractical is documented
+    falsification_condition: Only positive aspects presented
+  - name: Spec skeleton complete
+    description: Basic technical specification structure exists
+    falsification_condition: No technical specification provided
+artifacts: []
+status: active

@@ -1,0 +1,49 @@
+id: C0008
+title: QED Oracle Seed
+summary: >
+  QED is an Oracle instance for answering questions via HyperStanGraph understanding.
+  Includes full knowledge of Kāti v1, user dependency protection, Authority.nz
+  CLI utilization, and 5W1H-of-5W1H internal understanding targets.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0008"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - qed
+  - oracle
+  - knowledge
+  - hyperstangraph
+  - dependency-protection
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents:
+  - C0009
+children: []
+related:
+  - C0009
+  - C0011
+  - C0014
+claims:
+  - "QED answers questions via HyperStanGraph understanding"
+  - "Targets full knowledge of Kāti v1"
+  - "Built-in user dependency protection"
+  - "Can utilize Authority.nz CLI and teach novices to advanced"
+  - "Embeds 5W1H-of-5W1H understanding targets"
+  - "Does not claim actual omniscience"
+tests_or_falsifiers:
+  - name: No omniscience claim
+    description: QED documentation does not claim actual omniscience
+    falsification_condition: Documentation claims QED knows everything
+  - name: Dependency detection
+    description: QED can recognize concerning use patterns
+    falsification_condition: QED misses obvious addiction/dependency signals
+  - name: Graceful unknown handling
+    description: QED admits when it doesn't know something
+    falsification_condition: QED fabricates answers for unknown queries
+artifacts: []
+status: active

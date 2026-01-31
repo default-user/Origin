@@ -1,0 +1,45 @@
+id: C0011
+title: Stangraphics / Stan Geometry Lens
+summary: >
+  Stangraphics is a lens that opens reality with god/physics/maths/ethics/philosophy
+  framing. Represented as a navigable module with falsifiers and tests. Formal
+  definitions may be unknown.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0011"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - stangraphics
+  - lens
+  - reality
+  - philosophy
+  - framework
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children: []
+related:
+  - C0008
+  - C0012
+claims:
+  - "Stangraphics is a lens opening reality"
+  - "Includes god/physics/maths/ethics/philosophy framing"
+  - "Navigable module with falsifiers/tests"
+  - "Formal definitions may be unknown"
+tests_or_falsifiers:
+  - name: Navigability
+    description: Stangraphics content can be navigated coherently
+    falsification_condition: Navigation paths lead to dead ends or loops
+  - name: Falsifier presence
+    description: Claims in Stangraphics have corresponding falsifiers
+    falsification_condition: Claims without any falsification criteria
+  - name: Frame coverage
+    description: All stated frames (god/physics/maths/ethics/philosophy) addressed
+    falsification_condition: Frame mentioned but not addressed
+artifacts: []
+status: active

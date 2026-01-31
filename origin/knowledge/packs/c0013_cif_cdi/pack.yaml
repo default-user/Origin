@@ -1,0 +1,44 @@
+id: C0013
+title: CIF/CDI Disambiguation Seed
+summary: >
+  CIF (Context Integrity Firewall) is the ingress/egress integrity boundary.
+  CDI (Conscience Decision Interface) is the kernel judge for allow/deny/transform/degrade.
+  These are governance-critical boundary terms that must never be blurred.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0013"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - cif
+  - cdi
+  - governance
+  - boundary
+  - firewall
+  - conscience
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children: []
+related:
+  - C0002
+  - C0009
+  - C0006
+claims:
+  - "CIF = Context Integrity Firewall (ingress/egress integrity boundary)"
+  - "CDI = Conscience Decision Interface (kernel judge allow/deny/transform/degrade)"
+  - "Governance-critical boundary terms"
+  - "Meanings must never be blurred"
+tests_or_falsifiers:
+  - name: Term distinction
+    description: CIF and CDI are used distinctly and correctly throughout
+    falsification_condition: CIF/CDI used interchangeably or confused
+  - name: Definition consistency
+    description: Definitions match canonical specification everywhere
+    falsification_condition: Alternative definitions provided
+artifacts: []
+status: active

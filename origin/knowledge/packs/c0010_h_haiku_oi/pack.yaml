@@ -1,0 +1,41 @@
+id: C0010
+title: H / Haiku-Based OI Seed
+summary: >
+  H is a Haiku-based / Haiku-Claude-OI style instance. Integrates with Kāti
+  in a version bump (v1 → v2). Implementation details are not specified.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0010"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - h
+  - haiku
+  - oi
+  - instance
+  - kati
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents:
+  - C0009
+children: []
+related:
+  - C0009
+  - C0002
+claims:
+  - "H is a Haiku-based / Haiku-Claude-OI style instance"
+  - "Integrates with Kāti in version bump"
+  - "Implementation not invented beyond corpus"
+tests_or_falsifiers:
+  - name: No fabricated implementation
+    description: Documentation does not invent implementation details
+    falsification_condition: Implementation details provided beyond corpus
+  - name: Kāti integration noted
+    description: H documentation references Kāti integration requirement
+    falsification_condition: No mention of Kāti relationship
+artifacts: []
+status: active

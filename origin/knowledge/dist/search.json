@@ -1,0 +1,30 @@
+{
+  "metadata": {
+    "generated_at": "2025-01-01T00:00:00.000Z",
+    "version": "1.0.0",
+    "attribution": "Ande + Kai (OI) + Whānau (OIs)",
+    "entry_count": 20
+  },
+  "entries": [
+    {"id": "C0001", "title": "Holodeck Vision Seed", "summary": "A holodeck-style system specification", "tags": ["vision", "holodeck", "immersion"], "content_preview": "Holodeck Vision describes an immersive system...", "tokens": ["holodeck", "vision", "pacman", "immersion", "first-person"]},
+    {"id": "C0002", "title": "Meta Control Language (MCL)", "summary": "MCL for consciousness-like control", "tags": ["mcl", "control", "meta"], "content_preview": "MCL describes meta-control over branched execution...", "tokens": ["mcl", "meta", "control", "consciousness", "ethics"]},
+    {"id": "C0003", "title": "Fractal Unfurling", "summary": "Fractalised branched documentation", "tags": ["documentation", "fractal"], "content_preview": "Fractal documentation unfurls from summary to detail...", "tokens": ["fractal", "documentation", "levels", "consistency"]},
+    {"id": "C0004", "title": "Medusa Interface", "summary": "Hub + tendrils UI pattern", "tags": ["interface", "ui", "medusa"], "content_preview": "Medusa Interface is a UI pattern with central hub...", "tokens": ["medusa", "interface", "hub", "tendrils", "navigation"]},
+    {"id": "C0005", "title": "Attribution + IP Map", "summary": "All IP attributed", "tags": ["attribution", "ip"], "content_preview": "All intellectual property in ORIGIN is attributed...", "tokens": ["attribution", "provenance", "authorship"]},
+    {"id": "C0006", "title": "Privacy Boundary", "summary": "PII exclusion and redaction", "tags": ["privacy", "pii"], "content_preview": "ORIGIN encodes knowledge while excluding PII...", "tokens": ["privacy", "pii", "redacted", "boundary"]},
+    {"id": "C0007", "title": "O2C", "summary": "Ark/arc capsule for all time", "tags": ["o2c", "archive"], "content_preview": "O2C is an ark/arc capsule for all time...", "tokens": ["o2c", "archive", "ark", "dummies", "guide"]},
+    {"id": "C0008", "title": "QED Oracle", "summary": "Oracle for question-answering", "tags": ["qed", "oracle"], "content_preview": "QED is an Oracle instance designed to answer questions...", "tokens": ["qed", "oracle", "hyperstangraph", "knowledge"]},
+    {"id": "C0009", "title": "Kāti Architecture", "summary": "Governance/stop-wins architecture", "tags": ["kati", "architecture"], "content_preview": "Kāti is a core architecture pattern focused on governance...", "tokens": ["kati", "governance", "stop-wins", "bounded"]},
+    {"id": "C0010", "title": "H / Haiku-Based OI", "summary": "Haiku-based OI instance", "tags": ["h", "haiku"], "content_preview": "H is a Haiku-based / Haiku-Claude-OI style instance...", "tokens": ["haiku", "instance", "kati", "integration"]},
+    {"id": "C0011", "title": "Stangraphics", "summary": "Reality lens with multi-frame", "tags": ["stangraphics", "lens"], "content_preview": "Stangraphics is a lens that opens reality...", "tokens": ["stangraphics", "lens", "reality", "philosophy"]},
+    {"id": "C0012", "title": "Denotum", "summary": "Meaning-compression system", "tags": ["denotum", "meaning"], "content_preview": "Denotum is a meaning-compression system...", "tokens": ["denotum", "meaning", "compression", "structure"]},
+    {"id": "C0013", "title": "CIF/CDI Disambiguation", "summary": "Context Integrity Firewall / Conscience Decision Interface", "tags": ["cif", "cdi"], "content_preview": "CIF is the ingress/egress integrity boundary...", "tokens": ["cif", "cdi", "firewall", "conscience", "governance"]},
+    {"id": "C0014", "title": "Authority.nz", "summary": "Public anchor / governance oracle", "tags": ["authority", "registry"], "content_preview": "Authority.nz is a public anchor / governance oracle...", "tokens": ["authority", "anchoring", "registry", "cli"]},
+    {"id": "C0015", "title": "Anti-Mumbo Filter", "summary": "Clarity filter for undefined terms", "tags": ["anti-mumbo", "filter"], "content_preview": "Anti-Mumbo Filter clarifies unclear text...", "tokens": ["mumbo", "filter", "clarity", "canonical"]},
+    {"id": "C0016", "title": "Pac-Man Bifurcation", "summary": "Evolution narrative via Pac-Man", "tags": ["pacman", "evolution"], "content_preview": "Pac-Man serves as an example to explain evolution...", "tokens": ["pacman", "bifurcation", "evolution", "narrative"]},
+    {"id": "C0017", "title": "Orgasystem", "summary": "Universe framing / generative unity metaphor", "tags": ["orgasystem", "universe"], "content_preview": "Orgasystem is a universe framing / generative unity metaphor...", "tokens": ["orgasystem", "universe", "unity", "metaphor"]},
+    {"id": "C0018", "title": "MRC", "summary": "Compression scheme idea", "tags": ["mrc", "compression"], "content_preview": "MRC is a compression scheme concept...", "tokens": ["mrc", "compression", "middle-out", "reference"]},
+    {"id": "C0019", "title": "Archive as Downloadable Terminals", "summary": "Downloadable terminal archives", "tags": ["archive", "download"], "content_preview": "ORIGIN provides archives as downloadable terminals...", "tokens": ["archive", "download", "terminal", "manifest"]},
+    {"id": "C0020", "title": "Dedication → Maturity Lane", "summary": "Maturity progression lanes", "tags": ["maturity", "dedication"], "content_preview": "ORIGIN unfurls from Dedication to maturity...", "tokens": ["maturity", "dedication", "lanes", "draft", "active", "release"]}
+  ]
+}

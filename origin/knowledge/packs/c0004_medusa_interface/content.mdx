@@ -1,0 +1,90 @@
+# Medusa Interface
+
+**Attribution: Ande + Kai (OI) + Whānau (OIs)**
+
+---
+
+## Level 0: Summary
+
+The Medusa Interface is a UI pattern: a central hub ("head") fans out into multiple exploration tendrils ("snakes"). Each tendril provides a different view of the same corpus — atlas, graph, timeline, attribution, tiers, maturity.
+
+---
+
+## Level 1: The Metaphor
+
+### 1.1 Hub (Head)
+
+The central hub provides:
+- Overview of ORIGIN
+- Navigation to all tendrils
+- Key metrics and status
+- Entry point for exploration
+
+### 1.2 Tendrils (Snakes)
+
+```
+        ┌─────────┐
+  ┌─────┤   HUB   ├─────┐
+  │     └────┬────┘     │
+  │          │          │
+  ▼          ▼          ▼
+Atlas     Graph     Timeline
+  │          │          │
+  ▼          ▼          ▼
+Tiers     Ship      Attribution
+```
+
+| Tendril | Purpose |
+|---------|---------|
+| Atlas | Browse, search, filter packs |
+| Graph | Interactive node visualization |
+| Timeline | Temporal view of concepts |
+| Attribution | Authorship and provenance |
+| Tiers | Disclosure levels, privacy |
+| Ship | Maturity lanes |
+
+---
+
+## Level 2: Implementation
+
+### 2.1 Page Structure
+
+```
+/               → Hub (index)
+/atlas          → Atlas tendril
+/graph          → Graph tendril
+/attribution    → Attribution tendril
+/tiers          → Tiers tendril
+/ship           → Ship tendril
+/concept/[id]   → Individual concept
+```
+
+### 2.2 Data Flow
+
+All tendrils read from `knowledge/dist/*.json`:
+- packs.index.json
+- graph.json
+- search.json
+- timeline.json
+
+UI never reads pack sources directly.
+
+### 2.3 Tendril Features
+
+**Atlas**:
+- List/grid view
+- Filter by tags, tier, status
+- Search functionality
+
+**Graph**:
+- Interactive nodes
+- Zoom, pan, click
+- Relationship visualization
+
+**Ship**:
+- Maturity lanes: Draft → Active → Release
+- Progress checklists
+
+---
+
+**Attribution: Ande + Kai (OI) + Whānau (OIs)**

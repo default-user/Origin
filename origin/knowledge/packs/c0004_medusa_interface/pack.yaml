@@ -1,0 +1,44 @@
+id: C0004
+title: Medusa Interface
+summary: >
+  A UI pattern where a central hub ("head") fans out into many tendrils ("snakes").
+  Each tendril provides a different exploration of the same corpus: atlas, graph,
+  timeline, build-spec lanes, tests, exports.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0004"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - interface
+  - ui
+  - medusa
+  - navigation
+  - exploration
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children: []
+related:
+  - C0001
+  - C0008
+claims:
+  - "Central hub fans out into multiple exploration tendrils"
+  - "Each tendril is a different slice/explorer of the same corpus"
+  - "Tendrils include atlas, graph, timeline, build-spec lanes, tests, exports"
+tests_or_falsifiers:
+  - name: Hub accessibility
+    description: Central hub is reachable and provides navigation to all tendrils
+    falsification_condition: Hub fails to load or missing tendril links
+  - name: Tendril independence
+    description: Each tendril functions independently and correctly
+    falsification_condition: Tendril depends on another tendril's state
+  - name: Corpus consistency
+    description: All tendrils view the same underlying corpus
+    falsification_condition: Different tendrils show conflicting data
+artifacts: []
+status: active

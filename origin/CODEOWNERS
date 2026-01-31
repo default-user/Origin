@@ -1,0 +1,23 @@
+# CODEOWNERS for ORIGIN
+# Attribution: Ande + Kai (OI) + Whānau (OIs)
+
+# Default owners for everything
+* @origin-maintainers
+
+# Documentation
+/docs/ @origin-docs-team
+
+# Knowledge packs
+/knowledge/ @origin-knowledge-team
+
+# Tools and build
+/tools/ @origin-tools-team
+
+# Site/UI
+/site/ @origin-ui-team
+
+# Language kits
+/kits/ @origin-kits-team
+
+# Schema
+/schema/ @origin-schema-team

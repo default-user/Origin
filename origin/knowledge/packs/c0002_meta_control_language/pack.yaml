@@ -1,0 +1,45 @@
+id: C0002
+title: Meta Control Language (MCL)
+summary: >
+  MCL is a conceptual language for expressing meta-control over branched execution
+  stacks. When MCL binds meta-control, it can resemble consciousness-like control
+  in bots. MCL is designed to be safe, secure, and ethically bound.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0002"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - mcl
+  - control
+  - meta
+  - consciousness
+  - safety
+  - ethics
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children: []
+related:
+  - C0009
+  - C0013
+claims:
+  - "MCL can resemble consciousness-like control when binding meta-control over branched stacks"
+  - "MCL must be made safe, secure, and ethically bound"
+  - "MCL is a conceptual seed, not a claim of solved singularities"
+tests_or_falsifiers:
+  - name: Bounded operation
+    description: MCL programs must terminate or be explicitly bounded
+    falsification_condition: MCL program runs unbounded without termination
+  - name: Ethical compliance
+    description: Ethical bindings are enforced and cannot be bypassed
+    falsification_condition: Harm actions executed despite ethical constraints
+  - name: Meta-coherence
+    description: Meta-policies do not contradict each other
+    falsification_condition: Policy conflicts cause undefined behavior
+artifacts: []
+status: active

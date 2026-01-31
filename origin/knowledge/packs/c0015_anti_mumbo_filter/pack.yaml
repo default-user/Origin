@@ -1,0 +1,42 @@
+id: C0015
+title: Anti-Mumbo Filter Seed
+summary: >
+  A "mumbo filter" / "anti-mumbo filter" to clarify unclear text, produce clean
+  canonical versions. Workflow: detect unclear spans, mark unknowns, propose
+  corrections, preserve originals.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0015"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - anti-mumbo
+  - filter
+  - clarity
+  - documentation
+  - tool
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children: []
+related:
+  - C0003
+  - C0009
+claims:
+  - "Clarifies unclear text boundaries"
+  - "Produces clean canonical versions"
+  - "Workflow: detect, mark, propose, preserve"
+  - "Keep as capability/spec, not OCR claims"
+tests_or_falsifiers:
+  - name: Preservation
+    description: Original text preserved alongside corrections
+    falsification_condition: Original lost after filtering
+  - name: Marking accuracy
+    description: Unclear spans correctly identified
+    falsification_condition: Clear text marked as unclear, or vice versa
+artifacts: []
+status: active

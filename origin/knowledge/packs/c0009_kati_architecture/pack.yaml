@@ -1,0 +1,49 @@
+id: C0009
+title: Kāti Architecture Seed
+summary: >
+  Kāti is a core architecture pattern with governance/stop-wins focus. Requires
+  version bumps (v1 → v2), is describable from novice to expert, and ensures
+  safe bounded operation with dependency protection and anti-mumbo clarity.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0009"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - kati
+  - architecture
+  - governance
+  - stop-wins
+  - safety
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children:
+  - C0008
+  - C0010
+related:
+  - C0002
+  - C0013
+claims:
+  - "Kāti is a core architecture pattern"
+  - "Governance/stop-wins vibe"
+  - "Describable novice to expert"
+  - "Safe bounded operation"
+  - "Dependency protection and anti-mumbo clarity"
+  - "Requires version bumps (v1 → v2)"
+tests_or_falsifiers:
+  - name: Boundedness
+    description: All Kāti operations respect declared bounds
+    falsification_condition: Bound exceeded without error handling
+  - name: Stoppability
+    description: Stop commands work in all states
+    falsification_condition: System cannot be stopped when requested
+  - name: Anti-mumbo
+    description: No undefined terms in Kāti documentation
+    falsification_condition: Undefined term found without explanation
+artifacts: []
+status: active

@@ -1,0 +1,42 @@
+name: ORIGIN CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  validate-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Validate packs
+        run: npm run validate
+
+      - name: Build indexes
+        run: npm run build
+
+      - name: Install site dependencies
+        run: npm run site:install
+
+      - name: Build site
+        run: npm run site:build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: origin-dist
+          path: |
+            knowledge/dist/
+            site/out/

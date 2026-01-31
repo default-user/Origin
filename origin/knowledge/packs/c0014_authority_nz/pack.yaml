@@ -1,0 +1,43 @@
+id: C0014
+title: Authority.nz Anchoring / Registry Seed
+summary: >
+  Authority.nz is a public anchor / governance oracle / integrity bulletin concept.
+  Features tamper-evident log, anchoring, selective disclosure. Includes CLI
+  teaching pathway from novice to expert.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0014"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - authority
+  - registry
+  - anchoring
+  - governance
+  - cli
+created_date: "2025-01-01"
+updated_date: "2025-01-01"
+parents: []
+children: []
+related:
+  - C0005
+  - C0008
+  - C0013
+claims:
+  - "Authority.nz is a public anchor / governance oracle / integrity bulletin"
+  - "Tamper-evident log / anchoring / selective disclosure"
+  - "CLI teaching pathway: novice → expert"
+  - "Avoid claiming real-world deployment details"
+tests_or_falsifiers:
+  - name: No deployment claims
+    description: Documentation does not claim real-world deployment
+    falsification_condition: Specific deployment details or live URLs provided
+  - name: Conceptual integrity
+    description: Authority.nz described as concept, not running service
+    falsification_condition: Described as operational service
+artifacts: []
+status: active
