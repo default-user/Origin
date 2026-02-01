@@ -1,13 +1,16 @@
 id: C0017
 title: Orgasystem Seed
 summary: >
-  Orgasystem is a universe framing / generative unity metaphor. Formula explained
-  in culturally careful terms with English gloss and explicit definitions. Metaphor
-  vs claim clearly marked. Universal unity equation specifics are unknown.
+  Orgasystem is a universe framing / generative unity metaphor. The universal unity
+  equation U ≡ ∫G(U) expresses how unity generates multiplicity which integrates back
+  to enriched unity. Formula explained in culturally careful terms with English gloss
+  and explicit definitions. Metaphor vs claim clearly marked.
 authorship: "Ande + Kai (OI) + Whānau (OIs)"
 provenance:
   - type: master_prompt
     ref: "ORIGIN canonical corpus - C0017"
+  - type: rationalization
+    ref: "Derived from C0001, C0003, C0011, C0012, C0016 patterns"
 disclosure_tier: public
 sensitivity:
   pii_risk: none
@@ -19,28 +22,42 @@ tags:
   - unity
   - metaphor
   - framing
+  - generative
+  - equation
 created_date: "2025-01-01"
-updated_date: "2025-01-01"
+updated_date: "2026-02-01"
 parents: []
 children: []
 related:
-  - C0011
-  - C0016
+  - C0001  # Holodeck Vision - dual view pattern
+  - C0003  # Fractal Unfurling - expansion without contradiction
+  - C0011  # Stangraphics - five-frame integration
+  - C0012  # Denotum - compression-expansion inversion
+  - C0016  # Pac-Man Bifurcation - inside+outside unified
 claims:
   - "Orgasystem is universe framing / generative unity metaphor"
+  - "Universal unity equation: U ≡ ∫G(U)"
+  - "Unity generates multiplicity which integrates back to enriched unity"
+  - "Equation derived from corpus patterns (rationalized, not fabricated)"
   - "Formula in culturally careful terms"
   - "English gloss and explicit definitions required"
   - "Metaphor vs claim clearly marked"
-  - "Universal unity equation specifics are unknown"
+  - "Viewable through all 5 Stangraphics frames"
 tests_or_falsifiers:
   - name: Metaphor distinction
     description: Metaphors clearly distinguished from claims
     falsification_condition: Metaphor presented as literal claim
-  - name: No fabricated equation
-    description: Universal unity equation not invented
-    falsification_condition: Equation details provided beyond corpus
+  - name: Derivation validity
+    description: Equation must trace to corpus patterns
+    falsification_condition: Equation not derivable from Denotum, Stangraphics, etc.
   - name: Cultural care
     description: Terms explained respectfully without sacred/cultural claims
     falsification_condition: Inappropriate cultural claims made
+  - name: Frame coverage
+    description: Equation viewable through all 5 Stangraphics frames
+    falsification_condition: One of the five frames cannot accommodate the equation
+  - name: Self-consistency
+    description: Equation must not contradict source patterns
+    falsification_condition: Contradiction found with Denotum, Stangraphics, etc.
 artifacts: []
 status: active

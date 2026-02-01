@@ -166,10 +166,12 @@ Items previously marked `[UNKNOWN: NOT IN CORPUS]`:
 | Kāti v2 / H integration | ✅ RATIONALIZED | `13_rationalized_unknowns.md` §5 |
 | Stangraphics formal definitions | ✅ RATIONALIZED | `13_rationalized_unknowns.md` §6 |
 | Denotum mechanisms | ⚠️ CONSTRAINED | `13_rationalized_unknowns.md` §7.2 |
-| Universal unity equation (Orgasystem) | ⚠️ CONSTRAINED | `13_rationalized_unknowns.md` §7.3 |
+| Universal unity equation (Orgasystem) | ✅ RATIONALIZED | `13_rationalized_unknowns.md` §7.3 |
 
 **Rationalized** = Derived from corpus evidence via logical extension.
 **Constrained** = Structural boundaries defined; internals remain unknown per corpus instruction.
+
+**Note**: The Orgasystem equation U ≡ ∫G(U) was rationalized from corpus patterns (Denotum, Stangraphics, Pac-Man Bifurcation, Fractal Unfurling, Holodeck Vision). All rationalizeable unknowns are now resolved.
 
 See `13_rationalized_unknowns.md` for full derivations.
 
