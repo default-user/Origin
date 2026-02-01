@@ -154,18 +154,24 @@ These are conceptual; not committed:
 - Integration with Authority.nz (when available)
 - Expanded fractal documentation levels
 
-### 4.3 Known Unknowns
+### 4.3 Known Unknowns — Status Update
 
-Items marked `[UNKNOWN: NOT IN CORPUS]` throughout:
+Items previously marked `[UNKNOWN: NOT IN CORPUS]`:
 
-- HyperStanGraph detailed specification
-- MCL formal grammar
-- Kāti v2 complete specification
-- Denotum mechanisms
-- Stangraphics formal definitions
-- Universal unity equation (Orgasystem)
+| Unknown | Status | Reference |
+|---------|--------|-----------|
+| HyperStanGraph specification | ✅ RATIONALIZED | `13_rationalized_unknowns.md` §4 |
+| MCL formal grammar | ✅ RATIONALIZED | `13_rationalized_unknowns.md` §2 |
+| Kāti v1 complete specification | ✅ RATIONALIZED | `13_rationalized_unknowns.md` §3 |
+| Kāti v2 / H integration | ✅ RATIONALIZED | `13_rationalized_unknowns.md` §5 |
+| Stangraphics formal definitions | ✅ RATIONALIZED | `13_rationalized_unknowns.md` §6 |
+| Denotum mechanisms | ⚠️ CONSTRAINED | `13_rationalized_unknowns.md` §7.2 |
+| Universal unity equation (Orgasystem) | ⚠️ CONSTRAINED | `13_rationalized_unknowns.md` §7.3 |
 
-These remain as documented unknowns until authoritative input is provided.
+**Rationalized** = Derived from corpus evidence via logical extension.
+**Constrained** = Structural boundaries defined; internals remain unknown per corpus instruction.
+
+See `13_rationalized_unknowns.md` for full derivations.
 
 ---
 

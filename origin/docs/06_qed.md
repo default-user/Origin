@@ -51,7 +51,10 @@ QED must recognize and gently intervene when users exhibit:
 
 ### 2.1 HyperStanGraph
 
-[UNKNOWN: NOT IN CORPUS] - Detailed HyperStanGraph specification is not provided. The concept suggests a graph-based knowledge representation enabling rich semantic querying.
+~~[UNKNOWN: NOT IN CORPUS] - Detailed HyperStanGraph specification is not provided.~~
+**RATIONALIZED**: See `13_rationalized_unknowns.md` §4 - HyperStanGraph specification derived from graph.json structure, QED documentation, and 5W1H framework.
+
+The concept suggests a graph-based knowledge representation enabling rich semantic querying.
 
 Conceptual structure:
 
@@ -150,7 +153,8 @@ QED targets "full knowledge of v1 of Kāti" meaning:
 - Awareness of Kāti's governance principles
 - Integration with Kāti's stop-wins patterns
 
-[UNKNOWN: NOT IN CORPUS] - Detailed Kāti v1 specification.
+~~[UNKNOWN: NOT IN CORPUS] - Detailed Kāti v1 specification.~~
+**RATIONALIZED**: See `13_rationalized_unknowns.md` §3 - Complete Kāti v1 specification.
 
 ---
 

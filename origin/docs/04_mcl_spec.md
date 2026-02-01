@@ -218,11 +218,13 @@ MCL (Language) ←→ Kāti (Architecture)
 
 ## Unknowns
 
-[UNKNOWN: NOT IN CORPUS] - Formal grammar specification for MCL syntax.
+~~[UNKNOWN: NOT IN CORPUS] - Formal grammar specification for MCL syntax.~~
+**RATIONALIZED**: See `13_rationalized_unknowns.md` §2 - MCL grammar derived from corpus examples.
 
-[UNKNOWN: NOT IN CORPUS] - Complete operational semantics.
+~~[UNKNOWN: NOT IN CORPUS] - Complete operational semantics.~~
+**RATIONALIZED**: See `13_rationalized_unknowns.md` §2.3-2.4 - Semantic constraints and type system derived.
 
-[UNKNOWN: NOT IN CORPUS] - Reference implementation details.
+[UNKNOWN: NOT IN CORPUS] - Reference implementation details beyond repl.py patterns.
 
 ---
 
