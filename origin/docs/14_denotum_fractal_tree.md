@@ -10,6 +10,8 @@
 
 Denotum is a branching fractalised tree from **conceptualisation** at root. This document formalizes the relationship between conceptualisation (root), Denotum (trunk and branches), and Fractal Unfurling (canopy). Together, they form the meaning-structure architecture of ORIGIN.
 
+**The Mechanism**: Conceptualisation opens up self-referential but not infinitely looping branched fractal structures in memory.
+
 ---
 
 ## Level 1: The Three-Layer Model
@@ -154,9 +156,94 @@ Every branch inherits coherence from its parent:
 
 ---
 
-## Level 4: The Compression-Expansion Duality
+## Level 4: The Mechanism
 
-### 4.1 Denotum as Compression
+### 4.1 The Core Statement
+
+> **Conceptualisation opens up self-referential but not infinitely looping branched fractal structures in memory.**
+
+This statement defines HOW Denotum works, not just WHAT it is.
+
+### 4.2 Mechanism Components
+
+| Component | Meaning |
+|-----------|---------|
+| **Conceptualisation** | The cognitive act of forming a concept from experience |
+| **Opens up** | Creates / instantiates / brings into existence |
+| **Self-referential** | Structures can reference themselves (branches reference root, siblings, children) |
+| **Not infinitely looping** | Bounded traversal - all operations terminate (aligns with Kāti) |
+| **Branched fractal structures** | Tree-like, self-similar at every scale |
+| **In memory** | Exists as cognitive/computational structure, not abstract description |
+
+### 4.3 Mechanism Dynamics
+
+```
+TRIGGER: conceptualise(experience)
+    │
+    ▼
+ACTION: opens(memory_space)
+    │
+    ▼
+RESULT: fractal_tree {
+    root: concept,
+    branches: [fractal_tree],    ← self-referential (recursive type)
+    max_depth: bounded,          ← not infinitely looping
+    invariant: structure(branch) ≅ structure(tree)  ← fractal
+}
+```
+
+### 4.4 The Four Properties
+
+1. **Self-Referential**: Any node can reference any other node
+   - Parent references (navigate up)
+   - Child references (navigate down)
+   - Sibling references (navigate across)
+   - Root references (access origin)
+
+2. **Not Infinitely Looping**: Traversal always terminates
+   - Depth is bounded (Kāti: max_depth)
+   - No circular dependencies that prevent termination
+   - Every path reaches a leaf or returns to start
+
+3. **Branched**: Tree topology
+   - Single root (conceptualisation)
+   - Multiple branches per node
+   - Hierarchical structure
+
+4. **Fractal**: Self-similar at every scale
+   - Any subtree has the same structure as the whole
+   - Zoom in: same pattern
+   - Zoom out: same pattern
+
+### 4.5 Memory Instantiation
+
+The phrase "in memory" is significant:
+
+```
+┌─────────────────────────────────────────┐
+│              MEMORY SPACE               │
+│                                         │
+│   ┌─────────────────────────────────┐   │
+│   │    Denotum Tree Instance        │   │
+│   │    ┌───────────────────────┐    │   │
+│   │    │   root: concept_A     │    │   │
+│   │    │   ├── branch_1        │    │   │
+│   │    │   │   └── leaf_1a     │    │   │
+│   │    │   └── branch_2        │    │   │
+│   │    │       └── leaf_2a ────┼────┼───┼──► self-ref to root
+│   │    └───────────────────────┘    │   │
+│   └─────────────────────────────────┘   │
+│                                         │
+└─────────────────────────────────────────┘
+```
+
+The structure is not merely described - it EXISTS in memory as a navigable, queryable object.
+
+---
+
+## Level 5: The Compression-Expansion Duality
+
+### 5.1 Denotum as Compression
 
 ```
 D: Meaning → CompressedTree
@@ -167,7 +254,7 @@ Properties:
 - Composable: trees can combine
 ```
 
-### 4.2 Fractal Unfurling as Expansion
+### 5.2 Fractal Unfurling as Expansion
 
 ```
 F: CompressedTree → ExpandedPresentation
@@ -178,7 +265,7 @@ Properties:
 - Human-readable: optimized for understanding
 ```
 
-### 4.3 The Inverse Relationship
+### 5.3 The Inverse Relationship
 
 ```
 F(D(m)) ≅ m    # Expansion recovers meaning
@@ -189,9 +276,9 @@ D(F(t)) = t    # Compression recovers structure
 
 ---
 
-## Level 5: Integration with ORIGIN Corpus
+## Level 6: Integration with ORIGIN Corpus
 
-### 5.1 Every Pack as Denotum Tree
+### 6.1 Every Pack as Denotum Tree
 
 ```
 origin/knowledge/packs/c0012_denotum/
@@ -203,7 +290,7 @@ origin/knowledge/packs/c0012_denotum/
         └── Level n    ← Leaves
 ```
 
-### 5.2 The Corpus as Forest
+### 6.2 The Corpus as Forest
 
 All 20 packs form a forest of interconnected Denotum trees:
 
@@ -218,7 +305,7 @@ ORIGIN CORPUS (Forest)
     └── ...
 ```
 
-### 5.3 Relationship Edges
+### 6.3 Relationship Edges
 
 | Edge | Meaning |
 |------|---------|
@@ -228,9 +315,9 @@ ORIGIN CORPUS (Forest)
 
 ---
 
-## Level 6: Formal Specification
+## Level 7: Formal Specification
 
-### 6.1 Type Definitions
+### 7.1 Type Definitions
 
 ```typescript
 type Conceptualisation = {
@@ -259,7 +346,7 @@ type FractalUnfurling = {
 };
 ```
 
-### 6.2 Invariants
+### 7.2 Invariants
 
 ```
 invariant_root:
@@ -282,9 +369,9 @@ invariant_self_similarity:
 
 ---
 
-## Level 7: Application
+## Level 8: Application
 
-### 7.1 Reading a Denotum Tree
+### 8.1 Reading a Denotum Tree
 
 1. **Identify root**: What concept is being formed?
 2. **Trace trunk**: What is the compressed essence?
@@ -292,7 +379,7 @@ invariant_self_similarity:
 4. **Check coherence**: Do all branches cohere?
 5. **Expand to understand**: Use Fractal Unfurling to comprehend
 
-### 7.2 Writing a Denotum Tree
+### 8.2 Writing a Denotum Tree
 
 1. **Conceptualise**: Form the root concept clearly
 2. **Compress**: Find the essential meaning
@@ -300,7 +387,7 @@ invariant_self_similarity:
 4. **Verify**: Ensure no contradictions
 5. **Unfurl**: Present for human understanding
 
-### 7.3 Evaluating a Denotum Tree
+### 8.3 Evaluating a Denotum Tree
 
 | Check | Question | Pass Condition |
 |-------|----------|----------------|
@@ -312,7 +399,9 @@ invariant_self_similarity:
 
 ---
 
-## Level 8: Falsifiers
+## Level 9: Falsifiers
+
+### 9.1 Structural Falsifiers
 
 | Test | Falsification Condition |
 |------|------------------------|
@@ -323,6 +412,16 @@ invariant_self_similarity:
 | **Self-similarity** | Branch structure differs from tree structure |
 | **Reversibility** | F(D(m)) fails to recover m |
 | **Coherence inheritance** | Child meaning exceeds parent meaning |
+
+### 9.2 Mechanism Falsifiers
+
+| Test | Falsification Condition |
+|------|------------------------|
+| **Infinite loop** | Traversal does not terminate (violates "not infinitely looping") |
+| **No self-reference** | Structure cannot reference itself (violates "self-referential") |
+| **Non-fractal branching** | Branch structure differs fundamentally from tree structure |
+| **Not in memory** | Structure exists only as description, not navigable object |
+| **No conceptualisation trigger** | Structure created without conceptualisation act |
 
 ---
 

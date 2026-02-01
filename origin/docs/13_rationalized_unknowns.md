@@ -35,7 +35,8 @@ From these, we can derive what the unknowns MUST be, without inventing arbitrary
 | HyperStanGraph Spec | Derivable | Graph architecture + QED docs |
 | Kāti v2 / H Integration | Derivable | Kāti principles + H constraints |
 | Stangraphics Formalism | Derivable | Lens frame structure |
-| Denotum/Orgasystem | Constrained | Structural boundaries only |
+| Denotum Mechanism | Derivable | Conceptualisation opens self-referential bounded fractal structures |
+| Orgasystem | Constrained | Structural boundaries only |
 
 ---
 
@@ -630,53 +631,80 @@ stangraphics:
 
 ---
 
-## Level 7: Denotum and Orgasystem Constraints
+## Level 7: Denotum Mechanism and Orgasystem Constraints
 
-### 7.1 Corpus Constraints
+### 7.1 Denotum Mechanism: RESOLVED
 
-The corpus explicitly states:
-- Denotum: "Mechanisms are unknown and must not be invented"
-- Orgasystem: "Universal unity equation specifics are unknown"
+The Denotum mechanism is now known:
 
-Therefore, we can only rationalize **structural constraints**, not mechanisms.
+> **Conceptualisation opens up self-referential but not infinitely looping branched fractal structures in memory.**
 
-### 7.2 Denotum Structural Constraints
+This resolves the previously unknown mechanism with the following interpretation:
 
 ```yaml
 denotum:
-  what_we_know:
-    - "It is a meaning-compression system"
-    - "It is a core meaning/structure layer"
-    - "Related to C0003 (Fractal Unfurling) and C0018 (MRC)"
+  mechanism:
+    trigger: "Conceptualisation (the act of forming a concept)"
+    action: "Opens up / creates / instantiates"
+    structure_type: "Branched fractal structures"
+    location: "In memory"
 
-  what_we_can_derive:
-    relationship_to_fractal:
-      observation: "Fractal unfurling expands meaning at each level"
-      implication: "Denotum must be the inverse - compressing meaning"
-      constraint: "Denotum(Expand(x)) = x (compression inverts expansion)"
+    properties:
+      self_referential: true    # Structures can reference themselves
+      infinitely_looping: false # Bounded - no infinite recursion
+      branched: true            # Tree-like subdivision
+      fractal: true             # Self-similar at every scale
 
-    relationship_to_structure:
-      observation: "Core meaning/structure layer"
-      implication: "Denotum sits beneath surface representations"
-      constraint: "Multiple surface forms can share same Denotum"
+  what_this_means:
+    initiation: >
+      When conceptualisation occurs (forming a concept from experience),
+      it instantiates a new structure in memory.
 
-    necessary_properties:
-      lossless: "Compression must preserve meaning (determinism)"
-      reversible: "Can uncompress to original understanding"
-      composable: "Compressed meanings can be combined"
+    self_reference: >
+      The structure can refer to itself and its parts - a branch can
+      reference its parent, siblings, or the root. This enables
+      coherence checking and navigation.
 
-  what_remains_unknown:
-    - "The compression algorithm"
-    - "The representation format"
-    - "The specific operations"
-    - "The implementation details"
+    bounded_recursion: >
+      Despite being self-referential, the structure does NOT loop
+      infinitely. This aligns with Kāti's "bounded" principle -
+      all operations terminate.
 
-  boundary:
-    can_say: "Denotum is lossless meaning compression"
-    cannot_say: "Denotum works by [specific mechanism]"
+    fractal_branching: >
+      The structure branches fractally - each branch contains the
+      pattern of the whole, enabling meaning compression at any
+      level while preserving recoverability.
+
+  formal_definition:
+    conceptualise: "λ(experience) → opens(memory, fractal_tree)"
+    fractal_tree: |
+      {
+        root: concept,
+        branches: [fractal_tree],  # self-referential
+        depth: bounded,            # not infinite
+        invariant: self_similar(branch, tree)
+      }
+
+  integration:
+    with_kati: "Bounded property ensures no infinite loops"
+    with_fractal_unfurling: "Unfurling traverses the in-memory structure"
+    with_mrc: "MRC references point into these memory structures"
+
+  falsifiers:
+    - name: "Infinite loop"
+      condition: "Traversal does not terminate"
+      result: "Violates 'not infinitely looping' - mechanism falsified"
+
+    - name: "No self-reference"
+      condition: "Structure cannot reference itself"
+      result: "Violates 'self-referential' - mechanism falsified"
+
+    - name: "Non-fractal branching"
+      condition: "Branch structure differs from tree structure"
+      result: "Violates 'fractal' - mechanism falsified"
 ```
 
-### 7.3 Orgasystem Structural Constraints
+### 7.2 Orgasystem Structural Constraints (Still Constrained)
 
 ```yaml
 orgasystem:
@@ -729,7 +757,7 @@ orgasystem:
 | HyperStanGraph | ✅ **RESOLVED** - Structure from graph + QED |
 | Kāti v2 / H Integration | ✅ **RESOLVED** - Haiku metaphor applied |
 | Stangraphics Formalism | ✅ **RESOLVED** - Five-frame algebra defined |
-| Denotum Mechanisms | ⚠️ **CONSTRAINED** - Boundaries known, internals unknown |
+| Denotum Mechanism | ✅ **RESOLVED** - Conceptualisation opens self-referential bounded fractal structures in memory |
 | Orgasystem Equation | ⚠️ **CONSTRAINED** - Boundaries known, content unknown |
 
 ---
