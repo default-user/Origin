@@ -55,6 +55,12 @@ The ORIGIN corpus contains 20 canonical concept packs (C0001–C0020), each repr
 | C0017 | Orgasystem | Universe framing / generative unity metaphor |
 | C0018 | MRC | Multi-Reference Compression scheme |
 
+### 1.7 Compression Architecture Packs
+
+| ID | Title | Description |
+|----|-------|-------------|
+| C0021 | LFME | Language Facing Meaning Engine — ingestion-time compression to #concept: #zero: ** chains |
+
 ### 1.6 Meta Packs
 
 | ID | Title | Description |
@@ -102,7 +108,7 @@ C0007 (O2C)
 - C0002 (MCL) ↔ C0009 (Kāti) ↔ C0010 (H)
 
 **Cluster: Compression & Structure**
-- C0003 (Fractal) ↔ C0012 (Denotum) ↔ C0018 (MRC)
+- C0003 (Fractal) ↔ C0012 (Denotum) ↔ C0018 (MRC) ↔ C0021 (LFME)
 
 ### 2.3 Provenance
 
