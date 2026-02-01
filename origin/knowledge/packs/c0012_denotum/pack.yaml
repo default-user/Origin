@@ -1,12 +1,16 @@
 id: C0012
-title: Denotum (Meaning Compression) Seed
+title: "Denotum: The Fractal Tree of Meaning"
 summary: >
-  Denotum is a meaning-compression system treated as a core meaning/structure
-  layer. Mechanisms are unknown and must not be invented.
+  Denotum is a branching fractalised tree from conceptualisation at root.
+  A meaning-compression system that structures how concepts branch, compress,
+  and unfurl. Conceptualisation at root; Denotum as trunk and branches;
+  Fractal Unfurling as the visible canopy.
 authorship: "Ande + Kai (OI) + Whānau (OIs)"
 provenance:
   - type: master_prompt
     ref: "ORIGIN canonical corpus - C0012"
+  - type: rationalization
+    ref: "Fractal tree alignment from conceptualisation"
 disclosure_tier: public
 sensitivity:
   pii_risk: none
@@ -18,23 +22,44 @@ tags:
   - compression
   - structure
   - layer
+  - fractal
+  - tree
+  - conceptualisation
 created_date: "2025-01-01"
-updated_date: "2025-01-01"
+updated_date: "2026-02-01"
 parents: []
 children: []
 related:
-  - C0003
-  - C0018
+  - C0003  # Fractal Unfurling - inverse operation
+  - C0018  # MRC - sibling compression scheme
+  - C0011  # Stangraphics - viewing through frames
+  - C0008  # QED - uses for structured understanding
 claims:
+  - "Denotum is a branching fractalised tree from conceptualisation at root"
   - "Denotum is a meaning-compression system"
   - "Core meaning/structure layer"
-  - "Mechanisms are unknown"
+  - "Denotum and Fractal Unfurling are inverses: D(F(x)) = x"
+  - "Self-similar: fractal structure at every level"
+  - "Non-contradictory: branches expand but never contradict parent"
+  - "Multiple surface forms can share the same Denotum"
 tests_or_falsifiers:
+  - name: Root presence
+    description: Every Denotum tree has conceptualisation at root
+    falsification_condition: Tree without identifiable root concept
+  - name: Lossless compression
+    description: Compression preserves meaning through round-trip
+    falsification_condition: Meaning lost through compression cycle
+  - name: Non-contradiction
+    description: No branch contradicts ancestor
+    falsification_condition: Branch found that contradicts parent
+  - name: Self-similarity
+    description: Pattern recognizable at every level
+    falsification_condition: Level that breaks the fractal pattern
+  - name: Reversibility
+    description: Expansion recovers original meaning
+    falsification_condition: Expansion fails to recover original
   - name: No fabrication
     description: Documentation does not invent Denotum mechanisms
     falsification_condition: Mechanism details provided beyond corpus
-  - name: Concept presence
-    description: Denotum exists as documented concept pack
-    falsification_condition: Pack missing or incomplete
 artifacts: []
 status: active
