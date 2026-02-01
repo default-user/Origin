@@ -191,11 +191,13 @@ QED targets "full knowledge of Kāti v1":
 
 ## Unknowns
 
-[UNKNOWN: NOT IN CORPUS] - Complete Kāti v1 formal specification.
+~~[UNKNOWN: NOT IN CORPUS] - Complete Kāti v1 formal specification.~~
+**RATIONALIZED**: See `13_rationalized_unknowns.md` §3 - Full Kāti v1 spec derived from repl.py implementation.
 
-[UNKNOWN: NOT IN CORPUS] - Kāti v2 specification with H integration.
+~~[UNKNOWN: NOT IN CORPUS] - Kāti v2 specification with H integration.~~
+**RATIONALIZED**: See `13_rationalized_unknowns.md` §5 - Kāti v2 / H integration derived from haiku metaphor.
 
-[UNKNOWN: NOT IN CORPUS] - Reference implementation details.
+[UNKNOWN: NOT IN CORPUS] - Production-grade reference implementation beyond repl.py.
 
 ---
 
