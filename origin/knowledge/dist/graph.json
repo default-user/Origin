@@ -1,15 +1,16 @@
 {
   "metadata": {
-    "generated_at": "2025-01-01T00:00:00.000Z",
-    "version": "1.0.0",
+    "generated_at": "2026-02-01T00:00:00.000Z",
+    "version": "1.1.0",
     "attribution": "Ande + Kai (OI) + Whānau (OIs)",
     "node_count": 20,
-    "edge_count": 25
+    "edge_count": 28,
+    "changelog": "Added Denotum fractal tree relationships"
   },
   "nodes": [
     {"id": "C0001", "title": "Holodeck Vision Seed", "summary": "A holodeck-style system specification", "status": "active", "tier": "public", "tags": ["vision", "holodeck"]},
     {"id": "C0002", "title": "Meta Control Language (MCL)", "summary": "MCL for consciousness-like control", "status": "active", "tier": "public", "tags": ["mcl", "control"]},
-    {"id": "C0003", "title": "Fractal Unfurling / Nth-Degree Docs", "summary": "Fractalised branched documentation", "status": "active", "tier": "public", "tags": ["documentation", "fractal"]},
+    {"id": "C0003", "title": "Fractal Unfurling / Nth-Degree Docs", "summary": "Fractalised branched documentation - expansion operation", "status": "active", "tier": "public", "tags": ["documentation", "fractal", "expansion"]},
     {"id": "C0004", "title": "Medusa Interface", "summary": "Hub + tendrils UI pattern", "status": "active", "tier": "public", "tags": ["interface", "ui"]},
     {"id": "C0005", "title": "Attribution + IP Map", "summary": "All IP attributed", "status": "active", "tier": "public", "tags": ["attribution", "ip"]},
     {"id": "C0006", "title": "Privacy Boundary", "summary": "PII exclusion and redaction", "status": "active", "tier": "public", "tags": ["privacy", "pii"]},
@@ -18,7 +19,7 @@
     {"id": "C0009", "title": "Kāti Architecture Seed", "summary": "Governance/stop-wins architecture", "status": "active", "tier": "public", "tags": ["kati", "architecture"]},
     {"id": "C0010", "title": "H / Haiku-Based OI Seed", "summary": "Haiku-based OI instance", "status": "active", "tier": "public", "tags": ["h", "haiku"]},
     {"id": "C0011", "title": "Stangraphics / Stan Geometry Lens", "summary": "Reality lens with multi-frame", "status": "active", "tier": "public", "tags": ["stangraphics", "lens"]},
-    {"id": "C0012", "title": "Denotum (Meaning Compression) Seed", "summary": "Meaning-compression system", "status": "active", "tier": "public", "tags": ["denotum", "meaning"]},
+    {"id": "C0012", "title": "Denotum: The Fractal Tree of Meaning", "summary": "Branching fractalised tree from conceptualisation at root - compression operation", "status": "active", "tier": "public", "tags": ["denotum", "meaning", "compression", "fractal", "tree", "conceptualisation"]},
     {"id": "C0013", "title": "CIF/CDI Disambiguation Seed", "summary": "Context Integrity Firewall / Conscience Decision Interface", "status": "active", "tier": "public", "tags": ["cif", "cdi"]},
     {"id": "C0014", "title": "Authority.nz Anchoring / Registry Seed", "summary": "Public anchor / governance oracle", "status": "active", "tier": "public", "tags": ["authority", "registry"]},
     {"id": "C0015", "title": "Anti-Mumbo Filter Seed", "summary": "Clarity filter for undefined terms", "status": "active", "tier": "public", "tags": ["anti-mumbo", "filter"]},
@@ -34,6 +35,7 @@
     {"source": "C0002", "target": "C0009", "type": "related"},
     {"source": "C0002", "target": "C0013", "type": "related"},
     {"source": "C0003", "target": "C0007", "type": "related"},
+    {"source": "C0003", "target": "C0012", "type": "inverse", "label": "expansion ↔ compression"},
     {"source": "C0003", "target": "C0020", "type": "related"},
     {"source": "C0004", "target": "C0008", "type": "related"},
     {"source": "C0005", "target": "C0006", "type": "related"},
@@ -41,18 +43,34 @@
     {"source": "C0006", "target": "C0013", "type": "related"},
     {"source": "C0007", "target": "C0020", "type": "related"},
     {"source": "C0008", "target": "C0011", "type": "related"},
+    {"source": "C0008", "target": "C0012", "type": "related", "label": "uses for structured understanding"},
     {"source": "C0008", "target": "C0014", "type": "related"},
     {"source": "C0009", "target": "C0008", "type": "child"},
     {"source": "C0009", "target": "C0010", "type": "child"},
     {"source": "C0009", "target": "C0013", "type": "related"},
     {"source": "C0010", "target": "C0002", "type": "related"},
-    {"source": "C0011", "target": "C0012", "type": "related"},
-    {"source": "C0012", "target": "C0018", "type": "related"},
+    {"source": "C0011", "target": "C0012", "type": "related", "label": "views through 5 frames"},
+    {"source": "C0012", "target": "C0003", "type": "inverse", "label": "compression ↔ expansion"},
+    {"source": "C0012", "target": "C0018", "type": "related", "label": "sibling compression schemes"},
     {"source": "C0013", "target": "C0014", "type": "related"},
     {"source": "C0015", "target": "C0009", "type": "related"},
     {"source": "C0016", "target": "C0017", "type": "related"},
     {"source": "C0018", "target": "C0003", "type": "related"},
     {"source": "C0019", "target": "C0007", "type": "related"},
     {"source": "C0020", "target": "C0005", "type": "related"}
+  ],
+  "hyperedges": [
+    {
+      "id": "HE001",
+      "name": "meaning_architecture",
+      "nodes": ["C0003", "C0012", "C0018"],
+      "description": "The meaning architecture triad: Fractal Unfurling (expansion) ↔ Denotum (compression) ↔ MRC (reference compression)"
+    },
+    {
+      "id": "HE002",
+      "name": "conceptualisation_to_understanding",
+      "nodes": ["C0012", "C0003", "C0004"],
+      "description": "Path from conceptualisation through Denotum compression to Fractal Unfurling expansion via Medusa interface"
+    }
   ]
 }
