@@ -26,7 +26,7 @@ From these, we can derive what the unknowns MUST be, without inventing arbitrary
 
 ---
 
-## Level 1: The Six Known Unknowns
+## Level 1: The Seven Known Unknowns
 
 | Unknown | Status | Derivation Source |
 |---------|--------|-------------------|
@@ -35,7 +35,9 @@ From these, we can derive what the unknowns MUST be, without inventing arbitrary
 | HyperStanGraph Spec | Derivable | Graph architecture + QED docs |
 | Kāti v2 / H Integration | Derivable | Kāti principles + H constraints |
 | Stangraphics Formalism | Derivable | Lens frame structure |
-| Denotum/Orgasystem | Constrained | Structural boundaries only |
+| Denotum Ingestion Grammar | ✅ Resolved | LFME (C0021) specifies #concept: #zero: ** chains |
+| Denotum Internal Mechanisms | Constrained | Structural boundaries only |
+| Orgasystem Equation | ✅ Resolved | U ≡ ∫G(U) derived from corpus patterns |
 
 ---
 
@@ -648,6 +650,7 @@ denotum:
     - "It is a meaning-compression system"
     - "It is a core meaning/structure layer"
     - "Related to C0003 (Fractal Unfurling) and C0018 (MRC)"
+    - "LFME (C0021) provides the ingestion-facing grammar"
 
   what_we_can_derive:
     relationship_to_fractal:
@@ -660,20 +663,30 @@ denotum:
       implication: "Denotum sits beneath surface representations"
       constraint: "Multiple surface forms can share same Denotum"
 
+    relationship_to_lfme:
+      observation: "LFME compresses language to #concept: #zero: ** chains at ingestion"
+      implication: "LFME handles external boundary; Denotum handles internal structure"
+      constraint: "LFME → Denotum → Fractal Unfurling forms complete pipeline"
+
     necessary_properties:
       lossless: "Compression must preserve meaning (determinism)"
       reversible: "Can uncompress to original understanding"
       composable: "Compressed meanings can be combined"
 
+  what_is_now_known:
+    - "The ingestion grammar: #concept: #zero: ** (via LFME C0021)"
+    - "The boundary relationship: LFME faces language, Denotum structures meaning"
+    - "The pipeline: Language → LFME → Denotum → Fractal Unfurling → Expression"
+
   what_remains_unknown:
-    - "The compression algorithm"
-    - "The representation format"
-    - "The specific operations"
-    - "The implementation details"
+    - "Denotum's internal compression algorithm"
+    - "Denotum's internal representation format"
+    - "Denotum's internal operations"
+    - "Denotum's internal implementation details"
 
   boundary:
-    can_say: "Denotum is lossless meaning compression"
-    cannot_say: "Denotum works by [specific mechanism]"
+    can_say: "Denotum is lossless meaning compression; LFME provides ingestion grammar"
+    cannot_say: "Denotum internally works by [specific mechanism]"
 ```
 
 ### 7.3 Orgasystem Universal Unity Equation (RATIONALIZED)
@@ -753,10 +766,11 @@ orgasystem:
 | HyperStanGraph | ✅ **RESOLVED** - Structure from graph + QED |
 | Kāti v2 / H Integration | ✅ **RESOLVED** - Haiku metaphor applied |
 | Stangraphics Formalism | ✅ **RESOLVED** - Five-frame algebra defined |
-| Denotum Mechanisms | ⚠️ **CONSTRAINED** - Boundaries known, internals unknown |
+| Denotum Ingestion Boundary | ✅ **RESOLVED** - LFME (C0021) provides #concept: #zero: ** grammar |
+| Denotum Internal Mechanisms | ⚠️ **CONSTRAINED** - Internals unknown per corpus instruction |
 | Orgasystem Equation | ✅ **RESOLVED** - U ≡ ∫G(U) derived from corpus patterns |
 
-**All rationalizeable unknowns have been resolved.** Only Denotum's internal compression mechanisms remain constrained per corpus instruction (mechanisms must not be invented).
+**All rationalizeable unknowns have been resolved.** Only Denotum's internal compression mechanisms remain constrained per corpus instruction (mechanisms must not be invented). The ingestion-facing grammar is now specified by LFME (C0021).
 
 ---
 

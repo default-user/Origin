@@ -1,0 +1,227 @@
+# LFME: Language Facing Meaning Engine
+
+**Authorship:** Ande + Kai (OI) + Whānau collective — see [docs/00_dedication.md](/docs/00_dedication.md)
+
+---
+
+## Level 0: Summary
+
+LFME (Language Facing Meaning Engine) is the ingestion-time compression architecture that transforms raw input text into `#concept: #zero: **` chains. Where Denotum compresses meaning inward through its fractal tree, LFME *faces language* at the boundary — the first contact point where natural language enters the system. Compression happens at data ingestion, not retrieval, ensuring all stored meaning is already in its minimal, deterministic form.
+
+---
+
+## Level 1: Core Architecture
+
+### 1.1 The Facing Principle
+
+LFME "faces" language the way a cliff faces the sea — it is the surface where two domains meet. Language (the external) crashes against meaning (the internal), and LFME is the transformation boundary.
+
+```
+External Language  →  [LFME]  →  #concept: #zero: ** chains  →  [Denotum Storage]
+```
+
+### 1.2 The Chain Grammar
+
+All meaning compresses to chains of the form:
+
+```
+#concept: #zero: **
+```
+
+Where:
+- `#concept:` — The tagged meaning-bearing unit (what is being compressed)
+- `#zero:` — The anchoring point to conceptual origin (the root reference)
+- `**` — The compressed payload (the minimal representation)
+
+### 1.3 Ingestion-Time Compression
+
+Unlike retrieval-time systems that store raw data and compress on demand, LFME compresses *at ingestion*. Benefits:
+- Storage contains only meaning, never noise
+- Retrieval is deterministic expansion, not interpretation
+- Denotum's `D(F(x)) = x` applies directly to stored chains
+
+---
+
+## Level 2: Relationship to Corpus
+
+### 2.1 LFME ↔ Denotum (C0012)
+
+LFME and Denotum form a compression-expansion pair:
+
+```
+LFME: Language → Chain       (ingestion compression)
+Denotum: Chain → Meaning     (storage & structure)
+Fractal Unfurling: Meaning → Expression   (retrieval expansion)
+```
+
+The full cycle:
+```
+L(text) = chain              # LFME compresses
+D(chain) = meaning           # Denotum structures
+F(meaning) = expressions     # Fractal Unfurling expands
+```
+
+And the reversibility property holds:
+```
+F(D(L(text))) ≅ text'        # Where text' preserves meaning, may vary surface form
+```
+
+### 2.2 LFME ↔ Stangraphics (C0011)
+
+Stangraphics provides the viewing frames through which chains are interpreted. A single `#concept: #zero: **` chain can be viewed through:
+- God frame: The concept as emanation from unity
+- Physics frame: The concept as conserved information
+- Maths frame: The concept as algebraic structure
+- Ethics frame: The concept as value-bearing
+- Philosophy frame: The concept as understanding
+
+### 2.3 LFME ↔ MRC (C0018)
+
+MRC (Meaning-Retaining Compression) is the sibling scheme. Where LFME specifies the *grammar* of compression (`#concept: #zero: **`), MRC specifies the *guarantee* — that meaning survives the compression-expansion cycle.
+
+---
+
+## Level 3: Formal Properties
+
+### 3.1 Chain Algebra
+
+Let `C` be the space of all valid chains. Define:
+
+```
+⊕ : C × C → C              # Chain composition
+ε : C                       # Empty chain (identity)
+↓ : Text → C                # LFME compression operator
+↑ : C → Text*               # Denotum expansion operator
+```
+
+Properties:
+1. **Associativity**: `(a ⊕ b) ⊕ c = a ⊕ (b ⊕ c)`
+2. **Identity**: `a ⊕ ε = ε ⊕ a = a`
+3. **Meaning preservation**: `meaning(↑(↓(t))) = meaning(t)`
+
+### 3.2 Zero-Point Anchoring
+
+Every chain contains `#zero:` as the anchoring reference. This ensures:
+- All concepts trace to a common origin
+- No chain floats unmoored in meaning-space
+- The Denotum tree has a single root
+
+Formally: `∀c ∈ C : anchor(c) = #zero:`
+
+### 3.3 Compression Completeness
+
+LFME is *complete* if every meaningful text reduces to a chain:
+```
+∀t ∈ Text_meaningful : ∃c ∈ C : ↓(t) = c
+```
+
+Noise (text without meaning-bearing content) maps to the empty chain:
+```
+↓(noise) = ε
+```
+
+---
+
+## Level 4: The Ingestion Boundary
+
+### 4.1 Why Ingestion-Time?
+
+Compression at ingestion (not retrieval) serves deterministic intelligence:
+
+| Approach | Store | Retrieve | Determinism |
+|----------|-------|----------|-------------|
+| Raw storage | Full text | Interpret on demand | Low — interpretation varies |
+| Retrieval compression | Full text | Compress then serve | Medium — compression is consistent |
+| **LFME (Ingestion)** | **Chains only** | **Expand from chains** | **High — single compressed form** |
+
+### 4.2 The Boundary Constraint
+
+LFME operates only at the ingestion boundary. Once text becomes chain:
+- No further compression occurs (already minimal)
+- Denotum structures and stores
+- Fractal Unfurling expands on retrieval
+
+This is why "Denotum's internal compression mechanisms remain constrained per corpus instruction" — LFME handles boundary compression; Denotum handles internal structure.
+
+---
+
+## Level 5: Practical Application
+
+### 5.1 Chain Construction Example
+
+Input text:
+```
+"The system processes user requests through a validation layer."
+```
+
+LFME compression:
+```
+#concept:system-processing #zero:request-validation **validation-layer-mediation
+```
+
+Breakdown:
+- `#concept:system-processing` — The meaning-bearing unit
+- `#zero:request-validation` — Anchored to the validation concept
+- `**validation-layer-mediation` — The compressed relational payload
+
+### 5.2 Chain Composition
+
+Multiple chains compose:
+```
+#concept:A #zero:root **payload-A  ⊕  #concept:B #zero:root **payload-B
+=
+#concept:A→B #zero:root **payload-A∧payload-B
+```
+
+### 5.3 Integration with ORIGIN Corpus
+
+All 20 concepts (C0001–C0020) can be expressed as LFME chains:
+```
+#concept:holodeck-vision #zero:origin **C0001-interface-paradigm
+#concept:denotum #zero:origin **C0012-compression-tree
+#concept:orgasystem #zero:origin **C0017-generative-unity
+```
+
+---
+
+## Level 6: Falsification Conditions
+
+### 6.1 Chain Reversibility Test
+
+**Claim**: Any LFME chain can be expanded through Denotum without loss.
+
+**Test**: For chain `c`, compute `↑(c)` and verify `meaning(↑(c)) = meaning(original)`.
+
+**Falsification**: A chain exists where expansion loses or distorts meaning.
+
+### 6.2 Ingestion Completeness Test
+
+**Claim**: All meaningful input text reduces to valid concept chains.
+
+**Test**: For any text `t` with meaning, verify `↓(t) ≠ ε` and `↓(t)` is well-formed.
+
+**Falsification**: Meaningful text exists that produces no chain or malformed chain.
+
+### 6.3 Zero-Point Anchoring Test
+
+**Claim**: Every valid chain anchors to `#zero:`.
+
+**Test**: Parse chain grammar; verify `#zero:` segment present.
+
+**Falsification**: A valid, meaning-bearing chain exists without `#zero:` anchoring.
+
+---
+
+## Closing
+
+LFME completes the compression architecture of ORIGIN. Where Denotum provides the internal tree structure for meaning, LFME provides the external-facing grammar for ingestion. Together they ensure:
+
+- **Determinism**: Same input → Same chain → Same meaning
+- **Completeness**: All meaning captured, no noise stored
+- **Reversibility**: Chains expand without loss through Denotum
+
+The `#concept: #zero: **` grammar is the alphabet of compressed meaning.
+
+---
+
+**Authorship:** Ande + Kai (OI) + Whānau collective

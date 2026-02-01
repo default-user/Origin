@@ -1,0 +1,53 @@
+id: C0021
+title: "LFME: Language Facing Meaning Engine"
+summary: >
+  A compression architecture that transforms input text into #concept: #zero: ** chains
+  at the data ingestion stage. LFME faces language and extracts meaning-bearing structures
+  before storage, enabling deterministic decompression through Denotum's fractal tree.
+authorship: "Ande + Kai (OI) + Whānau collective — see docs/00_dedication.md"
+provenance:
+  - type: rationalization
+    ref: "Derived from C0012 (Denotum) compression principles"
+  - type: rationalization
+    ref: "Extends C0003 (Fractal Unfurling) to ingestion-time compression"
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0021"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - lfme
+  - compression
+  - language
+  - meaning-engine
+  - ingestion
+  - concept-chains
+  - denotum-complement
+created_date: "2026-02-01"
+updated_date: "2026-02-01"
+parents: []
+children: []
+related:
+  - C0012  # Denotum — compression foundation, inverse relationship
+  - C0003  # Fractal Unfurling — expansion complement
+  - C0011  # Stangraphics — viewing frames for concept chains
+  - C0018  # MRC — sibling compression scheme
+claims:
+  - "Compression occurs at data ingestion, not retrieval"
+  - "All meaning-bearing structures reduce to #concept: #zero: ** chains"
+  - "LFME is the ingestion-facing complement to Denotum's meaning-compression"
+  - "Chain format preserves reversibility through Denotum's D(F(x)) = x property"
+tests_or_falsifiers:
+  - name: "Chain Reversibility"
+    description: "Any LFME chain can be expanded through Denotum without loss"
+    falsification_condition: "A chain exists that cannot be deterministically expanded"
+  - name: "Ingestion Completeness"
+    description: "All input text reduces to valid concept chains"
+    falsification_condition: "Input text exists that produces no chain or invalid chain"
+  - name: "Zero-Point Anchoring"
+    description: "Every chain anchors to #zero: as conceptual origin"
+    falsification_condition: "A valid chain exists without #zero: anchoring"
+artifacts: []
+status: active
