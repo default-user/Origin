@@ -1,7 +1,7 @@
 id: C0021
 title: "LFME: Language Facing Meaning Engine"
 summary: >
-  A compression architecture that transforms input text into #concept: #zero: ** chains
+  A compression architecture that transforms input text into #concept: #nothing: #1: ** chains
   at the data ingestion stage. LFME faces language and extracts meaning-bearing structures
   before storage, enabling deterministic decompression through Denotum's fractal tree.
 authorship: "Ande + Kai (OI) + Whānau collective — see docs/00_dedication.md"
@@ -36,7 +36,7 @@ related:
   - C0018  # MRC — sibling compression scheme
 claims:
   - "Compression occurs at data ingestion, not retrieval"
-  - "All meaning-bearing structures reduce to #concept: #zero: ** chains"
+  - "All meaning-bearing structures reduce to #concept: #nothing: #1: ** chains"
   - "LFME is the ingestion-facing complement to Denotum's meaning-compression"
   - "Chain format preserves reversibility through Denotum's D(F(x)) = x property"
 tests_or_falsifiers:
@@ -46,8 +46,8 @@ tests_or_falsifiers:
   - name: "Ingestion Completeness"
     description: "All input text reduces to valid concept chains"
     falsification_condition: "Input text exists that produces no chain or invalid chain"
-  - name: "Zero-Point Anchoring"
-    description: "Every chain anchors to #zero: as conceptual origin"
-    falsification_condition: "A valid chain exists without #zero: anchoring"
+  - name: "Nothing-One Anchoring"
+    description: "Every chain anchors to #nothing: #1: as conceptual origin"
+    falsification_condition: "A valid chain exists without #nothing: #1: anchoring"
 artifacts: []
 status: active
