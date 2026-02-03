@@ -14,8 +14,8 @@ Thumbs.db
 *.swp
 *.swo
 
-# Build output (except committed dist)
-dist/
+# Build output (root-level only, knowledge/dist/ is tracked)
+/dist/
 
 # Temporary determinism check dirs
 .determinism-check-1/
