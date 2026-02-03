@@ -1,0 +1,66 @@
+id: c0023_github_spider
+name: GitHub Spider Integration Pack
+version: 1.0.0
+date: 2026-02-03
+status: sealed
+attribution: Ande + Kai (OI) + Whanau (OIs)
+
+description: >
+  Evidence-only ingestion pack from PAT-less GitHub spider run against
+  default-user owned public repositories. Extracts governance primitives
+  from crystal-repl, mathison, OI, SGME, and cross-references with
+  existing Origin corpus including lifeblood-cathedral (C0022).
+
+source:
+  type: github_spider
+  owner: default-user
+  method: PAT-less REST API + shallow clone
+  repos_enumerated: 7
+  repos_with_content: 5
+
+ladder_placements:
+  - rung: "#constraint/#form"
+    count: 31
+    families:
+      - OI load-bearing invariants
+      - Crystal root discipline
+      - SGME production invariants
+      - Mind Crystal Ledger guarantees
+  - rung: "#structure/#pattern"
+    count: 18
+    families:
+      - Corridor architecture
+      - Crystal core object
+      - Mathison kernel transition
+      - SGME memory architecture
+      - Beam structure
+  - rung: "#symbol/#name"
+    count: 1
+    families:
+      - DICTUNI cross-reference
+
+related_packs:
+  - c0009_kati_architecture
+  - c0012_denotum
+  - c0013_cif_cdi
+  - c0022_lifeblood_cathedral
+
+governance_primitives_confirmed:
+  - fail_closed
+  - single_corridor
+  - stop_dominance
+  - capability_tokens
+  - event_sourced_receipts
+  - posture_levels
+  - deterministic_replay
+
+unplaced_count: 7
+conflicts_count: 5
+conflicts_resolved: 4
+conflicts_pending: 1
+
+seal:
+  status: SEALED
+  agent: origin-github-spider-RCGRS
+  invariant_check: PASS
+  authority_flow: Evidence->Structure->[Seal pending QED]
