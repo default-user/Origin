@@ -1,0 +1,67 @@
+id: C0022
+title: "Lifeblood-Cathedral: Governed Gateway Integration"
+summary: >
+  Evidence-only integration of the lifeblood-cathedral project: a governed
+  LLM gateway with capability gating, posture management, ledger/receipt
+  pattern, and constitutional invariants. Includes DICTUNI symbol dictionary.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: capsule_ingestion
+    ref: "capsule://lifeblood-cathedral (v0.1.0, 2026-01-27)"
+  - type: origin_integration
+    ref: "Origin read-only ingestion pass (2026-02-03)"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - lifeblood
+  - cathedral
+  - gateway
+  - governance
+  - capability
+  - ledger
+  - receipt
+  - posture
+  - dictuni
+  - stop-wins
+  - invariant
+created_date: "2026-02-03"
+updated_date: "2026-02-03"
+parents: []
+children: []
+related:
+  - C0009  # Kāti Architecture - shared stop-wins pattern
+  - C0013  # CIF/CDI - boundary/governance pattern overlap
+  - C0006  # Privacy Boundary - capability gating relation
+claims:
+  - "Lifeblood = proxy/gateway to any LLM provider"
+  - "Cathedral = governance backend: capability gating, posture, boundaries, ledger, receipts, watcher"
+  - "Go implementation is 'tiny trusted core' and source-of-truth behavior"
+  - "Parallel scaffolds exist in TS/Python/Rust/Java/.NET mirroring protocol/invariants"
+  - "Protocol definitions: OpenAPI + JSON Schemas"
+  - "Constitution invariants include: stop_wins_always, single_gateway_for_io, caps_required_for_privileged_ops"
+  - "Degrade-on-uncertainty is an explicit invariant"
+  - "Pre-intent and post-receipt logging required"
+  - "No self-replication invariant"
+tests_or_falsifiers:
+  - name: Stop-wins enforcement
+    description: Gateway must halt on forged cap token
+    falsification_condition: Forged token passes validation
+  - name: Single IO choke point
+    description: All IO routes through gateway
+    falsification_condition: IO observed bypassing gateway
+  - name: Ledger integrity
+    description: Ledger is hash-chained
+    falsification_condition: Ledger entries without valid chain
+  - name: Degrade on uncertainty
+    description: Posture drops to P0 when conditions uncertain
+    falsification_condition: High posture maintained under uncertainty
+  - name: Receipt attestation
+    description: Every response has matching receipt
+    falsification_condition: Response without receipt in ledger
+artifacts:
+  - type: integrity_witness
+    note: "SHA-256 hashes provided in capsule manifest"
+status: active
