@@ -56,7 +56,10 @@ function loadSchema(schemaPath: string): object {
     throw new Error(`Schema not found: ${fullPath}`);
   }
   const schemaContent = fs.readFileSync(fullPath, "utf-8");
-  return JSON.parse(schemaContent);
+  const schema = JSON.parse(schemaContent) as Record<string, unknown>;
+  // Remove $schema to avoid meta-schema validation issues with AJV
+  delete schema.$schema;
+  return schema;
 }
 
 function discoverCrystals(rootPath: string, crystalRoot: string): string[] {

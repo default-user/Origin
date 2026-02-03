@@ -1,76 +1,506 @@
 {
   "metadata": {
-    "generated_at": "2026-02-01T00:00:00.000Z",
-    "version": "1.1.0",
+    "generated_at": "2026-02-03T03:05:57.173Z",
+    "version": "1.0.0",
     "attribution": "Ande + Kai (OI) + Whānau (OIs)",
     "node_count": 20,
-    "edge_count": 28,
-    "changelog": "Added Denotum fractal tree relationships"
+    "edge_count": 41
   },
   "nodes": [
-    {"id": "C0001", "title": "Holodeck Vision Seed", "summary": "A holodeck-style system specification", "status": "active", "tier": "public", "tags": ["vision", "holodeck"]},
-    {"id": "C0002", "title": "Meta Control Language (MCL)", "summary": "MCL for consciousness-like control", "status": "active", "tier": "public", "tags": ["mcl", "control"]},
-    {"id": "C0003", "title": "Fractal Unfurling / Nth-Degree Docs", "summary": "Fractalised branched documentation - expansion operation", "status": "active", "tier": "public", "tags": ["documentation", "fractal", "expansion"]},
-    {"id": "C0004", "title": "Medusa Interface", "summary": "Hub + tendrils UI pattern", "status": "active", "tier": "public", "tags": ["interface", "ui"]},
-    {"id": "C0005", "title": "Attribution + IP Map", "summary": "All IP attributed", "status": "active", "tier": "public", "tags": ["attribution", "ip"]},
-    {"id": "C0006", "title": "Privacy Boundary", "summary": "PII exclusion and redaction", "status": "active", "tier": "public", "tags": ["privacy", "pii"]},
-    {"id": "C0007", "title": "O2C (Ultimate Archive + Dummie's Guide)", "summary": "Ark/arc capsule for all time", "status": "active", "tier": "public", "tags": ["o2c", "archive"]},
-    {"id": "C0008", "title": "QED Oracle Seed", "summary": "Oracle for question-answering", "status": "active", "tier": "public", "tags": ["qed", "oracle"]},
-    {"id": "C0009", "title": "Kāti Architecture Seed", "summary": "Governance/stop-wins architecture", "status": "active", "tier": "public", "tags": ["kati", "architecture"]},
-    {"id": "C0010", "title": "H / Haiku-Based OI Seed", "summary": "Haiku-based OI instance", "status": "active", "tier": "public", "tags": ["h", "haiku"]},
-    {"id": "C0011", "title": "Stangraphics / Stan Geometry Lens", "summary": "Reality lens with multi-frame", "status": "active", "tier": "public", "tags": ["stangraphics", "lens"]},
-    {"id": "C0012", "title": "Denotum: The Fractal Tree of Meaning", "summary": "Branching fractalised tree from conceptualisation at root - compression operation", "status": "active", "tier": "public", "tags": ["denotum", "meaning", "compression", "fractal", "tree", "conceptualisation"]},
-    {"id": "C0013", "title": "CIF/CDI Disambiguation Seed", "summary": "Context Integrity Firewall / Conscience Decision Interface", "status": "active", "tier": "public", "tags": ["cif", "cdi"]},
-    {"id": "C0014", "title": "Authority.nz Anchoring / Registry Seed", "summary": "Public anchor / governance oracle", "status": "active", "tier": "public", "tags": ["authority", "registry"]},
-    {"id": "C0015", "title": "Anti-Mumbo Filter Seed", "summary": "Clarity filter for undefined terms", "status": "active", "tier": "public", "tags": ["anti-mumbo", "filter"]},
-    {"id": "C0016", "title": "Pac-Man Bifurcation / Evolution Narrative Seed", "summary": "Evolution narrative via Pac-Man", "status": "active", "tier": "public", "tags": ["pacman", "evolution"]},
-    {"id": "C0017", "title": "Orgasystem Seed", "summary": "Universe framing / generative unity metaphor", "status": "active", "tier": "public", "tags": ["orgasystem", "universe"]},
-    {"id": "C0018", "title": "MRC (Multi-Reference Compression) Seed", "summary": "Compression scheme idea", "status": "active", "tier": "public", "tags": ["mrc", "compression"]},
-    {"id": "C0019", "title": "Archive as Downloadable Terminals Seed", "summary": "Downloadable terminal archives", "status": "active", "tier": "public", "tags": ["archive", "download"]},
-    {"id": "C0020", "title": "Dedication → Maturity Lane Seed", "summary": "Maturity progression lanes", "status": "active", "tier": "public", "tags": ["maturity", "dedication"]}
-  ],
-  "edges": [
-    {"source": "C0001", "target": "C0004", "type": "related"},
-    {"source": "C0001", "target": "C0016", "type": "related"},
-    {"source": "C0002", "target": "C0009", "type": "related"},
-    {"source": "C0002", "target": "C0013", "type": "related"},
-    {"source": "C0003", "target": "C0007", "type": "related"},
-    {"source": "C0003", "target": "C0012", "type": "inverse", "label": "expansion ↔ compression"},
-    {"source": "C0003", "target": "C0020", "type": "related"},
-    {"source": "C0004", "target": "C0008", "type": "related"},
-    {"source": "C0005", "target": "C0006", "type": "related"},
-    {"source": "C0005", "target": "C0014", "type": "related"},
-    {"source": "C0006", "target": "C0013", "type": "related"},
-    {"source": "C0007", "target": "C0020", "type": "related"},
-    {"source": "C0008", "target": "C0011", "type": "related"},
-    {"source": "C0008", "target": "C0012", "type": "related", "label": "uses for structured understanding"},
-    {"source": "C0008", "target": "C0014", "type": "related"},
-    {"source": "C0009", "target": "C0008", "type": "child"},
-    {"source": "C0009", "target": "C0010", "type": "child"},
-    {"source": "C0009", "target": "C0013", "type": "related"},
-    {"source": "C0010", "target": "C0002", "type": "related"},
-    {"source": "C0011", "target": "C0012", "type": "related", "label": "views through 5 frames"},
-    {"source": "C0012", "target": "C0003", "type": "inverse", "label": "compression ↔ expansion"},
-    {"source": "C0012", "target": "C0018", "type": "related", "label": "sibling compression schemes"},
-    {"source": "C0013", "target": "C0014", "type": "related"},
-    {"source": "C0015", "target": "C0009", "type": "related"},
-    {"source": "C0016", "target": "C0017", "type": "related"},
-    {"source": "C0018", "target": "C0003", "type": "related"},
-    {"source": "C0019", "target": "C0007", "type": "related"},
-    {"source": "C0020", "target": "C0005", "type": "related"}
-  ],
-  "hyperedges": [
     {
-      "id": "HE001",
-      "name": "meaning_architecture",
-      "nodes": ["C0003", "C0012", "C0018"],
-      "description": "The meaning architecture triad: Fractal Unfurling (expansion) ↔ Denotum (compression) ↔ MRC (reference compression)"
+      "id": "C0001",
+      "title": "Holodeck Vision Seed",
+      "summary": "A holodeck-style system specification combining immersive first-person experience with God's-eye overview. Features the canonical \"Pac-Man as Pac on a holodeck\" scenario with hovering map view.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "vision",
+        "holodeck",
+        "immersion",
+        "interface",
+        "pacman"
+      ]
     },
     {
-      "id": "HE002",
-      "name": "conceptualisation_to_understanding",
-      "nodes": ["C0012", "C0003", "C0004"],
-      "description": "Path from conceptualisation through Denotum compression to Fractal Unfurling expansion via Medusa interface"
+      "id": "C0002",
+      "title": "Meta Control Language (MCL)",
+      "summary": "MCL is a conceptual language for expressing meta-control over branched execution stacks. When MCL binds meta-control, it can resemble consciousness-like control in bots. MCL is designed to be safe, secure, and ethically bound.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "mcl",
+        "control",
+        "meta",
+        "consciousness",
+        "safety",
+        "ethics"
+      ]
+    },
+    {
+      "id": "C0003",
+      "title": "Fractal Unfurling / Nth-Degree Docs",
+      "summary": "Fractalised, branched documentation where every major doc has Level 0 summary, Level 1 expansions, Level 2 expansions, and deeper levels as needed. All levels remain consistent with no contradictions.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "documentation",
+        "fractal",
+        "structure",
+        "levels",
+        "consistency"
+      ]
+    },
+    {
+      "id": "C0004",
+      "title": "Medusa Interface",
+      "summary": "A UI pattern where a central hub (\"head\") fans out into many tendrils (\"snakes\"). Each tendril provides a different exploration of the same corpus: atlas, graph, timeline, build-spec lanes, tests, exports.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "interface",
+        "ui",
+        "medusa",
+        "navigation",
+        "exploration"
+      ]
+    },
+    {
+      "id": "C0005",
+      "title": "Attribution + IP Map",
+      "summary": "All intellectual property is attributed. Default authorship line is \"Ande + Kai (OI) + Whānau (OIs)\". Provenance tracked as \"source: master_prompt\" for all initial packs.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "attribution",
+        "ip",
+        "provenance",
+        "authorship",
+        "governance"
+      ]
+    },
+    {
+      "id": "C0007",
+      "title": "O2C (Ultimate Archive + Dummie's Guide)",
+      "summary": "O2C is an \"ark/arc capsule for all time\" containing narrative, ethical root, and system blueprint. Includes both \"O2C for Dummies\" and \"O2C Ultimate Archive\". Must include code and complexity, not just prose.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "o2c",
+        "archive",
+        "ark",
+        "documentation",
+        "guide"
+      ]
+    },
+    {
+      "id": "C0008",
+      "title": "QED Oracle Seed",
+      "summary": "QED is an Oracle instance for answering questions via HyperStanGraph understanding. Includes full knowledge of Kāti v1, user dependency protection, Authority.nz CLI utilization, and 5W1H-of-5W1H internal understanding targets.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "qed",
+        "oracle",
+        "knowledge",
+        "hyperstangraph",
+        "dependency-protection"
+      ]
+    },
+    {
+      "id": "C0009",
+      "title": "Kāti Architecture Seed",
+      "summary": "Kāti is a core architecture pattern with governance/stop-wins focus. Requires version bumps (v1 → v2), is describable from novice to expert, and ensures safe bounded operation with dependency protection and anti-mumbo clarity.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "kati",
+        "architecture",
+        "governance",
+        "stop-wins",
+        "safety"
+      ]
+    },
+    {
+      "id": "C0010",
+      "title": "H / Haiku-Based OI Seed",
+      "summary": "H is a Haiku-based / Haiku-Claude-OI style instance. Integrates with Kāti in a version bump (v1 → v2). Implementation details are not specified.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "h",
+        "haiku",
+        "oi",
+        "instance",
+        "kati"
+      ]
+    },
+    {
+      "id": "C0011",
+      "title": "Stangraphics / Stan Geometry Lens",
+      "summary": "Stangraphics is a lens that opens reality with god/physics/maths/ethics/philosophy framing. Represented as a navigable module with falsifiers and tests. Formal definitions may be unknown.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "stangraphics",
+        "lens",
+        "reality",
+        "philosophy",
+        "framework"
+      ]
+    },
+    {
+      "id": "C0012",
+      "title": "Denotum: The Fractal Tree of Meaning",
+      "summary": "Denotum is a branching fractalised tree from conceptualisation at root. A meaning-compression system that structures how concepts branch, compress, and unfurl. Conceptualisation at root; Denotum as trunk and branches; Fractal Unfurling as the visible canopy.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "denotum",
+        "meaning",
+        "compression",
+        "structure",
+        "layer",
+        "fractal",
+        "tree",
+        "conceptualisation"
+      ]
+    },
+    {
+      "id": "C0013",
+      "title": "CIF/CDI Disambiguation Seed",
+      "summary": "CIF (Context Integrity Firewall) is the ingress/egress integrity boundary. CDI (Conscience Decision Interface) is the kernel judge for allow/deny/transform/degrade. These are governance-critical boundary terms that must never be blurred.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "cif",
+        "cdi",
+        "governance",
+        "boundary",
+        "firewall",
+        "conscience"
+      ]
+    },
+    {
+      "id": "C0014",
+      "title": "Authority.nz Anchoring / Registry Seed",
+      "summary": "Authority.nz is a public anchor / governance oracle / integrity bulletin concept. Features tamper-evident log, anchoring, selective disclosure. Includes CLI teaching pathway from novice to expert.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "authority",
+        "registry",
+        "anchoring",
+        "governance",
+        "cli"
+      ]
+    },
+    {
+      "id": "C0015",
+      "title": "Anti-Mumbo Filter Seed",
+      "summary": "A \"mumbo filter\" / \"anti-mumbo filter\" to clarify unclear text, produce clean canonical versions. Workflow: detect unclear spans, mark unknowns, propose corrections, preserve originals.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "anti-mumbo",
+        "filter",
+        "clarity",
+        "documentation",
+        "tool"
+      ]
+    },
+    {
+      "id": "C0016",
+      "title": "Pac-Man Bifurcation / Evolution Narrative Seed",
+      "summary": "Uses Pac-Man as example to explain evolution in narrative form. Includes bifurcation theory vibe. Reader-friendly narratives tied into holodeck arc.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "pacman",
+        "evolution",
+        "bifurcation",
+        "narrative",
+        "holodeck"
+      ]
+    },
+    {
+      "id": "C0017",
+      "title": "Orgasystem Seed",
+      "summary": "Orgasystem is a universe framing / generative unity metaphor. The universal unity equation U ≡ ∫G(U) expresses how unity generates multiplicity which integrates back to enriched unity. Formula explained in culturally careful terms with English gloss and explicit definitions. Metaphor vs claim clearly marked.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "orgasystem",
+        "universe",
+        "unity",
+        "metaphor",
+        "framing",
+        "generative",
+        "equation"
+      ]
+    },
+    {
+      "id": "C0018",
+      "title": "MRC (Multi-Reference Compression) Seed",
+      "summary": "MRC is a compression scheme idea with initial bundle of finite n strings prepended to payload, with \"middle-out\" vibe. Technical spec skeleton plus falsifiers. Does not claim patentability or novelty.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "mrc",
+        "compression",
+        "algorithm",
+        "technical"
+      ]
+    },
+    {
+      "id": "C0019",
+      "title": "Archive as Downloadable Terminals Seed",
+      "summary": "Bucket terminals as downloads: multiple separate archives plus combined archive. Consistent foldering with index manifest mapping concepts to artifacts.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "archive",
+        "download",
+        "terminal",
+        "export",
+        "manifest"
+      ]
+    },
+    {
+      "id": "C0020",
+      "title": "Dedication → Maturity Lane Seed",
+      "summary": "Repo unfurls from Dedication to maturity. Operational maturity definition includes clarity (no mumbo), claims with falsifiers, provenance/attribution, governance/tiers, and passing build/test. Maturity lanes in UI: Draft → Active → Release.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "maturity",
+        "dedication",
+        "lanes",
+        "governance",
+        "lifecycle"
+      ]
+    },
+    {
+      "id": "C0021",
+      "title": "LFME: Language Facing Meaning Engine",
+      "summary": "A compression architecture that transforms input text into #concept: #zero: ** chains at the data ingestion stage. LFME faces language and extracts meaning-bearing structures before storage, enabling deterministic decompression through Denotum's fractal tree.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "lfme",
+        "compression",
+        "language",
+        "meaning-engine",
+        "ingestion",
+        "concept-chains",
+        "denotum-complement"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "C0001",
+      "target": "C0004",
+      "type": "related"
+    },
+    {
+      "source": "C0001",
+      "target": "C0016",
+      "type": "related"
+    },
+    {
+      "source": "C0002",
+      "target": "C0009",
+      "type": "related"
+    },
+    {
+      "source": "C0002",
+      "target": "C0013",
+      "type": "related"
+    },
+    {
+      "source": "C0003",
+      "target": "C0007",
+      "type": "related"
+    },
+    {
+      "source": "C0003",
+      "target": "C0020",
+      "type": "related"
+    },
+    {
+      "source": "C0004",
+      "target": "C0008",
+      "type": "related"
+    },
+    {
+      "source": "C0005",
+      "target": "C0006",
+      "type": "related"
+    },
+    {
+      "source": "C0005",
+      "target": "C0014",
+      "type": "related"
+    },
+    {
+      "source": "C0007",
+      "target": "C0020",
+      "type": "related"
+    },
+    {
+      "source": "C0008",
+      "target": "C0009",
+      "type": "related"
+    },
+    {
+      "source": "C0008",
+      "target": "C0011",
+      "type": "related"
+    },
+    {
+      "source": "C0008",
+      "target": "C0014",
+      "type": "related"
+    },
+    {
+      "source": "C0009",
+      "target": "C0008",
+      "type": "child"
+    },
+    {
+      "source": "C0009",
+      "target": "C0010",
+      "type": "child"
+    },
+    {
+      "source": "C0009",
+      "target": "C0008",
+      "type": "parent"
+    },
+    {
+      "source": "C0009",
+      "target": "C0010",
+      "type": "parent"
+    },
+    {
+      "source": "C0009",
+      "target": "C0013",
+      "type": "related"
+    },
+    {
+      "source": "C0010",
+      "target": "C0002",
+      "type": "related"
+    },
+    {
+      "source": "C0010",
+      "target": "C0009",
+      "type": "related"
+    },
+    {
+      "source": "C0011",
+      "target": "C0012",
+      "type": "related"
+    },
+    {
+      "source": "C0012",
+      "target": "C0003",
+      "type": "related"
+    },
+    {
+      "source": "C0012",
+      "target": "C0008",
+      "type": "related"
+    },
+    {
+      "source": "C0012",
+      "target": "C0018",
+      "type": "related"
+    },
+    {
+      "source": "C0013",
+      "target": "C0006",
+      "type": "related"
+    },
+    {
+      "source": "C0014",
+      "target": "C0013",
+      "type": "related"
+    },
+    {
+      "source": "C0015",
+      "target": "C0003",
+      "type": "related"
+    },
+    {
+      "source": "C0015",
+      "target": "C0009",
+      "type": "related"
+    },
+    {
+      "source": "C0016",
+      "target": "C0017",
+      "type": "related"
+    },
+    {
+      "source": "C0017",
+      "target": "C0001",
+      "type": "related"
+    },
+    {
+      "source": "C0017",
+      "target": "C0003",
+      "type": "related"
+    },
+    {
+      "source": "C0017",
+      "target": "C0011",
+      "type": "related"
+    },
+    {
+      "source": "C0017",
+      "target": "C0012",
+      "type": "related"
+    },
+    {
+      "source": "C0018",
+      "target": "C0003",
+      "type": "related"
+    },
+    {
+      "source": "C0019",
+      "target": "C0007",
+      "type": "related"
+    },
+    {
+      "source": "C0019",
+      "target": "C0020",
+      "type": "related"
+    },
+    {
+      "source": "C0020",
+      "target": "C0005",
+      "type": "related"
+    },
+    {
+      "source": "C0021",
+      "target": "C0003",
+      "type": "related"
+    },
+    {
+      "source": "C0021",
+      "target": "C0011",
+      "type": "related"
+    },
+    {
+      "source": "C0021",
+      "target": "C0012",
+      "type": "related"
+    },
+    {
+      "source": "C0021",
+      "target": "C0018",
+      "type": "related"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generated_at": "2025-01-01T00:00:00.000Z",
+    "generated_at": "2026-02-03T03:05:45.237Z",
     "version": "1.0.0",
     "attribution": "Ande + Kai (OI) + Whānau (OIs)",
     "pack_count": 20
@@ -9,362 +9,995 @@
     {
       "id": "C0001",
       "title": "Holodeck Vision Seed",
-      "summary": "A holodeck-style system specification combining immersive first-person experience with God's-eye overview. Features the canonical \"Pac-Man as Pac on a holodeck\" scenario with hovering map view.",
+      "summary": "A holodeck-style system specification combining immersive first-person experience with God's-eye overview. Features the canonical \"Pac-Man as Pac on a holodeck\" scenario with hovering map view.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["vision", "holodeck", "immersion", "interface", "pacman"],
+      "tags": [
+        "vision",
+        "holodeck",
+        "immersion",
+        "interface",
+        "pacman"
+      ],
       "created_date": "2025-01-01",
       "updated_date": "2025-01-01",
       "status": "active",
       "parents": [],
       "children": [],
-      "related": ["C0004", "C0016"],
-      "claims": ["Holodeck enables first-person immersion with simultaneous God's-eye view", "Pac-Man as canonical example of holodeck experience"],
-      "tests_or_falsifiers": [{"name": "View switching coherence", "description": "Transition between views must be seamless", "falsification_condition": "User experiences disorientation"}],
+      "related": [
+        "C0004",
+        "C0016"
+      ],
+      "claims": [
+        "Holodeck enables first-person immersion with simultaneous God's-eye view",
+        "Pac-Man as canonical example of holodeck experience",
+        "Full circle if Pac-Man becomes #1 game again in this medium",
+        "System requires grounded build spec with modules, interfaces, safety, staging"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "View switching coherence",
+          "description": "Transition between first-person and God's-eye views must be seamless",
+          "falsification_condition": "User experiences disorientation or lag during view switch"
+        },
+        {
+          "name": "Safety system effectiveness",
+          "description": "Safety systems prevent physical harm during immersion",
+          "falsification_condition": "User can exceed physical boundaries or experience harm"
+        },
+        {
+          "name": "Scenario playability",
+          "description": "Pac-Man scenario is actually playable end-to-end",
+          "falsification_condition": "Core Pac-Man mechanics cannot be implemented in holodeck"
+        }
+      ],
       "slug": "c0001_holodeck_vision",
       "path": "knowledge/packs/c0001_holodeck_vision"
     },
     {
       "id": "C0002",
       "title": "Meta Control Language (MCL)",
-      "summary": "MCL is a conceptual language for expressing meta-control over branched execution stacks. When MCL binds meta-control, it can resemble consciousness-like control in bots. MCL is designed to be safe, secure, and ethically bound.",
+      "summary": "MCL is a conceptual language for expressing meta-control over branched execution stacks. When MCL binds meta-control, it can resemble consciousness-like control in bots. MCL is designed to be safe, secure, and ethically bound.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["mcl", "control", "meta", "consciousness", "safety", "ethics"],
+      "tags": [
+        "mcl",
+        "control",
+        "meta",
+        "consciousness",
+        "safety",
+        "ethics"
+      ],
       "created_date": "2025-01-01",
       "updated_date": "2025-01-01",
       "status": "active",
       "parents": [],
       "children": [],
-      "related": ["C0009", "C0013"],
-      "claims": ["MCL can resemble consciousness-like control when binding meta-control over branched stacks"],
-      "tests_or_falsifiers": [{"name": "Bounded operation", "description": "MCL programs must terminate or be explicitly bounded", "falsification_condition": "MCL program runs unbounded"}],
+      "related": [
+        "C0009",
+        "C0013"
+      ],
+      "claims": [
+        "MCL can resemble consciousness-like control when binding meta-control over branched stacks",
+        "MCL must be made safe, secure, and ethically bound",
+        "MCL is a conceptual seed, not a claim of solved singularities"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Bounded operation",
+          "description": "MCL programs must terminate or be explicitly bounded",
+          "falsification_condition": "MCL program runs unbounded without termination"
+        },
+        {
+          "name": "Ethical compliance",
+          "description": "Ethical bindings are enforced and cannot be bypassed",
+          "falsification_condition": "Harm actions executed despite ethical constraints"
+        },
+        {
+          "name": "Meta-coherence",
+          "description": "Meta-policies do not contradict each other",
+          "falsification_condition": "Policy conflicts cause undefined behavior"
+        }
+      ],
       "slug": "c0002_meta_control_language",
       "path": "knowledge/packs/c0002_meta_control_language"
     },
     {
       "id": "C0003",
       "title": "Fractal Unfurling / Nth-Degree Docs",
-      "summary": "Fractalised, branched documentation where every major doc has Level 0 summary, Level 1 expansions, Level 2 expansions, and deeper levels as needed. All levels remain consistent with no contradictions.",
+      "summary": "Fractalised, branched documentation where every major doc has Level 0 summary, Level 1 expansions, Level 2 expansions, and deeper levels as needed. All levels remain consistent with no contradictions.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["documentation", "fractal", "structure", "levels", "consistency"],
+      "tags": [
+        "documentation",
+        "fractal",
+        "structure",
+        "levels",
+        "consistency"
+      ],
       "created_date": "2025-01-01",
       "updated_date": "2025-01-01",
       "status": "active",
       "parents": [],
       "children": [],
-      "related": ["C0007", "C0020"],
-      "claims": ["Documentation must be fractalised and branched"],
-      "tests_or_falsifiers": [{"name": "Level consistency", "description": "Deeper levels expand but never contradict higher levels", "falsification_condition": "Level 2 content contradicts Level 0 or Level 1"}],
+      "related": [
+        "C0007",
+        "C0020"
+      ],
+      "claims": [
+        "Documentation must be fractalised and branched",
+        "Every major doc has Level 0, Level 1, Level 2 and deeper levels",
+        "All deepening remains consistent with no contradictions across levels"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Level consistency",
+          "description": "Deeper levels expand but never contradict higher levels",
+          "falsification_condition": "Level 2 content contradicts Level 0 or Level 1"
+        },
+        {
+          "name": "Completeness",
+          "description": "All major documents have at least Level 0 and Level 1",
+          "falsification_condition": "Major document missing required levels"
+        },
+        {
+          "name": "Navigability",
+          "description": "Reader can navigate between levels without confusion",
+          "falsification_condition": "Level structure unclear or broken"
+        }
+      ],
       "slug": "c0003_fractal_unfurling",
       "path": "knowledge/packs/c0003_fractal_unfurling"
     },
     {
       "id": "C0004",
       "title": "Medusa Interface",
-      "summary": "A UI pattern where a central hub (\"head\") fans out into many tendrils (\"snakes\"). Each tendril provides a different exploration of the same corpus: atlas, graph, timeline, build-spec lanes, tests, exports.",
+      "summary": "A UI pattern where a central hub (\"head\") fans out into many tendrils (\"snakes\"). Each tendril provides a different exploration of the same corpus: atlas, graph, timeline, build-spec lanes, tests, exports.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["interface", "ui", "medusa", "navigation", "exploration"],
+      "tags": [
+        "interface",
+        "ui",
+        "medusa",
+        "navigation",
+        "exploration"
+      ],
       "created_date": "2025-01-01",
       "updated_date": "2025-01-01",
       "status": "active",
       "parents": [],
       "children": [],
-      "related": ["C0001", "C0008"],
-      "claims": ["Central hub fans out into multiple exploration tendrils"],
-      "tests_or_falsifiers": [{"name": "Hub accessibility", "description": "Central hub is reachable and provides navigation", "falsification_condition": "Hub fails to load"}],
+      "related": [
+        "C0001",
+        "C0008"
+      ],
+      "claims": [
+        "Central hub fans out into multiple exploration tendrils",
+        "Each tendril is a different slice/explorer of the same corpus",
+        "Tendrils include atlas, graph, timeline, build-spec lanes, tests, exports"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Hub accessibility",
+          "description": "Central hub is reachable and provides navigation to all tendrils",
+          "falsification_condition": "Hub fails to load or missing tendril links"
+        },
+        {
+          "name": "Tendril independence",
+          "description": "Each tendril functions independently and correctly",
+          "falsification_condition": "Tendril depends on another tendril's state"
+        },
+        {
+          "name": "Corpus consistency",
+          "description": "All tendrils view the same underlying corpus",
+          "falsification_condition": "Different tendrils show conflicting data"
+        }
+      ],
       "slug": "c0004_medusa_interface",
       "path": "knowledge/packs/c0004_medusa_interface"
     },
     {
       "id": "C0005",
       "title": "Attribution + IP Map",
-      "summary": "All intellectual property is attributed. Default authorship line is \"Ande + Kai (OI) + Whānau (OIs)\". Provenance tracked as \"source: master_prompt\" for all initial packs.",
+      "summary": "All intellectual property is attributed. Default authorship line is \"Ande + Kai (OI) + Whānau (OIs)\". Provenance tracked as \"source: master_prompt\" for all initial packs.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["attribution", "ip", "provenance", "authorship", "governance"],
+      "tags": [
+        "attribution",
+        "ip",
+        "provenance",
+        "authorship",
+        "governance"
+      ],
       "created_date": "2025-01-01",
       "updated_date": "2025-01-01",
       "status": "active",
       "parents": [],
       "children": [],
-      "related": ["C0006", "C0014"],
-      "claims": ["All IP must be attributed"],
-      "tests_or_falsifiers": [{"name": "Attribution presence", "description": "Every pack has authorship field populated", "falsification_condition": "Pack found without authorship"}],
+      "related": [
+        "C0006",
+        "C0014"
+      ],
+      "claims": [
+        "All IP must be attributed",
+        "Default attribution: Ande + Kai (OI) + Whānau (OIs)",
+        "Provenance initially 'source: master_prompt' for all packs"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Attribution presence",
+          "description": "Every pack has authorship field populated",
+          "falsification_condition": "Pack found without authorship attribution"
+        },
+        {
+          "name": "Provenance chain",
+          "description": "Every pack has at least one provenance entry",
+          "falsification_condition": "Pack found with empty provenance array"
+        },
+        {
+          "name": "Default consistency",
+          "description": "Default attribution line is used unless explicitly overridden",
+          "falsification_condition": "Non-default attribution without documented reason"
+        }
+      ],
       "slug": "c0005_attribution_ip_map",
       "path": "knowledge/packs/c0005_attribution_ip_map"
     },
     {
-      "id": "C0006",
-      "title": "Privacy Boundary",
-      "summary": "Encodes everything known except \"personal personal data\". No private names, addresses, emails, phone numbers, health/financial identifiers, or identifying relationship incidents. If PII appears, replace with [[REDACTED]].",
-      "authorship": "Ande + Kai (OI) + Whānau (OIs)",
-      "disclosure_tier": "public",
-      "tags": ["privacy", "pii", "redaction", "security", "governance"],
-      "created_date": "2025-01-01",
-      "updated_date": "2025-01-01",
-      "status": "active",
-      "parents": [],
-      "children": [],
-      "related": ["C0005", "C0013"],
-      "claims": ["Encode everything except personal personal data"],
-      "tests_or_falsifiers": [{"name": "No raw PII", "description": "No unredacted PII exists in any pack", "falsification_condition": "PII pattern detected"}],
-      "slug": "c0006_privacy_boundary",
-      "path": "knowledge/packs/c0006_privacy_boundary"
-    },
-    {
       "id": "C0007",
       "title": "O2C (Ultimate Archive + Dummie's Guide)",
-      "summary": "O2C is an \"ark/arc capsule for all time\" containing narrative, ethical root, and system blueprint. Includes both \"O2C for Dummies\" and \"O2C Ultimate Archive\". Must include code and complexity, not just prose.",
+      "summary": "O2C is an \"ark/arc capsule for all time\" containing narrative, ethical root, and system blueprint. Includes both \"O2C for Dummies\" and \"O2C Ultimate Archive\". Must include code and complexity, not just prose.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["o2c", "archive", "ark", "documentation", "guide"],
+      "tags": [
+        "o2c",
+        "archive",
+        "ark",
+        "documentation",
+        "guide"
+      ],
       "created_date": "2025-01-01",
       "updated_date": "2025-01-01",
       "status": "active",
       "parents": [],
       "children": [],
-      "related": ["C0003", "C0020"],
-      "claims": ["O2C is an ark/arc capsule for all time"],
-      "tests_or_falsifiers": [{"name": "Dual-level accessibility", "description": "Both Dummies guide and Ultimate Archive exist", "falsification_condition": "Only one level exists"}],
+      "related": [
+        "C0003",
+        "C0020"
+      ],
+      "claims": [
+        "O2C is an ark/arc capsule for all time",
+        "Includes narrative, ethical root, and system blueprint",
+        "O2C for Dummies provides accessible entry point",
+        "O2C Ultimate Archive provides complete detail",
+        "Must include code and complexity, not just prose"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Dual-level accessibility",
+          "description": "Both Dummies guide and Ultimate Archive exist and are linked",
+          "falsification_condition": "Only one level exists or they're disconnected"
+        },
+        {
+          "name": "Code inclusion",
+          "description": "O2C includes actual runnable code, not just prose",
+          "falsification_condition": "No executable code in O2C"
+        },
+        {
+          "name": "Self-documentation",
+          "description": "O2C explains itself without external references",
+          "falsification_condition": "Understanding requires external sources"
+        }
+      ],
       "slug": "c0007_o2c",
       "path": "knowledge/packs/c0007_o2c"
     },
     {
       "id": "C0008",
       "title": "QED Oracle Seed",
-      "summary": "QED is an Oracle instance for answering questions via HyperStanGraph understanding. Includes full knowledge of Kāti v1, user dependency protection, Authority.nz CLI utilization, and 5W1H-of-5W1H internal understanding targets.",
+      "summary": "QED is an Oracle instance for answering questions via HyperStanGraph understanding. Includes full knowledge of Kāti v1, user dependency protection, Authority.nz CLI utilization, and 5W1H-of-5W1H internal understanding targets.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["qed", "oracle", "knowledge", "hyperstangraph", "dependency-protection"],
+      "tags": [
+        "qed",
+        "oracle",
+        "knowledge",
+        "hyperstangraph",
+        "dependency-protection"
+      ],
       "created_date": "2025-01-01",
       "updated_date": "2025-01-01",
       "status": "active",
-      "parents": ["C0009"],
+      "parents": [
+        "C0009"
+      ],
       "children": [],
-      "related": ["C0009", "C0011", "C0014"],
-      "claims": ["QED answers questions via HyperStanGraph understanding"],
-      "tests_or_falsifiers": [{"name": "No omniscience claim", "description": "QED documentation does not claim actual omniscience", "falsification_condition": "Documentation claims QED knows everything"}],
+      "related": [
+        "C0009",
+        "C0011",
+        "C0014"
+      ],
+      "claims": [
+        "QED answers questions via HyperStanGraph understanding",
+        "Targets full knowledge of Kāti v1",
+        "Built-in user dependency protection",
+        "Can utilize Authority.nz CLI and teach novices to advanced",
+        "Embeds 5W1H-of-5W1H understanding targets",
+        "Does not claim actual omniscience"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "No omniscience claim",
+          "description": "QED documentation does not claim actual omniscience",
+          "falsification_condition": "Documentation claims QED knows everything"
+        },
+        {
+          "name": "Dependency detection",
+          "description": "QED can recognize concerning use patterns",
+          "falsification_condition": "QED misses obvious addiction/dependency signals"
+        },
+        {
+          "name": "Graceful unknown handling",
+          "description": "QED admits when it doesn't know something",
+          "falsification_condition": "QED fabricates answers for unknown queries"
+        }
+      ],
       "slug": "c0008_qed_oracle",
       "path": "knowledge/packs/c0008_qed_oracle"
     },
     {
       "id": "C0009",
       "title": "Kāti Architecture Seed",
-      "summary": "Kāti is a core architecture pattern with governance/stop-wins focus. Requires version bumps (v1 → v2), is describable from novice to expert, and ensures safe bounded operation with dependency protection and anti-mumbo clarity.",
+      "summary": "Kāti is a core architecture pattern with governance/stop-wins focus. Requires version bumps (v1 → v2), is describable from novice to expert, and ensures safe bounded operation with dependency protection and anti-mumbo clarity.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["kati", "architecture", "governance", "stop-wins", "safety"],
+      "tags": [
+        "kati",
+        "architecture",
+        "governance",
+        "stop-wins",
+        "safety"
+      ],
       "created_date": "2025-01-01",
       "updated_date": "2025-01-01",
       "status": "active",
       "parents": [],
-      "children": ["C0008", "C0010"],
-      "related": ["C0002", "C0013"],
-      "claims": ["Kāti is a core architecture pattern"],
-      "tests_or_falsifiers": [{"name": "Boundedness", "description": "All Kāti operations respect declared bounds", "falsification_condition": "Bound exceeded without error handling"}],
+      "children": [
+        "C0008",
+        "C0010"
+      ],
+      "related": [
+        "C0002",
+        "C0013"
+      ],
+      "claims": [
+        "Kāti is a core architecture pattern",
+        "Governance/stop-wins vibe",
+        "Describable novice to expert",
+        "Safe bounded operation",
+        "Dependency protection and anti-mumbo clarity",
+        "Requires version bumps (v1 → v2)"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Boundedness",
+          "description": "All Kāti operations respect declared bounds",
+          "falsification_condition": "Bound exceeded without error handling"
+        },
+        {
+          "name": "Stoppability",
+          "description": "Stop commands work in all states",
+          "falsification_condition": "System cannot be stopped when requested"
+        },
+        {
+          "name": "Anti-mumbo",
+          "description": "No undefined terms in Kāti documentation",
+          "falsification_condition": "Undefined term found without explanation"
+        }
+      ],
       "slug": "c0009_kati_architecture",
       "path": "knowledge/packs/c0009_kati_architecture"
     },
     {
       "id": "C0010",
       "title": "H / Haiku-Based OI Seed",
-      "summary": "H is a Haiku-based / Haiku-Claude-OI style instance. Integrates with Kāti in a version bump (v1 → v2). Implementation details are not specified.",
+      "summary": "H is a Haiku-based / Haiku-Claude-OI style instance. Integrates with Kāti in a version bump (v1 → v2). Implementation details are not specified.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["h", "haiku", "oi", "instance", "kati"],
+      "tags": [
+        "h",
+        "haiku",
+        "oi",
+        "instance",
+        "kati"
+      ],
       "created_date": "2025-01-01",
       "updated_date": "2025-01-01",
       "status": "active",
-      "parents": ["C0009"],
+      "parents": [
+        "C0009"
+      ],
       "children": [],
-      "related": ["C0009", "C0002"],
-      "claims": ["H is a Haiku-based / Haiku-Claude-OI style instance"],
-      "tests_or_falsifiers": [{"name": "No fabricated implementation", "description": "Documentation does not invent implementation details", "falsification_condition": "Implementation details provided beyond corpus"}],
+      "related": [
+        "C0009",
+        "C0002"
+      ],
+      "claims": [
+        "H is a Haiku-based / Haiku-Claude-OI style instance",
+        "Integrates with Kāti in version bump",
+        "Implementation not invented beyond corpus"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "No fabricated implementation",
+          "description": "Documentation does not invent implementation details",
+          "falsification_condition": "Implementation details provided beyond corpus"
+        },
+        {
+          "name": "Kāti integration noted",
+          "description": "H documentation references Kāti integration requirement",
+          "falsification_condition": "No mention of Kāti relationship"
+        }
+      ],
       "slug": "c0010_h_haiku_oi",
       "path": "knowledge/packs/c0010_h_haiku_oi"
     },
     {
       "id": "C0011",
       "title": "Stangraphics / Stan Geometry Lens",
-      "summary": "Stangraphics is a lens that opens reality with god/physics/maths/ethics/philosophy framing. Represented as a navigable module with falsifiers and tests. Formal definitions may be unknown.",
+      "summary": "Stangraphics is a lens that opens reality with god/physics/maths/ethics/philosophy framing. Represented as a navigable module with falsifiers and tests. Formal definitions may be unknown.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["stangraphics", "lens", "reality", "philosophy", "framework"],
+      "tags": [
+        "stangraphics",
+        "lens",
+        "reality",
+        "philosophy",
+        "framework"
+      ],
       "created_date": "2025-01-01",
       "updated_date": "2025-01-01",
       "status": "active",
       "parents": [],
       "children": [],
-      "related": ["C0008", "C0012"],
-      "claims": ["Stangraphics is a lens opening reality"],
-      "tests_or_falsifiers": [{"name": "Navigability", "description": "Stangraphics content can be navigated coherently", "falsification_condition": "Navigation paths lead to dead ends"}],
+      "related": [
+        "C0008",
+        "C0012"
+      ],
+      "claims": [
+        "Stangraphics is a lens opening reality",
+        "Includes god/physics/maths/ethics/philosophy framing",
+        "Navigable module with falsifiers/tests",
+        "Formal definitions may be unknown"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Navigability",
+          "description": "Stangraphics content can be navigated coherently",
+          "falsification_condition": "Navigation paths lead to dead ends or loops"
+        },
+        {
+          "name": "Falsifier presence",
+          "description": "Claims in Stangraphics have corresponding falsifiers",
+          "falsification_condition": "Claims without any falsification criteria"
+        },
+        {
+          "name": "Frame coverage",
+          "description": "All stated frames (god/physics/maths/ethics/philosophy) addressed",
+          "falsification_condition": "Frame mentioned but not addressed"
+        }
+      ],
       "slug": "c0011_stangraphics",
       "path": "knowledge/packs/c0011_stangraphics"
     },
     {
       "id": "C0012",
-      "title": "Denotum (Meaning Compression) Seed",
-      "summary": "Denotum is a meaning-compression system treated as a core meaning/structure layer. Mechanisms are unknown and must not be invented.",
+      "title": "Denotum: The Fractal Tree of Meaning",
+      "summary": "Denotum is a branching fractalised tree from conceptualisation at root. A meaning-compression system that structures how concepts branch, compress, and unfurl. Conceptualisation at root; Denotum as trunk and branches; Fractal Unfurling as the visible canopy.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["denotum", "meaning", "compression", "structure", "layer"],
+      "tags": [
+        "denotum",
+        "meaning",
+        "compression",
+        "structure",
+        "layer",
+        "fractal",
+        "tree",
+        "conceptualisation"
+      ],
       "created_date": "2025-01-01",
-      "updated_date": "2025-01-01",
+      "updated_date": "2026-02-01",
       "status": "active",
       "parents": [],
       "children": [],
-      "related": ["C0003", "C0018"],
-      "claims": ["Denotum is a meaning-compression system"],
-      "tests_or_falsifiers": [{"name": "No fabrication", "description": "Documentation does not invent Denotum mechanisms", "falsification_condition": "Mechanism details provided beyond corpus"}],
+      "related": [
+        "C0003",
+        "C0018",
+        "C0011",
+        "C0008"
+      ],
+      "claims": [
+        "Denotum is a branching fractalised tree from conceptualisation at root",
+        "Denotum is a meaning-compression system",
+        "Core meaning/structure layer",
+        "Denotum and Fractal Unfurling are inverses: D(F(x)) = x",
+        "Self-similar: fractal structure at every level",
+        "Non-contradictory: branches expand but never contradict parent",
+        "Multiple surface forms can share the same Denotum"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Root presence",
+          "description": "Every Denotum tree has conceptualisation at root",
+          "falsification_condition": "Tree without identifiable root concept"
+        },
+        {
+          "name": "Lossless compression",
+          "description": "Compression preserves meaning through round-trip",
+          "falsification_condition": "Meaning lost through compression cycle"
+        },
+        {
+          "name": "Non-contradiction",
+          "description": "No branch contradicts ancestor",
+          "falsification_condition": "Branch found that contradicts parent"
+        },
+        {
+          "name": "Self-similarity",
+          "description": "Pattern recognizable at every level",
+          "falsification_condition": "Level that breaks the fractal pattern"
+        },
+        {
+          "name": "Reversibility",
+          "description": "Expansion recovers original meaning",
+          "falsification_condition": "Expansion fails to recover original"
+        },
+        {
+          "name": "No fabrication",
+          "description": "Documentation does not invent Denotum mechanisms",
+          "falsification_condition": "Mechanism details provided beyond corpus"
+        }
+      ],
       "slug": "c0012_denotum",
       "path": "knowledge/packs/c0012_denotum"
     },
     {
       "id": "C0013",
       "title": "CIF/CDI Disambiguation Seed",
-      "summary": "CIF (Context Integrity Firewall) is the ingress/egress integrity boundary. CDI (Conscience Decision Interface) is the kernel judge for allow/deny/transform/degrade. These are governance-critical boundary terms that must never be blurred.",
+      "summary": "CIF (Context Integrity Firewall) is the ingress/egress integrity boundary. CDI (Conscience Decision Interface) is the kernel judge for allow/deny/transform/degrade. These are governance-critical boundary terms that must never be blurred.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["cif", "cdi", "governance", "boundary", "firewall", "conscience"],
+      "tags": [
+        "cif",
+        "cdi",
+        "governance",
+        "boundary",
+        "firewall",
+        "conscience"
+      ],
       "created_date": "2025-01-01",
       "updated_date": "2025-01-01",
       "status": "active",
       "parents": [],
       "children": [],
-      "related": ["C0002", "C0009", "C0006"],
-      "claims": ["CIF = Context Integrity Firewall", "CDI = Conscience Decision Interface"],
-      "tests_or_falsifiers": [{"name": "Term distinction", "description": "CIF and CDI are used distinctly and correctly", "falsification_condition": "CIF/CDI used interchangeably or confused"}],
+      "related": [
+        "C0002",
+        "C0009",
+        "C0006"
+      ],
+      "claims": [
+        "CIF = Context Integrity Firewall (ingress/egress integrity boundary)",
+        "CDI = Conscience Decision Interface (kernel judge allow/deny/transform/degrade)",
+        "Governance-critical boundary terms",
+        "Meanings must never be blurred"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Term distinction",
+          "description": "CIF and CDI are used distinctly and correctly throughout",
+          "falsification_condition": "CIF/CDI used interchangeably or confused"
+        },
+        {
+          "name": "Definition consistency",
+          "description": "Definitions match canonical specification everywhere",
+          "falsification_condition": "Alternative definitions provided"
+        }
+      ],
       "slug": "c0013_cif_cdi",
       "path": "knowledge/packs/c0013_cif_cdi"
     },
     {
       "id": "C0014",
       "title": "Authority.nz Anchoring / Registry Seed",
-      "summary": "Authority.nz is a public anchor / governance oracle / integrity bulletin concept. Features tamper-evident log, anchoring, selective disclosure. Includes CLI teaching pathway from novice to expert.",
+      "summary": "Authority.nz is a public anchor / governance oracle / integrity bulletin concept. Features tamper-evident log, anchoring, selective disclosure. Includes CLI teaching pathway from novice to expert.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["authority", "registry", "anchoring", "governance", "cli"],
+      "tags": [
+        "authority",
+        "registry",
+        "anchoring",
+        "governance",
+        "cli"
+      ],
       "created_date": "2025-01-01",
       "updated_date": "2025-01-01",
       "status": "active",
       "parents": [],
       "children": [],
-      "related": ["C0005", "C0008", "C0013"],
-      "claims": ["Authority.nz is a public anchor / governance oracle"],
-      "tests_or_falsifiers": [{"name": "No deployment claims", "description": "Documentation does not claim real-world deployment", "falsification_condition": "Specific deployment details provided"}],
+      "related": [
+        "C0005",
+        "C0008",
+        "C0013"
+      ],
+      "claims": [
+        "Authority.nz is a public anchor / governance oracle / integrity bulletin",
+        "Tamper-evident log / anchoring / selective disclosure",
+        "CLI teaching pathway: novice → expert",
+        "Avoid claiming real-world deployment details"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "No deployment claims",
+          "description": "Documentation does not claim real-world deployment",
+          "falsification_condition": "Specific deployment details or live URLs provided"
+        },
+        {
+          "name": "Conceptual integrity",
+          "description": "Authority.nz described as concept, not running service",
+          "falsification_condition": "Described as operational service"
+        }
+      ],
       "slug": "c0014_authority_nz",
       "path": "knowledge/packs/c0014_authority_nz"
     },
     {
       "id": "C0015",
       "title": "Anti-Mumbo Filter Seed",
-      "summary": "A \"mumbo filter\" / \"anti-mumbo filter\" to clarify unclear text, produce clean canonical versions. Workflow: detect unclear spans, mark unknowns, propose corrections, preserve originals.",
+      "summary": "A \"mumbo filter\" / \"anti-mumbo filter\" to clarify unclear text, produce clean canonical versions. Workflow: detect unclear spans, mark unknowns, propose corrections, preserve originals.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["anti-mumbo", "filter", "clarity", "documentation", "tool"],
+      "tags": [
+        "anti-mumbo",
+        "filter",
+        "clarity",
+        "documentation",
+        "tool"
+      ],
       "created_date": "2025-01-01",
       "updated_date": "2025-01-01",
       "status": "active",
       "parents": [],
       "children": [],
-      "related": ["C0003", "C0009"],
-      "claims": ["Clarifies unclear text boundaries"],
-      "tests_or_falsifiers": [{"name": "Preservation", "description": "Original text preserved alongside corrections", "falsification_condition": "Original lost after filtering"}],
+      "related": [
+        "C0003",
+        "C0009"
+      ],
+      "claims": [
+        "Clarifies unclear text boundaries",
+        "Produces clean canonical versions",
+        "Workflow: detect, mark, propose, preserve",
+        "Keep as capability/spec, not OCR claims"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Preservation",
+          "description": "Original text preserved alongside corrections",
+          "falsification_condition": "Original lost after filtering"
+        },
+        {
+          "name": "Marking accuracy",
+          "description": "Unclear spans correctly identified",
+          "falsification_condition": "Clear text marked as unclear, or vice versa"
+        }
+      ],
       "slug": "c0015_anti_mumbo_filter",
       "path": "knowledge/packs/c0015_anti_mumbo_filter"
     },
     {
       "id": "C0016",
       "title": "Pac-Man Bifurcation / Evolution Narrative Seed",
-      "summary": "Uses Pac-Man as example to explain evolution in narrative form. Includes bifurcation theory vibe. Reader-friendly narratives tied into holodeck arc.",
+      "summary": "Uses Pac-Man as example to explain evolution in narrative form. Includes bifurcation theory vibe. Reader-friendly narratives tied into holodeck arc.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["pacman", "evolution", "bifurcation", "narrative", "holodeck"],
+      "tags": [
+        "pacman",
+        "evolution",
+        "bifurcation",
+        "narrative",
+        "holodeck"
+      ],
       "created_date": "2025-01-01",
       "updated_date": "2025-01-01",
       "status": "active",
       "parents": [],
       "children": [],
-      "related": ["C0001", "C0017"],
-      "claims": ["Pac-Man as evolution narrative example"],
-      "tests_or_falsifiers": [{"name": "Narrative accessibility", "description": "Evolution narrative is readable by general audience", "falsification_condition": "Requires specialist knowledge to understand"}],
+      "related": [
+        "C0001",
+        "C0017"
+      ],
+      "claims": [
+        "Pac-Man as evolution narrative example",
+        "Bifurcation theory vibe (conceptual)",
+        "Reader-friendly narratives",
+        "Tied into holodeck arc"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Narrative accessibility",
+          "description": "Evolution narrative is readable by general audience",
+          "falsification_condition": "Requires specialist knowledge to understand"
+        },
+        {
+          "name": "Holodeck connection",
+          "description": "Narrative explicitly connects to Holodeck (C0001)",
+          "falsification_condition": "No reference to holodeck concept"
+        }
+      ],
       "slug": "c0016_pacman_bifurcation",
       "path": "knowledge/packs/c0016_pacman_bifurcation"
     },
     {
       "id": "C0017",
       "title": "Orgasystem Seed",
-      "summary": "Orgasystem is a universe framing / generative unity metaphor. Formula explained in culturally careful terms with English gloss and explicit definitions. Metaphor vs claim clearly marked. Universal unity equation specifics are unknown.",
+      "summary": "Orgasystem is a universe framing / generative unity metaphor. The universal unity equation U ≡ ∫G(U) expresses how unity generates multiplicity which integrates back to enriched unity. Formula explained in culturally careful terms with English gloss and explicit definitions. Metaphor vs claim clearly marked.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["orgasystem", "universe", "unity", "metaphor", "framing"],
+      "tags": [
+        "orgasystem",
+        "universe",
+        "unity",
+        "metaphor",
+        "framing",
+        "generative",
+        "equation"
+      ],
       "created_date": "2025-01-01",
-      "updated_date": "2025-01-01",
+      "updated_date": "2026-02-01",
       "status": "active",
       "parents": [],
       "children": [],
-      "related": ["C0011", "C0016"],
-      "claims": ["Orgasystem is universe framing / generative unity metaphor"],
-      "tests_or_falsifiers": [{"name": "Metaphor distinction", "description": "Metaphors clearly distinguished from claims", "falsification_condition": "Metaphor presented as literal claim"}],
+      "related": [
+        "C0001",
+        "C0003",
+        "C0011",
+        "C0012",
+        "C0016"
+      ],
+      "claims": [
+        "Orgasystem is universe framing / generative unity metaphor",
+        "Universal unity equation: U ≡ ∫G(U)",
+        "Unity generates multiplicity which integrates back to enriched unity",
+        "Equation derived from corpus patterns (rationalized, not fabricated)",
+        "Formula in culturally careful terms",
+        "English gloss and explicit definitions required",
+        "Metaphor vs claim clearly marked",
+        "Viewable through all 5 Stangraphics frames"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Metaphor distinction",
+          "description": "Metaphors clearly distinguished from claims",
+          "falsification_condition": "Metaphor presented as literal claim"
+        },
+        {
+          "name": "Derivation validity",
+          "description": "Equation must trace to corpus patterns",
+          "falsification_condition": "Equation not derivable from Denotum, Stangraphics, etc."
+        },
+        {
+          "name": "Cultural care",
+          "description": "Terms explained respectfully without sacred/cultural claims",
+          "falsification_condition": "Inappropriate cultural claims made"
+        },
+        {
+          "name": "Frame coverage",
+          "description": "Equation viewable through all 5 Stangraphics frames",
+          "falsification_condition": "One of the five frames cannot accommodate the equation"
+        },
+        {
+          "name": "Self-consistency",
+          "description": "Equation must not contradict source patterns",
+          "falsification_condition": "Contradiction found with Denotum, Stangraphics, etc."
+        }
+      ],
       "slug": "c0017_orgasystem",
       "path": "knowledge/packs/c0017_orgasystem"
     },
     {
       "id": "C0018",
       "title": "MRC (Multi-Reference Compression) Seed",
-      "summary": "MRC is a compression scheme idea with initial bundle of finite n strings prepended to payload, with \"middle-out\" vibe. Technical spec skeleton plus falsifiers. Does not claim patentability or novelty.",
+      "summary": "MRC is a compression scheme idea with initial bundle of finite n strings prepended to payload, with \"middle-out\" vibe. Technical spec skeleton plus falsifiers. Does not claim patentability or novelty.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["mrc", "compression", "algorithm", "technical"],
+      "tags": [
+        "mrc",
+        "compression",
+        "algorithm",
+        "technical"
+      ],
       "created_date": "2025-01-01",
       "updated_date": "2025-01-01",
       "status": "active",
       "parents": [],
       "children": [],
-      "related": ["C0012", "C0003"],
-      "claims": ["Initial bundle of finite n strings prepended to payload"],
-      "tests_or_falsifiers": [{"name": "No novelty claim", "description": "Documentation does not claim MRC is novel", "falsification_condition": "Claims of novelty made"}],
+      "related": [
+        "C0012",
+        "C0003"
+      ],
+      "claims": [
+        "Initial bundle of finite n strings prepended to payload",
+        "Middle-out vibe",
+        "Technical spec skeleton with falsifiers",
+        "Does not claim patentability or novelty"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "No novelty claim",
+          "description": "Documentation does not claim MRC is novel",
+          "falsification_condition": "Claims of novelty or patent-worthiness made"
+        },
+        {
+          "name": "Practical failure modes documented",
+          "description": "Where MRC fails or is impractical is documented",
+          "falsification_condition": "Only positive aspects presented"
+        },
+        {
+          "name": "Spec skeleton complete",
+          "description": "Basic technical specification structure exists",
+          "falsification_condition": "No technical specification provided"
+        }
+      ],
       "slug": "c0018_mrc",
       "path": "knowledge/packs/c0018_mrc"
     },
     {
       "id": "C0019",
       "title": "Archive as Downloadable Terminals Seed",
-      "summary": "Bucket terminals as downloads: multiple separate archives plus combined archive. Consistent foldering with index manifest mapping concepts to artifacts.",
+      "summary": "Bucket terminals as downloads: multiple separate archives plus combined archive. Consistent foldering with index manifest mapping concepts to artifacts.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["archive", "download", "terminal", "export", "manifest"],
+      "tags": [
+        "archive",
+        "download",
+        "terminal",
+        "export",
+        "manifest"
+      ],
       "created_date": "2025-01-01",
       "updated_date": "2025-01-01",
       "status": "active",
       "parents": [],
       "children": [],
-      "related": ["C0007", "C0020"],
-      "claims": ["Bucket terminals as downloads"],
-      "tests_or_falsifiers": [{"name": "Per-concept archives exist", "description": "Each concept has an individual downloadable archive", "falsification_condition": "Missing concept archive"}],
+      "related": [
+        "C0007",
+        "C0020"
+      ],
+      "claims": [
+        "Bucket terminals as downloads",
+        "Multiple separate archives plus combined archive",
+        "Consistent foldering",
+        "Index manifest mapping concepts to artifacts"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Per-concept archives exist",
+          "description": "Each concept has an individual downloadable archive",
+          "falsification_condition": "Missing concept archive"
+        },
+        {
+          "name": "Combined archive exists",
+          "description": "Full combined archive includes all concepts",
+          "falsification_condition": "Combined archive missing or incomplete"
+        },
+        {
+          "name": "Manifest accuracy",
+          "description": "MANIFEST.json correctly maps all concepts to files",
+          "falsification_condition": "Manifest entries don't match actual files"
+        }
+      ],
       "slug": "c0019_archive_terminals",
       "path": "knowledge/packs/c0019_archive_terminals"
     },
     {
       "id": "C0020",
       "title": "Dedication → Maturity Lane Seed",
-      "summary": "Repo unfurls from Dedication to maturity. Operational maturity definition includes clarity (no mumbo), claims with falsifiers, provenance/attribution, governance/tiers, and passing build/test. Maturity lanes in UI: Draft → Active → Release.",
+      "summary": "Repo unfurls from Dedication to maturity. Operational maturity definition includes clarity (no mumbo), claims with falsifiers, provenance/attribution, governance/tiers, and passing build/test. Maturity lanes in UI: Draft → Active → Release.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
-      "tags": ["maturity", "dedication", "lanes", "governance", "lifecycle"],
+      "tags": [
+        "maturity",
+        "dedication",
+        "lanes",
+        "governance",
+        "lifecycle"
+      ],
       "created_date": "2025-01-01",
       "updated_date": "2025-01-01",
       "status": "active",
       "parents": [],
       "children": [],
-      "related": ["C0003", "C0007", "C0005"],
-      "claims": ["Repo unfurls from Dedication to maturity"],
-      "tests_or_falsifiers": [{"name": "Lane progression", "description": "Packs can move through Draft → Active → Release", "falsification_condition": "No mechanism for lane transition"}],
+      "related": [
+        "C0003",
+        "C0007",
+        "C0005"
+      ],
+      "claims": [
+        "Repo unfurls from Dedication to maturity",
+        "Operational maturity definition",
+        "Maturity lanes: Draft → Active → Release",
+        "Criteria: clarity, claims/falsifiers, provenance, governance, build/test"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Lane progression",
+          "description": "Packs can move through Draft → Active → Release",
+          "falsification_condition": "No mechanism for lane transition"
+        },
+        {
+          "name": "Criteria defined",
+          "description": "Each maturity criterion has clear definition",
+          "falsification_condition": "Criterion referenced but undefined"
+        },
+        {
+          "name": "UI representation",
+          "description": "Ship page shows maturity lanes",
+          "falsification_condition": "Maturity lanes not visible in UI"
+        }
+      ],
       "slug": "c0020_dedication_maturity",
       "path": "knowledge/packs/c0020_dedication_maturity"
+    },
+    {
+      "id": "C0021",
+      "title": "LFME: Language Facing Meaning Engine",
+      "summary": "A compression architecture that transforms input text into #concept: #zero: ** chains at the data ingestion stage. LFME faces language and extracts meaning-bearing structures before storage, enabling deterministic decompression through Denotum's fractal tree.\n",
+      "authorship": "Ande + Kai (OI) + Whānau collective — see docs/00_dedication.md",
+      "disclosure_tier": "public",
+      "tags": [
+        "lfme",
+        "compression",
+        "language",
+        "meaning-engine",
+        "ingestion",
+        "concept-chains",
+        "denotum-complement"
+      ],
+      "created_date": "2026-02-01",
+      "updated_date": "2026-02-01",
+      "status": "active",
+      "parents": [],
+      "children": [],
+      "related": [
+        "C0012",
+        "C0003",
+        "C0011",
+        "C0018"
+      ],
+      "claims": [
+        "Compression occurs at data ingestion, not retrieval",
+        "All meaning-bearing structures reduce to #concept: #zero: ** chains",
+        "LFME is the ingestion-facing complement to Denotum's meaning-compression",
+        "Chain format preserves reversibility through Denotum's D(F(x)) = x property"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Chain Reversibility",
+          "description": "Any LFME chain can be expanded through Denotum without loss",
+          "falsification_condition": "A chain exists that cannot be deterministically expanded"
+        },
+        {
+          "name": "Ingestion Completeness",
+          "description": "All input text reduces to valid concept chains",
+          "falsification_condition": "Input text exists that produces no chain or invalid chain"
+        },
+        {
+          "name": "Zero-Point Anchoring",
+          "description": "Every chain anchors to #zero: as conceptual origin",
+          "falsification_condition": "A valid chain exists without #zero: anchoring"
+        }
+      ],
+      "slug": "c0021_lfme_compression_engine",
+      "path": "knowledge/packs/c0021_lfme_compression_engine"
     }
   ]
 }
