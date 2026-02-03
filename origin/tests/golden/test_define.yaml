@@ -1,0 +1,23 @@
+# Golden test: define query
+# Tests the ability to look up concept definitions
+
+---
+name: "Define Holodeck concept"
+query: "define Holodeck"
+expected_type: "object"
+expected_fields:
+  - "id"
+  - "type"
+  - "title"
+  - "summary"
+expected_answer_contains:
+  type: "Concept"
+expected_trace_contains:
+  - "search"
+  - "lookup"
+
+---
+name: "Define unknown term returns UNKNOWN"
+query: "define XYZ_NONEXISTENT_TERM_12345"
+expected_answer: "UNKNOWN"
+expected_unknown_reason_contains: "No definition found"

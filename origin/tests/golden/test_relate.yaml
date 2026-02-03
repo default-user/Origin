@@ -1,0 +1,20 @@
+# Golden test: relate query
+# Tests the ability to find paths between concepts
+
+---
+name: "Relate two known concepts"
+query: "relate C0001 C0002"
+expected_type: "object"
+expected_fields:
+  - "from"
+  - "to"
+  - "path"
+  - "relationships"
+expected_trace_contains:
+  - "graph_traverse"
+
+---
+name: "Relate unknown concept returns UNKNOWN"
+query: "relate C0001 UNKNOWN_CONCEPT_XYZ"
+expected_answer: "UNKNOWN"
+expected_unknown_reason_contains: "Could not resolve"
