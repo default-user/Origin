@@ -165,6 +165,7 @@ function handleDefine(
   // Find matching entities via inverted index
   const entityScores = new Map<string, number>();
   const entityCitations = new Map<string, Citation>();
+  const entityTokenMatches = new Map<string, Set<string>>();
 
   for (const token of tokens) {
     const hits = search.invertedIndex[token] || [];
@@ -174,6 +175,11 @@ function handleDefine(
       if (!entityCitations.has(hit.entityId)) {
         entityCitations.set(hit.entityId, hit.citation);
       }
+      // Track which tokens matched for coverage calculation
+      if (!entityTokenMatches.has(hit.entityId)) {
+        entityTokenMatches.set(hit.entityId, new Set());
+      }
+      entityTokenMatches.get(hit.entityId)!.add(token);
     }
   }
 
@@ -183,17 +189,38 @@ function handleDefine(
   );
   if (exactEntity) {
     entityScores.set(exactEntity.id, (entityScores.get(exactEntity.id) || 0) + 100);
+    // Exact match gets full token coverage
+    if (!entityTokenMatches.has(exactEntity.id)) {
+      entityTokenMatches.set(exactEntity.id, new Set(tokens));
+    }
+  }
+
+  // Filter entities by token coverage - require at least 50% of search tokens to match
+  // This prevents false positives from single-token partial matches
+  const MIN_TOKEN_COVERAGE = 0.5;
+  const filteredEntityScores = new Map<string, number>();
+  for (const [entityId, score] of entityScores) {
+    const matchedTokens = entityTokenMatches.get(entityId)?.size || 0;
+    const coverage = tokens.length > 0 ? matchedTokens / tokens.length : 0;
+    if (coverage >= MIN_TOKEN_COVERAGE) {
+      filteredEntityScores.set(entityId, score);
+    }
   }
 
   // Sort by score
-  const rankedEntities = Array.from(entityScores.entries())
-    .sort((a, b) => b[1] - a[1])
-    .map(([id]) => id);
+  const rankedEntitiesWithScores = Array.from(filteredEntityScores.entries())
+    .sort((a, b) => b[1] - a[1]);
 
-  if (rankedEntities.length === 0) {
+  // Minimum score threshold: require at least one strong match
+  const MIN_SCORE_THRESHOLD = 1.0;
+  const topScore = rankedEntitiesWithScores[0]?.[1] || 0;
+
+  if (rankedEntitiesWithScores.length === 0 || topScore < MIN_SCORE_THRESHOLD) {
     trace.push({
       stepType: "lookup",
-      details: "No matching entities found",
+      details: rankedEntitiesWithScores.length === 0
+        ? "No matching entities found"
+        : `Best match score (${topScore.toFixed(2)}) below threshold (${MIN_SCORE_THRESHOLD})`,
     });
 
     return {
@@ -205,6 +232,8 @@ function handleDefine(
       timestamp: new Date().toISOString(),
     };
   }
+
+  const rankedEntities = rankedEntitiesWithScores.map(([id]) => id);
 
   trace.push({
     stepType: "lookup",

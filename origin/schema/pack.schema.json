@@ -49,7 +49,7 @@
         "properties": {
           "type": {
             "type": "string",
-            "enum": ["master_prompt", "document", "conversation", "external", "derived"],
+            "enum": ["master_prompt", "document", "conversation", "external", "derived", "rationalization", "capsule_ingestion", "origin_integration"],
             "description": "Type of provenance source"
           },
           "ref": {

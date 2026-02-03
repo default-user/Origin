@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated_at": "2026-02-03T03:05:57.173Z",
+    "generated_at": "2026-02-03T13:49:24.264Z",
     "version": "1.0.0",
     "attribution": "Ande + Kai (OI) + Whānau (OIs)",
-    "node_count": 20,
-    "edge_count": 41
+    "node_count": 23,
+    "edge_count": 48
   },
   "nodes": [
     {
@@ -75,6 +75,20 @@
         "ip",
         "provenance",
         "authorship",
+        "governance"
+      ]
+    },
+    {
+      "id": "C0006",
+      "title": "Privacy Boundary",
+      "summary": "Encodes everything known except \"personal personal data\". No private names, addresses, emails, phone numbers, health/financial identifiers, or identifying relationship incidents. If PII appears, replace with [[REDACTED]].\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "privacy",
+        "pii",
+        "redaction",
+        "security",
         "governance"
       ]
     },
@@ -282,7 +296,7 @@
     {
       "id": "C0021",
       "title": "LFME: Language Facing Meaning Engine",
-      "summary": "A compression architecture that transforms input text into #concept: #zero: ** chains at the data ingestion stage. LFME faces language and extracts meaning-bearing structures before storage, enabling deterministic decompression through Denotum's fractal tree.\n",
+      "summary": "A compression architecture that transforms input text into #concept: #nothing: #1: ** chains at the data ingestion stage. LFME faces language and extracts meaning-bearing structures before storage, enabling deterministic decompression through Denotum's fractal tree.\n",
       "status": "active",
       "tier": "public",
       "tags": [
@@ -293,6 +307,41 @@
         "ingestion",
         "concept-chains",
         "denotum-complement"
+      ]
+    },
+    {
+      "id": "C0022",
+      "title": "Lifeblood-Cathedral: Governed Gateway Integration",
+      "summary": "Evidence-only integration of the lifeblood-cathedral project: a governed LLM gateway with capability gating, posture management, ledger/receipt pattern, and constitutional invariants. Includes DICTUNI symbol dictionary.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "lifeblood",
+        "cathedral",
+        "gateway",
+        "governance",
+        "capability",
+        "ledger",
+        "receipt",
+        "posture",
+        "dictuni",
+        "stop-wins",
+        "invariant"
+      ]
+    },
+    {
+      "id": "C0023",
+      "title": "GitHub Spider Integration Pack",
+      "summary": "Evidence-only ingestion pack from PAT-less GitHub spider run against default-user owned public repositories. Extracts governance primitives from crystal-repl, mathison, OI, SGME, and cross-references with existing Origin corpus including lifeblood-cathedral (C0022).\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "github",
+        "spider",
+        "integration",
+        "governance",
+        "evidence",
+        "ingestion"
       ]
     }
   ],
@@ -340,6 +389,11 @@
     {
       "source": "C0005",
       "target": "C0014",
+      "type": "related"
+    },
+    {
+      "source": "C0006",
+      "target": "C0013",
       "type": "related"
     },
     {
@@ -415,11 +469,6 @@
     {
       "source": "C0012",
       "target": "C0018",
-      "type": "related"
-    },
-    {
-      "source": "C0013",
-      "target": "C0006",
       "type": "related"
     },
     {
@@ -500,6 +549,41 @@
     {
       "source": "C0021",
       "target": "C0018",
+      "type": "related"
+    },
+    {
+      "source": "C0022",
+      "target": "C0006",
+      "type": "related"
+    },
+    {
+      "source": "C0022",
+      "target": "C0009",
+      "type": "related"
+    },
+    {
+      "source": "C0022",
+      "target": "C0013",
+      "type": "related"
+    },
+    {
+      "source": "C0023",
+      "target": "C0009",
+      "type": "related"
+    },
+    {
+      "source": "C0023",
+      "target": "C0012",
+      "type": "related"
+    },
+    {
+      "source": "C0023",
+      "target": "C0013",
+      "type": "related"
+    },
+    {
+      "source": "C0023",
+      "target": "C0022",
       "type": "related"
     }
   ]

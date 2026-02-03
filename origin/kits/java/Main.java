@@ -150,14 +150,14 @@ public final class Main {
 
       receipts.append("BOOT", mapOf(
           "manifest_sha256", sha256(SELF_MANIFEST_JSON),
-          "policy_sha256", sha256(policy.canonicalJson()),
+          "policy_sha256", sha256(policy.toCanonicalJson()),
           "pubkey_b64", receipts.keys.publicKeyB64
       ));
 
       // Seed minimal system nodes (WHY: graph needs an identity anchor)
       GraphDelta seed = new GraphDelta();
       seed.addNode(Node.system("SYS:ORIGIN", "ORIGIN_ROUNDTREE"));
-      seed.addNode(Node.policy("POL:STRICT", policy.canonicalJson()));
+      seed.addNode(Node.policy("POL:STRICT", policy.toCanonicalJson()));
       graph.applyDelta(seed, receipts, "SEED_GRAPH");
       index.indexDelta(seed);
     }
@@ -197,7 +197,7 @@ public final class Main {
     String selfDescribe() {
       return canonicalJson(mapOf(
           "manifest", SELF_MANIFEST_JSON.trim(),
-          "policy", policy.canonicalJson(),
+          "policy", policy.toCanonicalJson(),
           "receipt_head_hash", receipts.headHash(),
           "graph_head_hash", graph.graphHeadHash(),
           "public_key_b64", receipts.keys.publicKeyB64,
@@ -476,8 +476,8 @@ public final class Main {
       );
     }
 
-    String canonicalJson() {
-      return canonicalJson(mapOf(
+    String toCanonicalJson() {
+      return Main.canonicalJson(mapOf(
           "mrt_min_fidelity", Double.toString(mrtMinFidelity),
           "proposer_call_ttl_seconds", Long.toString(proposerCallTtlSeconds),
           "max_working_nodes", Integer.toString(maxWorkingNodes),
@@ -923,6 +923,8 @@ public final class Main {
         if (i > 0) sb.append(". ");
         sb.append(bricks.get(i).text);
       }
+      // Add terminal period to match sentence structure
+      if (!bricks.isEmpty()) sb.append(".");
       return sb.toString().trim();
     }
 
