@@ -20,3 +20,10 @@ dist/
 # Temporary determinism check dirs
 .determinism-check-1/
 .determinism-check-2/
+
+# Java compiled files
+*.class
+
+# Java runtime artifacts
+origin_keys.bin
+origin_receipts.log
