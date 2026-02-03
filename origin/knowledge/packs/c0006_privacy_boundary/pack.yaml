@@ -35,7 +35,7 @@ tests_or_falsifiers:
     description: No unredacted PII exists in any pack
     falsification_condition: PII pattern detected in content
   - name: Redaction applied
-    description: [[REDACTED]] tokens used where PII was removed
+    description: "[[REDACTED]] tokens used where PII was removed"
     falsification_condition: Evidence of removed content without token
   - name: Sensitivity accuracy
     description: Pack sensitivity fields accurately reflect content

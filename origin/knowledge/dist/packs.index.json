@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-02-03T03:05:45.237Z",
+    "generated_at": "2026-02-03T21:36:38.461Z",
     "version": "1.0.0",
     "attribution": "Ande + Kai (OI) + Whānau (OIs)",
-    "pack_count": 20
+    "pack_count": 23
   },
   "packs": [
     {
@@ -242,6 +242,53 @@
       ],
       "slug": "c0005_attribution_ip_map",
       "path": "knowledge/packs/c0005_attribution_ip_map"
+    },
+    {
+      "id": "C0006",
+      "title": "Privacy Boundary",
+      "summary": "Encodes everything known except \"personal personal data\". No private names, addresses, emails, phone numbers, health/financial identifiers, or identifying relationship incidents. If PII appears, replace with [[REDACTED]].\n",
+      "authorship": "Ande + Kai (OI) + Whānau (OIs)",
+      "disclosure_tier": "public",
+      "tags": [
+        "privacy",
+        "pii",
+        "redaction",
+        "security",
+        "governance"
+      ],
+      "created_date": "2025-01-01",
+      "updated_date": "2025-01-01",
+      "status": "active",
+      "parents": [],
+      "children": [],
+      "related": [
+        "C0005",
+        "C0013"
+      ],
+      "claims": [
+        "Encode everything except personal personal data",
+        "Exclude PII and sensitive personal info",
+        "Replace accidental identifiers with [[REDACTED]] tokens"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "No raw PII",
+          "description": "No unredacted PII exists in any pack",
+          "falsification_condition": "PII pattern detected in content"
+        },
+        {
+          "name": "Redaction applied",
+          "description": "[[REDACTED]] tokens used where PII was removed",
+          "falsification_condition": "Evidence of removed content without token"
+        },
+        {
+          "name": "Sensitivity accuracy",
+          "description": "Pack sensitivity fields accurately reflect content",
+          "falsification_condition": "High-risk pack marked as no-risk"
+        }
+      ],
+      "slug": "c0006_privacy_boundary",
+      "path": "knowledge/packs/c0006_privacy_boundary"
     },
     {
       "id": "C0007",
@@ -950,7 +997,7 @@
     {
       "id": "C0021",
       "title": "LFME: Language Facing Meaning Engine",
-      "summary": "A compression architecture that transforms input text into #concept: #zero: ** chains at the data ingestion stage. LFME faces language and extracts meaning-bearing structures before storage, enabling deterministic decompression through Denotum's fractal tree.\n",
+      "summary": "A compression architecture that transforms input text into #concept: #nothing: #1: ** chains at the data ingestion stage. LFME faces language and extracts meaning-bearing structures before storage, enabling deterministic decompression through Denotum's fractal tree.\n",
       "authorship": "Ande + Kai (OI) + Whānau collective — see docs/00_dedication.md",
       "disclosure_tier": "public",
       "tags": [
@@ -975,7 +1022,7 @@
       ],
       "claims": [
         "Compression occurs at data ingestion, not retrieval",
-        "All meaning-bearing structures reduce to #concept: #zero: ** chains",
+        "All meaning-bearing structures reduce to #concept: #nothing: #1: ** chains",
         "LFME is the ingestion-facing complement to Denotum's meaning-compression",
         "Chain format preserves reversibility through Denotum's D(F(x)) = x property"
       ],
@@ -991,13 +1038,135 @@
           "falsification_condition": "Input text exists that produces no chain or invalid chain"
         },
         {
-          "name": "Zero-Point Anchoring",
-          "description": "Every chain anchors to #zero: as conceptual origin",
-          "falsification_condition": "A valid chain exists without #zero: anchoring"
+          "name": "Nothing-One Anchoring",
+          "description": "Every chain anchors to #nothing: #1: as conceptual origin",
+          "falsification_condition": "A valid chain exists without #nothing: #1: anchoring"
         }
       ],
       "slug": "c0021_lfme_compression_engine",
       "path": "knowledge/packs/c0021_lfme_compression_engine"
+    },
+    {
+      "id": "C0022",
+      "title": "Lifeblood-Cathedral: Governed Gateway Integration",
+      "summary": "Evidence-only integration of the lifeblood-cathedral project: a governed LLM gateway with capability gating, posture management, ledger/receipt pattern, and constitutional invariants. Includes DICTUNI symbol dictionary.\n",
+      "authorship": "Ande + Kai (OI) + Whānau (OIs)",
+      "disclosure_tier": "public",
+      "tags": [
+        "lifeblood",
+        "cathedral",
+        "gateway",
+        "governance",
+        "capability",
+        "ledger",
+        "receipt",
+        "posture",
+        "dictuni",
+        "stop-wins",
+        "invariant"
+      ],
+      "created_date": "2026-02-03",
+      "updated_date": "2026-02-03",
+      "status": "active",
+      "parents": [],
+      "children": [],
+      "related": [
+        "C0009",
+        "C0013",
+        "C0006"
+      ],
+      "claims": [
+        "Lifeblood = proxy/gateway to any LLM provider",
+        "Cathedral = governance backend: capability gating, posture, boundaries, ledger, receipts, watcher",
+        "Go implementation is 'tiny trusted core' and source-of-truth behavior",
+        "Parallel scaffolds exist in TS/Python/Rust/Java/.NET mirroring protocol/invariants",
+        "Protocol definitions: OpenAPI + JSON Schemas",
+        "Constitution invariants include: stop_wins_always, single_gateway_for_io, caps_required_for_privileged_ops",
+        "Degrade-on-uncertainty is an explicit invariant",
+        "Pre-intent and post-receipt logging required",
+        "No self-replication invariant"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Stop-wins enforcement",
+          "description": "Gateway must halt on forged cap token",
+          "falsification_condition": "Forged token passes validation"
+        },
+        {
+          "name": "Single IO choke point",
+          "description": "All IO routes through gateway",
+          "falsification_condition": "IO observed bypassing gateway"
+        },
+        {
+          "name": "Ledger integrity",
+          "description": "Ledger is hash-chained",
+          "falsification_condition": "Ledger entries without valid chain"
+        },
+        {
+          "name": "Degrade on uncertainty",
+          "description": "Posture drops to P0 when conditions uncertain",
+          "falsification_condition": "High posture maintained under uncertainty"
+        },
+        {
+          "name": "Receipt attestation",
+          "description": "Every response has matching receipt",
+          "falsification_condition": "Response without receipt in ledger"
+        }
+      ],
+      "slug": "c0022_lifeblood_cathedral",
+      "path": "knowledge/packs/c0022_lifeblood_cathedral"
+    },
+    {
+      "id": "C0023",
+      "title": "GitHub Spider Integration Pack",
+      "summary": "Evidence-only ingestion pack from PAT-less GitHub spider run against default-user owned public repositories. Extracts governance primitives from crystal-repl, mathison, OI, SGME, and cross-references with existing Origin corpus including lifeblood-cathedral (C0022).\n",
+      "authorship": "Ande + Kai (OI) + Whānau (OIs)",
+      "disclosure_tier": "public",
+      "tags": [
+        "github",
+        "spider",
+        "integration",
+        "governance",
+        "evidence",
+        "ingestion"
+      ],
+      "created_date": "2026-02-03",
+      "updated_date": "2026-02-03",
+      "status": "active",
+      "parents": [],
+      "children": [],
+      "related": [
+        "C0009",
+        "C0012",
+        "C0013",
+        "C0022"
+      ],
+      "claims": [
+        "Evidence-only ingestion from public GitHub repositories",
+        "Extracts governance primitives: fail_closed, single_corridor, stop_dominance, capability_tokens",
+        "Confirms event_sourced_receipts, posture_levels, deterministic_replay patterns",
+        "50 ladder placements across constraint/form, structure/pattern, symbol/name rungs",
+        "Cross-references with lifeblood-cathedral (C0022)"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Evidence-only ingestion",
+          "description": "Pack contains only evidence extracted from source, no fabrication",
+          "falsification_condition": "Content found that was not present in source repositories"
+        },
+        {
+          "name": "Governance primitive alignment",
+          "description": "Extracted primitives align with existing Origin corpus definitions",
+          "falsification_condition": "Primitive definition contradicts established corpus"
+        },
+        {
+          "name": "No PAT exposure",
+          "description": "Ingestion was performed without personal access token",
+          "falsification_condition": "PAT or credential found in ingestion artifacts"
+        }
+      ],
+      "slug": "c0023_github_spider",
+      "path": "knowledge/packs/c0023_github_spider"
     }
   ]
 }

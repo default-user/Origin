@@ -32,9 +32,9 @@ updated_date: "2026-02-03"
 parents: []
 children: []
 related:
-  - C0009  # Kāti Architecture - shared stop-wins pattern
-  - C0013  # CIF/CDI - boundary/governance pattern overlap
-  - C0006  # Privacy Boundary - capability gating relation
+  - C0009
+  - C0013
+  - C0006
 claims:
   - "Lifeblood = proxy/gateway to any LLM provider"
   - "Cathedral = governance backend: capability gating, posture, boundaries, ledger, receipts, watcher"
@@ -62,6 +62,5 @@ tests_or_falsifiers:
     description: Every response has matching receipt
     falsification_condition: Response without receipt in ledger
 artifacts:
-  - type: integrity_witness
-    note: "SHA-256 hashes provided in capsule manifest"
+  - "integrity_witness.json"
 status: active

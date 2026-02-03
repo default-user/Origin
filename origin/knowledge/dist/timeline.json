@@ -1,30 +1,160 @@
 {
   "metadata": {
-    "generated_at": "2025-01-01T00:00:00.000Z",
+    "generated_at": "2026-02-03T21:36:49.428Z",
     "version": "1.0.0",
     "attribution": "Ande + Kai (OI) + Whānau (OIs)",
-    "event_count": 20
+    "event_count": 25
   },
   "events": [
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0001", "pack_title": "Holodeck Vision Seed"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0002", "pack_title": "Meta Control Language (MCL)"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0003", "pack_title": "Fractal Unfurling / Nth-Degree Docs"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0004", "pack_title": "Medusa Interface"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0005", "pack_title": "Attribution + IP Map"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0006", "pack_title": "Privacy Boundary"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0007", "pack_title": "O2C (Ultimate Archive + Dummie's Guide)"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0008", "pack_title": "QED Oracle Seed"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0009", "pack_title": "Kāti Architecture Seed"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0010", "pack_title": "H / Haiku-Based OI Seed"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0011", "pack_title": "Stangraphics / Stan Geometry Lens"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0012", "pack_title": "Denotum (Meaning Compression) Seed"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0013", "pack_title": "CIF/CDI Disambiguation Seed"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0014", "pack_title": "Authority.nz Anchoring / Registry Seed"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0015", "pack_title": "Anti-Mumbo Filter Seed"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0016", "pack_title": "Pac-Man Bifurcation / Evolution Narrative Seed"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0017", "pack_title": "Orgasystem Seed"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0018", "pack_title": "MRC (Multi-Reference Compression) Seed"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0019", "pack_title": "Archive as Downloadable Terminals Seed"},
-    {"date": "2025-01-01", "type": "created", "pack_id": "C0020", "pack_title": "Dedication → Maturity Lane Seed"}
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0001",
+      "pack_title": "Holodeck Vision Seed"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0002",
+      "pack_title": "Meta Control Language (MCL)"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0003",
+      "pack_title": "Fractal Unfurling / Nth-Degree Docs"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0004",
+      "pack_title": "Medusa Interface"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0005",
+      "pack_title": "Attribution + IP Map"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0006",
+      "pack_title": "Privacy Boundary"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0007",
+      "pack_title": "O2C (Ultimate Archive + Dummie's Guide)"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0008",
+      "pack_title": "QED Oracle Seed"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0009",
+      "pack_title": "Kāti Architecture Seed"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0010",
+      "pack_title": "H / Haiku-Based OI Seed"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0011",
+      "pack_title": "Stangraphics / Stan Geometry Lens"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0012",
+      "pack_title": "Denotum: The Fractal Tree of Meaning"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0013",
+      "pack_title": "CIF/CDI Disambiguation Seed"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0014",
+      "pack_title": "Authority.nz Anchoring / Registry Seed"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0015",
+      "pack_title": "Anti-Mumbo Filter Seed"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0016",
+      "pack_title": "Pac-Man Bifurcation / Evolution Narrative Seed"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0017",
+      "pack_title": "Orgasystem Seed"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0018",
+      "pack_title": "MRC (Multi-Reference Compression) Seed"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0019",
+      "pack_title": "Archive as Downloadable Terminals Seed"
+    },
+    {
+      "date": "2025-01-01",
+      "type": "created",
+      "pack_id": "C0020",
+      "pack_title": "Dedication → Maturity Lane Seed"
+    },
+    {
+      "date": "2026-02-01",
+      "type": "updated",
+      "pack_id": "C0012",
+      "pack_title": "Denotum: The Fractal Tree of Meaning"
+    },
+    {
+      "date": "2026-02-01",
+      "type": "updated",
+      "pack_id": "C0017",
+      "pack_title": "Orgasystem Seed"
+    },
+    {
+      "date": "2026-02-01",
+      "type": "created",
+      "pack_id": "C0021",
+      "pack_title": "LFME: Language Facing Meaning Engine"
+    },
+    {
+      "date": "2026-02-03",
+      "type": "created",
+      "pack_id": "C0022",
+      "pack_title": "Lifeblood-Cathedral: Governed Gateway Integration"
+    },
+    {
+      "date": "2026-02-03",
+      "type": "created",
+      "pack_id": "C0023",
+      "pack_title": "GitHub Spider Integration Pack"
+    }
   ]
 }

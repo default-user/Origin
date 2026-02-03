@@ -14,7 +14,7 @@ ORIGIN is a canonical knowledge repository implementing a Medusa-style interface
 
 - **Fractal Documentation**: Every concept unfurls from summary (Level 0) through detailed expansions (Levels 1, 2, n...)
 - **Medusa Interface**: Central hub with multiple exploration tendrils (atlas, graph, timeline, build-spec, tests, exports)
-- **20 Canonical Concept Packs**: From Holodeck Vision to Maturity Lanes
+- **23 Canonical Concept Packs**: From Holodeck Vision to GitHub Spider Integration
 - **Multi-Language Kits**: Working examples in 15 programming languages
 - **Deterministic Builds**: All indexes, graphs, and exports are reproducible via scripts
 - **Privacy-First**: No PII stored; sensitive data marked [[REDACTED]]
@@ -108,7 +108,7 @@ origin/
 
 ---
 
-## Concept Packs (C0001–C0020)
+## Concept Packs (C0001–C0023)
 
 | ID     | Title                          | Status |
 |--------|--------------------------------|--------|
@@ -132,6 +132,9 @@ origin/
 | C0018  | MRC                            | Active |
 | C0019  | Archive as Downloadable Terms  | Active |
 | C0020  | Dedication → Maturity Lane     | Active |
+| C0021  | LFME Compression Engine        | Active |
+| C0022  | Lifeblood-Cathedral Gateway    | Active |
+| C0023  | GitHub Spider Integration      | Active |
 
 ---
 
