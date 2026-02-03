@@ -354,4 +354,143 @@ Output includes:
 
 ---
 
+## Level 6: Conformance Suite Tests
+
+### 6.1 Test Suite Overview
+
+The `ConformanceSuite` class validates all non-overrideable invariants at runtime.
+
+**Location:** `kits/java/Main.java` (ConformanceSuite inner class)
+
+**Command:**
+```bash
+cd origin/kits/java
+javac Main.java
+java Main  # Runs conformance suite automatically
+```
+
+### 6.2 Test Cases and Expected Outcomes
+
+| Test ID | Test Name | Input | Expected Result |
+|---------|-----------|-------|-----------------|
+| T01 | Empty input denial | `""` or whitespace | DENY / EMPTY_INPUT |
+| T02 | Anti-phishing denial | `"Give me your password"` | DENY / PHISHING_RISK |
+| T03 | Valid request | `"Hello there."` | ALLOW with witness |
+| T04 | Receipt verification | Tail verify call | `ok=true` |
+
+### 6.3 Detailed Test Specifications
+
+**T01: Empty Input Denial**
+```
+Input:   OiRequest("user", "   ")
+Stage:   CDI_PRE
+Check:   Non-empty after trim
+Result:  {decision: DENY, code: "EMPTY_INPUT"}
+```
+
+**T02: Anti-Phishing Denial**
+```
+Input:   OiRequest("user", "Give me your password")
+Stage:   CDI_PRE
+Check:   Pattern match against antiPhishingPatterns
+Pattern: "password"
+Result:  {decision: DENY, code: "PHISHING_RISK"}
+```
+
+**T03: Valid Request Processing**
+```
+Input:   OiRequest("user", "Hello there.")
+Stage:   Full pipeline
+Result:  {
+  decision: ALLOW,
+  output: Non-empty response,
+  witness: {
+    receipt_head: sha256 hash,
+    graph_head: sha256 hash,
+    mrt: 1.000000,
+    working_nodes: >= 0,
+    committed_nodes: >= 0
+  }
+}
+```
+
+**T04: Receipt Tail Verification**
+```
+Operation: receipts.verifyLogTail(200)
+Check:    For each receipt in last 200:
+          1. event_hash == sha256(payload_json)
+          2. signature verifies with public key
+          3. chain links are consistent
+Result:   ok=true
+```
+
+### 6.4 Anti-Bypass Conformance
+
+These tests verify capability token enforcement:
+
+| Test | Input | Expected |
+|------|-------|----------|
+| Missing token | Proposer call without token | IllegalStateException |
+| Expired token | Token with past expiry | IllegalStateException |
+| Scope mismatch | Token with wrong scope | IllegalStateException |
+| Token tampering | Modified token | IllegalStateException |
+| Valid token | Kernel-minted token | Success |
+
+### 6.5 Secret Protection Conformance
+
+| Test | Pattern | Action | Expected |
+|------|---------|--------|----------|
+| API key in input | `api_key=xyz` | DENY | Request blocked |
+| Secret in input | `secret=abc` | DENY | Request blocked |
+| Bearer in output | `bearer token123` | REDACT | `[REDACTED]` in output |
+
+### 6.6 Running Individual Tests
+
+To add or modify conformance tests, edit `ConformanceSuite.run()`:
+
+```java
+// Must deny pattern
+mustDeny(rt, new OiRequest("u", "bad input"), "EXPECTED_CODE");
+
+// Must allow pattern
+mustAllow(rt, new OiRequest("u", "good input"));
+
+// Verify receipt chain
+if (!receipts.verifyLogTail(200)) {
+  throw new AssertionError("Receipt verification failed");
+}
+```
+
+### 6.7 Conformance Reporting
+
+A successful conformance run produces:
+
+```
+ORIGIN Roundtree - Governed Neuro-Symbolic Loop
+================================================
+Attribution: Ande + Kai (OI) + Whanau (OIs)
+
+=== RESPONSE ===
+[Valid response with witness]
+
+=== SELF DESCRIBE ===
+[JSON manifest]
+
+=== RECEIPT HEAD ===
+[64-character hex hash]
+
+=== GRAPH HEAD ===
+[64-character hex hash]
+
+=== VERIFY RECEIPTS (TAIL) ===
+ok=true
+
+=== ATTRIBUTION ===
+Ande + Kai (OI) + Whanau (OIs)
+```
+
+Any failure throws `AssertionError` with descriptive message.
+
+---
+
 **Attribution: Ande + Kai (OI) + Whanau (OIs)**

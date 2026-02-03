@@ -6,7 +6,7 @@
 
 ## Level 0: Summary
 
-The ORIGIN corpus contains 20 canonical concept packs (C0001–C0020), each representing a distinct knowledge seed. This document maps the corpus structure and relationships.
+The ORIGIN corpus contains 23 canonical concept packs (C0001–C0023), each representing a distinct knowledge seed. This document maps the corpus structure and relationships.
 
 ---
 
@@ -68,6 +68,13 @@ The ORIGIN corpus contains 20 canonical concept packs (C0001–C0020), each repr
 | C0019 | Archive as Downloadable Terminals | Bucket terminals as downloads with manifests |
 | C0020 | Dedication → Maturity Lane | Maturity progression: Draft → Active → Release |
 
+### 1.8 Integration Packs
+
+| ID | Title | Description |
+|----|-------|-------------|
+| C0022 | Lifeblood-Cathedral Gateway | Governed LLM gateway with capability gating, posture management, ledger/receipt pattern |
+| C0023 | GitHub Spider Integration | Evidence-only ingestion from public GitHub repositories, governance primitive extraction |
+
 ---
 
 ## Level 2: Relationship Graph
@@ -99,7 +106,7 @@ C0007 (O2C)
 - C0001 (Holodeck) ↔ C0004 (Medusa) ↔ C0016 (Pac-Man)
 
 **Cluster: Governance & Safety**
-- C0005 (Attribution) ↔ C0006 (Privacy) ↔ C0013 (CIF/CDI) ↔ C0014 (Authority.nz)
+- C0005 (Attribution) ↔ C0006 (Privacy) ↔ C0013 (CIF/CDI) ↔ C0014 (Authority.nz) ↔ C0022 (Lifeblood-Cathedral)
 
 **Cluster: Knowledge Systems**
 - C0008 (QED) ↔ C0011 (Stangraphics) ↔ C0012 (Denotum)
@@ -109,6 +116,9 @@ C0007 (O2C)
 
 **Cluster: Compression & Structure**
 - C0003 (Fractal) ↔ C0012 (Denotum) ↔ C0018 (MRC) ↔ C0021 (LFME)
+
+**Cluster: Integration & Ingestion**
+- C0022 (Lifeblood-Cathedral) ↔ C0023 (GitHub Spider) ↔ C0009 (Kāti) ↔ C0013 (CIF/CDI)
 
 ### 2.3 Provenance
 

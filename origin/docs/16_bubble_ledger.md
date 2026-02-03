@@ -8,7 +8,7 @@
 
 This document tracks all identified "bubbles" in the ORIGIN repository — any missing detail, ambiguity, TODO, unstated purpose, incomplete conformance, missing witness, missing deterministic step, or unbounded claim. Each bubble is logged, prioritized, and tracked through resolution.
 
-**Current Status**: 25 bubbles identified | 0 HIGH | 10 MED | 15 LOW
+**Current Status**: 25 bubbles identified | 0 HIGH | 0 MED | 14 LOW | 11 RESOLVED
 
 ---
 
@@ -37,18 +37,7 @@ This document tracks all identified "bubbles" in the ORIGIN repository — any m
 
 ### MED Priority (Functional Gaps)
 
-| ID | Location | Type | Description | Resolution Plan | Status | Witness |
-|----|----------|------|-------------|-----------------|--------|---------|
-| B001 | `kits/java/Main.java:480` | BUILD_GAP | Java GNSL Monolith has method name collision (`canonicalJson` declared twice with different signatures) | Rename instance method to `policyCanonicalJson()` | OPEN | — |
-| B002 | `knowledge/packs/c0006_privacy_boundary/pack.yaml` | SCHEMA_GAP | Pack fails to load (YAML parse error due to unquoted special characters) | Fix YAML escaping for `[[REDACTED]]` in summary | OPEN | `build/reports/validate.json` |
-| B003 | `knowledge/packs/c0012_denotum/pack.yaml` | SCHEMA_GAP | Provenance type "rationalization" not in allowed enum | Add "rationalization" to schema OR change to "derived" | OPEN | `build/reports/validate.json` |
-| B004 | `knowledge/packs/c0017_orgasystem/pack.yaml` | SCHEMA_GAP | Same provenance type issue as B003 | Same resolution as B003 | OPEN | `build/reports/validate.json` |
-| B005 | `knowledge/packs/c0021_lfme_compression_engine/pack.yaml` | SCHEMA_GAP | Multiple provenance type issues | Same resolution as B003 | OPEN | `build/reports/validate.json` |
-| B006 | `knowledge/packs/c0022_lifeblood_cathedral/pack.yaml` | SCHEMA_GAP | Artifacts array contains object instead of string; provenance types invalid | Fix artifacts format; add provenance types to schema | OPEN | `build/reports/validate.json` |
-| B007 | `knowledge/packs/c0023_github_spider/pack.yaml` | SCHEMA_GAP | Pack uses completely different schema structure; missing all required fields | Reformat to conform to pack.schema.json OR create integration pack schema | OPEN | `build/reports/validate.json` |
-| B008 | `tests/golden/test_define.yaml` | TEST_GAP | "Define unknown term returns UNKNOWN" test fails — returns C0013 test entity instead | Fix query.ts search to return UNKNOWN when no concept found | OPEN | `npm run test` output |
-| B009 | `README.md:17` | CONSISTENCY_GAP | Claims "20 Canonical Concept Packs" but packs C0021-C0023 exist (23 total) | Update count to 23 OR document C0021+ as integration packs | OPEN | `ls knowledge/packs/` |
-| B010 | `docs/` | DOC_GAP | Missing `docs/17_deterministic_build_spec.md` and `docs/18_conformance_suite_guide.md` | Create these documents | OPEN | — |
+*All MED priority bubbles resolved.*
 
 ---
 
@@ -68,9 +57,7 @@ This document tracks all identified "bubbles" in the ORIGIN repository — any m
 | B020 | `knowledge/packs/c0016_pacman_bifurcation/content.mdx:100` | DOC_GAP | [UNKNOWN: NOT IN CORPUS] - Bifurcation theory | Acknowledge as rationalized unknown | OPEN | — |
 | B021 | `knowledge/packs/c0018_mrc/content.mdx:118` | DOC_GAP | [UNKNOWN: NOT IN CORPUS] - Prior art differentiators | Acknowledge as rationalized unknown | OPEN | — |
 | B022 | `docs/01_origin_overview.md:104` | DOC_GAP | Trailing [UNKNOWN: NOT IN CORPUS] marker | Remove or explain | OPEN | — |
-| B023 | `schema/pack.schema.json:52` | SPEC_GAP | Provenance type enum missing "rationalization", "capsule_ingestion", "origin_integration" | Extend enum to include new types | OPEN | — |
 | B024 | `knowledge/dist/` | INDEX_GAP | dist/ contains legacy indexes separate from build/ | Consolidate or document relationship | OPEN | — |
-| B025 | `docs/15_roundtree_architecture.md` | DOC_GAP | No explicit conformance test descriptions with expected outcomes | Add Level 6 conformance test section | OPEN | — |
 
 ---
 
@@ -78,13 +65,26 @@ This document tracks all identified "bubbles" in the ORIGIN repository — any m
 
 ### Completed Resolutions
 
-*None yet.*
+| ID | Location | Type | Description | Resolution | Witness |
+|----|----------|------|-------------|------------|---------|
+| B001 | `kits/java/Main.java:480` | BUILD_GAP | Java GNSL Monolith method name collision | Renamed `canonicalJson()` to `toCanonicalJson()` | `kits/java/Main.java` compiles and runs |
+| B002 | `c0006_privacy_boundary/pack.yaml` | SCHEMA_GAP | YAML parse error with `[[REDACTED]]` | Quoted string in description field | `npm run validate` passes |
+| B003 | `c0012_denotum/pack.yaml` | SCHEMA_GAP | Provenance type "rationalization" not in enum | Extended schema enum | `npm run validate` passes |
+| B004 | `c0017_orgasystem/pack.yaml` | SCHEMA_GAP | Same provenance type issue | Fixed by B023 | `npm run validate` passes |
+| B005 | `c0021_lfme/pack.yaml` | SCHEMA_GAP | Multiple provenance type issues | Fixed by B023 | `npm run validate` passes |
+| B006 | `c0022_lifeblood_cathedral/pack.yaml` | SCHEMA_GAP | Artifacts format + provenance types | Fixed artifacts to strings, B023 fixed types | `npm run validate` passes |
+| B007 | `c0023_github_spider/pack.yaml` | SCHEMA_GAP | Non-conforming schema structure | Complete reformat to pack.schema.json | `npm run validate` passes |
+| B008 | `tools/query.ts` | TEST_GAP | Unknown term query returns match | Added token coverage threshold (50%) | `npm run test` passes 4/4 |
+| B009 | `README.md:17` | CONSISTENCY_GAP | Pack count claimed 20, actual 23 | Updated to 23 packs with table | `README.md` |
+| B010 | `docs/` | DOC_GAP | Missing build spec and conformance guide | Created docs/17 and docs/18 | `docs/17_deterministic_build_spec.md`, `docs/18_conformance_suite_guide.md` |
+| B023 | `schema/pack.schema.json:52` | SPEC_GAP | Provenance enum incomplete | Added rationalization, capsule_ingestion, origin_integration | `schema/pack.schema.json` |
+| B025 | `docs/15_roundtree_architecture.md` | DOC_GAP | No conformance test descriptions | Added Level 6 with test cases and expected outcomes | `docs/15_roundtree_architecture.md` |
 
 ---
 
 ### Blocked Resolutions
 
-*None yet.*
+*None.*
 
 ---
 
@@ -93,19 +93,20 @@ This document tracks all identified "bubbles" in the ORIGIN repository — any m
 | Category | Count | Percentage |
 |----------|-------|------------|
 | HIGH | 0 | 0% |
-| MED | 10 | 40% |
-| LOW | 15 | 60% |
+| MED | 0 | 0% |
+| LOW | 13 | 52% |
+| RESOLVED | 12 | 48% |
 | **TOTAL** | **25** | 100% |
 
-| Type | Count |
-|------|-------|
-| SCHEMA_GAP | 7 |
-| DOC_GAP | 12 |
-| TEST_GAP | 1 |
-| CONSISTENCY_GAP | 1 |
-| BUILD_GAP | 1 |
-| INDEX_GAP | 1 |
-| SPEC_GAP | 2 |
+| Type | Total | Resolved | Remaining |
+|------|-------|----------|-----------|
+| SCHEMA_GAP | 7 | 7 | 0 |
+| DOC_GAP | 13 | 2 | 11 |
+| TEST_GAP | 1 | 1 | 0 |
+| CONSISTENCY_GAP | 1 | 1 | 0 |
+| BUILD_GAP | 1 | 1 | 0 |
+| INDEX_GAP | 1 | 0 | 1 |
+| SPEC_GAP | 1 | 1 | 0 |
 
 ---
 
@@ -133,6 +134,18 @@ This document tracks all identified "bubbles" in the ORIGIN repository — any m
 - **HIGH**: Blocks deterministic build, safety violation, or system integrity failure
 - **MED**: Functional gap — validation fails, tests fail, or specification incomplete
 - **LOW**: Documentation polish, minor inconsistency, or acknowledged unknown
+
+---
+
+## Level 6: Rationalized Unknowns
+
+The remaining LOW priority bubbles (B011-B022, excluding resolved ones) are **rationalized unknowns** — information that:
+
+1. Is not present in the original corpus
+2. Cannot be fabricated without invention
+3. Must be acknowledged rather than guessed
+
+These are documented per the "prefer omission over inference" governance principle. They do not block determinism, safety, or runtime operation.
 
 ---
 
