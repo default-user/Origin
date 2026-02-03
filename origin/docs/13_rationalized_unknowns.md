@@ -35,7 +35,7 @@ From these, we can derive what the unknowns MUST be, without inventing arbitrary
 | HyperStanGraph Spec | Derivable | Graph architecture + QED docs |
 | Kāti v2 / H Integration | Derivable | Kāti principles + H constraints |
 | Stangraphics Formalism | Derivable | Lens frame structure |
-| Denotum Ingestion Grammar | ✅ Resolved | LFME (C0021) specifies #concept: #zero: ** chains |
+| Denotum Ingestion Grammar | ✅ Resolved | LFME (C0021) specifies #concept: #nothing: #1: ** chains |
 | Denotum Internal Mechanisms | Constrained | Structural boundaries only |
 | Orgasystem Equation | ✅ Resolved | U ≡ ∫G(U) derived from corpus patterns |
 
@@ -664,7 +664,7 @@ denotum:
       constraint: "Multiple surface forms can share same Denotum"
 
     relationship_to_lfme:
-      observation: "LFME compresses language to #concept: #zero: ** chains at ingestion"
+      observation: "LFME compresses language to #concept: #nothing: #1: ** chains at ingestion"
       implication: "LFME handles external boundary; Denotum handles internal structure"
       constraint: "LFME → Denotum → Fractal Unfurling forms complete pipeline"
 
@@ -674,7 +674,7 @@ denotum:
       composable: "Compressed meanings can be combined"
 
   what_is_now_known:
-    - "The ingestion grammar: #concept: #zero: ** (via LFME C0021)"
+    - "The ingestion grammar: #concept: #nothing: #1: ** (via LFME C0021)"
     - "The boundary relationship: LFME faces language, Denotum structures meaning"
     - "The pipeline: Language → LFME → Denotum → Fractal Unfurling → Expression"
 
@@ -766,7 +766,7 @@ orgasystem:
 | HyperStanGraph | ✅ **RESOLVED** - Structure from graph + QED |
 | Kāti v2 / H Integration | ✅ **RESOLVED** - Haiku metaphor applied |
 | Stangraphics Formalism | ✅ **RESOLVED** - Five-frame algebra defined |
-| Denotum Ingestion Boundary | ✅ **RESOLVED** - LFME (C0021) provides #concept: #zero: ** grammar |
+| Denotum Ingestion Boundary | ✅ **RESOLVED** - LFME (C0021) provides #concept: #nothing: #1: ** grammar |
 | Denotum Internal Mechanisms | ⚠️ **CONSTRAINED** - Internals unknown per corpus instruction |
 | Orgasystem Equation | ✅ **RESOLVED** - U ≡ ∫G(U) derived from corpus patterns |
 

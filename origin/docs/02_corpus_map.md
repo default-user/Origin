@@ -59,7 +59,7 @@ The ORIGIN corpus contains 20 canonical concept packs (C0001–C0020), each repr
 
 | ID | Title | Description |
 |----|-------|-------------|
-| C0021 | LFME | Language Facing Meaning Engine — ingestion-time compression to #concept: #zero: ** chains |
+| C0021 | LFME | Language Facing Meaning Engine — ingestion-time compression to #concept: #nothing: #1: ** chains |
 
 ### 1.6 Meta Packs
 
