@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://origin.local/schema/rule.schema.json",
+  "title": "ORIGIN Rule Schema",
+  "description": "Schema for Horn-like inference rules",
+  "type": "object",
+  "required": ["rule_id", "head", "body"],
+  "properties": {
+    "rule_id": {
+      "type": "string",
+      "pattern": "^R[0-9]{3}_[a-z_]+$",
+      "description": "Unique rule identifier (e.g., R001_transitivity)"
+    },
+    "description": {
+      "type": "string",
+      "description": "Human-readable description of what this rule does"
+    },
+    "head": {
+      "$ref": "#/$defs/atom",
+      "description": "The consequent (what is derived when body matches)"
+    },
+    "body": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/atom"
+      },
+      "description": "The antecedents (conditions that must be true)"
+    },
+    "filters": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/filter"
+      },
+      "description": "Additional constraints on variable bindings"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "atom": {
+      "type": "object",
+      "required": ["predicate", "args"],
+      "properties": {
+        "predicate": {
+          "type": "string",
+          "description": "Predicate name (e.g., 'edge', 'type', 'hasTag')"
+        },
+        "args": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Arguments (variables start with '?', literals are plain strings)"
+        }
+      },
+      "additionalProperties": false
+    },
+    "filter": {
+      "type": "object",
+      "required": ["op", "a", "b"],
+      "properties": {
+        "op": {
+          "type": "string",
+          "enum": ["eq", "neq", "lt", "gt", "lte", "gte", "contains", "matches"],
+          "description": "Filter operation"
+        },
+        "a": {
+          "type": "string",
+          "description": "Left operand (variable or literal)"
+        },
+        "b": {
+          "type": "string",
+          "description": "Right operand (variable or literal)"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

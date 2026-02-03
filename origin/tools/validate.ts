@@ -1,7 +1,8 @@
 #!/usr/bin/env npx ts-node
 /**
- * ORIGIN Pack Validator
- * Validates all pack.yaml files against schema/pack.schema.json
+ * ORIGIN Pack Validator (Extended)
+ * Validates crystals from all configured roots against schemas
+ * Produces deterministic report artifact at build/reports/validate.json
  *
  * Attribution: Ande + Kai (OI) + Whānau (OIs)
  */
@@ -12,116 +13,262 @@ import * as yaml from "js-yaml";
 import Ajv from "ajv";
 import addFormats from "ajv-formats";
 
-const PACKS_DIR = path.join(__dirname, "..", "knowledge", "packs");
-const SCHEMA_PATH = path.join(__dirname, "..", "schema", "pack.schema.json");
+import {
+  ValidationReport,
+  ValidationResult,
+  ValidationError,
+  CrystalRootsConfig,
+} from "../src/ir/types";
+import { stableStringify, contentHash } from "../src/ir/utils";
 
-interface ValidationResult {
-  pack: string;
-  valid: boolean;
-  errors: string[];
+const ROOT_DIR = path.join(__dirname, "..");
+const CONFIG_PATH = path.join(ROOT_DIR, "config", "crystal_roots.json");
+const REPORTS_DIR = path.join(ROOT_DIR, "build", "reports");
+const OUTPUT_PATH = path.join(REPORTS_DIR, "validate.json");
+
+// Legacy fallback paths
+const LEGACY_PACKS_DIR = path.join(ROOT_DIR, "knowledge", "packs");
+const LEGACY_SCHEMA_PATH = path.join(ROOT_DIR, "schema", "pack.schema.json");
+
+interface LoadedCrystal {
+  file: string;
+  yamlPath: string;
+  crystalId: string | null;
+  crystalRoot: string;
+  data: unknown;
 }
 
-async function loadSchema(): Promise<object> {
-  const schemaContent = fs.readFileSync(SCHEMA_PATH, "utf-8");
-  return JSON.parse(schemaContent);
+function loadConfig(): CrystalRootsConfig {
+  if (fs.existsSync(CONFIG_PATH)) {
+    const content = fs.readFileSync(CONFIG_PATH, "utf-8");
+    return JSON.parse(content) as CrystalRootsConfig;
+  }
+  // Legacy fallback
+  return {
+    roots: ["knowledge/packs"],
+    defaultSchema: "schema/pack.schema.json",
+  };
 }
 
-async function loadPackYaml(packDir: string): Promise<object | null> {
-  const yamlPath = path.join(packDir, "pack.yaml");
-  if (!fs.existsSync(yamlPath)) {
+function loadSchema(schemaPath: string): object {
+  const fullPath = path.join(ROOT_DIR, schemaPath);
+  if (!fs.existsSync(fullPath)) {
+    throw new Error(`Schema not found: ${fullPath}`);
+  }
+  const schemaContent = fs.readFileSync(fullPath, "utf-8");
+  const schema = JSON.parse(schemaContent) as Record<string, unknown>;
+  // Remove $schema to avoid meta-schema validation issues with AJV
+  delete schema.$schema;
+  return schema;
+}
+
+function discoverCrystals(rootPath: string, crystalRoot: string): string[] {
+  const crystals: string[] = [];
+  const fullRootPath = path.join(ROOT_DIR, rootPath);
+
+  if (!fs.existsSync(fullRootPath)) {
+    console.warn(`Warning: Crystal root not found: ${fullRootPath}`);
+    return [];
+  }
+
+  const dirs = fs.readdirSync(fullRootPath).sort(); // Deterministic order
+
+  for (const dirName of dirs) {
+    const dirPath = path.join(fullRootPath, dirName);
+    if (fs.statSync(dirPath).isDirectory()) {
+      const yamlPath = path.join(dirPath, "pack.yaml");
+      if (fs.existsSync(yamlPath)) {
+        crystals.push(yamlPath);
+      }
+    }
+  }
+
+  return crystals;
+}
+
+function loadCrystal(filePath: string, crystalRoot: string): LoadedCrystal | null {
+  try {
+    const content = fs.readFileSync(filePath, "utf-8");
+    const data = yaml.load(content);
+    const relativePath = path.relative(ROOT_DIR, filePath);
+    const crystalId = (data as Record<string, unknown>)?.id as string | null;
+
+    return {
+      file: relativePath,
+      yamlPath: ".",
+      crystalId: crystalId || null,
+      crystalRoot,
+      data,
+    };
+  } catch (err) {
     return null;
   }
-  const content = fs.readFileSync(yamlPath, "utf-8");
-  return yaml.load(content) as object;
 }
 
-async function validatePack(
-  packDir: string,
-  ajv: Ajv
-): Promise<ValidationResult> {
-  const packName = path.basename(packDir);
+function validateCrystal(
+  crystal: LoadedCrystal,
+  ajv: Ajv,
+  schemaId: string
+): ValidationResult {
   const result: ValidationResult = {
-    pack: packName,
+    file: crystal.file,
+    yamlPath: crystal.yamlPath,
+    crystalId: crystal.crystalId,
+    crystalRoot: crystal.crystalRoot,
     valid: false,
     errors: [],
   };
 
   try {
-    const packData = await loadPackYaml(packDir);
-    if (!packData) {
-      result.errors.push("pack.yaml not found");
-      return result;
-    }
-
-    const validate = ajv.getSchema("pack");
+    const validate = ajv.getSchema(schemaId);
     if (!validate) {
-      result.errors.push("Schema not loaded");
+      result.errors.push({
+        path: "",
+        message: `Schema '${schemaId}' not loaded`,
+      });
       return result;
     }
 
-    const valid = validate(packData);
+    const valid = validate(crystal.data);
     if (valid) {
       result.valid = true;
     } else {
-      result.errors = (validate.errors || []).map(
-        (e) => `${e.instancePath} ${e.message}`
-      );
+      // Sort errors for determinism
+      const errors = (validate.errors || [])
+        .map((e) => ({
+          path: e.instancePath || "",
+          message: e.message || "Unknown error",
+          schemaPath: e.schemaPath,
+        }))
+        .sort((a, b) => {
+          const pathCompare = a.path.localeCompare(b.path);
+          if (pathCompare !== 0) return pathCompare;
+          return (a.message || "").localeCompare(b.message || "");
+        });
+      result.errors = errors;
     }
   } catch (err) {
-    result.errors.push(`Parse error: ${(err as Error).message}`);
+    result.errors.push({
+      path: "",
+      message: `Parse error: ${(err as Error).message}`,
+    });
   }
 
   return result;
 }
 
 async function main(): Promise<void> {
-  console.log("ORIGIN Pack Validator");
-  console.log("=====================");
+  console.log("ORIGIN Pack Validator (Extended)");
+  console.log("================================");
   console.log("Attribution: Ande + Kai (OI) + Whānau (OIs)\n");
 
-  // Load schema
-  const schema = await loadSchema();
+  // Ensure reports directory exists
+  if (!fs.existsSync(REPORTS_DIR)) {
+    fs.mkdirSync(REPORTS_DIR, { recursive: true });
+  }
+
+  // Load configuration
+  const config = loadConfig();
+  console.log(`Loaded ${config.roots.length} crystal root(s).\n`);
+
+  // Setup AJV
   const ajv = new Ajv({ allErrors: true, strict: false });
   addFormats(ajv);
-  ajv.addSchema(schema, "pack");
 
-  // Find all pack directories
-  const packDirs = fs
-    .readdirSync(PACKS_DIR)
-    .filter((name) => {
-      const fullPath = path.join(PACKS_DIR, name);
-      return fs.statSync(fullPath).isDirectory();
-    })
-    .map((name) => path.join(PACKS_DIR, name));
+  // Load default schema
+  const defaultSchemaPath = config.defaultSchema || "schema/pack.schema.json";
+  const defaultSchema = loadSchema(defaultSchemaPath);
+  ajv.addSchema(defaultSchema, "pack");
 
-  console.log(`Found ${packDirs.length} packs to validate.\n`);
+  // Load schema overrides
+  for (const [rootPath, schemaPath] of Object.entries(config.schemaOverrides || {})) {
+    const schema = loadSchema(schemaPath);
+    const schemaId = `schema:${rootPath}`;
+    ajv.addSchema(schema, schemaId);
+  }
 
-  // Validate each pack
-  const results: ValidationResult[] = [];
-  for (const packDir of packDirs) {
-    const result = await validatePack(packDir, ajv);
-    results.push(result);
+  // Discover and validate all crystals
+  const allResults: ValidationResult[] = [];
+  let totalCrystals = 0;
 
-    const status = result.valid ? "✓" : "✗";
-    console.log(`${status} ${result.pack}`);
-    if (!result.valid) {
-      result.errors.forEach((e) => console.log(`    ${e}`));
+  for (const rootPath of config.roots.sort()) {
+    // Sorted for determinism
+    console.log(`Processing root: ${rootPath}`);
+
+    const schemaId =
+      config.schemaOverrides?.[rootPath] ? `schema:${rootPath}` : "pack";
+
+    const crystalFiles = discoverCrystals(rootPath, rootPath);
+    console.log(`  Found ${crystalFiles.length} crystal(s).\n`);
+
+    for (const filePath of crystalFiles) {
+      const crystal = loadCrystal(filePath, rootPath);
+      if (!crystal) {
+        allResults.push({
+          file: path.relative(ROOT_DIR, filePath),
+          yamlPath: ".",
+          crystalId: null,
+          crystalRoot: rootPath,
+          valid: false,
+          errors: [{ path: "", message: "Failed to load crystal file" }],
+        });
+        totalCrystals++;
+        continue;
+      }
+
+      const result = validateCrystal(crystal, ajv, schemaId);
+      allResults.push(result);
+      totalCrystals++;
+
+      const status = result.valid ? "\u2713" : "\u2717";
+      const id = result.crystalId || path.basename(path.dirname(filePath));
+      console.log(`  ${status} ${id}`);
+      if (!result.valid) {
+        result.errors.forEach((e) =>
+          console.log(`      ${e.path} ${e.message}`)
+        );
+      }
     }
   }
 
+  // Sort results for determinism
+  allResults.sort((a, b) => {
+    const rootCompare = a.crystalRoot.localeCompare(b.crystalRoot);
+    if (rootCompare !== 0) return rootCompare;
+    return a.file.localeCompare(b.file);
+  });
+
+  // Build report
+  const validCount = allResults.filter((r) => r.valid).length;
+  const invalidCount = allResults.filter((r) => !r.valid).length;
+
+  const report: ValidationReport = {
+    metadata: {
+      generated_at: new Date().toISOString(),
+      version: "1.0.0",
+      attribution: "Ande + Kai (OI) + Whānau (OIs)",
+      total_crystals: totalCrystals,
+      valid_count: validCount,
+      invalid_count: invalidCount,
+    },
+    results: allResults,
+  };
+
+  // Write report with deterministic formatting
+  fs.writeFileSync(OUTPUT_PATH, stableStringify(report));
+
   // Summary
-  const valid = results.filter((r) => r.valid).length;
-  const invalid = results.filter((r) => !r.valid).length;
-
   console.log("\n---");
-  console.log(`Valid: ${valid}/${results.length}`);
-  console.log(`Invalid: ${invalid}/${results.length}`);
+  console.log(`Valid: ${validCount}/${totalCrystals}`);
+  console.log(`Invalid: ${invalidCount}/${totalCrystals}`);
+  console.log(`\n\u2713 Report written to ${OUTPUT_PATH}`);
+  console.log(`  Content hash: ${contentHash(report).slice(0, 16)}`);
 
-  if (invalid > 0) {
+  if (invalidCount > 0) {
     process.exit(1);
   }
 
-  console.log("\nAll packs validated successfully.");
+  console.log("\nAll crystals validated successfully.");
 }
 
 main().catch((err) => {
