@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Ephemeral query traces (can be regenerated)
+build/traces/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build output (except committed dist)
+dist/
+
+# Temporary determinism check dirs
+.determinism-check-1/
+.determinism-check-2/
