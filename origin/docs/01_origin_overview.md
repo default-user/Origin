@@ -62,15 +62,41 @@ pnpm build         # All of the above
 
 ---
 
-## Level 2: Design Principles
+## Level 2: Roundtree Core
 
-### 2.1 No Ingestion Principle
+### 2.0 The Roundtree Data Crystal
+
+ORIGIN's core architecture is based on the **Roundtree** - a Governed Neuro-Symbolic Loop (GNSL) that enforces:
+
+```
+CIF_IN -> CDI_PRE -> KERNEL -> CDI_POST -> CIF_OUT
+```
+
+**Three Pillars:**
+- **Transformer** proposes candidate answers and graph deltas
+- **Hypergraph** constrains and persists with typed nodes/edges + provenance
+- **Kernel** adjudicates with capability-gated validation and commits
+
+**Key Properties:**
+- Ed25519 signed receipts with hash chain
+- MRT (Meaning Round-Trip) fidelity gates
+- Policy beams enforced as inline shards
+- Bounded graph execution engine (GEE)
+- Denotum-lite text compaction
+
+See [15_roundtree_architecture.md](./15_roundtree_architecture.md) for complete specification.
+
+---
+
+## Level 3: Design Principles
+
+### 3.1 No Ingestion Principle
 
 ORIGIN is entirely self-contained. The canonical corpus is embedded within the repository. No external data sources, APIs, or ingestion pipelines are required.
 
 **Implication**: What exists in the packs IS the authoritative source. External validation happens against this internal truth.
 
-### 2.2 No Fabrication Principle
+### 3.2 No Fabrication Principle
 
 Content is derived exclusively from the canonical corpus. Where information is incomplete:
 
@@ -80,7 +106,7 @@ Content is derived exclusively from the canonical corpus. Where information is i
 
 This marker appears throughout documentation and pack content where the canonical source did not specify details.
 
-### 2.3 Fractal Documentation
+### 3.3 Fractal Documentation
 
 Every document follows the fractal pattern:
 
@@ -91,7 +117,7 @@ Every document follows the fractal pattern:
 
 Consistency rule: No level may contradict a higher level. Each level expands, never contradicts.
 
-### 2.4 Determinism
+### 3.4 Determinism
 
 All generated artifacts are reproducible:
 
@@ -100,7 +126,7 @@ All generated artifacts are reproducible:
 - No randomness in builds
 - Git-trackable diffs
 
-### 2.5 Multi-Language Support
+### 3.5 Multi-Language Support
 
 Kits in 15 languages demonstrate pack consumption:
 
