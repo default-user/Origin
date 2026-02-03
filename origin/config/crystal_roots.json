@@ -1,0 +1,8 @@
+{
+  "$schema": "../schema/crystal_roots.schema.json",
+  "roots": [
+    "knowledge/packs"
+  ],
+  "defaultSchema": "schema/pack.schema.json",
+  "schemaOverrides": {}
+}

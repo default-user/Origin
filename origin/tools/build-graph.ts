@@ -1,7 +1,8 @@
 #!/usr/bin/env npx ts-node
 /**
- * ORIGIN Graph Builder
- * Builds knowledge/dist/graph.json from pack relationships
+ * ORIGIN Graph Builder (Extended)
+ * Builds both legacy graph.json and new IR-based build/graph.json
+ * with adjacency lists, typed relations, and provenance pointers
  *
  * Attribution: Ande + Kai (OI) + Whānau (OIs)
  */
@@ -9,11 +10,27 @@
 import * as fs from "fs";
 import * as path from "path";
 
-const DIST_DIR = path.join(__dirname, "..", "knowledge", "dist");
-const INDEX_PATH = path.join(DIST_DIR, "packs.index.json");
-const OUTPUT_PATH = path.join(DIST_DIR, "graph.json");
+import {
+  IRIndex,
+  IRGraph,
+  AdjacencyEntry,
+  GraphNode,
+  Entity,
+  Edge,
+  RelationType,
+} from "../src/ir/types";
+import { stableStringify, contentHash } from "../src/ir/utils";
 
-interface GraphNode {
+const ROOT_DIR = path.join(__dirname, "..");
+const LEGACY_DIST_DIR = path.join(ROOT_DIR, "knowledge", "dist");
+const BUILD_DIR = path.join(ROOT_DIR, "build");
+const LEGACY_INDEX_PATH = path.join(LEGACY_DIST_DIR, "packs.index.json");
+const IR_INDEX_PATH = path.join(BUILD_DIR, "index.json");
+const LEGACY_OUTPUT_PATH = path.join(LEGACY_DIST_DIR, "graph.json");
+const IR_OUTPUT_PATH = path.join(BUILD_DIR, "graph.json");
+
+// Legacy interfaces for backward compatibility
+interface LegacyGraphNode {
   id: string;
   title: string;
   summary: string;
@@ -22,13 +39,13 @@ interface GraphNode {
   tags: string[];
 }
 
-interface GraphEdge {
+interface LegacyGraphEdge {
   source: string;
   target: string;
   type: "parent" | "child" | "related";
 }
 
-interface Graph {
+interface LegacyGraph {
   metadata: {
     generated_at: string;
     version: string;
@@ -36,58 +53,129 @@ interface Graph {
     node_count: number;
     edge_count: number;
   };
-  nodes: GraphNode[];
-  edges: GraphEdge[];
+  nodes: LegacyGraphNode[];
+  edges: LegacyGraphEdge[];
 }
 
-async function main(): Promise<void> {
-  console.log("ORIGIN Graph Builder");
-  console.log("====================");
-  console.log("Attribution: Ande + Kai (OI) + Whānau (OIs)\n");
+function loadIRIndex(): IRIndex | null {
+  if (!fs.existsSync(IR_INDEX_PATH)) {
+    return null;
+  }
+  const content = fs.readFileSync(IR_INDEX_PATH, "utf-8");
+  return JSON.parse(content) as IRIndex;
+}
 
-  // Load packs index
-  if (!fs.existsSync(INDEX_PATH)) {
-    console.error("Error: packs.index.json not found. Run build-index first.");
-    process.exit(1);
+function loadLegacyIndex(): Record<string, unknown> | null {
+  if (!fs.existsSync(LEGACY_INDEX_PATH)) {
+    return null;
+  }
+  const content = fs.readFileSync(LEGACY_INDEX_PATH, "utf-8");
+  return JSON.parse(content);
+}
+
+function buildIRGraph(index: IRIndex): IRGraph {
+  const adjacency: Record<string, AdjacencyEntry[]> = {};
+  const nodes: Record<string, GraphNode> = {};
+
+  // Build node map from entities
+  for (const entity of index.entities) {
+    nodes[entity.id] = {
+      id: entity.id,
+      type: entity.type,
+      labels: entity.labels,
+      sensitivity: entity.sensitivity.level,
+    };
+    // Initialize adjacency list
+    adjacency[entity.id] = [];
   }
 
-  const indexContent = fs.readFileSync(INDEX_PATH, "utf-8");
-  const index = JSON.parse(indexContent);
+  // Build adjacency lists from edges
+  for (const edge of index.edges) {
+    // Ensure source node exists in adjacency
+    if (!adjacency[edge.src]) {
+      adjacency[edge.src] = [];
+    }
 
-  const nodes: GraphNode[] = [];
-  const edges: GraphEdge[] = [];
-  const edgeSet = new Set<string>(); // Prevent duplicates
+    adjacency[edge.src].push({
+      target: edge.dst,
+      rel: edge.rel,
+      attrs: edge.attrs,
+      provenance: edge.provenance,
+    });
+  }
 
-  // Build nodes
-  for (const pack of index.packs) {
+  // Sort adjacency lists for determinism
+  for (const nodeId of Object.keys(adjacency).sort()) {
+    adjacency[nodeId].sort((a, b) => {
+      const relCompare = a.rel.localeCompare(b.rel);
+      if (relCompare !== 0) return relCompare;
+      return a.target.localeCompare(b.target);
+    });
+  }
+
+  // Build the graph with sorted keys
+  const sortedAdjacency: Record<string, AdjacencyEntry[]> = {};
+  for (const key of Object.keys(adjacency).sort()) {
+    sortedAdjacency[key] = adjacency[key];
+  }
+
+  const sortedNodes: Record<string, GraphNode> = {};
+  for (const key of Object.keys(nodes).sort()) {
+    sortedNodes[key] = nodes[key];
+  }
+
+  return {
+    metadata: {
+      generated_at: new Date().toISOString(),
+      version: "1.0.0",
+      attribution: "Ande + Kai (OI) + Whānau (OIs)",
+      node_count: Object.keys(nodes).length,
+      edge_count: index.edges.length,
+      content_hash: "", // Will be computed
+    },
+    adjacency: sortedAdjacency,
+    nodes: sortedNodes,
+  };
+}
+
+function buildLegacyGraph(legacyIndex: Record<string, unknown>): LegacyGraph {
+  const packs = (legacyIndex.packs || []) as Array<Record<string, unknown>>;
+  const nodes: LegacyGraphNode[] = [];
+  const edges: LegacyGraphEdge[] = [];
+  const edgeSet = new Set<string>();
+
+  for (const pack of packs) {
+    // Build node
     nodes.push({
-      id: pack.id,
-      title: pack.title,
-      summary: pack.summary,
-      status: pack.status,
-      tier: pack.disclosure_tier,
-      tags: pack.tags,
+      id: pack.id as string,
+      title: pack.title as string,
+      summary: pack.summary as string,
+      status: pack.status as string,
+      tier: pack.disclosure_tier as string,
+      tags: (pack.tags as string[]) || [],
     });
 
-    // Build edges from parents
-    for (const parentId of pack.parents || []) {
-      const edgeKey = `${parentId}->${pack.id}:parent`;
+    const packId = pack.id as string;
+
+    // Build parent edges
+    for (const parentId of (pack.parents || []) as string[]) {
+      const edgeKey = `${parentId}->${packId}:parent`;
       if (!edgeSet.has(edgeKey)) {
         edges.push({
           source: parentId,
-          target: pack.id,
+          target: packId,
           type: "parent",
         });
         edgeSet.add(edgeKey);
       }
     }
 
-    // Build edges from children
-    for (const childId of pack.children || []) {
-      const edgeKey = `${pack.id}->${childId}:child`;
+    // Build child edges
+    for (const childId of (pack.children || []) as string[]) {
+      const edgeKey = `${packId}->${childId}:child`;
       if (!edgeSet.has(edgeKey)) {
         edges.push({
-          source: pack.id,
+          source: packId,
           target: childId,
           type: "child",
         });
@@ -95,13 +183,13 @@ async function main(): Promise<void> {
       }
     }
 
-    // Build edges from related
-    for (const relatedId of pack.related || []) {
-      const edgeKey1 = `${pack.id}->${relatedId}:related`;
-      const edgeKey2 = `${relatedId}->${pack.id}:related`;
+    // Build related edges
+    for (const relatedId of (pack.related || []) as string[]) {
+      const edgeKey1 = `${packId}->${relatedId}:related`;
+      const edgeKey2 = `${relatedId}->${packId}:related`;
       if (!edgeSet.has(edgeKey1) && !edgeSet.has(edgeKey2)) {
         edges.push({
-          source: pack.id,
+          source: packId,
           target: relatedId,
           type: "related",
         });
@@ -110,8 +198,17 @@ async function main(): Promise<void> {
     }
   }
 
-  // Build graph
-  const graph: Graph = {
+  // Sort for determinism
+  nodes.sort((a, b) => a.id.localeCompare(b.id));
+  edges.sort((a, b) => {
+    const srcCompare = a.source.localeCompare(b.source);
+    if (srcCompare !== 0) return srcCompare;
+    const typeCompare = a.type.localeCompare(b.type);
+    if (typeCompare !== 0) return typeCompare;
+    return a.target.localeCompare(b.target);
+  });
+
+  return {
     metadata: {
       generated_at: new Date().toISOString(),
       version: "1.0.0",
@@ -122,12 +219,55 @@ async function main(): Promise<void> {
     nodes,
     edges,
   };
+}
 
-  // Write output
-  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(graph, null, 2));
+async function main(): Promise<void> {
+  console.log("ORIGIN Graph Builder (Extended)");
+  console.log("===============================");
+  console.log("Attribution: Ande + Kai (OI) + Whānau (OIs)\n");
 
-  console.log(`✓ Built graph with ${nodes.length} nodes and ${edges.length} edges.`);
-  console.log(`✓ Written ${OUTPUT_PATH}`);
+  // Try IR index first
+  const irIndex = loadIRIndex();
+  if (irIndex) {
+    console.log("Building IR graph from build/index.json...");
+
+    const irGraph = buildIRGraph(irIndex);
+
+    // Compute content hash
+    const hashableContent = {
+      adjacency: irGraph.adjacency,
+      nodes: irGraph.nodes,
+    };
+    irGraph.metadata.content_hash = contentHash(hashableContent);
+
+    // Write IR graph
+    fs.writeFileSync(IR_OUTPUT_PATH, stableStringify(irGraph));
+    console.log(`\u2713 IR graph written to ${IR_OUTPUT_PATH}`);
+    console.log(
+      `  ${irGraph.metadata.node_count} nodes, ${irGraph.metadata.edge_count} edges`
+    );
+    console.log(`  Content hash: ${irGraph.metadata.content_hash.slice(0, 16)}`);
+  } else {
+    console.log("Warning: build/index.json not found. Skipping IR graph.");
+  }
+
+  // Build legacy graph
+  const legacyIndex = loadLegacyIndex();
+  if (legacyIndex) {
+    console.log("\nBuilding legacy graph from packs.index.json...");
+
+    const legacyGraph = buildLegacyGraph(legacyIndex);
+
+    // Write legacy graph
+    fs.writeFileSync(LEGACY_OUTPUT_PATH, JSON.stringify(legacyGraph, null, 2));
+    console.log(`\u2713 Legacy graph written to ${LEGACY_OUTPUT_PATH}`);
+    console.log(
+      `  ${legacyGraph.metadata.node_count} nodes, ${legacyGraph.metadata.edge_count} edges`
+    );
+  } else {
+    console.error("Error: packs.index.json not found. Run build:index first.");
+    process.exit(1);
+  }
 }
 
 main().catch((err) => {

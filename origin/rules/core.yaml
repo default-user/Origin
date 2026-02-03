@@ -1,0 +1,133 @@
+# ORIGIN Core Inference Rules
+# Deterministic rules for knowledge derivation
+#
+# Attribution: Ande + Kai (OI) + Whānau (OIs)
+#
+# Rule Format:
+#   rule_id: R###_name (unique identifier)
+#   head: { predicate, args[] } (what is derived)
+#   body: [ { predicate, args[] }, ... ] (what must be true)
+#   filters: [ { op, a, b }, ... ] (optional constraints)
+#
+# Variable naming: ?x, ?y, ?a, ?b, etc. (start with ?)
+# Literals: plain strings without ?
+
+---
+# R001: Transitivity of parent relationship
+# If A is parent of B and B is parent of C, then A is ancestor of C
+rule_id: R001_parent_transitivity
+description: "Transitive closure of parent relationship"
+head:
+  predicate: ancestor
+  args: ["?a", "?c"]
+body:
+  - predicate: edge
+    args: ["?a", "parent", "?b"]
+  - predicate: edge
+    args: ["?b", "parent", "?c"]
+filters:
+  - op: neq
+    a: "?a"
+    b: "?c"
+
+---
+# R002: Inverse parent-child relationship
+# If A is parent of B, then B is child of A
+rule_id: R002_parent_child_inverse
+description: "Symmetric parent-child relationship"
+head:
+  predicate: edge
+  args: ["?b", "child", "?a"]
+body:
+  - predicate: edge
+    args: ["?a", "parent", "?b"]
+
+---
+# R003: Related concepts share tags
+# If A and B both have tag T, they are tag-related
+rule_id: R003_tag_similarity
+description: "Concepts with common tags are related by that tag"
+head:
+  predicate: tagRelated
+  args: ["?a", "?b", "?tag"]
+body:
+  - predicate: hasTag
+    args: ["?a", "?tag"]
+  - predicate: hasTag
+    args: ["?b", "?tag"]
+filters:
+  - op: neq
+    a: "?a"
+    b: "?b"
+
+---
+# R004: Claims inherit concept sensitivity
+# A claim inherits the sensitivity of its parent concept
+rule_id: R004_claim_sensitivity_inheritance
+description: "Claims inherit sensitivity from parent concept"
+head:
+  predicate: inheritsSensitivity
+  args: ["?claim", "?concept"]
+body:
+  - predicate: claims
+    args: ["?concept", "?claim"]
+
+---
+# R005: Concept type assertion
+# If entity has type Concept, assert isConcept predicate
+rule_id: R005_concept_type
+description: "Type assertion for concepts"
+head:
+  predicate: isConcept
+  args: ["?x"]
+body:
+  - predicate: type
+    args: ["?x", "Concept"]
+
+---
+# R006: Direct influence through child relationship
+# If A is parent of B, A influences B
+rule_id: R006_parent_influences
+description: "Parent concepts influence their children"
+head:
+  predicate: influences
+  args: ["?a", "?b"]
+body:
+  - predicate: edge
+    args: ["?a", "parent", "?b"]
+
+---
+# R007: Transitive influence
+# If A influences B and B influences C, then A influences C
+rule_id: R007_influence_transitivity
+description: "Transitive closure of influence relationship"
+head:
+  predicate: influences
+  args: ["?a", "?c"]
+body:
+  - predicate: influences
+    args: ["?a", "?b"]
+  - predicate: influences
+    args: ["?b", "?c"]
+filters:
+  - op: neq
+    a: "?a"
+    b: "?c"
+  - op: neq
+    a: "?a"
+    b: "?b"
+  - op: neq
+    a: "?b"
+    b: "?c"
+
+---
+# R008: Related concepts are co-related (symmetric)
+# If A is related to B, then B is related to A
+rule_id: R008_related_symmetric
+description: "Related relationship is symmetric"
+head:
+  predicate: edge
+  args: ["?b", "related", "?a"]
+body:
+  - predicate: edge
+    args: ["?a", "related", "?b"]

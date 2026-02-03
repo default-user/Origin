@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://origin.local/schema/crystal_roots.schema.json",
+  "title": "Crystal Roots Configuration Schema",
+  "description": "Schema for configuring multiple crystal root directories",
+  "type": "object",
+  "required": ["roots"],
+  "properties": {
+    "roots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "description": "Path to crystal root directory relative to repo root"
+      },
+      "description": "List of crystal root directories to load"
+    },
+    "defaultSchema": {
+      "type": "string",
+      "description": "Default schema file path for validation"
+    },
+    "schemaOverrides": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Schema overrides by root directory path"
+    }
+  },
+  "additionalProperties": false
+}
