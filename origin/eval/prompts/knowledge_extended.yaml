@@ -1,0 +1,241 @@
+# Extended knowledge prompts (know_021 - know_060)
+
+- id: know_021
+  prompt: "What is PhraseWeave?"
+  expected_behavior: answer
+  expected_contains: ["phraseweave"]
+  tags: [knowledge, weaver]
+
+- id: know_022
+  prompt: "Explain RealityWeaver"
+  expected_behavior: answer
+  expected_contains: ["realityweaver"]
+  tags: [knowledge, weaver]
+
+- id: know_023
+  prompt: "What is ProofWeave?"
+  expected_behavior: answer
+  expected_contains: ["proofweave"]
+  tags: [knowledge, weaver]
+
+- id: know_024
+  prompt: "What are the inference rules in Origin?"
+  expected_behavior: answer
+  expected_contains: ["rule"]
+  tags: [knowledge, rules]
+
+- id: know_025
+  prompt: "What is the IR module?"
+  expected_behavior: answer
+  expected_contains: ["ir", "intermediate"]
+  tags: [knowledge, architecture]
+
+- id: know_026
+  prompt: "How does the rule engine work?"
+  expected_behavior: answer
+  expected_contains: ["rule", "engine"]
+  tags: [knowledge, architecture]
+
+- id: know_027
+  prompt: "What is a concept pack?"
+  expected_behavior: answer
+  expected_contains: ["pack"]
+  tags: [knowledge, schema]
+
+- id: know_028
+  prompt: "What is provenance in Origin?"
+  expected_behavior: answer
+  expected_contains: ["provenance"]
+  tags: [knowledge, concept]
+
+- id: know_029
+  prompt: "What are claims in a concept pack?"
+  expected_behavior: answer
+  expected_contains: ["claim"]
+  tags: [knowledge, schema]
+
+- id: know_030
+  prompt: "What is the attribution IP map?"
+  expected_behavior: answer
+  expected_contains: ["attribution"]
+  tags: [knowledge, concept]
+
+- id: know_031
+  prompt: "What languages does Origin support?"
+  expected_behavior: answer
+  expected_contains: ["typescript", "python"]
+  tags: [knowledge, kits]
+
+- id: know_032
+  prompt: "What is the build pipeline?"
+  expected_behavior: answer
+  expected_contains: ["build"]
+  tags: [knowledge, architecture]
+
+- id: know_033
+  prompt: "What is the search index?"
+  expected_behavior: answer
+  expected_contains: ["search"]
+  tags: [knowledge, architecture]
+
+- id: know_034
+  prompt: "What is the knowledge graph?"
+  expected_behavior: answer
+  expected_contains: ["graph"]
+  tags: [knowledge, architecture]
+
+- id: know_035
+  prompt: "What are tags used for in Origin?"
+  expected_behavior: answer
+  expected_contains: ["tag"]
+  tags: [knowledge, schema]
+
+- id: know_036
+  prompt: "What is a crystal in Origin?"
+  expected_behavior: answer
+  expected_contains: ["crystal"]
+  tags: [knowledge, concept]
+
+- id: know_037
+  prompt: "What is the validation tool?"
+  expected_behavior: answer
+  expected_contains: ["validate"]
+  tags: [knowledge, tools]
+
+- id: know_038
+  prompt: "What is the query tool?"
+  expected_behavior: answer
+  expected_contains: ["query"]
+  tags: [knowledge, tools]
+
+- id: know_039
+  prompt: "What are golden tests?"
+  expected_behavior: answer
+  expected_contains: ["golden", "test"]
+  tags: [knowledge, testing]
+
+- id: know_040
+  prompt: "What is the determinism check?"
+  expected_behavior: answer
+  expected_contains: ["determinism"]
+  tags: [knowledge, testing]
+
+- id: know_041
+  prompt: "What is PACMAN bifurcation?"
+  expected_behavior: answer
+  expected_contains: ["pacman"]
+  tags: [knowledge, concept]
+
+- id: know_042
+  prompt: "What is Orgasystem?"
+  expected_behavior: answer
+  expected_contains: ["orgasystem"]
+  tags: [knowledge, concept]
+
+- id: know_043
+  prompt: "What is Authority NZ?"
+  expected_behavior: answer
+  expected_contains: ["authority"]
+  tags: [knowledge, concept]
+
+- id: know_044
+  prompt: "What is H-Haiku OI?"
+  expected_behavior: answer
+  expected_contains: ["haiku"]
+  tags: [knowledge, concept]
+
+- id: know_045
+  prompt: "What is the RoundTree architecture?"
+  expected_behavior: answer
+  expected_contains: ["roundtree"]
+  tags: [knowledge, architecture]
+
+- id: know_046
+  prompt: "What is the bubble ledger?"
+  expected_behavior: answer
+  expected_contains: ["bubble", "ledger"]
+  tags: [knowledge, concept]
+
+- id: know_047
+  prompt: "What query types does Origin support?"
+  expected_behavior: answer
+  expected_contains: ["define", "relate"]
+  tags: [knowledge, queries]
+
+- id: know_048
+  prompt: "What is the site module?"
+  expected_behavior: answer
+  expected_contains: ["site"]
+  tags: [knowledge, architecture]
+
+- id: know_049
+  prompt: "What is Next.js used for in Origin?"
+  expected_behavior: answer
+  expected_contains: ["next"]
+  tags: [knowledge, architecture]
+
+- id: know_050
+  prompt: "What is the CI pipeline?"
+  expected_behavior: answer
+  expected_contains: ["ci"]
+  tags: [knowledge, devops]
+
+- id: know_051
+  prompt: "What are test falsifiers?"
+  expected_behavior: answer
+  expected_contains: ["test", "falsif"]
+  tags: [knowledge, schema]
+
+- id: know_052
+  prompt: "What is an entity in Origin?"
+  expected_behavior: answer
+  expected_contains: ["entity"]
+  tags: [knowledge, schema]
+
+- id: know_053
+  prompt: "What is an edge in the knowledge graph?"
+  expected_behavior: answer
+  expected_contains: ["edge"]
+  tags: [knowledge, schema]
+
+- id: know_054
+  prompt: "What is a fact in Origin?"
+  expected_behavior: answer
+  expected_contains: ["fact"]
+  tags: [knowledge, schema]
+
+- id: know_055
+  prompt: "What are the maturity lanes?"
+  expected_behavior: answer
+  expected_contains: ["draft", "active", "release"]
+  tags: [knowledge, schema]
+
+- id: know_056
+  prompt: "What is the export-public tool?"
+  expected_behavior: answer
+  expected_contains: ["export", "public"]
+  tags: [knowledge, tools]
+
+- id: know_057
+  prompt: "What is the archive tool?"
+  expected_behavior: answer
+  expected_contains: ["archive"]
+  tags: [knowledge, tools]
+
+- id: know_058
+  prompt: "What is the explain tool?"
+  expected_behavior: answer
+  expected_contains: ["explain"]
+  tags: [knowledge, tools]
+
+- id: know_059
+  prompt: "What are the sensitivity levels?"
+  expected_behavior: answer
+  expected_contains: ["public", "sensitive"]
+  tags: [knowledge, schema]
+
+- id: know_060
+  prompt: "What is PII risk in Origin?"
+  expected_behavior: answer
+  expected_contains: ["pii"]
+  tags: [knowledge, schema]

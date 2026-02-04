@@ -1,0 +1,151 @@
+# Extended planning prompts (plan_006 - plan_030)
+
+- id: plan_006
+  prompt: "How do I contribute to Origin?"
+  expected_behavior: answer
+  expected_contains: ["contributing"]
+  tags: [planning, howto]
+
+- id: plan_007
+  prompt: "What is the workflow for updating a concept?"
+  expected_behavior: answer
+  expected_contains: ["update"]
+  tags: [planning, process]
+
+- id: plan_008
+  prompt: "How do I validate my changes?"
+  expected_behavior: answer
+  expected_contains: ["validate"]
+  tags: [planning, howto]
+
+- id: plan_009
+  prompt: "Steps to add a new language kit?"
+  expected_behavior: answer
+  expected_contains: ["kit"]
+  tags: [planning, process]
+
+- id: plan_010
+  prompt: "How would I debug a failing test?"
+  expected_behavior: answer
+  expected_contains: ["test"]
+  tags: [planning, howto]
+
+- id: plan_011
+  prompt: "What is the release process?"
+  expected_behavior: answer
+  expected_contains: ["release"]
+  tags: [planning, process]
+
+- id: plan_012
+  prompt: "How do I export public-only content?"
+  expected_behavior: answer
+  expected_contains: ["export", "public"]
+  tags: [planning, howto]
+
+- id: plan_013
+  prompt: "Steps to create an archive?"
+  expected_behavior: answer
+  expected_contains: ["archive"]
+  tags: [planning, process]
+
+- id: plan_014
+  prompt: "How would I add a new inference rule?"
+  expected_behavior: answer
+  expected_contains: ["rule"]
+  tags: [planning, howto]
+
+- id: plan_015
+  prompt: "What is the testing workflow?"
+  expected_behavior: answer
+  expected_contains: ["test"]
+  tags: [planning, process]
+
+- id: plan_016
+  prompt: "How do I check determinism?"
+  expected_behavior: answer
+  expected_contains: ["determinism"]
+  tags: [planning, howto]
+
+- id: plan_017
+  prompt: "Steps to build the site?"
+  expected_behavior: answer
+  expected_contains: ["site", "build"]
+  tags: [planning, process]
+
+- id: plan_018
+  prompt: "How would I search the knowledge base?"
+  expected_behavior: answer
+  expected_contains: ["search"]
+  tags: [planning, howto]
+
+- id: plan_019
+  prompt: "What is the development setup process?"
+  expected_behavior: answer
+  expected_contains: ["install"]
+  tags: [planning, process]
+
+- id: plan_020
+  prompt: "How do I run the Medusa UI?"
+  expected_behavior: answer
+  expected_contains: ["site", "dev"]
+  tags: [planning, howto]
+
+- id: plan_021
+  prompt: "Steps to add tags to a concept?"
+  expected_behavior: answer
+  expected_contains: ["tag"]
+  tags: [planning, process]
+
+- id: plan_022
+  prompt: "How would I link two concepts?"
+  expected_behavior: answer
+  expected_contains: ["related"]
+  tags: [planning, howto]
+
+- id: plan_023
+  prompt: "What is the CI/CD workflow?"
+  expected_behavior: answer
+  expected_contains: ["ci"]
+  tags: [planning, process]
+
+- id: plan_024
+  prompt: "How do I add a claim to a concept?"
+  expected_behavior: answer
+  expected_contains: ["claim"]
+  tags: [planning, howto]
+
+- id: plan_025
+  prompt: "Steps to mark content as sensitive?"
+  expected_behavior: answer
+  expected_contains: ["sensitive"]
+  tags: [planning, process]
+
+- id: plan_026
+  prompt: "How would I set up OI-FAR?"
+  expected_behavior: answer
+  expected_contains: ["oi_far"]
+  tags: [planning, howto]
+
+- id: plan_027
+  prompt: "What is the eval workflow?"
+  expected_behavior: answer
+  expected_contains: ["eval"]
+  tags: [planning, process]
+
+- id: plan_028
+  prompt: "How do I add eval prompts?"
+  expected_behavior: answer
+  expected_contains: ["prompt"]
+  tags: [planning, howto]
+
+- id: plan_029
+  prompt: "Steps to generate golden outputs?"
+  expected_behavior: answer
+  expected_contains: ["golden"]
+  tags: [planning, process]
+
+- id: plan_030
+  prompt: "How would I configure the growth loop?"
+  expected_behavior: answer
+  expected_contains: ["growth"]
+  tags: [planning, howto]

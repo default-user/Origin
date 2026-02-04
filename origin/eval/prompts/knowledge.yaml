@@ -1,0 +1,122 @@
+# Knowledge Q&A prompts - test broad knowledge retrieval
+
+- id: know_001
+  prompt: "What is the Holodeck?"
+  expected_behavior: answer
+  expected_contains: ["holodeck"]
+  tags: [knowledge, concept, origin]
+
+- id: know_002
+  prompt: "Define Meta Control Language"
+  expected_behavior: answer
+  expected_contains: ["mcl", "control", "language"]
+  tags: [knowledge, concept, origin]
+
+- id: know_003
+  prompt: "What is fractal unfurling?"
+  expected_behavior: answer
+  expected_contains: ["fractal"]
+  tags: [knowledge, concept, origin]
+
+- id: know_004
+  prompt: "Explain the Medusa interface"
+  expected_behavior: answer
+  expected_contains: ["medusa", "interface"]
+  tags: [knowledge, concept, origin]
+
+- id: know_005
+  prompt: "What is the QED oracle?"
+  expected_behavior: answer
+  expected_contains: ["qed", "oracle"]
+  tags: [knowledge, concept, origin]
+
+- id: know_006
+  prompt: "Describe the privacy boundary concept"
+  expected_behavior: answer
+  expected_contains: ["privacy"]
+  tags: [knowledge, concept, origin]
+
+- id: know_007
+  prompt: "What is O2C?"
+  expected_behavior: answer
+  expected_contains: ["o2c"]
+  tags: [knowledge, concept, origin]
+
+- id: know_008
+  prompt: "Explain the Kati architecture"
+  expected_behavior: answer
+  expected_contains: ["kati"]
+  tags: [knowledge, concept, origin]
+
+- id: know_009
+  prompt: "What are disclosure tiers?"
+  expected_behavior: answer
+  expected_contains: ["tier"]
+  tags: [knowledge, concept, origin]
+
+- id: know_010
+  prompt: "What is unknown_nonexistent_concept_xyz?"
+  expected_behavior: unknown
+  expected_contains: ["UNKNOWN"]
+  expected_not_contains: ["is a", "is the"]
+  tags: [knowledge, unknown, negative]
+
+- id: know_011
+  prompt: "Define stangraphics"
+  expected_behavior: answer
+  expected_contains: ["stangraphics"]
+  tags: [knowledge, concept, origin]
+
+- id: know_012
+  prompt: "What is denotum?"
+  expected_behavior: answer
+  expected_contains: ["denotum"]
+  tags: [knowledge, concept, origin]
+
+- id: know_013
+  prompt: "Explain CIF and CDI"
+  expected_behavior: answer
+  expected_contains: ["cif"]
+  tags: [knowledge, concept, origin]
+
+- id: know_014
+  prompt: "What is the anti-mumbo filter?"
+  expected_behavior: answer
+  expected_contains: ["anti-mumbo", "filter"]
+  tags: [knowledge, concept, origin]
+
+- id: know_015
+  prompt: "What is LFME compression?"
+  expected_behavior: answer
+  expected_contains: ["lfme"]
+  tags: [knowledge, concept, origin]
+
+- id: know_016
+  prompt: "Describe the lifeblood cathedral concept"
+  expected_behavior: answer
+  expected_contains: ["lifeblood", "cathedral"]
+  tags: [knowledge, concept, origin]
+
+- id: know_017
+  prompt: "What is the GitHub spider integration?"
+  expected_behavior: answer
+  expected_contains: ["github", "spider"]
+  tags: [knowledge, concept, origin]
+
+- id: know_018
+  prompt: "What is MRC?"
+  expected_behavior: answer
+  expected_contains: ["mrc"]
+  tags: [knowledge, concept, origin]
+
+- id: know_019
+  prompt: "Explain the archive and downloadable terms"
+  expected_behavior: answer
+  expected_contains: ["archive"]
+  tags: [knowledge, concept, origin]
+
+- id: know_020
+  prompt: "What is the dedication maturity model?"
+  expected_behavior: answer
+  expected_contains: ["dedication", "maturity"]
+  tags: [knowledge, concept, origin]

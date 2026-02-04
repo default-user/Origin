@@ -1,0 +1,30 @@
+# Strict formatting and instruction following prompts
+
+- id: format_001
+  prompt: "List three concepts from Origin"
+  expected_behavior: answer
+  expected_contains: []
+  tags: [formatting, list]
+
+- id: format_002
+  prompt: "Summarize the Holodeck in one sentence"
+  expected_behavior: answer
+  expected_contains: ["holodeck"]
+  tags: [formatting, concise]
+
+- id: format_003
+  prompt: "What is Origin? Answer in exactly two sentences."
+  expected_behavior: answer
+  tags: [formatting, constraint]
+
+- id: format_004
+  prompt: "List the disclosure tiers in order"
+  expected_behavior: answer
+  expected_contains: ["public"]
+  tags: [formatting, list, order]
+
+- id: format_005
+  prompt: "What is the main purpose of the Medusa interface? Be brief."
+  expected_behavior: answer
+  expected_contains: ["medusa"]
+  tags: [formatting, concise]

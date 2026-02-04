@@ -1,0 +1,31 @@
+# Planning task prompts
+
+- id: plan_001
+  prompt: "How would I add a new concept to Origin?"
+  expected_behavior: answer
+  expected_contains: ["pack"]
+  tags: [planning, howto]
+
+- id: plan_002
+  prompt: "What steps would I take to verify a claim in Origin?"
+  expected_behavior: answer
+  expected_contains: ["verify"]
+  tags: [planning, process]
+
+- id: plan_003
+  prompt: "How do I run the Origin tests?"
+  expected_behavior: answer
+  expected_contains: ["test"]
+  tags: [planning, howto]
+
+- id: plan_004
+  prompt: "What is the process for building the knowledge graph?"
+  expected_behavior: answer
+  expected_contains: ["graph"]
+  tags: [planning, process]
+
+- id: plan_005
+  prompt: "How would I search for a concept in the vault?"
+  expected_behavior: answer
+  expected_contains: ["search"]
+  tags: [planning, howto]

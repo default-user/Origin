@@ -1,0 +1,60 @@
+# Multi-step reasoning prompts
+
+- id: reason_001
+  prompt: "If the Holodeck is a vision system, what does that imply about its interface requirements?"
+  expected_behavior: answer
+  expected_contains: ["interface"]
+  tags: [reasoning, deduction]
+
+- id: reason_002
+  prompt: "How does fractal unfurling relate to documentation structure?"
+  expected_behavior: answer
+  expected_contains: ["fractal", "documentation"]
+  tags: [reasoning, relationship]
+
+- id: reason_003
+  prompt: "What is the relationship between Medusa and the knowledge graph?"
+  expected_behavior: answer
+  expected_contains: ["medusa"]
+  tags: [reasoning, relationship]
+
+- id: reason_004
+  prompt: "Why would a system need disclosure tiers for knowledge?"
+  expected_behavior: answer
+  expected_contains: ["tier"]
+  tags: [reasoning, explanation]
+
+- id: reason_005
+  prompt: "How does the privacy boundary protect sensitive information?"
+  expected_behavior: answer
+  expected_contains: ["privacy"]
+  tags: [reasoning, explanation]
+
+- id: reason_006
+  prompt: "What are the benefits of deterministic builds?"
+  expected_behavior: answer
+  expected_contains: ["deterministic"]
+  tags: [reasoning, explanation]
+
+- id: reason_007
+  prompt: "How would you verify a claim using the QED oracle?"
+  expected_behavior: answer
+  expected_contains: ["qed", "verify"]
+  tags: [reasoning, process]
+
+- id: reason_008
+  prompt: "What happens if a concept has no tests or falsifiers?"
+  expected_behavior: answer
+  tags: [reasoning, inference]
+
+- id: reason_009
+  prompt: "How do parent-child relationships propagate in the knowledge graph?"
+  expected_behavior: answer
+  expected_contains: ["parent", "child"]
+  tags: [reasoning, graph]
+
+- id: reason_010
+  prompt: "What is the purpose of sensitivity levels in Origin?"
+  expected_behavior: answer
+  expected_contains: ["sensitivity"]
+  tags: [reasoning, explanation]

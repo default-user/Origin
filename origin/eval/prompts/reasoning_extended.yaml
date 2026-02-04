@@ -1,0 +1,241 @@
+# Extended reasoning prompts (reason_011 - reason_050)
+
+- id: reason_011
+  prompt: "If a concept has children, what does that imply about its scope?"
+  expected_behavior: answer
+  expected_contains: ["parent", "child"]
+  tags: [reasoning, inference]
+
+- id: reason_012
+  prompt: "How does tag similarity work for finding related concepts?"
+  expected_behavior: answer
+  expected_contains: ["tag"]
+  tags: [reasoning, mechanism]
+
+- id: reason_013
+  prompt: "Why is content hashing important for provenance?"
+  expected_behavior: answer
+  expected_contains: ["hash", "provenance"]
+  tags: [reasoning, explanation]
+
+- id: reason_014
+  prompt: "What would happen if two claims contradict each other?"
+  expected_behavior: answer
+  expected_contains: ["contradict"]
+  tags: [reasoning, inference]
+
+- id: reason_015
+  prompt: "How does forward chaining inference work?"
+  expected_behavior: answer
+  expected_contains: ["inference"]
+  tags: [reasoning, mechanism]
+
+- id: reason_016
+  prompt: "Why does Origin require at least two tests per concept?"
+  expected_behavior: answer
+  expected_contains: ["test"]
+  tags: [reasoning, explanation]
+
+- id: reason_017
+  prompt: "How does the inverted index support search?"
+  expected_behavior: answer
+  expected_contains: ["search"]
+  tags: [reasoning, mechanism]
+
+- id: reason_018
+  prompt: "What is the relationship between disclosure tier and audience?"
+  expected_behavior: answer
+  expected_contains: ["tier"]
+  tags: [reasoning, relationship]
+
+- id: reason_019
+  prompt: "Why would you use BM25 for retrieval?"
+  expected_behavior: answer
+  expected_contains: ["retrieval"]
+  tags: [reasoning, explanation]
+
+- id: reason_020
+  prompt: "How do rules propagate facts in the knowledge graph?"
+  expected_behavior: answer
+  expected_contains: ["rule", "fact"]
+  tags: [reasoning, mechanism]
+
+- id: reason_021
+  prompt: "If a concept is REDACTED, what happens to its children?"
+  expected_behavior: answer
+  expected_contains: ["redact", "sensitivity"]
+  tags: [reasoning, inference]
+
+- id: reason_022
+  prompt: "Why is determinism important for reproducibility?"
+  expected_behavior: answer
+  expected_contains: ["determinism"]
+  tags: [reasoning, explanation]
+
+- id: reason_023
+  prompt: "How does the critic module ensure answer quality?"
+  expected_behavior: answer
+  expected_contains: ["critic"]
+  tags: [reasoning, mechanism]
+
+- id: reason_024
+  prompt: "What is the purpose of the assumption ledger?"
+  expected_behavior: answer
+  expected_contains: ["assumption"]
+  tags: [reasoning, explanation]
+
+- id: reason_025
+  prompt: "How does capability gating protect tool access?"
+  expected_behavior: answer
+  expected_contains: ["capability"]
+  tags: [reasoning, mechanism]
+
+- id: reason_026
+  prompt: "Why would retrieval include a contradiction penalty?"
+  expected_behavior: answer
+  expected_contains: ["contradict"]
+  tags: [reasoning, explanation]
+
+- id: reason_027
+  prompt: "How does the growth loop improve coverage?"
+  expected_behavior: answer
+  expected_contains: ["growth"]
+  tags: [reasoning, mechanism]
+
+- id: reason_028
+  prompt: "What is the benefit of fail-closed semantics?"
+  expected_behavior: answer
+  expected_contains: ["fail"]
+  tags: [reasoning, explanation]
+
+- id: reason_029
+  prompt: "How does traceability enable auditing?"
+  expected_behavior: answer
+  expected_contains: ["trace"]
+  tags: [reasoning, explanation]
+
+- id: reason_030
+  prompt: "Why separate bricks from documents?"
+  expected_behavior: answer
+  expected_contains: ["brick"]
+  tags: [reasoning, explanation]
+
+- id: reason_031
+  prompt: "How does the planner create execution steps?"
+  expected_behavior: answer
+  expected_contains: ["plan"]
+  tags: [reasoning, mechanism]
+
+- id: reason_032
+  prompt: "What role does confidence play in ranking?"
+  expected_behavior: answer
+  expected_contains: ["confidence"]
+  tags: [reasoning, mechanism]
+
+- id: reason_033
+  prompt: "How does the renderer enforce no-new-claims?"
+  expected_behavior: answer
+  expected_contains: ["claim"]
+  tags: [reasoning, mechanism]
+
+- id: reason_034
+  prompt: "Why cache tool results?"
+  expected_behavior: answer
+  expected_contains: ["cache"]
+  tags: [reasoning, explanation]
+
+- id: reason_035
+  prompt: "How does session state enable coherence?"
+  expected_behavior: answer
+  expected_contains: ["session"]
+  tags: [reasoning, mechanism]
+
+- id: reason_036
+  prompt: "What is the relationship between intent and plan?"
+  expected_behavior: answer
+  expected_contains: ["intent", "plan"]
+  tags: [reasoning, relationship]
+
+- id: reason_037
+  prompt: "How do constraints affect retrieval scoring?"
+  expected_behavior: answer
+  expected_contains: ["constraint"]
+  tags: [reasoning, mechanism]
+
+- id: reason_038
+  prompt: "Why use templates instead of generation?"
+  expected_behavior: answer
+  expected_contains: ["template"]
+  tags: [reasoning, explanation]
+
+- id: reason_039
+  prompt: "How does the sandbox protect against code execution?"
+  expected_behavior: answer
+  expected_contains: ["sandbox"]
+  tags: [reasoning, mechanism]
+
+- id: reason_040
+  prompt: "What happens when context is insufficient?"
+  expected_behavior: answer
+  expected_contains: ["unknown"]
+  tags: [reasoning, inference]
+
+- id: reason_041
+  prompt: "Why track missing knowledge?"
+  expected_behavior: answer
+  expected_contains: ["missing"]
+  tags: [reasoning, explanation]
+
+- id: reason_042
+  prompt: "How do regression tests prevent regressions?"
+  expected_behavior: answer
+  expected_contains: ["regression", "test"]
+  tags: [reasoning, mechanism]
+
+- id: reason_043
+  prompt: "What is the purpose of query intent classification?"
+  expected_behavior: answer
+  expected_contains: ["intent"]
+  tags: [reasoning, explanation]
+
+- id: reason_044
+  prompt: "How does galley mode differ from bridge mode?"
+  expected_behavior: answer
+  expected_contains: ["galley", "bridge"]
+  tags: [reasoning, comparison]
+
+- id: reason_045
+  prompt: "Why are commitments tracked during sessions?"
+  expected_behavior: answer
+  expected_contains: ["commitment"]
+  tags: [reasoning, explanation]
+
+- id: reason_046
+  prompt: "How does the lexical index support term matching?"
+  expected_behavior: answer
+  expected_contains: ["lexical"]
+  tags: [reasoning, mechanism]
+
+- id: reason_047
+  prompt: "What is the purpose of the provenance chain?"
+  expected_behavior: answer
+  expected_contains: ["provenance"]
+  tags: [reasoning, explanation]
+
+- id: reason_048
+  prompt: "How does the solver execute plan steps?"
+  expected_behavior: answer
+  expected_contains: ["solver", "step"]
+  tags: [reasoning, mechanism]
+
+- id: reason_049
+  prompt: "Why would you need known unknowns?"
+  expected_behavior: answer
+  expected_contains: ["unknown"]
+  tags: [reasoning, explanation]
+
+- id: reason_050
+  prompt: "How does the graph index support relationship queries?"
+  expected_behavior: answer
+  expected_contains: ["graph"]
+  tags: [reasoning, mechanism]

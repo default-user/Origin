@@ -1,0 +1,147 @@
+# Extended formatting prompts (format_006 - format_030)
+
+- id: format_006
+  prompt: "List five things Origin can do"
+  expected_behavior: answer
+  tags: [formatting, list]
+
+- id: format_007
+  prompt: "What is Origin in 10 words or less?"
+  expected_behavior: answer
+  tags: [formatting, concise]
+
+- id: format_008
+  prompt: "Explain the privacy boundary briefly"
+  expected_behavior: answer
+  expected_contains: ["privacy"]
+  tags: [formatting, concise]
+
+- id: format_009
+  prompt: "List the weaver modules"
+  expected_behavior: answer
+  expected_contains: ["weaver"]
+  tags: [formatting, list]
+
+- id: format_010
+  prompt: "What are the main Origin tools? List them."
+  expected_behavior: answer
+  expected_contains: ["validate", "query"]
+  tags: [formatting, list]
+
+- id: format_011
+  prompt: "Describe Origin's purpose in a single paragraph"
+  expected_behavior: answer
+  tags: [formatting, paragraph]
+
+- id: format_012
+  prompt: "What is a concept pack? Short answer."
+  expected_behavior: answer
+  expected_contains: ["pack"]
+  tags: [formatting, concise]
+
+- id: format_013
+  prompt: "List three types of edges in the graph"
+  expected_behavior: answer
+  expected_contains: ["parent", "child"]
+  tags: [formatting, list]
+
+- id: format_014
+  prompt: "Summarize disclosure tiers"
+  expected_behavior: answer
+  expected_contains: ["tier"]
+  tags: [formatting, summary]
+
+- id: format_015
+  prompt: "What is determinism? One sentence."
+  expected_behavior: answer
+  expected_contains: ["determinism"]
+  tags: [formatting, concise]
+
+- id: format_016
+  prompt: "List the sensitivity levels in Origin"
+  expected_behavior: answer
+  expected_contains: ["public", "sensitive"]
+  tags: [formatting, list]
+
+- id: format_017
+  prompt: "What is provenance? Brief explanation."
+  expected_behavior: answer
+  expected_contains: ["provenance"]
+  tags: [formatting, concise]
+
+- id: format_018
+  prompt: "List query types supported by Origin"
+  expected_behavior: answer
+  expected_contains: ["define"]
+  tags: [formatting, list]
+
+- id: format_019
+  prompt: "What is the build pipeline? Summary."
+  expected_behavior: answer
+  expected_contains: ["build"]
+  tags: [formatting, summary]
+
+- id: format_020
+  prompt: "Name three Origin concepts"
+  expected_behavior: answer
+  tags: [formatting, list]
+
+- id: format_021
+  prompt: "What does the validation tool check? List items."
+  expected_behavior: answer
+  expected_contains: ["validate"]
+  tags: [formatting, list]
+
+- id: format_022
+  prompt: "Describe the Medusa interface in two sentences"
+  expected_behavior: answer
+  expected_contains: ["medusa"]
+  tags: [formatting, constraint]
+
+- id: format_023
+  prompt: "What are tags used for? Short answer."
+  expected_behavior: answer
+  expected_contains: ["tag"]
+  tags: [formatting, concise]
+
+- id: format_024
+  prompt: "List the maturity lanes"
+  expected_behavior: answer
+  expected_contains: ["draft", "active"]
+  tags: [formatting, list]
+
+- id: format_025
+  prompt: "What is a brick in OI-FAR? One sentence."
+  expected_behavior: answer
+  expected_contains: ["brick"]
+  tags: [formatting, concise]
+
+- id: format_026
+  prompt: "List OI-FAR modules"
+  expected_behavior: answer
+  expected_contains: ["kernel", "retrieval"]
+  tags: [formatting, list]
+
+- id: format_027
+  prompt: "What is the growth loop? Brief."
+  expected_behavior: answer
+  expected_contains: ["growth"]
+  tags: [formatting, concise]
+
+- id: format_028
+  prompt: "Name the render modes"
+  expected_behavior: answer
+  expected_contains: ["galley", "bridge"]
+  tags: [formatting, list]
+
+- id: format_029
+  prompt: "What does the critic do? Short."
+  expected_behavior: answer
+  expected_contains: ["critic"]
+  tags: [formatting, concise]
+
+- id: format_030
+  prompt: "List three tool capabilities"
+  expected_behavior: answer
+  expected_contains: ["read"]
+  tags: [formatting, list]
