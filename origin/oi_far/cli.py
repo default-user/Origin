@@ -13,12 +13,13 @@ Usage:
 """
 
 import argparse
+import hashlib
 import json
 import sys
 import time
 from pathlib import Path
 
-from .kernel import SessionState
+from .kernel import SessionState, OIKernel
 from .substrate import BrickCompiler, BrickStore, Document, DocumentStore
 from .retrieval import DeterministicRetriever
 from .reasoning import DeterministicCritic, DeterministicPlanner, DeterministicSolver
@@ -67,9 +68,13 @@ class OIFarRuntime:
             config=RenderConfig(mode=mode)
         )
 
-        # Initialize session
-        self.session = SessionState()
-        self.session.user_prefs["mode"] = mode.value
+        # Initialize session via kernel
+        self.kernel = OIKernel()
+        self.session = self.kernel.session
+        self.session.user_prefs.style_mode = mode
+
+        # Session history for tracking turns
+        self._history: list[tuple[str, str]] = []
 
         # Initialize tools
         self.tools = create_default_registry(str(self.vault_path))
@@ -146,7 +151,8 @@ class OIFarRuntime:
         start_time = time.time()
 
         # Update session
-        self.session.add_turn("user", query)
+        self.kernel.begin_turn(query)
+        self._history.append(("user", query))
 
         # 1. Retrieve context
         context = self.retriever.retrieve(query, self.session)
@@ -184,7 +190,9 @@ class OIFarRuntime:
         output = self.renderer.render(answer_plan, render_config)
 
         # Update session
-        self.session.add_turn("assistant", output.text)
+        self._history.append(("assistant", output.text))
+        output_hash = hashlib.sha256(output.text.encode()).hexdigest()[:16]
+        self.kernel.end_turn(success=True, output_hash=output_hash)
 
         total_time = time.time() - start_time
 

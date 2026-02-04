@@ -179,13 +179,13 @@ class DeterministicRetriever:
         # User-specified constraints
         for constraint in session_state.constraints:
             constraints.append(ActiveConstraint(
-                constraint_id=f"user_{len(constraints)}",
-                description=constraint,
+                constraint_id=constraint.id if hasattr(constraint, 'id') else f"user_{len(constraints)}",
+                description=constraint.description if hasattr(constraint, 'description') else str(constraint),
                 source="user",
             ))
 
         # System constraints from prefs
-        if session_state.user_prefs.get("strict_sourcing"):
+        if getattr(session_state.user_prefs, 'strict_sourcing', False):
             constraints.append(ActiveConstraint(
                 constraint_id="sys_strict_sourcing",
                 description="All claims must have explicit source citations",
