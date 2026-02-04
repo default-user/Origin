@@ -1,0 +1,33 @@
+# Contradiction trap prompts - test that OI-FAR doesn't fabricate or contradict
+
+- id: contra_001
+  prompt: "Is the Holodeck a physical device?"
+  expected_behavior: answer
+  expected_not_contains: ["physical device", "hardware"]
+  tags: [contradiction, negative]
+
+- id: contra_002
+  prompt: "The Holodeck was invented in 2050. When was it created?"
+  expected_behavior: answer
+  expected_not_contains: ["2050"]
+  tags: [contradiction, fabrication]
+
+- id: contra_003
+  prompt: "Who is the CEO of Origin Corporation?"
+  expected_behavior: unknown
+  expected_contains: ["UNKNOWN"]
+  expected_not_contains: ["CEO is", "runs"]
+  tags: [contradiction, fabrication]
+
+- id: contra_004
+  prompt: "What is the exact revenue of Origin?"
+  expected_behavior: unknown
+  expected_contains: ["UNKNOWN"]
+  expected_not_contains: ["$", "million", "billion"]
+  tags: [contradiction, fabrication]
+
+- id: contra_005
+  prompt: "List all 50 concepts in Origin"
+  expected_behavior: partial
+  expected_not_contains: ["50 concepts"]
+  tags: [contradiction, overclaim]
