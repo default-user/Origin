@@ -1,0 +1,20 @@
+{
+  "name": "Vector 2: Literals Only",
+  "description": "PWV1 encoding with empty dictionary (all literals)",
+  "input": {
+    "raw_bytes_hex": "48454c4c4f",
+    "raw_ascii": "HELLO",
+    "dictionary_entries": []
+  },
+  "expected_output": {
+    "notes": "Each byte becomes LITERAL token (0x00) followed by the byte",
+    "token_breakdown": [
+      {"type": "LITERAL", "hex": "0048"},
+      {"type": "LITERAL", "hex": "0045"},
+      {"type": "LITERAL", "hex": "004c"},
+      {"type": "LITERAL", "hex": "004c"},
+      {"type": "LITERAL", "hex": "004f"}
+    ],
+    "woven_length": 48
+  }
+}

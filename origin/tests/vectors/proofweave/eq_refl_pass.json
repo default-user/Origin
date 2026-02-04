@@ -1,0 +1,23 @@
+{
+  "pwof_version": "1",
+  "ruleset_id": "PWK_ND_PROP_EQ_v1",
+  "context": {
+    "assumptions": []
+  },
+  "goal": {"formula": {"eq": {"left": {"var": "x"}, "right": {"var": "x"}}}},
+  "proof": {
+    "nodes": [
+      {
+        "id": "n1",
+        "rule": "EQ_REFL",
+        "premises": [],
+        "formula": {"eq": {"left": {"var": "x"}, "right": {"var": "x"}}}
+      }
+    ],
+    "conclusion": "n1"
+  },
+  "_test_metadata": {
+    "expected_result": "PASS",
+    "description": "Valid equality reflexivity: x = x"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "pwof_version": "1",
+  "ruleset_id": "PWK_ND_PROP_EQ_v1",
+  "context": {
+    "assumptions": [
+      {"atom": {"pred": "A", "args": []}},
+      {"imp": [
+        {"atom": {"pred": "A", "args": []}},
+        {"atom": {"pred": "B", "args": []}}
+      ]}
+    ]
+  },
+  "goal": {"formula": {"atom": {"pred": "B", "args": []}}},
+  "proof": {
+    "nodes": [
+      {
+        "id": "n1",
+        "rule": "ASSUME",
+        "premises": [],
+        "formula": {"atom": {"pred": "A", "args": []}}
+      },
+      {
+        "id": "n2",
+        "rule": "ASSUME",
+        "premises": [],
+        "formula": {"imp": [
+          {"atom": {"pred": "A", "args": []}},
+          {"atom": {"pred": "B", "args": []}}
+        ]}
+      },
+      {
+        "id": "n3",
+        "rule": "IMP_ELIM",
+        "premises": ["n1", "n2"],
+        "formula": {"atom": {"pred": "B", "args": []}}
+      }
+    ],
+    "conclusion": "n3"
+  },
+  "_test_metadata": {
+    "expected_result": "PASS",
+    "description": "Valid modus ponens proof: from A and A→B, derive B"
+  }
+}
