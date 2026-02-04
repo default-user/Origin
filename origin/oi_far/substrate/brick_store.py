@@ -5,6 +5,8 @@ from pathlib import Path
 from typing import Iterator
 
 from .types import Brick, BrickKind, Claim, Link
+from .indexes.lexical import LexicalIndex, LexicalHit
+from .indexes.graph import GraphIndex
 
 
 class BrickStore:
@@ -27,6 +29,11 @@ class BrickStore:
         self._by_kind: dict[BrickKind, list[str]] = {k: [] for k in BrickKind}
         self._by_tag: dict[str, list[str]] = {}
         self._claim_index: dict[str, str] = {}  # claim_id -> brick_id
+
+        # Initialize indexes
+        index_path = self.storage_path / "indexes" if self.storage_path else None
+        self._lexical_index = LexicalIndex(str(index_path / "lexical") if index_path else None)
+        self._graph_index = GraphIndex(str(index_path / "graph") if index_path else None)
 
         if self.storage_path and self.storage_path.exists():
             self._load_from_disk()
@@ -242,5 +249,35 @@ class BrickStore:
         self._by_kind = {k: [] for k in BrickKind}
         self._by_tag.clear()
         self._claim_index.clear()
+        self._lexical_index.clear()
+        self._graph_index.clear()
         if self.storage_path:
             self._save_to_disk()
+
+    def search_lexical(self, query: str, limit: int = 10) -> list[LexicalHit]:
+        """
+        Search bricks using lexical (BM25) index.
+
+        Args:
+            query: Search query
+            limit: Maximum results
+
+        Returns:
+            List of LexicalHit sorted by score descending
+        """
+        return self._lexical_index.search(query, top_k=limit)
+
+    def rebuild_indexes(self) -> None:
+        """Rebuild all indexes from current bricks."""
+        # Clear indexes
+        self._lexical_index.clear()
+        self._graph_index.clear()
+
+        # Reindex all bricks
+        for brick in self._bricks.values():
+            self._lexical_index.index_brick(brick)
+            self._graph_index.index_brick(brick)
+
+    def get_graph_neighbors(self, brick_id: str, direction: str = "both") -> list[tuple[str, str, float]]:
+        """Get neighboring bricks from graph index."""
+        return self._graph_index.get_neighbors(brick_id, direction=direction)

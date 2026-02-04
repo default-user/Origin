@@ -240,3 +240,45 @@ class DocumentStore:
         self._by_hash.clear()
         if self.storage_path:
             self._save_to_disk()
+
+    def search(self, query: str, limit: int = 10) -> list[tuple[Document, float]]:
+        """
+        Search documents by text.
+
+        Args:
+            query: Search query
+            limit: Maximum results
+
+        Returns:
+            List of (document, score) tuples sorted by score descending
+        """
+        query_lower = query.lower()
+        query_words = set(query_lower.split())
+
+        results = []
+        for doc in self._documents.values():
+            # Search in title
+            title_lower = doc.title.lower()
+            title_words = set(title_lower.split())
+            title_overlap = len(query_words & title_words)
+
+            # Search in content/extracted text
+            content = (doc.extracted_text or doc.content or "").lower()
+            content_words = set(content.split())
+            content_overlap = len(query_words & content_words)
+
+            if title_overlap > 0 or content_overlap > 0:
+                # Score: title matches weighted higher
+                score = title_overlap * 2.0 + content_overlap * 0.5
+                if query_words:
+                    score /= len(query_words)
+                results.append((doc, score))
+
+        # Sort by score descending
+        results.sort(key=lambda x: x[1], reverse=True)
+        return results[:limit]
+
+    def rebuild_index(self) -> None:
+        """Rebuild document index (no-op for simple store, placeholder for extensions)."""
+        # Could add full-text search index in the future
+        pass

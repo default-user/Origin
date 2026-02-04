@@ -116,6 +116,15 @@ class SessionState:
     # Transition log for traceability
     transitions: list[dict] = field(default_factory=list)
 
+    # Commitment tracker (set by OIKernel)
+    commitment_tracker: Any = None
+
+    def __post_init__(self):
+        """Initialize commitment tracker if not set."""
+        if self.commitment_tracker is None:
+            from .commitments import CommitmentTracker
+            self.commitment_tracker = CommitmentTracker()
+
     def to_dict(self) -> dict:
         """Serialize to dictionary (deterministic)."""
         return {

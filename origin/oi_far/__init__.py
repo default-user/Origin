@@ -20,6 +20,9 @@ __all__ = [
     "SessionState",
     "ContextPack",
     "AnswerPlan",
+    "OIFarProxy",
+    "proxy_query",
+    "get_proxy",
 ]
 
 from .kernel import SessionState
@@ -51,3 +54,7 @@ def get_runtime(vault_path: str = "."):
     """Get an OI-FAR runtime instance."""
     from .cli import OIFarRuntime
     return OIFarRuntime(vault_path=vault_path)
+
+
+# Proxy exports
+from .proxy import OIFarProxy, get_proxy, proxy_query
