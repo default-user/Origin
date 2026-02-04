@@ -1,0 +1,24 @@
+{
+  "pwof_version": "1",
+  "ruleset_id": "PWK_ND_PROP_EQ_v1",
+  "context": {
+    "assumptions": []
+  },
+  "goal": {"formula": {"atom": {"pred": "P", "args": []}}},
+  "proof": {
+    "nodes": [
+      {
+        "id": "n1",
+        "rule": "ASSUME",
+        "premises": [],
+        "formula": {"atom": {"pred": "P", "args": []}}
+      }
+    ],
+    "conclusion": "n1"
+  },
+  "_test_metadata": {
+    "expected_result": "FAIL",
+    "expected_error_contains": "ASSUME",
+    "description": "Invalid proof: ASSUME requires formula to be in context assumptions"
+  }
+}

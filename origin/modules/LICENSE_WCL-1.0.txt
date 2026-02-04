@@ -1,0 +1,96 @@
+WEAVER COMMONS LICENSE (WCL-1.0)
+Version 1.0 (Draft)
+
+Copyright (c) Ande Turner & Contributors
+
+PREAMBLE
+
+This license governs the use of RealityWeaver, PhraseWeave, ProofWeave, and related
+software ("the Software") developed under the Weaver framework.
+
+TERMS AND CONDITIONS
+
+1. DEFINITIONS
+
+   "Software" means the source code, object code, documentation, and any associated
+   files distributed under this license.
+
+   "Net Profit" means gross revenue minus direct costs of goods sold, excluding
+   overhead, calculated according to generally accepted accounting principles.
+
+   "Commercial Use" means any use of the Software in connection with a product or
+   service that generates revenue or other commercial value.
+
+   "Commons Contribution" means the annual payment required for Commercial Use as
+   specified in Section 4.
+
+2. GRANT OF RIGHTS
+
+   Subject to the terms of this license, you are granted a worldwide, royalty-free,
+   non-exclusive license to:
+
+   a) Use, copy, modify, and distribute the Software for personal, academic,
+      non-profit, or evaluation purposes.
+
+   b) Redistribute the Software, with or without modifications, provided you
+      include this license and the attribution notice.
+
+3. ATTRIBUTION REQUIREMENT
+
+   You must include the following attribution notice in any substantial portion
+   of the Software or derivative works:
+
+   "RealityWeaver © Ande Turner & Contributors — licensed under WCL-1.0."
+
+4. COMMERCIAL USE AND COMMONS CONTRIBUTION
+
+   If you engage in Commercial Use of the Software:
+
+   a) You must pay a Commons Contribution equal to one percent (1%) of Net Profit
+      attributable to any product or service where the Software is a material
+      dependency.
+
+   b) The Commons Contribution must be reported and paid annually, within ninety
+      (90) days of the end of your fiscal year.
+
+   c) Reports must include a reasonable breakdown of Net Profit attributable to
+      use of the Software.
+
+5. NO TRADEMARK GRANT
+
+   This license does not grant any rights to use the trade names, trademarks,
+   service marks, or product names of the licensor, except as required for
+   reasonable and customary use in describing the origin of the Software.
+
+6. DISCLAIMER OF WARRANTY
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   SOFTWARE.
+
+7. LIMITATION OF LIABILITY
+
+   IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
+   EXEMPLARY, OR CONSEQUENTIAL DAMAGES ARISING OUT OF OR IN CONNECTION WITH THIS
+   LICENSE OR THE USE OF THE SOFTWARE.
+
+8. TERMINATION
+
+   This license automatically terminates if you fail to comply with its terms.
+   Upon termination, you must cease all use and distribution of the Software.
+
+9. GOVERNING LAW
+
+   This license shall be governed by and construed in accordance with the laws
+   of the jurisdiction in which the primary copyright holder resides.
+
+---
+
+TODO: This is a draft version of WCL-1.0. The full legal text should be reviewed
+and finalized by qualified legal counsel before production use.
+
+Attribution: Ande → Kai

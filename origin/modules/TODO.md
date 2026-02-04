@@ -1,0 +1,48 @@
+# Weaver Modules TODO
+
+Items marked TODO in the implementation that need resolution before production use.
+
+## Global
+
+- [ ] **WCL-1.0 License**: Full legal text needs review by qualified counsel
+- [ ] **blake3 hashing**: Optional dependency for ProofWeave; falls back to SHA-256
+
+## RealityWeaver (RWV1)
+
+- [ ] **MO dictionary scoring**: Exact scoring formula for phrase selection should be formalized
+- [ ] **Probe gating heuristics**: Document or standardize text detection heuristic
+
+## PhraseWeave (PWV1)
+
+- [ ] **PHRASE token**: Multi-Stan phrase expansion needs phrase table in dictionary
+- [ ] **REPEAT optimization**: Consider run-length encoding optimization pass
+
+## ProofWeave (PWOF/PWK)
+
+- [ ] **Quantifiers**: ALL and EX reserved for v1.1+; kernel must reject
+- [ ] **Additional rules**: Consider adding IMP_INTRO, NOT_INTRO, OR_ELIM for completeness
+- [ ] **Subproofs**: Nested proof contexts for hypothetical reasoning
+
+## RealityWeaverVideo (RWV-VIDEO-V1)
+
+- [ ] **Full ffmpeg integration**: Currently stub only
+- [ ] **Full gstreamer integration**: Currently stub only
+- [ ] **VMAF computation**: Needs external tool or library
+- [ ] **Scene-cut detection**: Algorithm not implemented
+- [ ] **Motion-adaptive segmentation**: Algorithm not implemented
+- [ ] **Stable binary container format**: Current format is interim JSONL + blob
+- [ ] **Hardware encoder support**: NVENC, QSV, AMF paths
+- [ ] **Upscale algorithm**: RealityWeaverUpscale_v1 archive was empty
+
+## Integration
+
+- [ ] **Origin build integration**: Add to main build pipeline
+- [ ] **CI testing**: Add module tests to GitHub Actions
+- [ ] **TypeScript bindings**: For Origin site integration
+- [ ] **Concept pack**: Create C#### concept pack for Weaver framework
+
+## Documentation
+
+- [ ] **API reference**: Generate from docstrings
+- [ ] **Tutorial**: Step-by-step usage guide
+- [ ] **Architecture diagram**: Visual pipeline overview

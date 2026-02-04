@@ -1,0 +1,22 @@
+{
+  "name": "Vector 1: Empty Input, Empty Dictionary",
+  "description": "PWV1 encoding of empty input with empty dictionary",
+  "input": {
+    "raw_bytes_hex": "",
+    "dictionary_entries": []
+  },
+  "expected_output": {
+    "woven_bytes_hex": "5057563101e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "length": 38,
+    "breakdown": {
+      "magic": "50575631",
+      "version": "01",
+      "flags": "00",
+      "dict_id": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "notes": [
+    "dict_id is SHA-256 of empty canonical dictionary (same as SHA-256 of empty string)",
+    "No tokens follow the header since input is empty"
+  ]
+}
