@@ -304,8 +304,15 @@ class DeterministicSolver:
         conflict_descriptions = [c.description for c in conflicts]
 
         # Check constraint satisfaction
-        constraint_violations = []
+        constraint_texts = []
         for constraint in step.constraints:
+            if hasattr(constraint, "description"):
+                constraint_texts.append(constraint.description)
+            else:
+                constraint_texts.append(str(constraint))
+
+        constraint_violations = []
+        for constraint in constraint_texts:
             # Simple constraint checking
             constraint_met = False
             for brick in context.top_bricks:
@@ -408,8 +415,13 @@ class DeterministicSolver:
         # Determine output mode
         mode = "galley"
         for constraint in step.constraints:
-            if "mode:" in constraint.lower():
-                mode = constraint.split(":")[1].strip().lower()
+            constraint_text = (
+                constraint.description
+                if hasattr(constraint, "description")
+                else str(constraint)
+            )
+            if "mode:" in constraint_text.lower():
+                mode = constraint_text.split(":")[1].strip().lower()
 
         # Gather content to format
         content_items = []
@@ -426,6 +438,18 @@ class DeterministicSolver:
                             content_items.append({
                                 "type": "definition",
                                 "content": f"{d['term']}: {d['definition']}",
+                            })
+                    if "deductions" in output:
+                        for d in output["deductions"]:
+                            content_items.append({
+                                "type": "deduction",
+                                "content": f"{d['premise']} → {d['conclusion']}",
+                            })
+                    if "premises" in output and not output.get("deductions"):
+                        for premise in output["premises"][:3]:
+                            content_items.append({
+                                "type": "premise",
+                                "content": premise.get("claim", ""),
                             })
                     if "verified" in output:
                         content_items.append({

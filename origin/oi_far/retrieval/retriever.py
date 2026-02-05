@@ -205,7 +205,8 @@ class DeterministicRetriever:
 
         # 1. Lexical search
         lexical_hits = self.brick_store.search_lexical(query, limit=self.max_bricks * 3)
-        for brick_id, _ in lexical_hits:
+        for hit in lexical_hits:
+            brick_id = hit.brick_id
             if brick_id not in seen_ids:
                 brick = self.brick_store.get(brick_id)
                 if brick:
@@ -213,14 +214,12 @@ class DeterministicRetriever:
                     seen_ids.add(brick_id)
 
         # 2. Graph traversal for related concepts
-        for brick_id, _ in lexical_hits[:5]:  # Top 5 seed bricks
-            related = self.brick_store.get_related(brick_id, max_depth=1)
-            for related_id in related:
-                if related_id not in seen_ids:
-                    brick = self.brick_store.get(related_id)
-                    if brick:
-                        candidates.append(brick)
-                        seen_ids.add(related_id)
+        for hit in lexical_hits[:5]:  # Top 5 seed bricks
+            related_bricks = self.brick_store.find_related(hit.brick_id)
+            for related_brick in related_bricks:
+                if related_brick.id not in seen_ids:
+                    candidates.append(related_brick)
+                    seen_ids.add(related_brick.id)
 
         # 3. Tag-based retrieval
         for token in query_tokens[:3]:  # Top 3 tokens as potential tags
