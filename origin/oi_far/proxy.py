@@ -18,10 +18,12 @@ import json
 from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
-from typing import Any
+from typing import Any, TYPE_CHECKING
 
-from .cli import OIFarRuntime
 from .renderer import RenderMode
+
+if TYPE_CHECKING:
+    from .cli import OIFarRuntime
 
 
 class ProxyMode(Enum):
@@ -136,8 +138,9 @@ class OIFarProxy:
         self._runtime = None
         self._bridge_runtime = None
 
-    def _get_runtime(self, bridge_mode: bool = False) -> OIFarRuntime:
+    def _get_runtime(self, bridge_mode: bool = False) -> "OIFarRuntime":
         """Get or create runtime instance."""
+        from .cli import OIFarRuntime
         if bridge_mode:
             if self._bridge_runtime is None:
                 self._bridge_runtime = OIFarRuntime(

@@ -233,8 +233,9 @@ class DeterministicPlanner:
         # Add step-specific constraints
         if step_type == StepType.FORMAT:
             # Formatting mode constraint
-            mode = session_state.user_prefs.get("mode", "galley")
-            constraints.append(f"Output mode: {mode}")
+            mode = getattr(session_state.user_prefs, "style_mode", None)
+            mode_value = mode.value if mode is not None else "galley"
+            constraints.append(f"Output mode: {mode_value}")
 
         if step_type == StepType.DEDUCE:
             # Deduction constraints

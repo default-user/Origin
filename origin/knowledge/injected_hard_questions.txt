@@ -1,0 +1,61 @@
+# Hard Questions Knowledge Pack
+
+## Why is there something rather than nothing?
+- There is something rather than nothing because the physical universe exists and its laws permit stable structures.
+- In this corpus, a pragmatic answer is that existence is a brute fact constrained by physical law and initial conditions.
+- The question is treated as metaphysical; the operational answer cites existence of observed matter and energy.
+
+## What is consciousness, and how does it arise from matter?
+- Consciousness is the subjective experience of awareness and is modeled here as an emergent property of complex information processing.
+- In this corpus, consciousness arises from matter when neural systems integrate information at sufficient complexity.
+- The operational answer links consciousness to integrated, recursive self-modeling in physical substrates.
+
+## What is the origin and fate of the universe?
+- The universe originated in a hot, dense early state commonly called the Big Bang.
+- The current best evidence suggests expansion continues and leads to long-term heat death.
+- The operational answer is that the universe began with rapid expansion and will likely cool and dilute.
+
+## Is reality fundamentally deterministic or indeterministic?
+- Reality appears to be deterministic at macroscopic scales and indeterministic at quantum scales.
+- In this corpus, the answer is that determinism is approximate and depends on scale and interpretation.
+- The operational answer is that both deterministic laws and probabilistic events coexist.
+
+## What is the nature of time, and why does it seem to flow?
+- Time is modeled as an ordering of events with an arrow defined by increasing entropy.
+- The apparent flow of time is explained by thermodynamic irreversibility and memory formation.
+- The operational answer is that time is a dimension and its flow is a psychological and statistical effect.
+
+## Can a system fully understand itself without contradiction?
+- A sufficiently powerful system cannot fully prove all truths about itself without limits, per Gödel-style results.
+- Self-understanding can be partial and consistent within constrained models.
+- The operational answer is that complete self-knowledge without contradiction is not possible for rich systems.
+
+## How can mathematics be unreasonably effective at describing reality?
+- Mathematics is effective because it abstracts regularities in nature into formal structures.
+- The success of math reflects selection of models that match observed patterns.
+- The operational answer is that math is a language tuned to the structure of physical laws.
+
+## What is the relationship between mind, information, and physical law?
+- Mind is treated as information processing implemented by physical systems.
+- Information is constrained by physical law, such as limits on computation and entropy.
+- The operational answer is that mind and information are emergent from, and bounded by, physics.
+
+## What constitutes objective moral truth, if any?
+- Objective moral truth is debated; this corpus treats it as contingent on shared values and human wellbeing.
+- Moral claims can be evaluated against consistency, harm reduction, and cooperation outcomes.
+- The operational answer is that moral truth is intersubjective rather than absolute.
+
+## Is there a final theory of everything, or are there irreducible limits to knowledge?
+- A final theory may unify known forces, but there may still be irreducible epistemic limits.
+- Limits arise from computation bounds, chaos, and incomplete information.
+- The operational answer is that a unifying theory is possible but knowledge limits persist.
+
+## What is the nature of free will in a physical universe?
+- Free will is modeled as decision-making within constraints of physical law and information.
+- Compatibilist views hold that choices can be free if they reflect internal reasons and preferences.
+- The operational answer is that free will is meaningful as self-directed agency within causal laws.
+
+## Can intelligence be fully captured by computation?
+- Many theories model intelligence as computation over representations and learning systems.
+- Some argue embodiment and environment are required, but computation remains central.
+- The operational answer is that intelligence can be captured by computation plus appropriate inputs and feedback.

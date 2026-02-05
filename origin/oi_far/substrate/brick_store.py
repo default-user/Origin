@@ -273,10 +273,9 @@ class BrickStore:
         self._lexical_index.clear()
         self._graph_index.clear()
 
-        # Reindex all bricks
-        for brick in self._bricks.values():
-            self._lexical_index.index_brick(brick)
-            self._graph_index.index_brick(brick)
+        # Reindex all bricks and persist
+        self._lexical_index.index_all(self._bricks.values())
+        self._graph_index.index_all(self._bricks.values())
 
     def get_graph_neighbors(self, brick_id: str, direction: str = "both") -> list[tuple[str, str, float]]:
         """Get neighboring bricks from graph index."""

@@ -5,7 +5,10 @@ import json
 import os
 from pathlib import Path
 from typing import Iterator
-import yaml
+try:
+    import yaml
+except ImportError:  # pragma: no cover - depends on optional dependency
+    yaml = None
 
 from .types import Document
 
@@ -131,7 +134,7 @@ class DocumentStore:
 
         # Extract text based on file type
         suffix = path.suffix.lower()
-        if suffix in (".yaml", ".yml"):
+        if suffix in (".yaml", ".yml") and yaml is not None:
             try:
                 data = yaml.safe_load(content)
                 extracted = self._extract_yaml_text(data)
@@ -172,6 +175,9 @@ class DocumentStore:
         pack_yaml = pack_path / "pack.yaml"
         if not pack_yaml.exists():
             raise FileNotFoundError(f"pack.yaml not found in {pack_path}")
+
+        if yaml is None:
+            raise RuntimeError("PyYAML is required to ingest pack.yaml files.")
 
         with open(pack_yaml) as f:
             pack_data = yaml.safe_load(f)

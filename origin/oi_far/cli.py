@@ -10,6 +10,9 @@ Usage:
     oi_far ingest FILE           Ingest a document
     oi_far growth                Show growth metrics
     oi_far search "query"        Search the vault
+    oi_far proxy "query"         Run a query through the proxy interface
+    oi_far proxy                 Start interactive proxy session
+    oi_far probe                 Run a preset probe of ten hard questions
 """
 
 import argparse
@@ -26,6 +29,21 @@ from .reasoning import DeterministicCritic, DeterministicPlanner, DeterministicS
 from .renderer import DeterministicRenderer, RenderConfig, RenderMode
 from .tools import ToolCapability, ToolRegistry, create_default_registry
 from .growth import GrowthLoop
+from .proxy import OIFarProxy, ProxyMode, ProxyRequest, interactive_proxy
+
+
+PROBE_QUESTIONS = [
+    "Why is there something rather than nothing?",
+    "What is consciousness, and how does it arise from matter?",
+    "What is the origin and fate of the universe?",
+    "Is reality fundamentally deterministic or indeterministic?",
+    "What is the nature of time, and why does it seem to flow?",
+    "Can a system fully understand itself without contradiction?",
+    "How can mathematics be unreasonably effective at describing reality?",
+    "What is the relationship between mind, information, and physical law?",
+    "What constitutes objective moral truth, if any?",
+    "Is there a final theory of everything, or are there irreducible limits to knowledge?",
+]
 
 
 class OIFarRuntime:
@@ -96,12 +114,18 @@ class OIFarRuntime:
         if not packs_dir.exists():
             return
 
+        try:
+            import yaml
+        except ImportError:
+            print(
+                "Warning: PyYAML is not installed; skipping knowledge pack bootstrap.",
+                file=sys.stderr,
+            )
+            return
+
         # Check if already bootstrapped
         if self.brick_store.count() > 0:
             return
-
-        # Load packs
-        import yaml
 
         for pack_dir in sorted(packs_dir.iterdir()):
             if not pack_dir.is_dir():
@@ -256,6 +280,32 @@ def main():
     growth_parser.add_argument("--vault", default=".",
                               help="Path to vault")
 
+    # Proxy command
+    proxy_parser = subparsers.add_parser("proxy", help="Run OI-FAR proxy")
+    proxy_parser.add_argument("query", nargs="?",
+                              help="Query to run (omit to start interactive)")
+    proxy_parser.add_argument("-m", "--mode", choices=[m.value for m in ProxyMode],
+                              default=ProxyMode.QUERY.value,
+                              help="Proxy mode (default: query)")
+    proxy_parser.add_argument("-b", "--bridge", action="store_true",
+                              help="Use bridge mode output for query mode")
+    proxy_parser.add_argument("-n", "--limit", type=int, default=10,
+                              help="Maximum results for search mode")
+    proxy_parser.add_argument("--json", action="store_true",
+                              help="Print structured JSON response")
+    proxy_parser.add_argument("--vault", default=".",
+                              help="Path to vault")
+
+    # Probe command
+    probe_parser = subparsers.add_parser(
+        "probe",
+        help="Run a preset probe of ten hard questions",
+    )
+    probe_parser.add_argument("--json", action="store_true",
+                              help="Print structured JSON responses")
+    probe_parser.add_argument("--vault", default=".",
+                              help="Path to vault")
+
     args = parser.parse_args()
 
     if not args.command:
@@ -330,6 +380,43 @@ def main():
             print("\nTop Recommendations:")
             for i, rec in enumerate(recommendations[:5], 1):
                 print(f"  {i}. [{rec['priority']:.1f}] {rec['action']}")
+
+    elif args.command == "proxy":
+        if not args.query:
+            interactive_proxy(vault_path=vault_path)
+        else:
+            proxy = OIFarProxy(
+                vault_path=vault_path,
+                default_bridge_mode=args.bridge,
+            )
+            request = ProxyRequest(
+                content=args.query,
+                mode=ProxyMode(args.mode),
+                bridge_mode=args.bridge,
+                max_results=args.limit,
+            )
+            response = proxy.process(request)
+            if args.json:
+                print(json.dumps(response.to_dict(), indent=2))
+            else:
+                print(response)
+
+    elif args.command == "probe":
+        proxy = OIFarProxy(vault_path=vault_path)
+        responses = []
+        for question in PROBE_QUESTIONS:
+            response = proxy.query(question)
+            responses.append({
+                "question": question,
+                "response": response.to_dict(),
+            })
+        if args.json:
+            print(json.dumps(responses, indent=2))
+        else:
+            for item in responses:
+                print(f"Q: {item['question']}")
+                print(item["response"]["output"])
+                print()
 
 
 if __name__ == "__main__":
