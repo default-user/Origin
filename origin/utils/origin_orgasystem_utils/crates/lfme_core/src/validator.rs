@@ -49,10 +49,7 @@ pub fn validate_denotum(d: &Denotum) -> ValidationResult {
     // R3: Posture must be FAIL_CLOSED (only supported mode in v1).
     if d.posture != "FAIL_CLOSED" {
         errors.push(ValidationError::InvariantViolated {
-            invariant: format!(
-                "posture must be FAIL_CLOSED in v1, got '{}'",
-                d.posture
-            ),
+            invariant: format!("posture must be FAIL_CLOSED in v1, got '{}'", d.posture),
         });
     }
 
@@ -124,9 +121,7 @@ pub fn validate_denotum(d: &Denotum) -> ValidationResult {
         for bid in &lattice.beam_ids {
             if !beam_ids.contains(bid.as_str()) && !d.beams.is_empty() {
                 errors.push(ValidationError::InvariantViolated {
-                    invariant: format!(
-                        "lattice[{i}] references unknown beam '{bid}'"
-                    ),
+                    invariant: format!("lattice[{i}] references unknown beam '{bid}'"),
                 });
             }
         }

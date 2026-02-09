@@ -116,8 +116,11 @@ pub fn encode_payload(
     buf
 }
 
+/// Decoded payload: (manifest_json, files).
+pub type DecodedPayload = (Vec<u8>, Vec<(String, Vec<u8>)>);
+
 /// Decode a payload back into manifest JSON and file entries.
-pub fn decode_payload(data: &[u8]) -> Result<(Vec<u8>, Vec<(String, Vec<u8>)>), FrameError> {
+pub fn decode_payload(data: &[u8]) -> Result<DecodedPayload, FrameError> {
     let mut pos = 0;
 
     // Manifest

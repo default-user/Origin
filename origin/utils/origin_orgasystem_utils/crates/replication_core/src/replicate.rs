@@ -271,10 +271,7 @@ pub fn replicate_zip2repo_v1(
         if !git_dir.exists() {
             // Create minimal git init marker (actual git init would require git binary)
             std::fs::create_dir_all(&git_dir)?;
-            std::fs::write(
-                git_dir.join("HEAD"),
-                "ref: refs/heads/main\n",
-            )?;
+            std::fs::write(git_dir.join("HEAD"), "ref: refs/heads/main\n")?;
             std::fs::create_dir_all(git_dir.join("refs/heads"))?;
         }
     }
@@ -361,8 +358,7 @@ mod tests {
         let out = TempDir::new().unwrap();
         let seed = make_test_repo(source.path());
 
-        let receipt =
-            replicate_zip2repo_v1(source.path(), out.path(), &seed, false, None).unwrap();
+        let receipt = replicate_zip2repo_v1(source.path(), out.path(), &seed, false, None).unwrap();
         assert!(receipt.passed);
         assert_eq!(receipt.mode, "R2_ZIP_TO_FRESH_REPO_V1");
         assert!(out.path().join("README.md").exists());
@@ -374,8 +370,7 @@ mod tests {
         let out = TempDir::new().unwrap();
         let seed = make_test_repo(source.path());
 
-        let receipt =
-            replicate_zip2repo_v1(source.path(), out.path(), &seed, true, None).unwrap();
+        let receipt = replicate_zip2repo_v1(source.path(), out.path(), &seed, true, None).unwrap();
         assert!(receipt.passed);
         assert!(out.path().join(".git/HEAD").exists());
     }

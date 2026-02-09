@@ -20,8 +20,7 @@ pub fn compress_dpack(dpack_dir: &Path, output_path: &Path) -> Result<String, Fr
     let manifest_bytes = std::fs::read(&manifest_path)?;
 
     // Validate manifest parses
-    let manifest: DpackManifest =
-        serde_json::from_slice(&manifest_bytes)?;
+    let manifest: DpackManifest = serde_json::from_slice(&manifest_bytes)?;
 
     // Re-serialize manifest canonically (sorted keys via BTreeMap in struct)
     let canonical_manifest = serde_json::to_vec(&manifest)?;
@@ -31,12 +30,16 @@ pub fn compress_dpack(dpack_dir: &Path, output_path: &Path) -> Result<String, Fr
     let mut files: BTreeMap<String, Vec<u8>> = BTreeMap::new();
 
     if data_dir.exists() {
-        for entry in WalkDir::new(&data_dir).follow_links(false).sort_by_file_name() {
+        for entry in WalkDir::new(&data_dir)
+            .follow_links(false)
+            .sort_by_file_name()
+        {
             let entry = entry.map_err(|e| {
                 let msg = e.to_string();
-                FrameError::Io(e.into_io_error().unwrap_or_else(|| {
-                    std::io::Error::new(std::io::ErrorKind::Other, msg)
-                }))
+                FrameError::Io(
+                    e.into_io_error()
+                        .unwrap_or_else(|| std::io::Error::other(msg)),
+                )
             })?;
             if !entry.file_type().is_file() {
                 continue;

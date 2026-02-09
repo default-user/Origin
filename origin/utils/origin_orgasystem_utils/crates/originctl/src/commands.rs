@@ -99,7 +99,12 @@ pub fn run_verify(path: &Path, seed_path: Option<&Path>) -> Result<()> {
         println!("  payload_sha256: {}", payload_hash);
 
         // Also verify the contained dpack if seed is provided
-        if seed_path.is_some() || tmp.path().join("data/spec/seed/denotum.seed.2i.yaml").exists() {
+        if seed_path.is_some()
+            || tmp
+                .path()
+                .join("data/spec/seed/denotum.seed.2i.yaml")
+                .exists()
+        {
             let seed = if let Some(sp) = seed_path {
                 Seed::load(sp)?
             } else {
@@ -128,9 +133,7 @@ pub fn run_verify(path: &Path, seed_path: Option<&Path>) -> Result<()> {
             if candidate.exists() {
                 Seed::load(&candidate)?
             } else {
-                anyhow::bail!(
-                    "no seed path provided; use --seed or ensure seed is in pack data"
-                )
+                anyhow::bail!("no seed path provided; use --seed or ensure seed is in pack data")
             }
         };
 
@@ -150,11 +153,7 @@ pub fn run_verify(path: &Path, seed_path: Option<&Path>) -> Result<()> {
     Ok(())
 }
 
-pub fn run_unfurl(
-    pack_dir: &Path,
-    output: &Path,
-    seed_path: Option<&Path>,
-) -> Result<()> {
+pub fn run_unfurl(pack_dir: &Path, output: &Path, seed_path: Option<&Path>) -> Result<()> {
     let seed = if let Some(sp) = seed_path {
         Seed::load(sp)?
     } else {
@@ -166,11 +165,7 @@ pub fn run_unfurl(
         }
     };
 
-    eprintln!(
-        "Unfurling {} -> {}",
-        pack_dir.display(),
-        output.display()
-    );
+    eprintln!("Unfurling {} -> {}", pack_dir.display(), output.display());
 
     let receipt = unfurl_pack(pack_dir, output, &seed)?;
 
@@ -186,11 +181,7 @@ pub fn run_unfurl(
     Ok(())
 }
 
-pub fn run_audit(
-    pack_dir: &Path,
-    json: bool,
-    seed_path: Option<&Path>,
-) -> Result<()> {
+pub fn run_audit(pack_dir: &Path, json: bool, seed_path: Option<&Path>) -> Result<()> {
     let seed = if let Some(sp) = seed_path {
         Seed::load(sp)?
     } else {
@@ -379,8 +370,7 @@ pub fn run_e2e(
 
     // Step 5: Round-trip integrity check (compare pack hashes)
     println!("[5/6] Checking round-trip integrity...");
-    let restored_manifest_bytes =
-        std::fs::read(restored_dir.path().join("manifest.json"))?;
+    let restored_manifest_bytes = std::fs::read(restored_dir.path().join("manifest.json"))?;
     let restored_manifest: dpack_core::DpackManifest =
         serde_json::from_slice(&restored_manifest_bytes)?;
     if restored_manifest.pack_hash != pack_hash {

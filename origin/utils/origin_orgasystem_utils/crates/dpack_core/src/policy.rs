@@ -18,10 +18,7 @@ impl Default for Policy {
     fn default() -> Self {
         Self {
             include: vec![],
-            exclude: vec![
-                ".git/**".to_string(),
-                ".git".to_string(),
-            ],
+            exclude: vec![".git/**".to_string(), ".git".to_string()],
         }
     }
 }
@@ -71,10 +68,8 @@ fn glob_match(pattern: &str, path: &str) -> bool {
         }
         // Also try matching at any directory level
         for (i, _) in path.char_indices() {
-            if path[i..].starts_with('/') {
-                if glob_match(suffix, &path[i + 1..]) {
-                    return true;
-                }
+            if path[i..].starts_with('/') && glob_match(suffix, &path[i + 1..]) {
+                return true;
             }
         }
         return glob_match(suffix, path);
@@ -83,8 +78,7 @@ fn glob_match(pattern: &str, path: &str) -> bool {
     // Handle ** suffix (matches everything under a path)
     if let Some(prefix) = pattern.strip_suffix("/**") {
         return path.starts_with(prefix)
-            && (path.len() == prefix.len()
-                || path.as_bytes().get(prefix.len()) == Some(&b'/'));
+            && (path.len() == prefix.len() || path.as_bytes().get(prefix.len()) == Some(&b'/'));
     }
 
     // Handle single * wildcard

@@ -55,7 +55,10 @@ pub fn pack_repo(
     let mut gates = Vec::new();
 
     // Walk the repo and collect files
-    for entry in WalkDir::new(repo_root).follow_links(false).sort_by_file_name() {
+    for entry in WalkDir::new(repo_root)
+        .follow_links(false)
+        .sort_by_file_name()
+    {
         let entry = entry?;
         if !entry.file_type().is_file() {
             continue;
@@ -142,10 +145,7 @@ pub fn pack_repo(
 }
 
 /// Verify a DPACK directory: check manifest integrity, file hashes, and seed binding.
-pub fn verify_pack(
-    pack_dir: &Path,
-    seed: &Seed,
-) -> Result<AuditReceipt, PackError> {
+pub fn verify_pack(pack_dir: &Path, seed: &Seed) -> Result<AuditReceipt, PackError> {
     if !pack_dir.exists() {
         return Err(PackError::PackNotFound(pack_dir.to_path_buf()));
     }
@@ -234,7 +234,8 @@ pub fn verify_pack(
             format!(
                 "expected {}, got {}",
                 &seed.fingerprint[..16],
-                &manifest.root_2i_seed_fingerprint[..std::cmp::min(16, manifest.root_2i_seed_fingerprint.len())]
+                &manifest.root_2i_seed_fingerprint
+                    [..std::cmp::min(16, manifest.root_2i_seed_fingerprint.len())]
             )
         },
     });
@@ -480,7 +481,11 @@ mod tests {
 
         let policy = Policy {
             include: vec![],
-            exclude: vec![".git/**".to_string(), ".git".to_string(), "*.env".to_string()],
+            exclude: vec![
+                ".git/**".to_string(),
+                ".git".to_string(),
+                "*.env".to_string(),
+            ],
         };
 
         let receipt = pack_repo(repo_dir.path(), pack_dir.path(), &seed, Some(&policy)).unwrap();

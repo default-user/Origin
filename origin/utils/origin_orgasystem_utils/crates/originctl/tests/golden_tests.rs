@@ -9,7 +9,11 @@ use std::path::Path;
 use tempfile::TempDir;
 
 fn fixture_path() -> &'static Path {
-    Path::new(env!("CARGO_MANIFEST_DIR")).parent().unwrap().parent().unwrap()
+    Path::new(env!("CARGO_MANIFEST_DIR"))
+        .parent()
+        .unwrap()
+        .parent()
+        .unwrap()
 }
 
 fn sample_tree() -> std::path::PathBuf {
@@ -60,14 +64,15 @@ fn golden_manifest_file_hashes_stable() {
     assert!(manifest.files.contains_key("README.md"));
     assert!(manifest.files.contains_key("src/main.rs"));
     assert!(manifest.files.contains_key("config.yaml"));
-    assert!(manifest.files.contains_key("spec/seed/denotum.seed.2i.yaml"));
+    assert!(manifest
+        .files
+        .contains_key("spec/seed/denotum.seed.2i.yaml"));
 
     // Verify individual file hashes against known content.
     let readme_content = std::fs::read(sample_tree().join("README.md")).unwrap();
     let expected_readme_hash = compute_sha256(&readme_content);
     assert_eq!(
-        manifest.files["README.md"].sha256,
-        expected_readme_hash,
+        manifest.files["README.md"].sha256, expected_readme_hash,
         "README.md hash must match"
     );
 }
@@ -79,7 +84,11 @@ fn golden_verify_accepts_clean_pack() {
     pack_repo(&sample_tree(), out.path(), &seed, None).unwrap();
 
     let receipt = verify_pack(out.path(), &seed).unwrap();
-    assert!(receipt.passed, "clean pack must verify: {:?}", receipt.gates);
+    assert!(
+        receipt.passed,
+        "clean pack must verify: {:?}",
+        receipt.gates
+    );
 }
 
 #[test]
@@ -144,7 +153,11 @@ fn golden_lfme_parse_fixture_seed() {
 
     // Validate
     let result = lfme_core::validate_denotum(&denotum);
-    assert!(result.is_valid(), "fixture seed must validate: {:?}", result.errors);
+    assert!(
+        result.is_valid(),
+        "fixture seed must validate: {:?}",
+        result.errors
+    );
 }
 
 #[test]
@@ -162,7 +175,11 @@ fn golden_lfme_canonical_fingerprint_stable() {
 #[test]
 fn golden_rag_deterministic_retrieval() {
     let mut index = rag_deterministic::DeterministicIndex::new();
-    index.add_document("readme", "Origin orgasystem deterministic intelligence.", 100);
+    index.add_document(
+        "readme",
+        "Origin orgasystem deterministic intelligence.",
+        100,
+    );
     index.add_document("code", "fn main() { println!(\"hello\"); }", 100);
     index.add_document("config", "name: origin\nversion: 1.0.0", 100);
 

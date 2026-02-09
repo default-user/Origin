@@ -166,9 +166,7 @@ fn main() {
         Commands::Unfurl { pack, output, seed } => {
             commands::run_unfurl(&pack, &output, seed.as_deref())
         }
-        Commands::Audit { pack, json, seed } => {
-            commands::run_audit(&pack, json, seed.as_deref())
-        }
+        Commands::Audit { pack, json, seed } => commands::run_audit(&pack, json, seed.as_deref()),
         Commands::Replicate { mode } => match mode {
             ReplicateMode::Local {
                 repo_root,

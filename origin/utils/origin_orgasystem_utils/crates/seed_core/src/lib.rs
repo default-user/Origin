@@ -155,7 +155,8 @@ mod tests {
         tmp.flush().unwrap();
 
         let seed = Seed::load(tmp.path()).unwrap();
-        let result = seed.verify_fingerprint("0000000000000000000000000000000000000000000000000000000000000000");
+        let result = seed
+            .verify_fingerprint("0000000000000000000000000000000000000000000000000000000000000000");
         assert!(result.is_err());
     }
 

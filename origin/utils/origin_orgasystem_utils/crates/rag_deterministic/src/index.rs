@@ -36,10 +36,8 @@ impl DeterministicIndex {
         let count = chunks.len();
         for chunk in chunks {
             let embedding = embed_chunk(&chunk.text);
-            self.chunks.insert(
-                chunk.id.clone(),
-                IndexedChunk { chunk, embedding },
-            );
+            self.chunks
+                .insert(chunk.id.clone(), IndexedChunk { chunk, embedding });
         }
         count
     }
@@ -47,10 +45,8 @@ impl DeterministicIndex {
     /// Add a single pre-chunked entry.
     pub fn add_chunk(&mut self, chunk: Chunk) {
         let embedding = embed_chunk(&chunk.text);
-        self.chunks.insert(
-            chunk.id.clone(),
-            IndexedChunk { chunk, embedding },
-        );
+        self.chunks
+            .insert(chunk.id.clone(), IndexedChunk { chunk, embedding });
     }
 
     /// Number of indexed chunks.

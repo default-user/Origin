@@ -76,7 +76,12 @@ mod tests {
             },
         ];
         let receipt = ReplicationReceipt::new(
-            "replicate", "R0_LOCAL_CLONE", "fp", Some("src"), Some("tgt"), gates,
+            "replicate",
+            "R0_LOCAL_CLONE",
+            "fp",
+            Some("src"),
+            Some("tgt"),
+            gates,
         );
         assert!(receipt.passed);
     }
@@ -88,9 +93,8 @@ mod tests {
             status: RGateStatus::Fail,
             detail: "shape mismatch".to_string(),
         }];
-        let receipt = ReplicationReceipt::new(
-            "replicate", "R0_LOCAL_CLONE", "fp", None, None, gates,
-        );
+        let receipt =
+            ReplicationReceipt::new("replicate", "R0_LOCAL_CLONE", "fp", None, None, gates);
         assert!(!receipt.passed);
     }
 }

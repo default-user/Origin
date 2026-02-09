@@ -8,11 +8,7 @@ use std::collections::BTreeMap;
 use tempfile::TempDir;
 
 /// Create a synthetic dpack directory from given file entries.
-fn make_synthetic_dpack(
-    dir: &std::path::Path,
-    files: &[(String, Vec<u8>)],
-    seed_fp: &str,
-) {
+fn make_synthetic_dpack(dir: &std::path::Path, files: &[(String, Vec<u8>)], seed_fp: &str) {
     let data_dir = dir.join("data");
     std::fs::create_dir_all(&data_dir).unwrap();
 

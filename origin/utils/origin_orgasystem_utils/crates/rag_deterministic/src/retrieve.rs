@@ -21,11 +21,7 @@ pub struct RetrievalResult {
 /// Retrieve top-k results from the index for a query.
 ///
 /// Deterministic: same index + same query = same results, always.
-pub fn retrieve(
-    index: &DeterministicIndex,
-    query: &str,
-    top_k: usize,
-) -> Vec<RetrievalResult> {
+pub fn retrieve(index: &DeterministicIndex, query: &str, top_k: usize) -> Vec<RetrievalResult> {
     index
         .query(query, top_k)
         .into_iter()

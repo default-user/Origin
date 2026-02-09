@@ -83,10 +83,7 @@ pub fn parse_seed(input: &str) -> Result<Denotum, ParseError> {
 /// Parse a Denotum seed from a file (YAML or JSON, detected by extension).
 pub fn parse_seed_file(path: &Path) -> Result<Denotum, ParseError> {
     let content = std::fs::read_to_string(path)?;
-    let ext = path
-        .extension()
-        .and_then(|e| e.to_str())
-        .unwrap_or("");
+    let ext = path.extension().and_then(|e| e.to_str()).unwrap_or("");
     match ext {
         "yaml" | "yml" => parse_seed(&content),
         "json" => {
@@ -291,10 +288,7 @@ BLOCKER_REGISTRY:
     fn test_parse_posture_ladder() {
         let d = parse_seed(TEST_SEED).unwrap();
         assert_eq!(d.posture_ladder.levels.len(), 4);
-        assert_eq!(
-            d.posture_ladder.levels.get("L0").unwrap(),
-            "READ_ONLY"
-        );
+        assert_eq!(d.posture_ladder.levels.get("L0").unwrap(), "READ_ONLY");
     }
 
     #[test]

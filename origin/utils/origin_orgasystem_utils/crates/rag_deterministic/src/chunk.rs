@@ -30,7 +30,11 @@ pub const DEFAULT_CHUNK_SIZE: usize = 512;
 ///
 /// Returns chunks in order. Same input always produces same output.
 pub fn chunk_text(source_id: &str, text: &str, max_chars: usize) -> Vec<Chunk> {
-    let max_chars = if max_chars == 0 { DEFAULT_CHUNK_SIZE } else { max_chars };
+    let max_chars = if max_chars == 0 {
+        DEFAULT_CHUNK_SIZE
+    } else {
+        max_chars
+    };
 
     // Split on paragraph boundaries first
     let paragraphs: Vec<&str> = text.split("\n\n").collect();
