@@ -473,7 +473,10 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "clap",
+ "compress",
  "dpack_core",
+ "lfme_core",
+ "rag_deterministic",
  "replication_core",
  "seed_core",
  "serde",

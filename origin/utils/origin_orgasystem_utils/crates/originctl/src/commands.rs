@@ -1,5 +1,6 @@
 //! Command implementations for originctl.
 
+use compress::{compress_dpack, decompress_cpack};
 use dpack_core::pack::{pack_repo, unfurl_pack, verify_pack};
 use dpack_core::policy::Policy;
 use replication_core::replicate::{replicate_local, replicate_rootball, replicate_zip2repo_v1};
@@ -56,35 +57,95 @@ pub fn run_pack(
     Ok(())
 }
 
-pub fn run_verify(pack_dir: &Path, seed_path: Option<&Path>) -> Result<()> {
-    // Try to find seed from the manifest's source_root or require explicit path
-    let seed = if let Some(sp) = seed_path {
-        Seed::load(sp)?
-    } else {
-        // Try to find it in the pack data
-        let candidate = pack_dir.join("data/spec/seed/denotum.seed.2i.yaml");
-        if candidate.exists() {
-            Seed::load(&candidate)?
-        } else {
-            anyhow::bail!("no seed path provided; use --seed or ensure seed is in pack data")
+pub fn run_compress(dpack_dir: &Path, output: &Path) -> Result<()> {
+    eprintln!(
+        "Compressing {} -> {}",
+        dpack_dir.display(),
+        output.display()
+    );
+
+    let payload_hash = compress_dpack(dpack_dir, output)?;
+    println!("PASS: compress complete");
+    println!("  payload_sha256: {}", payload_hash);
+    println!("  output: {}", output.display());
+
+    let meta = std::fs::metadata(output)?;
+    println!("  size: {} bytes", meta.len());
+    Ok(())
+}
+
+pub fn run_decompress(cpack_path: &Path, output_dir: &Path) -> Result<()> {
+    eprintln!(
+        "Decompressing {} -> {}",
+        cpack_path.display(),
+        output_dir.display()
+    );
+
+    let payload_hash = decompress_cpack(cpack_path, output_dir)?;
+    println!("PASS: decompress complete");
+    println!("  payload_sha256: {}", payload_hash);
+    println!("  output: {}", output_dir.display());
+    Ok(())
+}
+
+pub fn run_verify(path: &Path, seed_path: Option<&Path>) -> Result<()> {
+    // Detect whether this is a cpack file or dpack directory
+    if path.is_file() {
+        // Assume .cpack file: decompress to temp, then verify
+        eprintln!("Verifying CPACK file: {}", path.display());
+        let tmp = tempfile::tempdir()?;
+        let payload_hash = decompress_cpack(path, tmp.path())?;
+        println!("PASS: CPACK integrity verified");
+        println!("  payload_sha256: {}", payload_hash);
+
+        // Also verify the contained dpack if seed is provided
+        if seed_path.is_some() || tmp.path().join("data/spec/seed/denotum.seed.2i.yaml").exists() {
+            let seed = if let Some(sp) = seed_path {
+                Seed::load(sp)?
+            } else {
+                Seed::load(&tmp.path().join("data/spec/seed/denotum.seed.2i.yaml"))?
+            };
+            let receipt = verify_pack(tmp.path(), &seed)?;
+            if receipt.passed {
+                println!("PASS: contained DPACK verification complete");
+            } else {
+                println!("FAIL: contained DPACK verification failed");
+            }
+            for g in &receipt.gates {
+                println!("  [{}] {:?}: {}", g.gate, g.status, g.detail);
+            }
+            if !receipt.passed {
+                anyhow::bail!("verification failed");
+            }
         }
-    };
-
-    eprintln!("Verifying pack at {}", pack_dir.display());
-
-    let receipt = verify_pack(pack_dir, &seed)?;
-
-    if receipt.passed {
-        println!("PASS: verification complete");
     } else {
-        println!("FAIL: verification failed");
-    }
-    for g in &receipt.gates {
-        println!("  [{}] {:?}: {}", g.gate, g.status, g.detail);
-    }
+        // DPACK directory
+        eprintln!("Verifying DPACK at {}", path.display());
+        let seed = if let Some(sp) = seed_path {
+            Seed::load(sp)?
+        } else {
+            let candidate = path.join("data/spec/seed/denotum.seed.2i.yaml");
+            if candidate.exists() {
+                Seed::load(&candidate)?
+            } else {
+                anyhow::bail!(
+                    "no seed path provided; use --seed or ensure seed is in pack data"
+                )
+            }
+        };
 
-    if !receipt.passed {
-        anyhow::bail!("verification failed");
+        let receipt = verify_pack(path, &seed)?;
+        if receipt.passed {
+            println!("PASS: verification complete");
+        } else {
+            println!("FAIL: verification failed");
+        }
+        for g in &receipt.gates {
+            println!("  [{}] {:?}: {}", g.gate, g.status, g.detail);
+        }
+        if !receipt.passed {
+            anyhow::bail!("verification failed");
+        }
     }
     Ok(())
 }
@@ -185,8 +246,14 @@ pub fn run_replicate_local(
 
     if receipt.passed {
         println!("PASS: local replication complete");
-        println!("  source_pack_hash: {}", receipt.source_pack_hash.unwrap_or_default());
-        println!("  target_pack_hash: {}", receipt.target_pack_hash.unwrap_or_default());
+        println!(
+            "  source_pack_hash: {}",
+            receipt.source_pack_hash.unwrap_or_default()
+        );
+        println!(
+            "  target_pack_hash: {}",
+            receipt.target_pack_hash.unwrap_or_default()
+        );
         for g in &receipt.gates {
             println!("  [{}] {:?}: {}", g.gate, g.status, g.detail);
         }
@@ -253,5 +320,97 @@ pub fn run_replicate_zip2repo_v1(
         eprintln!("FAIL: replication failed");
         anyhow::bail!("replication failed");
     }
+    Ok(())
+}
+
+/// End-to-end pipeline: pack -> compress -> decompress -> verify round-trip.
+pub fn run_e2e(
+    repo_root: &Path,
+    seed_path: Option<&Path>,
+    policy_path: Option<&Path>,
+) -> Result<()> {
+    let seed = load_seed(seed_path, Some(repo_root))?;
+    let policy = load_policy(policy_path)?;
+
+    println!("=== ORIGIN E2E PIPELINE ===");
+    println!();
+
+    // Step 1: Pack
+    println!("[1/6] Packing repository...");
+    let dpack_dir = tempfile::tempdir()?;
+    let pack_receipt = pack_repo(repo_root, dpack_dir.path(), &seed, policy.as_ref())?;
+    if !pack_receipt.passed {
+        anyhow::bail!("E2E FAIL at step 1 (pack): gates did not pass");
+    }
+    let pack_hash = pack_receipt.pack_hash.clone().unwrap_or_default();
+    println!("  PASS: {} files packed", pack_receipt.gates.len());
+    println!("  pack_hash: {}", &pack_hash[..16]);
+
+    // Step 2: Compress
+    println!("[2/6] Compressing to CPACK...");
+    let cpack_dir = tempfile::tempdir()?;
+    let cpack_path = cpack_dir.path().join("origin.cpack");
+    let payload_hash = compress_dpack(dpack_dir.path(), &cpack_path)?;
+    let cpack_size = std::fs::metadata(&cpack_path)?.len();
+    println!("  PASS: compressed to {} bytes", cpack_size);
+    println!("  payload_sha256: {}", &payload_hash[..16]);
+
+    // Step 3: Decompress
+    println!("[3/6] Decompressing CPACK...");
+    let restored_dir = tempfile::tempdir()?;
+    let restored_hash = decompress_cpack(&cpack_path, restored_dir.path())?;
+    println!("  PASS: decompressed");
+    assert_eq!(
+        payload_hash, restored_hash,
+        "payload hash mismatch after decompress"
+    );
+    println!("  payload_sha256 matches: YES");
+
+    // Step 4: Verify restored dpack
+    println!("[4/6] Verifying restored DPACK...");
+    let verify_receipt = verify_pack(restored_dir.path(), &seed)?;
+    if !verify_receipt.passed {
+        anyhow::bail!("E2E FAIL at step 4 (verify): restored dpack verification failed");
+    }
+    println!("  PASS: all gates passed");
+    for g in &verify_receipt.gates {
+        println!("    [{}] {:?}", g.gate, g.status);
+    }
+
+    // Step 5: Round-trip integrity check (compare pack hashes)
+    println!("[5/6] Checking round-trip integrity...");
+    let restored_manifest_bytes =
+        std::fs::read(restored_dir.path().join("manifest.json"))?;
+    let restored_manifest: dpack_core::DpackManifest =
+        serde_json::from_slice(&restored_manifest_bytes)?;
+    if restored_manifest.pack_hash != pack_hash {
+        anyhow::bail!(
+            "E2E FAIL at step 5: pack_hash mismatch (orig={}, restored={})",
+            &pack_hash[..16],
+            &restored_manifest.pack_hash[..16]
+        );
+    }
+    println!("  PASS: pack_hash matches original");
+
+    // Step 6: Compress determinism check
+    println!("[6/6] Checking compress determinism...");
+    let cpack2_dir = tempfile::tempdir()?;
+    let cpack2_path = cpack2_dir.path().join("origin2.cpack");
+    let payload_hash2 = compress_dpack(dpack_dir.path(), &cpack2_path)?;
+    let cpack1_bytes = std::fs::read(&cpack_path)?;
+    let cpack2_bytes = std::fs::read(&cpack2_path)?;
+    if cpack1_bytes != cpack2_bytes {
+        anyhow::bail!("E2E FAIL at step 6: compress is not deterministic");
+    }
+    assert_eq!(payload_hash, payload_hash2);
+    println!("  PASS: compress is deterministic (byte-identical)");
+
+    println!();
+    println!("=== E2E PIPELINE PASSED ===");
+    println!("  pack_hash:       {}", pack_hash);
+    println!("  payload_sha256:  {}", payload_hash);
+    println!("  cpack_size:      {} bytes", cpack_size);
+    println!("  round_trip:      VERIFIED");
+    println!("  determinism:     VERIFIED");
     Ok(())
 }

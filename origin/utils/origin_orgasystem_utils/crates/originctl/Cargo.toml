@@ -4,7 +4,7 @@ version.workspace = true
 edition.workspace = true
 license.workspace = true
 authors.workspace = true
-description = "CLI tool for Origin orgasystem: pack, verify, unfurl, audit, and replicate."
+description = "CLI tool for Origin orgasystem: pack, verify, compress, decompress, replicate, e2e."
 
 [[bin]]
 name = "originctl"
@@ -13,11 +13,15 @@ path = "src/main.rs"
 [dependencies]
 seed_core = { path = "../seed_core" }
 dpack_core = { path = "../dpack_core" }
+compress = { path = "../compress" }
+lfme_core = { path = "../lfme_core" }
+rag_deterministic = { path = "../rag_deterministic" }
 replication_core = { path = "../replication_core" }
 clap = { workspace = true }
 serde = { workspace = true }
 serde_json = { workspace = true }
 anyhow = { workspace = true }
+tempfile = { workspace = true }
 
 [dev-dependencies]
 tempfile = { workspace = true }
