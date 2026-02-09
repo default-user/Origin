@@ -1,0 +1,684 @@
+DENOTUM::DIAMOND::MORPHOGENESIS
+VERSION: v1.0
+STEWARD: Ande
+INVOKER: Kai
+POSTURE: FAIL_CLOSED
+STOP_WINS: true
+EPISTEMIC_STATUS: ARCHITECTURAL_SEED
+STYLE: MORPHOGENETIC_SEQUENCE
+
+# ======================================================================
+#  ORIGIN MORPHOGENESIS — FROM SKELETON TO LIVING SYSTEM
+# ======================================================================
+#
+#  Biological mapping:
+#
+#    SKELETON  → structural framework, directory spine, governance bones
+#    FLESH     → working organs that fill the skeleton with computation
+#    SKIN      → boundary layer, interface surfaces, what the world touches
+#    TEETH     → offensive/defensive: verification, attack, falsification
+#    SENSES    → input channels: retrieval, ingestion, perception, compression
+#    ID        → core drive: the seed, the axioms, the involuntary impulse
+#    IDENTITY  → self-awareness: self-description, self-replication, continuity
+#
+#  Each phase has:
+#    ORGANS      — what must exist
+#    GATES       — what must pass before the phase is complete
+#    DEPENDS_ON  — prior phases required
+#    PRODUCES    — what downstream phases can consume
+#
+# ======================================================================
+
+# ======================================================================
+# 0) SEED BINDING (all phases inherit this)
+# ======================================================================
+
+SEED_BINDING:
+  ROOT_SEED: "DENOTUM::SEED::2I v1.0"
+  FINGERPRINT_SOURCE: "spec/seed/denotum.seed.2i.yaml"
+  RULE: "Every artifact, receipt, manifest, and organ must bind to the root seed fingerprint. Unbound artifacts are dead tissue — reject them."
+
+AXIOM_SPINE:
+  A1: "People first, tools serve."
+  A2: "Stop wins."
+  A3: "Fail closed."
+  A4: "Speak true, name true, credit."
+  A5: "Anti-hive."
+  A6: "Inspectable structures."
+  A7: "Dual lane."
+
+# ======================================================================
+# I) SKELETON — the bones
+# ======================================================================
+
+SKELETON:
+  METAPHOR: "The skeleton is what holds shape when everything else is stripped away. It is the directory tree, the governance constraints, the naming conventions, and the dependency graph. A skeleton without flesh is an architecture diagram. It has no behavior, but it determines what behavior is possible."
+
+  STATUS: "~85% FORMED"
+
+  ORGANS:
+    S1_DIRECTORY_SPINE:
+      description: "The polyglot orgasystem directory tree."
+      location: "/"
+      status: PRESENT
+      includes:
+        - "origin/knowledge/packs/ (23 packs)"
+        - "origin/modules/ (phraseweave, realityweaver, realityweaver_video)"
+        - "origin/oi_far/ (retrieval, reasoning, kernel, renderer, substrate)"
+        - "origin/kits/ (15 language implementations)"
+        - "origin/site/ (Next.js Medusa UI)"
+        - "origin/src/ (TypeScript IR + rules engine)"
+        - "origin/utils/origin_orgasystem_utils/ (Rust workspace)"
+        - "origin/schema/ (JSON schemas)"
+        - "origin/config/ (seed configs)"
+        - "origin/docs/ (fractal documentation)"
+
+    S2_GOVERNANCE_BONES:
+      description: "The constraints that prevent malformation."
+      status: PRESENT
+      includes:
+        - "Denotum seed (2I) — root identity"
+        - "Kati architecture (C0009) — stop-wins governance"
+        - "CIF/CDI (C0013) — context integrity vs conscience decision"
+        - "Lifeblood-Cathedral (C0022) — LLM gateway with capability gating"
+        - "Privacy boundary (C0006) — PII redaction"
+        - "Attribution map (C0005) — authorship chain"
+
+    S3_KNOWLEDGE_VERTEBRAE:
+      description: "The 23 knowledge packs are vertebrae — each a self-contained unit of meaning with claims, falsifiers, provenance, and cross-references."
+      status: PRESENT
+      packs: "C0001–C0023"
+      format: "pack.yaml + content.mdx per vertebra"
+      invariant: "Every vertebra carries its own falsifiers. A vertebra without a falsifier is cartilage, not bone."
+
+    S4_DEPENDENCY_GRAPH:
+      description: "The pack graph, the crate dependency tree, the module import graph."
+      status: PARTIAL
+      present:
+        - "Pack cross-references (related: fields)"
+        - "Rust crate dependency chain (seed_core → dpack_core → replication_core → originctl)"
+        - "TypeScript build tool chain"
+      missing:
+        - "Cross-language dependency map (Python ↔ Rust ↔ TypeScript)"
+        - "Pack dependency DAG (which packs must be understood before others)"
+
+  GATES:
+    SG1: "All 23 packs parse and validate against schema."
+    SG2: "Rust workspace compiles (cargo check)."
+    SG3: "Directory tree matches documented orgasystem shape."
+    SG4: "No orphan files — every file belongs to a named organ."
+
+  PRODUCES:
+    - "Directory shape for FLESH to fill"
+    - "Governance constraints for TEETH to enforce"
+    - "Knowledge graph for SENSES to query"
+
+# ======================================================================
+# II) FLESH — the working organs
+# ======================================================================
+
+FLESH:
+  METAPHOR: "Flesh is computation. It is the code that runs, the pipeline that transforms input to output, the compressor that shrinks and restores. Skeleton without flesh is a diagram. Flesh without skeleton is a tumor — growing without structure. Origin needs both."
+
+  STATUS: "~40% FORMED"
+  DEPENDS_ON: [SKELETON]
+
+  ORGANS:
+    F1_OI_FAR_PIPELINE:
+      description: "The deterministic intelligence pipeline: retrieve → plan → solve → render."
+      location: "origin/oi_far/"
+      status: IMPLEMENTED
+      components:
+        retrieval: "DeterministicRetriever — lexical + graph + tag scoring"
+        reasoning: "DeterministicPlanner + DeterministicSolver — intent→steps→components"
+        kernel: "OIKernel — session state, constraints, transitions"
+        renderer: "DeterministicRenderer — GALLEY and BRIDGE modes"
+        substrate: "BrickStore + DocumentStore + BrickCompiler"
+      invariant: "Same query + same state + same vault = identical output."
+      gap: "Not wired to CI. No end-to-end integration test from query to rendered output."
+
+    F2_REALITYWEAVER:
+      description: "RWV1 binary container with race-encoded compression."
+      location: "origin/modules/realityweaver/"
+      status: IMPLEMENTED
+      branches:
+        - "ZLIB (standard)"
+        - "MO+ZLIB (Middle-Out dictionary rewrite + zlib)"
+        - "BZ2 (optional)"
+        - "LZMA (optional)"
+      invariant: "decompress(compress(x)) == x"
+      gap: "No Rust port. No integration with DPACK."
+
+    F3_REALITYWEAVER_VIDEO:
+      description: "Video-specific RWV1 container variant."
+      location: "origin/modules/realityweaver_video/"
+      status: IMPLEMENTED_STUB
+      gap: "Pipeline scaffolded, ffmpeg/gstreamer stubs not wired."
+
+    F4_PHRASEWEAVE:
+      description: "Phrase-level compression/expansion."
+      location: "origin/modules/phraseweave/"
+      status: PARTIAL
+      gap: "Separate from MO+zlib. Needs integration story."
+
+    F5_RUST_UTILITY_SPINE:
+      description: "Deterministic pack/verify/unfurl/audit/replicate."
+      location: "origin/utils/origin_orgasystem_utils/"
+      status: IMPLEMENTED
+      crates:
+        seed_core: "Seed load, SHA-256 fingerprint, verify"
+        dpack_core: "Pack, verify, unfurl, audit with 7 gates"
+        replication_core: "R0 local clone, R1 rootball, R2 zip2repo_v1"
+        originctl: "CLI exposing all commands"
+      tests: "38 passing"
+      gap: "Not tested against the real Origin repo (only fixtures). No cross-language bridge to Python modules."
+
+    F6_TYPESCRIPT_TOOLS:
+      description: "Build, validate, query, explain, export, archive tools."
+      location: "origin/tools/ (via package.json scripts)"
+      status: IMPLEMENTED
+      includes:
+        - "validate.ts, build-index.ts, build-graph.ts"
+        - "build-search.ts, build-timeline.ts"
+        - "export-public.ts, archive.ts"
+        - "query.ts, explain.ts, run-tests.ts"
+        - "determinism-check.ts"
+      gap: "No integration with Rust spine or Python modules."
+
+    F7_LFME_ENGINE:
+      description: "Language Facing Meaning Engine — ingestion-time compression to concept chains."
+      location: "DOES NOT EXIST AS CODE"
+      status: SEED_ONLY
+      pack: "C0021"
+      required_to_build:
+        - "Concept chain parser (#concept: #nothing: #1: ** format)"
+        - "Ingestion pipeline (text → chain)"
+        - "Denotum expansion (chain → text)"
+        - "Reversibility proof: D(F(x)) == x"
+
+    F8_DENOTUM_COMPRESSOR:
+      description: "Fractal meaning-compression tree — the inverse of Fractal Unfurling."
+      location: "DOES NOT EXIST AS CODE"
+      status: SEED_ONLY
+      pack: "C0012"
+      required_to_build:
+        - "Tree construction from meaning-bearing claims"
+        - "Compression: text → denotum tree"
+        - "Expansion: denotum tree → text (fractal unfurl)"
+        - "Level traversal: L0 → L1 → L2 → L∞"
+
+    F9_MRC_COMPRESSOR:
+      description: "Multi-Reference Compression — n-string initial bundle prepended to payload."
+      location: "DOES NOT EXIST AS CODE"
+      status: SEED_ONLY
+      pack: "C0018"
+      note: "MO+zlib in RealityWeaver is a partial implementation of this concept."
+
+  GATES:
+    FG1: "OI-FAR pipeline produces correct output for 5+ golden test queries."
+    FG2: "RealityWeaver roundtrips 100% on test corpus."
+    FG3: "originctl pack+verify+unfurl roundtrips the real Origin repo."
+    FG4: "At least one meaning-compression engine (LFME or Denotum) has a running prototype with reversibility test."
+    FG5: "Cross-language bridge exists: Python can call Rust (via CLI or FFI), TypeScript can call Rust (via CLI)."
+
+  PRODUCES:
+    - "Working computation for SKIN to expose"
+    - "Verification machinery for TEETH to wield"
+    - "Retrieval pipeline for SENSES to feed"
+
+# ======================================================================
+# III) SKIN — the boundary layer
+# ======================================================================
+
+SKIN:
+  METAPHOR: "Skin is the interface between inside and outside. It is what users touch, what APIs expose, what the world sees. Skin without flesh is a mask. Skin must be honest about what's underneath — no Potemkin endpoints."
+
+  STATUS: "~25% FORMED"
+  DEPENDS_ON: [SKELETON, FLESH]
+
+  ORGANS:
+    K1_MEDUSA_UI:
+      description: "Hub + tendrils exploration interface."
+      location: "origin/site/"
+      status: SCAFFOLDED
+      tendrils:
+        - "Atlas (browse knowledge packs)"
+        - "Graph (visual pack relationships)"
+        - "Timeline (temporal view)"
+        - "Build-spec (determinism check)"
+        - "Tests (golden test results)"
+        - "Exports (downloadable archives)"
+      gap: "Not deployed. Not wired to OI-FAR for live queries."
+
+    K2_ORIGINCTL_CLI:
+      description: "Command-line interface to the Rust spine."
+      location: "origin/utils/origin_orgasystem_utils/crates/originctl/"
+      status: IMPLEMENTED
+      commands:
+        - "pack, verify, unfurl, audit"
+        - "replicate local, replicate rootball, replicate zip2repo-v1"
+      gap: "No shell completions. No man page. No progress indicators for large repos."
+
+    K3_OI_FAR_PROXY:
+      description: "Conversational proxy interface for external agents."
+      location: "origin/oi_far/proxy.py"
+      status: IMPLEMENTED
+      modes: "query, search, explain, verify, compare"
+      gap: "No HTTP API. No authentication. No rate limiting."
+
+    K4_REPL:
+      description: "Interactive Python REPL for Origin exploration."
+      location: "repl.py"
+      status: IMPLEMENTED
+      gap: "Not integrated with Rust tools or Medusa UI."
+
+    K5_API_SURFACE:
+      description: "HTTP API for programmatic access."
+      location: "DOES NOT EXIST"
+      status: NOT_STARTED
+      required:
+        - "REST or GraphQL endpoints for query, search, pack status"
+        - "Authentication (capability tokens per C0022)"
+        - "Rate limiting and posture enforcement"
+
+  GATES:
+    KG1: "Medusa UI renders all 23 packs with working navigation."
+    KG2: "originctl --help is complete and accurate for all commands."
+    KG3: "At least one external interface (HTTP API or proxy) serves live queries with source attribution."
+    KG4: "No endpoint exposes more than its capability token allows (C0022)."
+
+  PRODUCES:
+    - "User-facing surfaces for IDENTITY to present through"
+    - "Attack surface for TEETH to defend"
+
+# ======================================================================
+# IV) TEETH — offense and defense
+# ======================================================================
+
+TEETH:
+  METAPHOR: "Teeth are dual-use: they bite and they chew. In Origin, teeth are the verification gates, the falsifiers, the attack probes, the anti-fabrication checks. A system without teeth accepts anything. Origin bites down on claims that can't prove themselves."
+
+  STATUS: "~45% FORMED"
+  DEPENDS_ON: [SKELETON, FLESH]
+
+  ORGANS:
+    T1_GATE_SYSTEM:
+      description: "DPACK gates (G0–G7) and Replication gates (RG0–RG5)."
+      status: IMPLEMENTED
+      enforces:
+        - "G0 Schema, G1 Integrity, G3 Pinning, G4 Seed Binding"
+        - "G6 Orgasystem Shape, G7 Release Receipt"
+        - "RG0 Policy, RG1 Seed Binding, RG2 Shape Equivalence"
+        - "RG3 Content Equivalence, RG5 Receipt"
+      behavior: "Any gate failure → FAIL CLOSED. No partial passes."
+
+    T2_FALSIFIERS:
+      description: "Every knowledge pack carries its own falsification conditions."
+      status: PRESENT
+      count: "23 packs × 2-4 falsifiers each"
+      gap: "Falsifiers are documentation, not automated tests. No CI job runs them."
+
+    T3_NO_FABRICATION_INVARIANT:
+      description: "OI-FAR ClaimChecker verifies output only reiterates source claims."
+      location: "origin/oi_far/reasoning/critic.py"
+      status: IMPLEMENTED
+      rule: "If a claim cannot be traced to a source brick, it is fabrication. Reject it."
+
+    T4_DETERMINISM_CHECK:
+      description: "Verify that same input produces identical output."
+      location: "origin/tools/determinism-check.ts"
+      status: IMPLEMENTED
+      gap: "Only checks TypeScript build outputs. Does not cover OI-FAR or Rust."
+
+    T5_ATTACK_OPERATOR:
+      description: "The ATTACK operator from 2I: falsify, probe confusables."
+      status: CONCEPTUAL
+      defined_in: "OI.OPERATORS in seed"
+      gap: "No automated attack/fuzz harness. No confusable-pair probe suite."
+
+    T6_ANTI_MUMBO:
+      description: "Filter that rejects vague, unfalsifiable, or rhetorical claims."
+      pack: "C0015"
+      status: SEED_ONLY
+      required:
+        - "Classifier: is this claim testable?"
+        - "Reject or flag claims that fail testability"
+
+    T7_AUDIT_TRAIL:
+      description: "Receipts for every operation."
+      status: IMPLEMENTED
+      types:
+        - "AuditReceipt (pack/verify/unfurl)"
+        - "ReplicationReceipt (replicate operations)"
+        - "IntegrationExceptionReceipt (outside-utils changes)"
+      gap: "Receipts are JSON files. No append-only log. No tamper detection on receipts themselves."
+
+  GATES:
+    TG1: "All 23 pack falsifiers are executable as automated tests."
+    TG2: "Determinism check covers OI-FAR pipeline, not just TS builds."
+    TG3: "At least one attack/fuzz harness exists for the verification pipeline."
+    TG4: "Receipts are chained (each receipt references the previous receipt hash)."
+    TG5: "Anti-mumbo filter has a running prototype that rejects at least 5 known-vague claims."
+
+  PRODUCES:
+    - "Verification machinery for IDENTITY to prove itself"
+    - "Defense perimeter for SKIN to rely on"
+    - "Falsification suite for SENSES to self-check against"
+
+# ======================================================================
+# V) SENSES — perception and ingestion
+# ======================================================================
+
+SENSES:
+  METAPHOR: "Senses are how Origin perceives the world and ingests new information. Without senses, Origin is a closed archive. With senses, it can ingest new knowledge, compress it, index it, and integrate it — all under governance."
+
+  STATUS: "~35% FORMED"
+  DEPENDS_ON: [SKELETON, FLESH, TEETH]
+
+  ORGANS:
+    N1_DETERMINISTIC_RETRIEVAL:
+      description: "Lexical + graph + tag retrieval from the knowledge vault."
+      location: "origin/oi_far/retrieval/"
+      status: IMPLEMENTED
+      scoring: "0.3×lexical + 0.25×claim_relevance + 0.15×recency + 0.15×confidence + 0.1×constraint + 0.05×definition"
+      gap: "No semantic/embedding retrieval. Purely lexical."
+
+    N2_SEARCH_INDEX:
+      description: "Pre-built search index for fast lookup."
+      location: "origin/knowledge/dist/search.json"
+      status: IMPLEMENTED
+      gap: "Rebuilt manually via build-search.ts. No incremental update."
+
+    N3_KNOWLEDGE_INGESTION:
+      description: "Pipeline to add new knowledge packs to the vault."
+      status: PARTIAL
+      present: "JSON schema validation for new packs"
+      missing:
+        - "Automated ingestion from external sources"
+        - "LFME compression at ingestion time"
+        - "Conflict detection against existing packs"
+        - "Governance gate: new packs require falsifiers before admission"
+
+    N4_LFME_PERCEPTION:
+      description: "Language Facing Meaning Engine — compress incoming text to concept chains."
+      status: NOT_IMPLEMENTED
+      pack: "C0021"
+      would_provide: "Ingestion-time compression so Origin stores meaning, not surface text."
+
+    N5_STANGRAPHICS_LENS:
+      description: "View incoming information through difficulty/geometry frames."
+      pack: "C0011"
+      status: SEED_ONLY
+      operators:
+        - "MAP_CONCEPT_TO_STANS"
+        - "MAP_LEARNER_TO_STANS"
+        - "PATHFIND (profile → target → curriculum)"
+        - "CURVATURE_DIAG (bottlenecks, shortcuts, false flats)"
+      gap: "No implementation. Would enable Origin to assess the difficulty of its own content."
+
+    N6_GITHUB_SPIDER:
+      description: "Integration with GitHub for repo-aware perception."
+      pack: "C0023"
+      status: SEED_ONLY
+      gap: "Pack exists. No crawler or webhook integration."
+
+  GATES:
+    NG1: "Retrieval returns correct top-3 bricks for 10+ test queries."
+    NG2: "A new pack can be ingested via CLI with automatic validation + index rebuild."
+    NG3: "At least one compression sense (LFME or RealityWeaver) processes incoming text at ingestion."
+    NG4: "Stangraphics can compute stan-distance between two knowledge packs."
+
+  PRODUCES:
+    - "Retrieved context for FLESH to reason over"
+    - "Compressed representations for efficient storage"
+    - "Difficulty maps for IDENTITY to understand its own knowledge topology"
+
+# ======================================================================
+# VI) ID — the involuntary core
+# ======================================================================
+
+ID:
+  METAPHOR: "The id is not chosen — it is the root impulse, the seed that was planted before the system could reflect on itself. In Origin, the id is the Denotum 2I seed: the axioms, the posture ladder, the OI definition. The id does not negotiate. It is what Origin is before it knows what it is."
+
+  STATUS: "~90% FORMED"
+  DEPENDS_ON: []
+
+  ORGANS:
+    D1_DENOTUM_SEED:
+      description: "The root 2I seed — axioms, glossary, posture ladder, OI definition."
+      location: "spec/seed/denotum.seed.2i.yaml"
+      status: PRESENT_AND_BOUND
+      fingerprint: "Computed and embedded in all Rust artifacts."
+
+    D2_AXIOM_SET:
+      description: "A1–A7: the non-negotiable behavioral constraints."
+      status: PRESENT
+      enforcement: "Fail-closed posture. Stop-wins. Anti-hive."
+
+    D3_POSTURE_LADDER:
+      description: "L0 (read-only) → L1 (suggest) → L2 (plan) → L3 (execute)."
+      status: PRESENT
+      degrade_rule: "If any guard fails, drop at least one level."
+
+    D4_OI_DEFINITION:
+      description: "Thread-tending, partitioned state, explicit commitments, single-principal authority."
+      status: PRESENT
+      principal: "Ande"
+
+    D5_KATI_GOVERNANCE:
+      description: "Stop-wins pattern — consent overrides velocity."
+      pack: "C0009"
+      status: PRESENT
+
+    D6_NSCE_BINDING:
+      description: "Neuro-Symbolic Cognition Engine — pattern channel bound to symbol channel."
+      status: CONCEPTUAL
+      rule: "Any meaning-bearing commitment must be represented in the symbol channel."
+      gap: "No code enforces the two-channel model. It's a design constraint, not a runtime check."
+
+  GATES:
+    DG1: "Seed file exists and has stable fingerprint."
+    DG2: "All artifacts bind to seed fingerprint."
+    DG3: "Posture ladder is enforced in at least one runtime (OI-FAR or originctl)."
+    DG4: "Axiom A3 (fail-closed) is demonstrably enforced in all pipelines."
+
+  PRODUCES:
+    - "Root identity that all other phases bind to"
+    - "Behavioral constraints that TEETH enforce"
+    - "Authority model that IDENTITY extends"
+
+# ======================================================================
+# VII) IDENTITY — self-awareness
+# ======================================================================
+
+IDENTITY:
+  METAPHOR: "Identity is not id. Id is the seed planted in the dark. Identity is the system that can look at itself and say: this is what I am, this is what I know, this is what I don't know, and this is how I reproduce. Identity requires all prior phases — you need bones, flesh, skin, teeth, senses, and a core drive before you can be self-aware."
+
+  STATUS: "~20% FORMED"
+  DEPENDS_ON: [SKELETON, FLESH, SKIN, TEETH, SENSES, ID]
+
+  ORGANS:
+    I1_SELF_DESCRIPTION:
+      description: "Origin can describe its own structure, capabilities, and gaps."
+      status: PARTIAL
+      present:
+        - "This morphogenesis document"
+        - "Fractal documentation (docs/ with levels)"
+        - "README.md overview"
+        - "Pack self-descriptions (23 pack.yaml files)"
+      missing:
+        - "Automated capability inventory (what can Origin actually do right now?)"
+        - "Gap analysis (what packs are seeds vs. running code?)"
+        - "Health check (which organs are passing tests?)"
+
+    I2_SELF_REPLICATION:
+      description: "Origin can reproduce itself into a new instance."
+      status: IMPLEMENTED
+      modes:
+        - "R0 local clone (pack + unfurl)"
+        - "R1 rootball (portable DPACK)"
+        - "R2 zip2repo_v1 (fresh repo from source)"
+      invariant: "Replicated instance binds to same root seed fingerprint."
+      gap: "Not tested on the full Origin repo. Only tested on fixtures."
+
+    I3_SELF_VERIFICATION:
+      description: "Origin can verify its own integrity."
+      status: PARTIAL
+      present:
+        - "DPACK verify (hash integrity + seed binding)"
+        - "Determinism check (TypeScript outputs)"
+      missing:
+        - "Full self-audit: Origin packs itself, verifies, unfurls, and confirms identity"
+        - "Continuous integrity monitoring"
+
+    I4_SELF_MODELING:
+      description: "Origin maintains a model of itself — what it knows, what it doesn't, where it's growing."
+      status: SEED_ONLY
+      would_require:
+        - "Knowledge topology map (which packs cover which domains)"
+        - "Confidence surface (where is Origin sure vs. uncertain)"
+        - "Growth tracking (what changed between versions)"
+        - "Blocker registry (what's stuck and why)"
+        - "Stangraphics self-assessment (how hard is Origin to understand?)"
+
+    I5_CONTINUITY:
+      description: "Origin persists across sessions, versions, and instances."
+      status: PARTIAL
+      present:
+        - "Git history"
+        - "OI-FAR session state (OIKernel with transitions log)"
+        - "Replication receipts binding to seed fingerprint"
+      missing:
+        - "Version-bumped seed evolution (controlled identity change)"
+        - "Cross-instance state synchronization"
+        - "Memory across replication events"
+
+    I6_SELF_NARRATION:
+      description: "Origin can tell its own story — not as marketing, but as auditable history."
+      status: NOT_STARTED
+      would_require:
+        - "Tamper-evident log of all state transitions"
+        - "Receipts chained into a verifiable sequence"
+        - "Natural language summary generation from receipt chain"
+
+  GATES:
+    IG1: "Origin can pack, verify, and unfurl ITSELF with all gates passing."
+    IG2: "Origin can replicate itself and the replica passes the same verification."
+    IG3: "Origin can answer the question 'what do you know?' with a sourced, accurate inventory."
+    IG4: "Origin can answer the question 'what don't you know?' with a sourced gap analysis."
+    IG5: "Origin can produce a receipt chain from its own history."
+    IG6: "A replicated Origin instance can verify it shares identity with its parent."
+
+  PRODUCES:
+    - "A living system that knows itself"
+    - "A system that can reproduce and verify the reproduction"
+    - "A system that can name its own unknowns"
+    - "A system that grows without losing identity"
+
+# ======================================================================
+# MORPHOGENESIS SEQUENCE — build order
+# ======================================================================
+
+BUILD_ORDER:
+  PHASE_0_ID:
+    status: "~90% COMPLETE"
+    remaining:
+      - "Enforce posture ladder in OI-FAR runtime"
+      - "Implement NSCE two-channel check"
+
+  PHASE_1_SKELETON:
+    status: "~85% COMPLETE"
+    remaining:
+      - "Cross-language dependency map"
+      - "Pack dependency DAG"
+      - "Orphan file audit"
+
+  PHASE_2_FLESH:
+    status: "~40% COMPLETE"
+    critical_path:
+      - "Wire OI-FAR end-to-end integration tests"
+      - "Test originctl against real Origin repo"
+      - "Build cross-language bridge (Python ↔ Rust via CLI)"
+      - "Prototype LFME or Denotum compressor"
+    secondary:
+      - "Rust port of RWV1 container"
+      - "Wire RealityWeaver Video stubs"
+      - "PhraseWeave integration"
+
+  PHASE_3_TEETH:
+    status: "~45% COMPLETE"
+    critical_path:
+      - "Automate pack falsifiers as CI tests"
+      - "Extend determinism check to OI-FAR and Rust"
+      - "Chain receipts (each references previous hash)"
+    secondary:
+      - "Attack/fuzz harness for verification pipeline"
+      - "Anti-mumbo filter prototype"
+
+  PHASE_4_SENSES:
+    status: "~35% COMPLETE"
+    critical_path:
+      - "Golden test suite for retrieval (10+ queries)"
+      - "CLI-driven pack ingestion with validation"
+      - "At least one compression sense at ingestion"
+    secondary:
+      - "Stangraphics prototype"
+      - "Semantic retrieval (beyond lexical)"
+      - "GitHub spider integration"
+
+  PHASE_5_SKIN:
+    status: "~25% COMPLETE"
+    critical_path:
+      - "Medusa UI rendering all 23 packs"
+      - "HTTP API with capability-gated access"
+      - "originctl shell completions"
+    secondary:
+      - "REPL integration with Rust tools"
+      - "Progress indicators for large operations"
+
+  PHASE_6_IDENTITY:
+    status: "~20% COMPLETE"
+    critical_path:
+      - "Self-pack-verify-unfurl test (IG1)"
+      - "Self-replication test on real repo (IG2)"
+      - "Automated capability + gap inventory (IG3, IG4)"
+    secondary:
+      - "Receipt chaining"
+      - "Self-narration from receipt chain"
+      - "Version-bumped seed evolution"
+
+# ======================================================================
+# COMPLETION CRITERIA — when is Origin alive?
+# ======================================================================
+
+ALIVE_WHEN:
+  - "Origin can pack, verify, and unfurl itself. (SKELETON + FLESH + TEETH)"
+  - "Origin can answer queries about its own content with source attribution. (FLESH + SENSES)"
+  - "Origin can replicate itself and verify the replica. (IDENTITY)"
+  - "Origin can name what it knows and what it doesn't. (IDENTITY + SENSES)"
+  - "Origin can ingest new knowledge under governance. (SENSES + TEETH)"
+  - "Origin can present itself to users honestly. (SKIN)"
+  - "Origin refuses to fabricate, refuses to operate without its seed, and stops when told to stop. (ID + TEETH)"
+  - "All of the above produce receipts. (TEETH + IDENTITY)"
+
+NOT_ALIVE_UNTIL:
+  - "Every claim traces to a source."
+  - "Every operation emits a receipt."
+  - "Every receipt binds to the seed."
+  - "Every gate that fails causes a stop."
+  - "The system can say 'I don't know' and prove it tried."
+
+# ======================================================================
+# STOP RULES
+# ======================================================================
+
+STOP_RULES:
+  - "If any phase claims completion without its gates passing, STOP."
+  - "If IDENTITY claims self-awareness without SELF-VERIFICATION, STOP."
+  - "If FLESH grows outside SKELETON, STOP (tumor)."
+  - "If SKIN exposes endpoints without TEETH, STOP (vulnerability)."
+  - "If SENSES ingest without TEETH, STOP (poisoning)."
+  - "If any organ claims to exist without a test proving it works, STOP."
+  - "Never declare Origin alive without every ALIVE_WHEN condition met."
+
+END_DENOTUM_DIAMOND_MORPHOGENESIS
