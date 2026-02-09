@@ -1,4 +1,4 @@
-//! originctl: CLI for Origin orgasystem pack/verify/unfurl/audit/replicate.
+//! originctl: CLI for Origin orgasystem pack/verify/compress/decompress/replicate/e2e.
 
 use clap::{Parser, Subcommand};
 use std::path::PathBuf;
@@ -9,7 +9,7 @@ mod commands;
 #[derive(Parser)]
 #[command(
     name = "originctl",
-    about = "Origin orgasystem utility: pack, verify, unfurl, audit, and replicate.",
+    about = "Origin orgasystem utility: pack, verify, compress, decompress, replicate, e2e.",
     version
 )]
 struct Cli {
@@ -34,10 +34,26 @@ enum Commands {
         #[arg(long)]
         seed: Option<PathBuf>,
     },
-    /// Verify a DPACK snapshot.
-    Verify {
+    /// Compress a DPACK directory into a .cpack file.
+    Compress {
         /// Path to the DPACK directory.
-        pack: PathBuf,
+        dpack: PathBuf,
+        /// Output .cpack file path.
+        #[arg(short, long)]
+        output: PathBuf,
+    },
+    /// Decompress a .cpack file back into a DPACK directory.
+    Decompress {
+        /// Path to the .cpack file.
+        cpack: PathBuf,
+        /// Output directory for the DPACK.
+        #[arg(short, long)]
+        output: PathBuf,
+    },
+    /// Verify a DPACK or CPACK (hashes, schema, invariants).
+    Verify {
+        /// Path to the DPACK directory or .cpack file.
+        path: PathBuf,
         /// Path to the seed file.
         #[arg(long)]
         seed: Option<PathBuf>,
@@ -68,6 +84,18 @@ enum Commands {
     Replicate {
         #[command(subcommand)]
         mode: ReplicateMode,
+    },
+    /// Run the full end-to-end pipeline: pack -> compress -> decompress -> verify.
+    E2e {
+        /// Path to the repository root (defaults to current directory).
+        #[arg(long, default_value = ".")]
+        repo_root: PathBuf,
+        /// Path to the seed file.
+        #[arg(long)]
+        seed: Option<PathBuf>,
+        /// Optional policy YAML file.
+        #[arg(long)]
+        policy: Option<PathBuf>,
     },
 }
 
@@ -132,13 +160,13 @@ fn main() {
             policy,
             seed,
         } => commands::run_pack(&repo_root, &output, policy.as_deref(), seed.as_deref()),
-        Commands::Verify { pack, seed } => commands::run_verify(&pack, seed.as_deref()),
+        Commands::Compress { dpack, output } => commands::run_compress(&dpack, &output),
+        Commands::Decompress { cpack, output } => commands::run_decompress(&cpack, &output),
+        Commands::Verify { path, seed } => commands::run_verify(&path, seed.as_deref()),
         Commands::Unfurl { pack, output, seed } => {
             commands::run_unfurl(&pack, &output, seed.as_deref())
         }
-        Commands::Audit { pack, json, seed } => {
-            commands::run_audit(&pack, json, seed.as_deref())
-        }
+        Commands::Audit { pack, json, seed } => commands::run_audit(&pack, json, seed.as_deref()),
         Commands::Replicate { mode } => match mode {
             ReplicateMode::Local {
                 repo_root,
@@ -176,6 +204,11 @@ fn main() {
                 seed.as_deref(),
             ),
         },
+        Commands::E2e {
+            repo_root,
+            seed,
+            policy,
+        } => commands::run_e2e(&repo_root, seed.as_deref(), policy.as_deref()),
     };
 
     if let Err(e) = result {

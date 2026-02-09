@@ -9,8 +9,8 @@
 //! - R1_ROOTBALL_SEED: produce a DPACK rootball for transport
 //! - R2_ZIP_TO_FRESH_REPO_V1: unfurl from zip into new repo tree
 
-pub mod replicate;
 pub mod gate;
+pub mod replicate;
 
 pub use gate::{ReplicationGateResult, ReplicationReceipt};
 pub use replicate::{replicate_local, replicate_rootball, replicate_zip2repo_v1};

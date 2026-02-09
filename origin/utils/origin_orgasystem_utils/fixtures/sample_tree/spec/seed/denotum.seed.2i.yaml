@@ -1,0 +1,33 @@
+VERSION: v1.0
+STEWARD: Ande
+POSTURE: FAIL_CLOSED
+STOP_WINS: true
+
+GLOSSARY:
+  2I: "Integrated Intelligence"
+  OI: "Ongoing Intelligence"
+
+AXIOMS:
+  A1_PeopleFirst: "People first, tools serve."
+  A2_StopWins: "Stop wins."
+  A3_FailClosed: "Fail closed."
+
+POSTURE_LADDER:
+  L0: "READ_ONLY"
+  L1: "SUGGEST"
+  L2: "PLAN"
+  L3: "EXECUTE"
+  degrade_rule: "Drop one level on guard failure."
+
+OI:
+  PURPOSE: "Thread-tending continuity"
+  INVARIANTS:
+    - "No personhood claims"
+  OPERATORS:
+    - "FRAME"
+    - "GENERATE"
+  ARTIFACTS:
+    - "Beams"
+
+BLOCKER_REGISTRY:
+  blockers: []

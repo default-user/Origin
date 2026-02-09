@@ -1,0 +1,23 @@
+[package]
+name = "compress"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "CPACK: deterministic compressed pack format (zstd + framing + SHA-256)."
+
+[dependencies]
+seed_core = { path = "../seed_core" }
+dpack_core = { path = "../dpack_core" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+sha2 = { workspace = true }
+hex = { workspace = true }
+thiserror = { workspace = true }
+walkdir = { workspace = true }
+zstd = { workspace = true }
+chrono = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+proptest = { workspace = true }

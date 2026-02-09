@@ -3,6 +3,9 @@ resolver = "2"
 members = [
     "crates/seed_core",
     "crates/dpack_core",
+    "crates/compress",
+    "crates/lfme_core",
+    "crates/rag_deterministic",
     "crates/replication_core",
     "crates/originctl",
 ]
@@ -25,3 +28,6 @@ walkdir = "2"
 tempfile = "3"
 anyhow = "1"
 chrono = { version = "0.4", features = ["serde"] }
+zstd = "0.13"
+proptest = "1"
+rand = { version = "0.8", features = ["std_rng"] }

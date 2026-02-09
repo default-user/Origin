@@ -40,3 +40,50 @@ jobs:
           path: |
             knowledge/dist/
             site/out/
+
+  rust-pipeline:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: utils/origin_orgasystem_utils
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: Cache cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            utils/origin_orgasystem_utils/target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('utils/origin_orgasystem_utils/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-
+
+      - name: Check formatting
+        run: cargo fmt --all -- --check
+
+      - name: Clippy lints
+        run: cargo clippy --workspace --all-targets -- -D warnings
+
+      - name: Run tests
+        run: cargo test --workspace
+
+      - name: E2E smoke test
+        run: cargo run --bin originctl -- e2e --repo-root ./fixtures/sample_tree --seed ./fixtures/sample_tree/spec/seed/denotum.seed.2i.yaml
+
+      - name: Build release binary
+        run: cargo build --release --bin originctl
+
+      - name: Upload originctl binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: originctl-linux-x86_64
+          path: utils/origin_orgasystem_utils/target/release/originctl
