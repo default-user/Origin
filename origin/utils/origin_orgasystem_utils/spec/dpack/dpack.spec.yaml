@@ -1,0 +1,33 @@
+DPACK_SPEC:
+  VERSION: "1.0"
+  DESCRIPTION: "DPACK overlay specification for the Origin orgasystem."
+
+  STRUCTURE:
+    manifest: "manifest.json"
+    data_dir: "data/"
+    receipt: "receipt.json"
+
+  MANIFEST_SCHEMA:
+    schema_version: "string (1.0)"
+    root_2i_seed_fingerprint: "string (SHA-256 hex)"
+    created_at: "string (ISO 8601)"
+    source_root: "string (informational path)"
+    files: "map<relative_path, {sha256, size}>"
+    pack_hash: "string (SHA-256 of sorted path:hash entries)"
+
+  GATES:
+    G0_SCHEMA: "Manifest conforms to schema."
+    G1_INTEGRITY: "pack_hash matches recomputed hash from file entries."
+    G2_PROVENANCE: "Optional: cryptographic signature over manifest."
+    G3_PINNING: "Every file in manifest has matching hash in data/."
+    G4_SEED_BINDING: "root_2i_seed_fingerprint matches loaded seed."
+    G5_QA_TESTS: "Optional: test suite passes."
+    G6_ORGASYSTEM_SHAPE: "File count and tree shape recorded."
+    G7_RELEASE_RECEIPT: "Receipt emitted on successful operation."
+
+  INVARIANTS:
+    - "Pack preserves paths verbatim."
+    - "Unfurl restores identical shape."
+    - "No path mapping by default."
+    - "Seed binding required."
+    - "Any gate failure => FAIL CLOSED."
