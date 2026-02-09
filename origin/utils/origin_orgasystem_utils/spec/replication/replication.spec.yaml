@@ -1,0 +1,50 @@
+REPLICATION_SPEC:
+  VERSION: "1.0"
+  DESCRIPTION: "Replication specification for the Origin orgasystem."
+
+  DEFINITION: "Deterministic reproduction of the orgasystem into a new instance, preserving structure and root binding."
+
+  MODES:
+    R0_LOCAL_CLONE:
+      description: "Pack + unfurl into a new directory (offline)."
+      steps:
+        - "Pack source repo"
+        - "Unfurl to target directory"
+        - "Verify shape equivalence"
+        - "Verify content equivalence"
+        - "Emit replication receipt"
+
+    R1_ROOTBALL_SEED:
+      description: "Produce a DPACK rootball that can unfurl the orgasystem identically elsewhere."
+      steps:
+        - "Pack source repo to output directory"
+        - "Verify pack integrity"
+        - "Emit replication receipt"
+
+    R2_ZIP_TO_FRESH_REPO_V1:
+      description: "Take source directory, unfurl into a new repo tree with fresh history (v1 goal)."
+      steps:
+        - "Pack source"
+        - "Unfurl to output directory"
+        - "Verify shape equivalence"
+        - "Optionally init git"
+        - "Emit replication receipt"
+      constraints:
+        - "No merge with existing history in v1."
+
+    R3_MERGE_INTO_EXISTING_V2_PLANNED:
+      description: "Future: merge rootball/zip contents into existing codebase with explicit conflict policy."
+      status: "PLANNED (not implemented)"
+
+  GATES:
+    RG0_POLICY: "Replication allowlist/denylist pinned."
+    RG1_SEED_BINDING: "Root fingerprint present."
+    RG2_SHAPE_EQUIVALENCE: "Tree shape equality between source and target."
+    RG3_CONTENT_EQUIVALENCE: "Hash equality for included file set."
+    RG4_PROVENANCE: "Optional: cryptographic signatures."
+    RG5_RECEIPT: "Replication receipt binds all fingerprints."
+
+  INVARIANTS:
+    - "All replicated instances bind to root_2i_seed_fingerprint."
+    - "Version bumps require explicit steward approval."
+    - "Any gate failure blocks replication and emits minimal receipt."

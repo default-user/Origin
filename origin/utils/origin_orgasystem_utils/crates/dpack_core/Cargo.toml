@@ -1,0 +1,21 @@
+[package]
+name = "dpack_core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "DPACK overlay: deterministic pack/verify/unfurl/audit for the Origin orgasystem."
+
+[dependencies]
+seed_core = { path = "../seed_core" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+serde_yaml = { workspace = true }
+sha2 = { workspace = true }
+hex = { workspace = true }
+thiserror = { workspace = true }
+walkdir = { workspace = true }
+chrono = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }

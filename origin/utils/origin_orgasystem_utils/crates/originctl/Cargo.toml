@@ -1,0 +1,23 @@
+[package]
+name = "originctl"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "CLI tool for Origin orgasystem: pack, verify, unfurl, audit, and replicate."
+
+[[bin]]
+name = "originctl"
+path = "src/main.rs"
+
+[dependencies]
+seed_core = { path = "../seed_core" }
+dpack_core = { path = "../dpack_core" }
+replication_core = { path = "../replication_core" }
+clap = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
