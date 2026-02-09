@@ -476,6 +476,7 @@ dependencies = [
  "compress",
  "dpack_core",
  "lfme_core",
+ "proptest",
  "rag_deterministic",
  "replication_core",
  "seed_core",
