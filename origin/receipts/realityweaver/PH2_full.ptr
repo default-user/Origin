@@ -1,0 +1,40 @@
+{
+  "pointer_type": "receipt_full",
+  "phase": "PH2_sidecar_build",
+  "minimal_receipt": "origin/receipts/realityweaver/PH2_min.json",
+  "artefacts": {
+    "modules": [
+      "origin/utilities/realityweaver/__init__.py",
+      "origin/utilities/realityweaver/primitives.py",
+      "origin/utilities/realityweaver/weaverpack.py",
+      "origin/utilities/realityweaver/codec.py",
+      "origin/utilities/realityweaver/redact.py",
+      "origin/utilities/realityweaver/seal.py",
+      "origin/utilities/realityweaver/fission.py",
+      "origin/utilities/realityweaver/fusion.py",
+      "origin/utilities/realityweaver/receipts.py",
+      "origin/utilities/realityweaver/cli.py",
+      "origin/utilities/realityweaver/index.py",
+      "origin/utilities/realityweaver/capture.py",
+      "origin/utilities/realityweaver/stream.py"
+    ],
+    "tests": [
+      "origin/tests/realityweaver/test_primitives.py",
+      "origin/tests/realityweaver/test_weaverpack.py",
+      "origin/tests/realityweaver/test_codec.py",
+      "origin/tests/realityweaver/test_fission.py",
+      "origin/tests/realityweaver/test_fusion.py",
+      "origin/tests/realityweaver/test_seal_redact.py",
+      "origin/tests/realityweaver/test_capture_stream.py",
+      "origin/tests/realityweaver/test_receipts.py",
+      "origin/tests/realityweaver/test_index.py"
+    ]
+  },
+  "test_results": {
+    "total": 76,
+    "passed": 76,
+    "failed": 0
+  },
+  "shadow_manifest": "origin/manifests/realityweaver/RW_SHADOW_MANIFEST.json",
+  "note": "Full receipt pointer for PH2 sidecar build. All modules are sidecar-only and not wired into Origin runtime."
+}

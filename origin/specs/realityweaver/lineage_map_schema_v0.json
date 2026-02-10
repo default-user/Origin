@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://origin.local/schema/realityweaver/lineage_map_schema_v0.json",
+  "title": "RealityWeaver Lineage Map Schema",
+  "description": "Schema for fission lineage maps. Fission preserves lineage and mapping; if lossy, loss must be declared (RW-C9).",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "lineage_map_id",
+    "created_at",
+    "source_manifest",
+    "children",
+    "file_mappings",
+    "timebase_mappings",
+    "loss_summary"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "lineage_map_id": {
+      "type": "string",
+      "pattern": "^RWLM-[0-9a-f]{16}$",
+      "description": "Unique lineage map identifier."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_manifest": {
+      "type": "object",
+      "required": ["manifest_id", "weaverpack_id", "pack_hash"],
+      "properties": {
+        "manifest_id": {
+          "type": "string",
+          "pattern": "^RWMF-[0-9a-f]{16}$"
+        },
+        "weaverpack_id": {
+          "type": "string",
+          "pattern": "^RWPK-[0-9a-f]{16}$"
+        },
+        "pack_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Source WeaverPack that was split."
+    },
+    "children": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["manifest_id", "weaverpack_id", "label"],
+        "properties": {
+          "manifest_id": {
+            "type": "string",
+            "pattern": "^RWMF-[0-9a-f]{16}$"
+          },
+          "weaverpack_id": {
+            "type": "string",
+            "pattern": "^RWPK-[0-9a-f]{16}$"
+          },
+          "label": {
+            "type": "string",
+            "description": "Human-readable label for this child."
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Child WeaverPacks produced by fission. Minimum two."
+    },
+    "file_mappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_path", "destinations"],
+        "properties": {
+          "source_path": {
+            "type": "string",
+            "description": "Path in the source WeaverPack."
+          },
+          "destinations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["child_manifest_id", "dest_path", "transform"],
+              "properties": {
+                "child_manifest_id": {
+                  "type": "string",
+                  "pattern": "^RWMF-[0-9a-f]{16}$"
+                },
+                "dest_path": {
+                  "type": "string"
+                },
+                "transform": {
+                  "type": "string",
+                  "enum": ["copy", "slice", "filter", "redact", "drop"],
+                  "description": "How the file was transformed during fission."
+                },
+                "slice_range": {
+                  "type": ["object", "null"],
+                  "properties": {
+                    "offset_bytes": { "type": "integer", "minimum": 0 },
+                    "length_bytes": { "type": "integer", "minimum": 0 }
+                  },
+                  "description": "Byte range if transform is slice."
+                },
+                "lossy": {
+                  "type": "boolean",
+                  "default": false,
+                  "description": "Whether this mapping involves data loss."
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Per-file mapping from source to children."
+    },
+    "timebase_mappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["child_manifest_id", "epoch", "resolution_ns", "offset_from_source_ns"],
+        "properties": {
+          "child_manifest_id": {
+            "type": "string",
+            "pattern": "^RWMF-[0-9a-f]{16}$"
+          },
+          "epoch": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "resolution_ns": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "offset_from_source_ns": {
+            "type": "integer",
+            "description": "Nanosecond offset from source timebase epoch."
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Timebase alignment for each child (RW-C10)."
+    },
+    "loss_summary": {
+      "type": "object",
+      "required": ["has_loss", "dropped_files", "truncated_files", "total_bytes_lost"],
+      "properties": {
+        "has_loss": {
+          "type": "boolean",
+          "description": "Whether any data was lost during fission."
+        },
+        "dropped_files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Files from source that were not included in any child."
+        },
+        "truncated_files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Files that were partially included (sliced/filtered)."
+        },
+        "total_bytes_lost": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total bytes lost across all dropped/truncated files."
+        }
+      },
+      "additionalProperties": false,
+      "description": "Summary of data loss during fission. If lossy, loss must be declared and replay-verifiable (RW-C9)."
+    },
+    "license_carry_forward": {
+      "type": "object",
+      "required": ["source_license", "children_licenses"],
+      "properties": {
+        "source_license": {
+          "type": "string"
+        },
+        "children_licenses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["child_manifest_id", "license"],
+            "properties": {
+              "child_manifest_id": { "type": "string" },
+              "license": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "attribution_preserved": {
+          "type": "boolean",
+          "const": true,
+          "description": "Attribution is always carried forward (RW-C11)."
+        }
+      },
+      "additionalProperties": false,
+      "description": "License carry-forward for fission (RW-C11)."
+    }
+  },
+  "additionalProperties": false
+}

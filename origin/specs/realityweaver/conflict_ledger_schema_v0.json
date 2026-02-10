@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://origin.local/schema/realityweaver/conflict_ledger_schema_v0.json",
+  "title": "RealityWeaver Conflict Ledger Schema",
+  "description": "Schema for fusion conflict ledgers. Conflicts are never smoothed silently (RW-C8). Every conflict is recorded with its resolution.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "ledger_id",
+    "created_at",
+    "merge_plan_id",
+    "source_manifests",
+    "conflicts",
+    "summary"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "ledger_id": {
+      "type": "string",
+      "pattern": "^RWCL-[0-9a-f]{16}$",
+      "description": "Unique conflict ledger identifier."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "merge_plan_id": {
+      "type": "string",
+      "pattern": "^RWMP-[0-9a-f]{16}$",
+      "description": "The merge plan that produced these conflicts."
+    },
+    "source_manifests": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "string",
+        "pattern": "^RWMF-[0-9a-f]{16}$"
+      },
+      "description": "Source manifest IDs involved in the fusion."
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["conflict_id", "path", "conflict_type", "sources", "resolution", "resolved"],
+        "properties": {
+          "conflict_id": {
+            "type": "string",
+            "pattern": "^RWCF-[0-9]{4}$",
+            "description": "Unique conflict identifier within this ledger."
+          },
+          "path": {
+            "type": "string",
+            "description": "File path where conflict occurred."
+          },
+          "conflict_type": {
+            "type": "string",
+            "enum": [
+              "content_divergence",
+              "schema_mismatch",
+              "timebase_gap",
+              "license_incompatible",
+              "metadata_collision",
+              "hash_collision",
+              "missing_in_source"
+            ]
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["manifest_id", "sha256"],
+              "properties": {
+                "manifest_id": {
+                  "type": "string",
+                  "pattern": "^RWMF-[0-9a-f]{16}$"
+                },
+                "sha256": {
+                  "type": ["string", "null"],
+                  "description": "SHA-256 of the file in this source, null if missing."
+                },
+                "size": {
+                  "type": ["integer", "null"]
+                }
+              },
+              "additionalProperties": false
+            },
+            "description": "Per-source state of the conflicting file."
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "take_primary",
+              "take_secondary",
+              "manual_merge",
+              "skip",
+              "concatenate",
+              "unresolved"
+            ],
+            "description": "How the conflict was resolved."
+          },
+          "resolved": {
+            "type": "boolean",
+            "description": "Whether this conflict has been resolved."
+          },
+          "resolution_detail": {
+            "type": "string",
+            "description": "Human-readable detail about the resolution."
+          },
+          "resulting_sha256": {
+            "type": ["string", "null"],
+            "pattern": "^[0-9a-f]{64}$",
+            "description": "SHA-256 of the resolved file, if resolved."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": ["total_conflicts", "resolved_count", "unresolved_count"],
+      "properties": {
+        "total_conflicts": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "resolved_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unresolved_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "all_resolved": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

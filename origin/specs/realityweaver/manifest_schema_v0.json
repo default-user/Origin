@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://origin.local/schema/realityweaver/manifest_schema_v0.json",
+  "title": "RealityWeaver WeaverPack Manifest Schema",
+  "description": "Schema for validating RealityWeaver WeaverPack manifests. Every WeaverPack must verify cleanly against this manifest and its hashes (RW-C1).",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "manifest_id",
+    "created_at",
+    "weaverpack_id",
+    "authorship",
+    "license",
+    "files",
+    "pack_hash",
+    "invariants_declared"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0",
+      "description": "Schema version for this manifest format."
+    },
+    "manifest_id": {
+      "type": "string",
+      "pattern": "^RWMF-[0-9a-f]{16}$",
+      "description": "Unique manifest identifier."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of manifest creation."
+    },
+    "weaverpack_id": {
+      "type": "string",
+      "pattern": "^RWPK-[0-9a-f]{16}$",
+      "description": "Identifier of the WeaverPack this manifest describes."
+    },
+    "parent_manifest_id": {
+      "type": ["string", "null"],
+      "pattern": "^RWMF-[0-9a-f]{16}$",
+      "description": "Parent manifest ID if this WeaverPack was derived via fission or fusion."
+    },
+    "lineage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["operation", "source_manifest_id", "timestamp"],
+        "properties": {
+          "operation": {
+            "type": "string",
+            "enum": ["create", "fission", "fusion", "redact", "seal"],
+            "description": "Operation that produced this lineage entry."
+          },
+          "source_manifest_id": {
+            "type": "string",
+            "pattern": "^RWMF-[0-9a-f]{16}$"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "receipt_ref": {
+            "type": "string",
+            "description": "Reference to the receipt that recorded this operation."
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Ordered lineage chain for provenance tracking."
+    },
+    "authorship": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Attribution line."
+    },
+    "license": {
+      "type": "string",
+      "minLength": 1,
+      "description": "License identifier (e.g., WCL-1.0). Fission/fusion carry least-permissive resolution (RW-C11)."
+    },
+    "disclosure_tier": {
+      "type": "string",
+      "enum": ["public", "internal", "restricted"],
+      "description": "Access control tier."
+    },
+    "sensitivity": {
+      "type": "object",
+      "required": ["pii_risk", "contains_personal", "redacted"],
+      "properties": {
+        "pii_risk": {
+          "type": "string",
+          "enum": ["none", "low", "medium", "high"]
+        },
+        "contains_personal": {
+          "type": "boolean"
+        },
+        "redacted": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "timebase": {
+      "type": "object",
+      "required": ["epoch", "resolution_ns"],
+      "properties": {
+        "epoch": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Canonical epoch for this WeaverPack's timebase (RW-C10)."
+        },
+        "resolution_ns": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Timebase resolution in nanoseconds."
+        },
+        "alignment_map_ref": {
+          "type": ["string", "null"],
+          "description": "Reference to alignment map if timebase was re-aligned during fission/fusion."
+        }
+      },
+      "additionalProperties": false,
+      "description": "Canonical timebase with explicit alignment (RW-C10)."
+    },
+    "files": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["sha256", "size"],
+        "properties": {
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "description": "SHA-256 hash of the file contents."
+          },
+          "size": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "File size in bytes."
+          },
+          "content_type": {
+            "type": "string",
+            "description": "MIME type or format identifier."
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Map of relative path to file entry with SHA-256 hash and size."
+    },
+    "pack_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "SHA-256 of sorted file paths and their hashes concatenated. Verifiable integrity root."
+    },
+    "invariants_declared": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "RW-C1", "RW-C2", "RW-C3", "RW-C4", "RW-C5",
+          "RW-C6", "RW-C7", "RW-C8", "RW-C9", "RW-C10",
+          "RW-C11", "AIRLOCK"
+        ]
+      },
+      "uniqueItems": true,
+      "minItems": 1,
+      "description": "List of invariants this manifest declares compliance with."
+    }
+  },
+  "additionalProperties": false
+}

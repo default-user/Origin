@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1.0",
+  "receipt_id": "RWRC-00000000ph2min00",
+  "operation": "ph2_sidecar_build",
+  "timestamp": "2026-02-10T00:00:00Z",
+  "operator_id": "PH2_sidecar_build",
+  "inputs": {
+    "manifest_ids": ["RWMF-0000000000000000"],
+    "weaverpack_ids": ["RWPK-0000000000000000"],
+    "capability_token_hash": null
+  },
+  "outputs": {
+    "manifest_ids": ["RWMF-0000000000000000"],
+    "weaverpack_ids": ["RWPK-0000000000000000"],
+    "modules_built": [
+      "RW-0_primitives_hashing",
+      "RW-1_codec_core_stubs_and_determinism_scaffold",
+      "RW-2_weaverpack_verify",
+      "RW-3_index_non_semantic_first",
+      "RW-4_capture_gated_default_off",
+      "RW-5_redact_and_lineage_proofs",
+      "RW-6_seal_and_commit_commitment_only",
+      "RW-7_stream_gated_default_off",
+      "RW-8_cli_shell_with_receipts",
+      "RW-9_fission_operator_with_lineage_map",
+      "RW-10_fusion_operator_with_merge_plan_and_conflict_ledger"
+    ],
+    "tests_passed": 76,
+    "tests_total": 76,
+    "lineage_map_ref": null,
+    "merge_plan_ref": null,
+    "conflict_ledger_ref": null,
+    "loss_ledger_ref": null
+  },
+  "gates": [
+    {
+      "gate": "verify_is_read_only_and_deterministic",
+      "status": "pass",
+      "detail": "weaverpack.verify is read-only; codec roundtrip and hash determinism verified."
+    },
+    {
+      "gate": "seal_emits_commitment_only",
+      "status": "pass",
+      "detail": "seal() produces commitment hash without publishing or egress."
+    },
+    {
+      "gate": "fission_emits_lineage_map_and_optional_loss_ledger",
+      "status": "pass",
+      "detail": "fission() always emits lineage_map; loss_summary populated when lossy."
+    },
+    {
+      "gate": "fusion_requires_merge_plan_and_emits_conflict_ledger",
+      "status": "pass",
+      "detail": "fusion() rejects empty merge plan; always emits conflict_ledger."
+    },
+    {
+      "gate": "receipts_written_for_each_operator",
+      "status": "pass",
+      "detail": "All operators emit receipts via receipts.emit_receipt()."
+    },
+    {
+      "gate": "no_auto_wire_into_runtime",
+      "status": "pass",
+      "detail": "No imports or references to Origin runtime. Sidecar-only."
+    },
+    {
+      "gate": "no_auto_publish_commitments",
+      "status": "pass",
+      "detail": "seal() returns commitment locally; no network calls."
+    },
+    {
+      "gate": "no_enable_semantic_index_without_governance_permit",
+      "status": "pass",
+      "detail": "index module is non-semantic only (path, hash, size)."
+    },
+    {
+      "gate": "no_allow_silent_merge_or_split",
+      "status": "pass",
+      "detail": "Fission rejects unaccounted files; fusion rejects empty merge plan."
+    },
+    {
+      "gate": "capture_default_off",
+      "status": "pass",
+      "detail": "CapturePolicy.enabled defaults to False; requires governance token + consent."
+    },
+    {
+      "gate": "stream_default_off",
+      "status": "pass",
+      "detail": "StreamPolicy.enabled defaults to False; requires governance token + scope."
+    }
+  ],
+  "passed": true,
+  "invariants_checked": [
+    "RW-C1", "RW-C2", "RW-C3", "RW-C4", "RW-C5",
+    "RW-C6", "RW-C7", "RW-C8", "RW-C9", "RW-C10",
+    "RW-C11", "AIRLOCK"
+  ],
+  "error": null
+}

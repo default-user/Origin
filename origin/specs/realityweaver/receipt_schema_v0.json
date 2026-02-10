@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://origin.local/schema/realityweaver/receipt_schema_v0.json",
+  "title": "RealityWeaver Receipt Schema",
+  "description": "Schema for RealityWeaver operation receipts. Every operation emits a receipt. Replays are verifiable against manifests and receipts (RW-C7).",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "receipt_id",
+    "operation",
+    "timestamp",
+    "operator_id",
+    "inputs",
+    "outputs",
+    "gates",
+    "passed",
+    "invariants_checked"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "receipt_id": {
+      "type": "string",
+      "pattern": "^RWRC-[0-9a-f]{16}$",
+      "description": "Unique receipt identifier."
+    },
+    "operation": {
+      "type": "string",
+      "enum": [
+        "verify", "seal", "redact", "disclose",
+        "capture_start", "capture_stop",
+        "stream_start", "stream_stop",
+        "fission", "fusion",
+        "index", "commit",
+        "ph1_shadow_declare", "ph2_sidecar_build", "ph3_governed_convergence"
+      ],
+      "description": "The operation that produced this receipt."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of the operation."
+    },
+    "operator_id": {
+      "type": "string",
+      "description": "Identifier of the operator or phase that executed."
+    },
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "manifest_ids": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Input manifest IDs."
+        },
+        "weaverpack_ids": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Input WeaverPack IDs."
+        },
+        "capability_token_hash": {
+          "type": ["string", "null"],
+          "description": "Hash of capability token used, if any."
+        }
+      },
+      "additionalProperties": true,
+      "description": "Inputs to the operation."
+    },
+    "outputs": {
+      "type": "object",
+      "properties": {
+        "manifest_ids": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Output manifest IDs."
+        },
+        "weaverpack_ids": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Output WeaverPack IDs."
+        },
+        "lineage_map_ref": {
+          "type": ["string", "null"],
+          "description": "Reference to lineage map produced, if any."
+        },
+        "merge_plan_ref": {
+          "type": ["string", "null"],
+          "description": "Reference to merge plan used, if any."
+        },
+        "conflict_ledger_ref": {
+          "type": ["string", "null"],
+          "description": "Reference to conflict ledger produced, if any."
+        },
+        "loss_ledger_ref": {
+          "type": ["string", "null"],
+          "description": "Reference to loss ledger produced, if any."
+        }
+      },
+      "additionalProperties": true,
+      "description": "Outputs of the operation."
+    },
+    "gates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["gate", "status", "detail"],
+        "properties": {
+          "gate": {
+            "type": "string",
+            "description": "Gate identifier."
+          },
+          "status": {
+            "type": "string",
+            "enum": ["pass", "fail", "skip"],
+            "description": "Gate check result."
+          },
+          "detail": {
+            "type": "string",
+            "description": "Human-readable gate check detail."
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Results of all gate checks."
+    },
+    "passed": {
+      "type": "boolean",
+      "description": "Overall pass/fail. True only if no gate failed."
+    },
+    "invariants_checked": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "RW-C1", "RW-C2", "RW-C3", "RW-C4", "RW-C5",
+          "RW-C6", "RW-C7", "RW-C8", "RW-C9", "RW-C10",
+          "RW-C11", "AIRLOCK"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Which invariants were checked during this operation."
+    },
+    "error": {
+      "type": ["string", "null"],
+      "description": "Error message if the operation failed."
+    }
+  },
+  "additionalProperties": false
+}

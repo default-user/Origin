@@ -1,0 +1,69 @@
+{
+  "schema_version": "0.1.0",
+  "receipt_id": "RWRC-00000000ph1min00",
+  "operation": "ph1_shadow_declare",
+  "timestamp": "2026-02-10T00:00:00Z",
+  "operator_id": "PH1_shadow_declare",
+  "inputs": {
+    "manifest_ids": [],
+    "weaverpack_ids": [],
+    "capability_token_hash": null
+  },
+  "outputs": {
+    "manifest_ids": ["RWMF-0000000000000000"],
+    "weaverpack_ids": ["RWPK-0000000000000000"],
+    "lineage_map_ref": null,
+    "merge_plan_ref": null,
+    "conflict_ledger_ref": null,
+    "loss_ledger_ref": null
+  },
+  "gates": [
+    {
+      "gate": "schemas_lint",
+      "status": "pass",
+      "detail": "All 6 JSON schemas conform to JSON Schema Draft 2020-12."
+    },
+    {
+      "gate": "shadow_manifest_validates",
+      "status": "pass",
+      "detail": "RW_SHADOW_MANIFEST.json conforms to manifest_schema_v0 structure with real file hashes."
+    },
+    {
+      "gate": "catalogue_includes_RW-C1_to_RW-C11_and_airlock",
+      "status": "pass",
+      "detail": "RW_conformance_catalogue.md covers all 12 invariants: RW-C1..RW-C11 and AIRLOCK."
+    },
+    {
+      "gate": "operator_specs_exist_for_RWFISSION_and_RWFUSION",
+      "status": "pass",
+      "detail": "operators_fission_fusion_v0.md specifies both RWFISSION and RWFUSION with algorithms, inputs, outputs, and forbids."
+    },
+    {
+      "gate": "no_register_into_cif_cdi",
+      "status": "pass",
+      "detail": "No CIF/CDI registration performed."
+    },
+    {
+      "gate": "no_modify_existing_runtime",
+      "status": "pass",
+      "detail": "No existing runtime files modified."
+    },
+    {
+      "gate": "no_enable_capture_or_stream",
+      "status": "pass",
+      "detail": "No capture or stream enabled."
+    },
+    {
+      "gate": "no_enable_disclosure_or_commit_egress",
+      "status": "pass",
+      "detail": "No disclosure or commit egress enabled."
+    }
+  ],
+  "passed": true,
+  "invariants_checked": [
+    "RW-C1", "RW-C2", "RW-C3", "RW-C4", "RW-C5",
+    "RW-C6", "RW-C7", "RW-C8", "RW-C9", "RW-C10",
+    "RW-C11", "AIRLOCK"
+  ],
+  "error": null
+}

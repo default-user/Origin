@@ -1,0 +1,19 @@
+{
+  "pointer_type": "receipt_full",
+  "phase": "PH1_shadow_declare",
+  "minimal_receipt": "origin/receipts/realityweaver/PH1_min.json",
+  "artefacts": [
+    "origin/specs/realityweaver/manifest_schema_v0.json",
+    "origin/specs/realityweaver/policy_schema_v0.json",
+    "origin/specs/realityweaver/receipt_schema_v0.json",
+    "origin/specs/realityweaver/merge_plan_schema_v0.json",
+    "origin/specs/realityweaver/conflict_ledger_schema_v0.json",
+    "origin/specs/realityweaver/lineage_map_schema_v0.json",
+    "origin/specs/realityweaver/operators_fission_fusion_v0.md",
+    "origin/manifests/realityweaver/RW_SHADOW_MANIFEST.json",
+    "origin/tests/realityweaver/RW_conformance_catalogue.md"
+  ],
+  "shadow_manifest": "origin/manifests/realityweaver/RW_SHADOW_MANIFEST.json",
+  "pack_hash": "f83e34f0d95876c6ef81c2d54dba76b85e36ad29600238eb38cf5bb4bdf1c992",
+  "note": "Full receipt pointer. Actual content is the set of artefacts listed above plus the minimal receipt."
+}
