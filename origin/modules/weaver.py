@@ -20,7 +20,8 @@ from typing import Dict, Any, Optional, Tuple
 
 # Add module paths
 _module_base = os.path.dirname(os.path.abspath(__file__))
-for module_name in ['realityweaver', 'phraseweave', 'proofweave', 'realityweaver_video']:
+for module_name in ['realityweaver', 'phraseweave', 'proofweave', 'realityweaver_video',
+                     'realityweaver_music']:
     module_path = os.path.join(_module_base, module_name, 'src')
     if module_path not in sys.path:
         sys.path.insert(0, module_path)
@@ -257,6 +258,86 @@ def rwv_video_run_pipeline(
 
 
 # =============================================================================
+# RealityWeaverMusic (RXM1) Integration
+# =============================================================================
+
+def rxm_pack_bytes(
+    metadata: Dict[str, Any],
+    score_data: bytes,
+    audio_data: Optional[bytes] = None,
+    sync_entries: Optional[list] = None,
+    config: Optional[Dict[str, Any]] = None,
+) -> bytes:
+    """
+    Pack data into an RXM1 (Reality Weaver Music) container.
+
+    Args:
+        metadata: Metadata dict with keys: title, composer, tempo_bpm,
+            time_signature, key_signature, score_format, audio_format
+        score_data: Raw score data (MIDI bytes)
+        audio_data: Optional raw audio data
+        sync_entries: Optional list of [score_tick, audio_frame] pairs
+        config: Optional configuration dict with keys:
+            - include_sha256: Store integrity hash (default: False)
+            - rwv1_block_size: Block size for compression (default: 1MB)
+
+    Returns:
+        RXM1 container bytes
+
+    Invariant: rxm_unpack_bytes(rxm_pack_bytes(meta, score, audio, sync))
+               reproduces all inputs.
+    """
+    from container import pack_bytes as _pack
+    from rxm_types import RXMMetadata, RXMConfig, SyncEntry
+
+    meta = RXMMetadata.from_dict(metadata) if metadata else RXMMetadata()
+
+    cfg = None
+    if config:
+        cfg = RXMConfig(
+            include_sha256=config.get('include_sha256', False),
+            rwv1_block_size=config.get('rwv1_block_size', 1 << 20),
+            rwv1_allow_bz2=config.get('rwv1_allow_bz2', False),
+            rwv1_allow_lzma=config.get('rwv1_allow_lzma', False),
+        )
+
+    sync = None
+    if sync_entries:
+        sync = [SyncEntry(score_tick=e[0], audio_frame=e[1])
+                for e in sync_entries]
+
+    return _pack(meta, score_data, audio_data, sync, cfg)
+
+
+def rxm_unpack_bytes(container: bytes) -> Dict[str, Any]:
+    """
+    Unpack an RXM1 container.
+
+    Args:
+        container: RXM1 container bytes
+
+    Returns:
+        Dict with keys:
+            - metadata: dict
+            - score_data: bytes
+            - audio_data: bytes or None
+            - sync_entries: list of [tick, frame] pairs or None
+    """
+    from container import unpack_bytes as _unpack
+
+    result = _unpack(container)
+    return {
+        'metadata': result['metadata'].to_dict(),
+        'score_data': result['score_data'],
+        'audio_data': result['audio_data'],
+        'sync_entries': (
+            [[e.score_tick, e.audio_frame] for e in result['sync_entries']]
+            if result['sync_entries'] else None
+        ),
+    }
+
+
+# =============================================================================
 # Module Registration
 # =============================================================================
 
@@ -282,6 +363,12 @@ WEAVER_MODULES = {
         'functions': ['rwv_video_run_pipeline'],
         'formats': ['RWV-VIDEO-V1'],
         'status': 'skeleton',
+    },
+    'realityweaver_music': {
+        'version': '1.0.0',
+        'functions': ['rxm_pack_bytes', 'rxm_unpack_bytes'],
+        'formats': ['RXM1'],
+        'reuses': ['RWV1'],
     },
 }
 
