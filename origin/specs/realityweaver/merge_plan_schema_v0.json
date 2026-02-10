@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://origin.local/schema/realityweaver/merge_plan_schema_v0.json",
+  "title": "RealityWeaver Merge Plan Schema",
+  "description": "Schema for fusion merge plans. Fusion is never implicit and requires an explicit merge plan (RW-C8).",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "merge_plan_id",
+    "created_at",
+    "source_manifests",
+    "target_weaverpack_id",
+    "strategy",
+    "file_resolutions",
+    "timebase_alignment",
+    "license_resolution",
+    "expected_conflicts"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "merge_plan_id": {
+      "type": "string",
+      "pattern": "^RWMP-[0-9a-f]{16}$",
+      "description": "Unique merge plan identifier."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_manifests": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": ["manifest_id", "weaverpack_id"],
+        "properties": {
+          "manifest_id": {
+            "type": "string",
+            "pattern": "^RWMF-[0-9a-f]{16}$"
+          },
+          "weaverpack_id": {
+            "type": "string",
+            "pattern": "^RWPK-[0-9a-f]{16}$"
+          },
+          "role": {
+            "type": "string",
+            "enum": ["primary", "secondary", "equal"],
+            "description": "Role of this source in the merge."
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Source manifests to merge. Minimum two required."
+    },
+    "target_weaverpack_id": {
+      "type": "string",
+      "pattern": "^RWPK-[0-9a-f]{16}$",
+      "description": "Target WeaverPack ID for the fused result."
+    },
+    "strategy": {
+      "type": "string",
+      "enum": ["union", "intersection", "primary_wins", "manual"],
+      "description": "High-level merge strategy."
+    },
+    "file_resolutions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "resolution"],
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Relative file path."
+          },
+          "resolution": {
+            "type": "string",
+            "enum": ["take_primary", "take_secondary", "concatenate", "interleave", "manual", "skip"],
+            "description": "How to resolve this file during merge."
+          },
+          "source_manifest_id": {
+            "type": "string",
+            "description": "Which source wins for take_primary/take_secondary."
+          },
+          "note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Per-file resolution directives."
+    },
+    "timebase_alignment": {
+      "type": "object",
+      "required": ["canonical_epoch", "resolution_ns", "source_alignments"],
+      "properties": {
+        "canonical_epoch": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Canonical epoch for the merged timebase (RW-C10)."
+        },
+        "resolution_ns": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "source_alignments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["manifest_id", "offset_ns"],
+            "properties": {
+              "manifest_id": {
+                "type": "string",
+                "pattern": "^RWMF-[0-9a-f]{16}$"
+              },
+              "offset_ns": {
+                "type": "integer",
+                "description": "Nanosecond offset from canonical epoch for this source."
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false,
+      "description": "Timebase alignment specification (RW-C10)."
+    },
+    "license_resolution": {
+      "type": "object",
+      "required": ["resolved_license", "method"],
+      "properties": {
+        "resolved_license": {
+          "type": "string",
+          "description": "The resolved license for the fused WeaverPack."
+        },
+        "method": {
+          "type": "string",
+          "enum": ["least_permissive", "explicit_relicense"],
+          "description": "License resolution method (RW-C11)."
+        },
+        "source_licenses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["manifest_id", "license"],
+            "properties": {
+              "manifest_id": { "type": "string" },
+              "license": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "relicense_authority": {
+          "type": ["string", "null"],
+          "description": "Authority for explicit relicense, if method is explicit_relicense."
+        }
+      },
+      "additionalProperties": false
+    },
+    "expected_conflicts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "conflict_type"],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "conflict_type": {
+            "type": "string",
+            "enum": ["content_divergence", "schema_mismatch", "timebase_gap", "license_incompatible", "metadata_collision"]
+          },
+          "resolution_directive": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "description": "Expected conflicts and how they should be resolved."
+    }
+  },
+  "additionalProperties": false
+}

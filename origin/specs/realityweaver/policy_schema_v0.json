@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://origin.local/schema/realityweaver/policy_schema_v0.json",
+  "title": "RealityWeaver Policy Schema",
+  "description": "Schema for RealityWeaver governance policies. Controls capture, stream, disclosure, and operator permissions. Default posture: all off (RW-C3).",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "policy_id",
+    "created_at",
+    "posture",
+    "capture",
+    "stream",
+    "disclosure",
+    "operators",
+    "airlock"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "policy_id": {
+      "type": "string",
+      "pattern": "^RWPOL-[0-9a-f]{16}$",
+      "description": "Unique policy identifier."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "posture": {
+      "type": "string",
+      "enum": ["L0_read_only", "L1_safe_by_default", "L2_plan", "L3_execute"],
+      "description": "Governance posture level."
+    },
+    "capability_token_required": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether a capability token is required for activation."
+    },
+    "capture": {
+      "type": "object",
+      "required": ["enabled", "consent_required", "retention_scope"],
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Capture is OFF unless explicitly started (RW-C3)."
+        },
+        "consent_required": {
+          "type": "boolean",
+          "const": true,
+          "description": "Capture always requires explicit consent ritual (RW-C2)."
+        },
+        "retention_scope": {
+          "type": "string",
+          "enum": ["session", "bounded", "permanent"],
+          "description": "How long captured data is retained."
+        },
+        "retention_duration_seconds": {
+          "type": ["integer", "null"],
+          "minimum": 0,
+          "description": "Retention duration in seconds if scope is bounded."
+        },
+        "always_on_forbidden": {
+          "type": "boolean",
+          "const": true,
+          "description": "Background always-on capture is never allowed."
+        }
+      },
+      "additionalProperties": false
+    },
+    "stream": {
+      "type": "object",
+      "required": ["enabled", "scope"],
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Streaming is OFF by default."
+        },
+        "scope": {
+          "type": "string",
+          "enum": ["none", "local", "scoped_external"],
+          "description": "Stream scope boundary."
+        }
+      },
+      "additionalProperties": false
+    },
+    "disclosure": {
+      "type": "object",
+      "required": ["requires_inclusion_proof", "requires_auth_decrypt"],
+      "properties": {
+        "requires_inclusion_proof": {
+          "type": "boolean",
+          "const": true,
+          "description": "All disclosures require inclusion proofs (RW-C5)."
+        },
+        "requires_auth_decrypt": {
+          "type": "boolean",
+          "const": true,
+          "description": "All disclosures require authorised decryption (RW-C5)."
+        },
+        "public_release_threshold": {
+          "type": ["integer", "null"],
+          "minimum": 1,
+          "description": "Number of approvals required for public release."
+        }
+      },
+      "additionalProperties": false
+    },
+    "operators": {
+      "type": "object",
+      "required": ["fission", "fusion"],
+      "properties": {
+        "fission": {
+          "type": "object",
+          "required": ["enabled", "silent_split_forbidden"],
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "default": false
+            },
+            "silent_split_forbidden": {
+              "type": "boolean",
+              "const": true,
+              "description": "Silent fission is never allowed (RW-C9)."
+            },
+            "requires_lineage_map": {
+              "type": "boolean",
+              "const": true
+            },
+            "requires_loss_ledger_if_lossy": {
+              "type": "boolean",
+              "const": true,
+              "description": "Lossy fission must declare loss (RW-C9)."
+            }
+          },
+          "additionalProperties": false
+        },
+        "fusion": {
+          "type": "object",
+          "required": ["enabled", "silent_merge_forbidden"],
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "default": false
+            },
+            "silent_merge_forbidden": {
+              "type": "boolean",
+              "const": true,
+              "description": "Silent fusion is never allowed (RW-C8)."
+            },
+            "requires_merge_plan": {
+              "type": "boolean",
+              "const": true
+            },
+            "requires_conflict_ledger": {
+              "type": "boolean",
+              "const": true
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "airlock": {
+      "type": "object",
+      "required": ["cif_cdi_enforced"],
+      "properties": {
+        "cif_cdi_enforced": {
+          "type": "boolean",
+          "const": true,
+          "description": "No capture, stream, disclose, commit, or egress bypasses CIF/CDI (AIRLOCK)."
+        },
+        "bypass_attempts_fail_closed": {
+          "type": "boolean",
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "metadata_hygiene": {
+      "type": "object",
+      "properties": {
+        "cross_tier_leak_check": {
+          "type": "boolean",
+          "const": true,
+          "description": "No accidental metadata leakage across tiers (RW-C6)."
+        },
+        "redaction_patterns": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Patterns to redact from metadata."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

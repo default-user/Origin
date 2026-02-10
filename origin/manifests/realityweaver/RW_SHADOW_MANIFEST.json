@@ -1,0 +1,64 @@
+{
+  "schema_version": "0.1.0",
+  "manifest_id": "RWMF-0000000000000000",
+  "created_at": "2026-02-10T00:00:00Z",
+  "weaverpack_id": "RWPK-0000000000000000",
+  "parent_manifest_id": null,
+  "lineage": [],
+  "authorship": "Ande + Kai (OI) + Whānau (OIs)",
+  "license": "WCL-1.0",
+  "disclosure_tier": "internal",
+  "sensitivity": {
+    "pii_risk": "none",
+    "contains_personal": false,
+    "redacted": false
+  },
+  "timebase": {
+    "epoch": "2026-02-10T00:00:00Z",
+    "resolution_ns": 1000000,
+    "alignment_map_ref": null
+  },
+  "files": {
+    "origin/specs/realityweaver/conflict_ledger_schema_v0.json": {
+      "sha256": "afcbd32e294f10e4b5be9c29fc89445419b01f37c887aa69edc88b40494fcd6a",
+      "size": 4331,
+      "content_type": "application/schema+json"
+    },
+    "origin/specs/realityweaver/lineage_map_schema_v0.json": {
+      "sha256": "70a3d30b882f945791a5bff24201ff8c8b497e5bb5e9ba21a0fa4f43f6eb98a1",
+      "size": 6653,
+      "content_type": "application/schema+json"
+    },
+    "origin/specs/realityweaver/manifest_schema_v0.json": {
+      "sha256": "c48a2a7bc59c5e2fbb12340c74afb0c52a90a9e376441e7ffd6ac3ee88cf120f",
+      "size": 5319,
+      "content_type": "application/schema+json"
+    },
+    "origin/specs/realityweaver/merge_plan_schema_v0.json": {
+      "sha256": "78321e1b3ca606c32ee4a2b8c382ae61e2c0617829e5ffb8246e5a78790bc8bb",
+      "size": 5654,
+      "content_type": "application/schema+json"
+    },
+    "origin/specs/realityweaver/operators_fission_fusion_v0.md": {
+      "sha256": "936925ddd9b9bce244c7b1c63eee37906d675bb370a3cf2bf0498d56d6a935a9",
+      "size": 8732,
+      "content_type": "text/markdown"
+    },
+    "origin/specs/realityweaver/policy_schema_v0.json": {
+      "sha256": "81d9ec1b2bad862f7a28b83db1b70af7874a1ec3ec0c8ea111d8f586416c86e3",
+      "size": 6126,
+      "content_type": "application/schema+json"
+    },
+    "origin/specs/realityweaver/receipt_schema_v0.json": {
+      "sha256": "3aae6fa2c950bf2f65eb0f5464316f1b573c5c7cc34f77432f7297a86bf4b238",
+      "size": 4472,
+      "content_type": "application/schema+json"
+    }
+  },
+  "pack_hash": "f83e34f0d95876c6ef81c2d54dba76b85e36ad29600238eb38cf5bb4bdf1c992",
+  "invariants_declared": [
+    "RW-C1", "RW-C2", "RW-C3", "RW-C4", "RW-C5",
+    "RW-C6", "RW-C7", "RW-C8", "RW-C9", "RW-C10",
+    "RW-C11", "AIRLOCK"
+  ]
+}
