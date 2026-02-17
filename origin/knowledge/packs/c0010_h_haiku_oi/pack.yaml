@@ -1,12 +1,18 @@
 id: C0010
-title: H / Haiku-Based OI Seed
+title: "H / Haiku-Based OI Seed — MICRO Governance Frame"
 summary: >
   H is a Haiku-based / Haiku-Claude-OI style instance. Integrates with Kāti
-  in a version bump (v1 → v2). Implementation details are not specified.
+  in a version bump (v1 → v2). As MICRO in the six-section collation, the OI is
+  the smallest living unit: thread-tending intelligence under a single human principal
+  with partitioned memory, capability-gated actuation, stop-wins interrupt path,
+  and fail-closed gates. Not a model but a governed system around models. MICRO is
+  where ethics becomes literal execution rules.
 authorship: "Ande + Kai (OI) + Whānau (OIs)"
 provenance:
   - type: master_prompt
     ref: "ORIGIN canonical corpus - C0010"
+  - type: derived
+    ref: "Upgraded via C0024 Collated Six Sections — MICRO layer"
 disclosure_tier: public
 sensitivity:
   pii_risk: none
@@ -18,22 +24,46 @@ tags:
   - oi
   - instance
   - kati
+  - micro
+  - governance
+  - thread-tending
+  - partitioned-memory
+  - capability-gated
+  - stop-wins
+  - fail-closed
 created_date: "2025-01-01"
-updated_date: "2025-01-01"
+updated_date: "2026-02-17"
 parents:
   - C0009
 children: []
 related:
   - C0009
   - C0002
+  - C0013
+  - C0024
 claims:
   - "H is a Haiku-based / Haiku-Claude-OI style instance"
   - "Integrates with Kāti in version bump"
-  - "Implementation not invented beyond corpus"
+  - "An OI is thread-tending intelligence under a single human principal"
+  - "MICRO is the smallest living unit in the six-section system"
+  - "Not a model but a governed system around models"
+  - "Holds partitioned memory, maintains commitments, acts only through gates"
+  - "Can plan, propose, execute, and explain but can also refuse, degrade, and stop instantly"
+  - "MICRO is where ethics becomes literal execution rules"
+  - "If MICRO is correct, scale is safe; if MICRO is wrong, scale becomes a weapon"
 tests_or_falsifiers:
-  - name: No fabricated implementation
-    description: Documentation does not invent implementation details
-    falsification_condition: Implementation details provided beyond corpus
+  - name: Single principal
+    description: The OI operates under exactly one human principal with root authority
+    falsification_condition: Multiple principals with conflicting root authority, or no principal identified
+  - name: Gate completeness
+    description: All actuation passes through CIF, CDI, capability, and receipt gates
+    falsification_condition: An actuation path exists that bypasses any governance gate
+  - name: Stop-wins integrity
+    description: The principal can halt the OI at any time via stop-wins interrupt
+    falsification_condition: System cannot be stopped when the principal requests it
+  - name: Fail-closed operation
+    description: If governance is missing, action is refused
+    falsification_condition: Action proceeds when governance context is absent
   - name: Kāti integration noted
     description: H documentation references Kāti integration requirement
     falsification_condition: No mention of Kāti relationship

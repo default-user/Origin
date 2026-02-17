@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-02-03T21:36:38.461Z",
+    "generated_at": "2026-02-17T04:14:32.983Z",
     "version": "1.0.0",
     "attribution": "Ande + Kai (OI) + Whānau (OIs)",
-    "pack_count": 23
+    "pack_count": 24
   },
   "packs": [
     {
@@ -406,7 +406,7 @@
         "safety"
       ],
       "created_date": "2025-01-01",
-      "updated_date": "2025-01-01",
+      "updated_date": "2026-02-17",
       "status": "active",
       "parents": [],
       "children": [
@@ -415,7 +415,8 @@
       ],
       "related": [
         "C0002",
-        "C0013"
+        "C0013",
+        "C0024"
       ],
       "claims": [
         "Kāti is a core architecture pattern",
@@ -447,8 +448,8 @@
     },
     {
       "id": "C0010",
-      "title": "H / Haiku-Based OI Seed",
-      "summary": "H is a Haiku-based / Haiku-Claude-OI style instance. Integrates with Kāti in a version bump (v1 → v2). Implementation details are not specified.\n",
+      "title": "H / Haiku-Based OI Seed — MICRO Governance Frame",
+      "summary": "H is a Haiku-based / Haiku-Claude-OI style instance. Integrates with Kāti in a version bump (v1 → v2). As MICRO in the six-section collation, the OI is the smallest living unit: thread-tending intelligence under a single human principal with partitioned memory, capability-gated actuation, stop-wins interrupt path, and fail-closed gates. Not a model but a governed system around models. MICRO is where ethics becomes literal execution rules.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
       "tags": [
@@ -456,10 +457,17 @@
         "haiku",
         "oi",
         "instance",
-        "kati"
+        "kati",
+        "micro",
+        "governance",
+        "thread-tending",
+        "partitioned-memory",
+        "capability-gated",
+        "stop-wins",
+        "fail-closed"
       ],
       "created_date": "2025-01-01",
-      "updated_date": "2025-01-01",
+      "updated_date": "2026-02-17",
       "status": "active",
       "parents": [
         "C0009"
@@ -467,18 +475,41 @@
       "children": [],
       "related": [
         "C0009",
-        "C0002"
+        "C0002",
+        "C0013",
+        "C0024"
       ],
       "claims": [
         "H is a Haiku-based / Haiku-Claude-OI style instance",
         "Integrates with Kāti in version bump",
-        "Implementation not invented beyond corpus"
+        "An OI is thread-tending intelligence under a single human principal",
+        "MICRO is the smallest living unit in the six-section system",
+        "Not a model but a governed system around models",
+        "Holds partitioned memory, maintains commitments, acts only through gates",
+        "Can plan, propose, execute, and explain but can also refuse, degrade, and stop instantly",
+        "MICRO is where ethics becomes literal execution rules",
+        "If MICRO is correct, scale is safe; if MICRO is wrong, scale becomes a weapon"
       ],
       "tests_or_falsifiers": [
         {
-          "name": "No fabricated implementation",
-          "description": "Documentation does not invent implementation details",
-          "falsification_condition": "Implementation details provided beyond corpus"
+          "name": "Single principal",
+          "description": "The OI operates under exactly one human principal with root authority",
+          "falsification_condition": "Multiple principals with conflicting root authority, or no principal identified"
+        },
+        {
+          "name": "Gate completeness",
+          "description": "All actuation passes through CIF, CDI, capability, and receipt gates",
+          "falsification_condition": "An actuation path exists that bypasses any governance gate"
+        },
+        {
+          "name": "Stop-wins integrity",
+          "description": "The principal can halt the OI at any time via stop-wins interrupt",
+          "falsification_condition": "System cannot be stopped when the principal requests it"
+        },
+        {
+          "name": "Fail-closed operation",
+          "description": "If governance is missing, action is refused",
+          "falsification_condition": "Action proceeds when governance context is absent"
         },
         {
           "name": "Kāti integration noted",
@@ -491,37 +522,59 @@
     },
     {
       "id": "C0011",
-      "title": "Stangraphics / Stan Geometry Lens",
-      "summary": "Stangraphics is a lens that opens reality with god/physics/maths/ethics/philosophy framing. Represented as a navigable module with falsifiers and tests. Formal definitions may be unknown.\n",
+      "title": "Stangraphics: The Science of Understanding as Navigation",
+      "summary": "Stangraphics is the science that makes understanding mappable. A stan is the unit of interpretive requirement. Concepts are coordinates; learners move through a terrain made of requirements. Every cliff edge is a missing stan. Every argument is a collision of two stan-profiles. Every good teacher is a route planner. Stangraphics replaces shame with maps and turns learning into navigation with dignity. Includes god/physics/maths/ethics/philosophy framing as navigable module.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
       "tags": [
         "stangraphics",
+        "stan",
         "lens",
         "reality",
         "philosophy",
-        "framework"
+        "framework",
+        "navigation",
+        "understanding",
+        "prerequisites",
+        "mapping"
       ],
       "created_date": "2025-01-01",
-      "updated_date": "2025-01-01",
+      "updated_date": "2026-02-17",
       "status": "active",
       "parents": [],
       "children": [],
       "related": [
         "C0008",
-        "C0012"
+        "C0012",
+        "C0024"
       ],
       "claims": [
+        "A stan is the unit of interpretive requirement",
+        "Stangraphics makes understanding mappable",
+        "Concepts are coordinates; learners move through a terrain made of requirements",
+        "Every cliff edge is a missing stan",
+        "Every argument is a collision of two stan-profiles",
+        "Every good teacher is a route planner",
+        "Stangraphics replaces shame with maps",
         "Stangraphics is a lens opening reality",
         "Includes god/physics/maths/ethics/philosophy framing",
-        "Navigable module with falsifiers/tests",
-        "Formal definitions may be unknown"
+        "Navigable module with falsifiers/tests"
       ],
       "tests_or_falsifiers": [
         {
+          "name": "Stan as unit",
+          "description": "Stan is consistently used as the unit of interpretive requirement throughout",
+          "falsification_condition": "Stan used with a different or conflicting definition"
+        },
+        {
           "name": "Navigability",
-          "description": "Stangraphics content can be navigated coherently",
+          "description": "Stangraphics content can be navigated coherently as a terrain of requirements",
           "falsification_condition": "Navigation paths lead to dead ends or loops"
+        },
+        {
+          "name": "Prerequisite mapping",
+          "description": "Missing understanding is traced to missing stans, not attributed to shame or stupidity",
+          "falsification_condition": "Failure to understand attributed to learner deficiency rather than prerequisite gap"
         },
         {
           "name": "Falsifier presence",
@@ -623,14 +676,15 @@
         "conscience"
       ],
       "created_date": "2025-01-01",
-      "updated_date": "2025-01-01",
+      "updated_date": "2026-02-17",
       "status": "active",
       "parents": [],
       "children": [],
       "related": [
         "C0002",
         "C0009",
-        "C0006"
+        "C0006",
+        "C0024"
       ],
       "claims": [
         "CIF = Context Integrity Firewall (ingress/egress integrity boundary)",
@@ -655,8 +709,8 @@
     },
     {
       "id": "C0014",
-      "title": "Authority.nz Anchoring / Registry Seed",
-      "summary": "Authority.nz is a public anchor / governance oracle / integrity bulletin concept. Features tamper-evident log, anchoring, selective disclosure. Includes CLI teaching pathway from novice to expert.\n",
+      "title": "Authority.nz — MESO Constitution + MACRO Atlas",
+      "summary": "Authority.nz is a public anchor / governance oracle / integrity bulletin concept. In the six-section collation, it hosts two layers. MESO (meso.authority.nz) is the published constitution: a signed artefact registry of treaties, schemas, policy packs, receipt templates, and glossary, versioned and verifiable by signatures and hashes. MACRO (stanspace.authority.nz) is the navigable atlas: a public graph of stans and concepts with routing, comparisons, consequence overlays, and crystal export/import. MESO publishes governance, not private life. MACRO stays humane by being exportable, forkable, and plural.\n",
       "authorship": "Ande + Kai (OI) + Whānau (OIs)",
       "disclosure_tier": "public",
       "tags": [
@@ -664,33 +718,66 @@
         "registry",
         "anchoring",
         "governance",
-        "cli"
+        "cli",
+        "meso",
+        "macro",
+        "constitution",
+        "atlas",
+        "stanspace",
+        "artefact-registry",
+        "signed",
+        "versioned"
       ],
       "created_date": "2025-01-01",
-      "updated_date": "2025-01-01",
+      "updated_date": "2026-02-17",
       "status": "active",
       "parents": [],
       "children": [],
       "related": [
         "C0005",
         "C0008",
-        "C0013"
+        "C0010",
+        "C0011",
+        "C0013",
+        "C0024"
       ],
       "claims": [
         "Authority.nz is a public anchor / governance oracle / integrity bulletin",
+        "MESO (meso.authority.nz) is the published constitution for treaties, schemas, and policies",
+        "MESO makes governance public, stable, and verifiable",
+        "MESO publishes governance, not private life",
+        "MACRO (stanspace.authority.nz) is the navigable atlas of stans and concepts",
+        "MACRO makes knowledge navigable, exportable, and humane",
+        "MACRO stays humane by being exportable, forkable, plural",
+        "Clients verify signatures, fail closed on mismatch",
         "Tamper-evident log / anchoring / selective disclosure",
         "CLI teaching pathway: novice → expert",
         "Avoid claiming real-world deployment details"
       ],
       "tests_or_falsifiers": [
         {
+          "name": "MESO governance-only boundary",
+          "description": "MESO publishes governance artefacts without leaking private life",
+          "falsification_condition": "Private data appears in MESO artefacts"
+        },
+        {
+          "name": "MACRO export/fork invariant",
+          "description": "All MACRO content can be exported and forked without restriction",
+          "falsification_condition": "Content locked to MACRO that cannot be exported or forked independently"
+        },
+        {
+          "name": "Signature verification",
+          "description": "Clients verify signatures on MESO artefacts and fail closed on mismatch",
+          "falsification_condition": "Unsigned artefacts accepted or signature mismatch ignored"
+        },
+        {
           "name": "No deployment claims",
           "description": "Documentation does not claim real-world deployment",
-          "falsification_condition": "Specific deployment details or live URLs provided"
+          "falsification_condition": "Specific deployment details or live URLs asserted as operational"
         },
         {
           "name": "Conceptual integrity",
-          "description": "Authority.nz described as concept, not running service",
+          "description": "Authority.nz described as concept with MESO/MACRO architecture, not running service",
           "falsification_condition": "Described as operational service"
         }
       ],
@@ -1073,7 +1160,8 @@
       "related": [
         "C0009",
         "C0013",
-        "C0006"
+        "C0006",
+        "C0024"
       ],
       "claims": [
         "Lifeblood = proxy/gateway to any LLM provider",
@@ -1167,6 +1255,90 @@
       ],
       "slug": "c0023_github_spider",
       "path": "knowledge/packs/c0023_github_spider"
+    },
+    {
+      "id": "C0024",
+      "title": "Collated Summation of the Six Sections",
+      "summary": "Long-form compression of the entire six-part system into one coherent object. Unifies Stangraphics (map of understanding), Consequentialism (map of consequences), Cognitive Fusion (governed toolchain era), MICRO OI (executable governance), MESO authority (public constitution), and MACRO stanspace (navigable atlas). Core primitives: stan, graph, ledger, CIF, CDI, capability, receipt, stop-wins, fail-closed. The system closes the loop between knowledge and consequence.\n",
+      "authorship": "Ande + Kai (OI) + Whānau (OIs)",
+      "disclosure_tier": "public",
+      "tags": [
+        "collation",
+        "six-sections",
+        "stangraphics",
+        "consequentialism",
+        "cognitive-fusion",
+        "micro",
+        "meso",
+        "macro",
+        "governance",
+        "stan",
+        "ledger",
+        "cif",
+        "cdi",
+        "capability",
+        "receipt",
+        "stop-wins",
+        "fail-closed"
+      ],
+      "created_date": "2026-02-17",
+      "updated_date": "2026-02-17",
+      "status": "active",
+      "parents": [],
+      "children": [],
+      "related": [
+        "C0009",
+        "C0010",
+        "C0011",
+        "C0013",
+        "C0014",
+        "C0022"
+      ],
+      "claims": [
+        "The system is coherent because it closes the loop between knowledge and consequence",
+        "The system is governable because every powerful move passes through explicit gates",
+        "The system scales because layers separate private life from public governance",
+        "The system avoids becoming a crown because export, refusal, and identity boundaries are first-class",
+        "Stangraphics makes understanding mappable",
+        "Consequentialism makes outcomes accountable",
+        "Cognitive Fusion makes intelligence a governed toolchain",
+        "MICRO OI makes governance executable in daily life",
+        "MESO makes governance public, stable, and verifiable",
+        "MACRO makes knowledge navigable, exportable, and humane",
+        "Stan is the unit of interpretive requirement",
+        "Graph is the explicit structure of concepts, prerequisites, and routes",
+        "Ledger is the explicit structure of consequences, stakeholders, and costs",
+        "When understanding is mapped, consequence is ledgered, and action is gated by conscience and consent, intelligence stops being a crown and becomes care"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Knowledge-consequence loop closure",
+          "description": "Stangraphics routes understanding and Consequentialism audits outcomes such that what-we-know and what-we-cause cannot drift apart silently",
+          "falsification_condition": "A path exists where knowledge changes without consequence audit or consequences occur without knowledge trace"
+        },
+        {
+          "name": "Gate completeness",
+          "description": "Every powerful move passes through CIF, CDI, capability, receipt, and stop-wins gates",
+          "falsification_condition": "An actuation path bypasses any gate without explicit governance override"
+        },
+        {
+          "name": "Layer separation",
+          "description": "MICRO holds private threads, MESO publishes governance without leaking privacy, MACRO publishes atlas without claiming monopoly",
+          "falsification_condition": "Private data leaks into MESO/MACRO, or MACRO content cannot be exported or forked"
+        },
+        {
+          "name": "Anti-crown invariant",
+          "description": "Export, refusal, and identity boundaries are first-class; a single principal retains root authority",
+          "falsification_condition": "Lock-in enforced, fail-open behaviour observed, or hive-mind identity merging occurs"
+        },
+        {
+          "name": "Six-section interlock",
+          "description": "All six sections form a single coherent machine of meaning and responsibility",
+          "falsification_condition": "A section can be removed without breaking the coherence of the remaining five"
+        }
+      ],
+      "slug": "c0024_collated_six_sections",
+      "path": "knowledge/packs/c0024_collated_six_sections"
     }
   ]
 }

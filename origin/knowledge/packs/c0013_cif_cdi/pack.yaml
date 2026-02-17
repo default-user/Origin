@@ -21,13 +21,14 @@ tags:
   - firewall
   - conscience
 created_date: "2025-01-01"
-updated_date: "2025-01-01"
+updated_date: "2026-02-17"
 parents: []
 children: []
 related:
   - C0002
   - C0009
   - C0006
+  - C0024
 claims:
   - "CIF = Context Integrity Firewall (ingress/egress integrity boundary)"
   - "CDI = Conscience Decision Interface (kernel judge allow/deny/transform/degrade)"

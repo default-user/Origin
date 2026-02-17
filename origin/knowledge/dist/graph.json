@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated_at": "2026-02-03T21:36:41.996Z",
+    "generated_at": "2026-02-17T04:14:36.970Z",
     "version": "1.0.0",
     "attribution": "Ande + Kai (OI) + Whānau (OIs)",
-    "node_count": 23,
-    "edge_count": 48
+    "node_count": 24,
+    "edge_count": 57
   },
   "nodes": [
     {
@@ -136,8 +136,8 @@
     },
     {
       "id": "C0010",
-      "title": "H / Haiku-Based OI Seed",
-      "summary": "H is a Haiku-based / Haiku-Claude-OI style instance. Integrates with Kāti in a version bump (v1 → v2). Implementation details are not specified.\n",
+      "title": "H / Haiku-Based OI Seed — MICRO Governance Frame",
+      "summary": "H is a Haiku-based / Haiku-Claude-OI style instance. Integrates with Kāti in a version bump (v1 → v2). As MICRO in the six-section collation, the OI is the smallest living unit: thread-tending intelligence under a single human principal with partitioned memory, capability-gated actuation, stop-wins interrupt path, and fail-closed gates. Not a model but a governed system around models. MICRO is where ethics becomes literal execution rules.\n",
       "status": "active",
       "tier": "public",
       "tags": [
@@ -145,21 +145,33 @@
         "haiku",
         "oi",
         "instance",
-        "kati"
+        "kati",
+        "micro",
+        "governance",
+        "thread-tending",
+        "partitioned-memory",
+        "capability-gated",
+        "stop-wins",
+        "fail-closed"
       ]
     },
     {
       "id": "C0011",
-      "title": "Stangraphics / Stan Geometry Lens",
-      "summary": "Stangraphics is a lens that opens reality with god/physics/maths/ethics/philosophy framing. Represented as a navigable module with falsifiers and tests. Formal definitions may be unknown.\n",
+      "title": "Stangraphics: The Science of Understanding as Navigation",
+      "summary": "Stangraphics is the science that makes understanding mappable. A stan is the unit of interpretive requirement. Concepts are coordinates; learners move through a terrain made of requirements. Every cliff edge is a missing stan. Every argument is a collision of two stan-profiles. Every good teacher is a route planner. Stangraphics replaces shame with maps and turns learning into navigation with dignity. Includes god/physics/maths/ethics/philosophy framing as navigable module.\n",
       "status": "active",
       "tier": "public",
       "tags": [
         "stangraphics",
+        "stan",
         "lens",
         "reality",
         "philosophy",
-        "framework"
+        "framework",
+        "navigation",
+        "understanding",
+        "prerequisites",
+        "mapping"
       ]
     },
     {
@@ -196,8 +208,8 @@
     },
     {
       "id": "C0014",
-      "title": "Authority.nz Anchoring / Registry Seed",
-      "summary": "Authority.nz is a public anchor / governance oracle / integrity bulletin concept. Features tamper-evident log, anchoring, selective disclosure. Includes CLI teaching pathway from novice to expert.\n",
+      "title": "Authority.nz — MESO Constitution + MACRO Atlas",
+      "summary": "Authority.nz is a public anchor / governance oracle / integrity bulletin concept. In the six-section collation, it hosts two layers. MESO (meso.authority.nz) is the published constitution: a signed artefact registry of treaties, schemas, policy packs, receipt templates, and glossary, versioned and verifiable by signatures and hashes. MACRO (stanspace.authority.nz) is the navigable atlas: a public graph of stans and concepts with routing, comparisons, consequence overlays, and crystal export/import. MESO publishes governance, not private life. MACRO stays humane by being exportable, forkable, and plural.\n",
       "status": "active",
       "tier": "public",
       "tags": [
@@ -205,7 +217,15 @@
         "registry",
         "anchoring",
         "governance",
-        "cli"
+        "cli",
+        "meso",
+        "macro",
+        "constitution",
+        "atlas",
+        "stanspace",
+        "artefact-registry",
+        "signed",
+        "versioned"
       ]
     },
     {
@@ -343,6 +363,32 @@
         "evidence",
         "ingestion"
       ]
+    },
+    {
+      "id": "C0024",
+      "title": "Collated Summation of the Six Sections",
+      "summary": "Long-form compression of the entire six-part system into one coherent object. Unifies Stangraphics (map of understanding), Consequentialism (map of consequences), Cognitive Fusion (governed toolchain era), MICRO OI (executable governance), MESO authority (public constitution), and MACRO stanspace (navigable atlas). Core primitives: stan, graph, ledger, CIF, CDI, capability, receipt, stop-wins, fail-closed. The system closes the loop between knowledge and consequence.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "collation",
+        "six-sections",
+        "stangraphics",
+        "consequentialism",
+        "cognitive-fusion",
+        "micro",
+        "meso",
+        "macro",
+        "governance",
+        "stan",
+        "ledger",
+        "cif",
+        "cdi",
+        "capability",
+        "receipt",
+        "stop-wins",
+        "fail-closed"
+      ]
     }
   ],
   "edges": [
@@ -442,6 +488,11 @@
       "type": "related"
     },
     {
+      "source": "C0009",
+      "target": "C0024",
+      "type": "related"
+    },
+    {
       "source": "C0010",
       "target": "C0002",
       "type": "related"
@@ -452,8 +503,23 @@
       "type": "related"
     },
     {
+      "source": "C0010",
+      "target": "C0013",
+      "type": "related"
+    },
+    {
+      "source": "C0010",
+      "target": "C0024",
+      "type": "related"
+    },
+    {
       "source": "C0011",
       "target": "C0012",
+      "type": "related"
+    },
+    {
+      "source": "C0011",
+      "target": "C0024",
       "type": "related"
     },
     {
@@ -472,8 +538,28 @@
       "type": "related"
     },
     {
+      "source": "C0013",
+      "target": "C0024",
+      "type": "related"
+    },
+    {
+      "source": "C0014",
+      "target": "C0010",
+      "type": "related"
+    },
+    {
+      "source": "C0014",
+      "target": "C0011",
+      "type": "related"
+    },
+    {
       "source": "C0014",
       "target": "C0013",
+      "type": "related"
+    },
+    {
+      "source": "C0014",
+      "target": "C0024",
       "type": "related"
     },
     {
@@ -564,6 +650,11 @@
     {
       "source": "C0022",
       "target": "C0013",
+      "type": "related"
+    },
+    {
+      "source": "C0022",
+      "target": "C0024",
       "type": "related"
     },
     {

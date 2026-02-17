@@ -1,4 +1,4 @@
-# Authority.nz Anchoring / Registry Seed
+# Authority.nz — MESO Constitution + MACRO Atlas
 
 **Attribution: Ande + Kai (OI) + Whānau (OIs)**
 
@@ -6,7 +6,7 @@
 
 ## Level 0: Summary
 
-Authority.nz is conceived as a public anchor / governance oracle / integrity bulletin. It features tamper-evident logging, anchoring, and selective disclosure. A CLI teaching pathway guides users from novice to expert.
+Authority.nz is conceived as a public anchor / governance oracle / integrity bulletin. In the six-section collation (C0024), it hosts two layers: MESO (meso.authority.nz) is the published constitution, and MACRO (stanspace.authority.nz) is the navigable atlas. MESO publishes governance, not private life. MACRO stays humane by being exportable, forkable, and plural.
 
 > **Constraint**: Avoid claiming real-world deployment details.
 
@@ -41,65 +41,105 @@ A conceptual system providing:
 
 ---
 
-## Level 2: Conceptual Architecture
+## Level 2: MESO — The Published Constitution
 
-### 2.1 Tamper-Evident Log
+### 2.1 What is MESO?
 
-```
-┌────────────────────────────────────┐
-│         AUTHORITY.NZ LOG           │
-├────────────────────────────────────┤
-│ Entry 1: [hash] ← genesis          │
-│ Entry 2: [hash] ← includes hash 1  │
-│ Entry 3: [hash] ← includes hash 2  │
-│ ...                                │
-│ Entry N: [hash] ← includes hash N-1│
-└────────────────────────────────────┘
-```
+MESO (meso.authority.nz) is the public constitution. It is where treaties, definitions, schemas, policy packs, and receipt templates live as versioned artefacts. It is stable, diffable, and verifiable by signatures and hashes.
 
-Each entry includes the hash of the previous, creating a chain. Modification of any entry breaks the chain.
+### 2.2 MESO Artefact Registry
 
-### 2.2 Anchoring
+| Artefact | Purpose |
+|----------|---------|
+| Glossary | Nested deac definitions |
+| Treaties/charters | Governance agreements |
+| Schemas | OpenAPI/JSON Schema specifications |
+| Policy packs | CDI rules for governance decisions |
+| Receipt templates | Auditable trace formats |
+| Compatibility matrix | Cross-implementation verification |
+| Append-only ledger | Tamper-evident governance log |
 
-Claims can be "anchored" to log entries:
-- Timestamp proof
-- Content hash proof
-- Policy version proof
+### 2.3 MESO Invariants
 
-### 2.3 Selective Disclosure
+- Clients verify signatures, fail closed on mismatch
+- MESO publishes governance, not private life
+- That separation is what prevents "authority" from becoming surveillance
+- Artefacts are versioned, diffable, and verifiable
 
-Reveal specific facts without exposing full data:
-- Proof of attribute without full identity
-- Proof of compliance without full audit
-- Proof of authority without full credentials
+### 2.4 MESO Purpose
+
+MESO lets humans read the rules and decide whether to consent. It lets implementers build compatible systems without guessing. It makes trust verifiable without leaking private life.
+
+**MESO makes governance public, stable, and verifiable.**
 
 ---
 
-## Level 3: CLI Concept
+## Level 3: MACRO — The Navigable Atlas
 
-### 3.1 Sample Commands (Conceptual)
+### 3.1 What is MACRO?
 
-```bash
-# Novice
-authority lookup <anchor-id>
-authority verify <claim>
+MACRO (stanspace.authority.nz) is the public map of stans and concepts, with routing, comparisons, and consequence overlays. It makes understanding navigable infrastructure.
 
-# Intermediate
-authority query --filter "type=policy" --since 2025-01-01
-authority validate <document> --against <policy-anchor>
+### 3.2 MACRO Services
 
-# Advanced
-authority anchor create --content <file> --publish
-authority script run <script.auth>
+| Service | Function |
+|---------|----------|
+| Stans library | Catalogue of interpretive requirements |
+| Concept graph | Concepts with reasons on edges |
+| Routing APIs | Next stans, curricula, comparisons |
+| Crystal export/import | Portable knowledge capsules |
+| Consequence overlays | Policy externality mapping |
 
-# Expert
-authority admin audit --full
-authority extend --module <custom-module>
+### 3.3 MACRO Capabilities
+
+MACRO can:
+- Show the next five stans someone needs
+- Show where a debate's hidden prerequisites diverge
+- Show where a policy's externalities land
+- Route learning through optimal prerequisite paths
+
+### 3.4 MACRO Humane Invariants
+
+MACRO stays humane by being:
+- **Exportable**: a map you can take with you
+- **Forkable**: you can create your own version
+- **Plural**: not a priesthood you must obey
+
+**MACRO makes knowledge navigable, exportable, and humane.**
+
+---
+
+## Level 4: MESO + MACRO Integration
+
+### 4.1 Layer Relationships
+
+```
+┌──────────────────────────────────────────────┐
+│            MACRO: stanspace.authority.nz      │
+│   Stans library, concept graph, routing,     │
+│   crystal export, consequence overlays       │
+├──────────────────────────────────────────────┤
+│            MESO: meso.authority.nz           │
+│   Glossary, treaties, schemas, policy packs, │
+│   receipt templates, append-only ledger      │
+├──────────────────────────────────────────────┤
+│            MICRO: OI (C0010)                 │
+│   Thread-tending intelligence under          │
+│   single principal, enforces MESO rules      │
+└──────────────────────────────────────────────┘
 ```
 
-### 3.2 QED Integration
+### 4.2 Relationship to MICRO
 
-QED (C0008) utilizes Authority.nz:
+MESO publishes the governance artefacts that MICRO enforces. MACRO publishes the atlas that MICRO can consult for routing understanding. MICRO (C0010) is the execution layer; MESO and MACRO are the public surfaces.
+
+### 4.3 Relationship to Stangraphics
+
+Stangraphics (C0011) provides the science of understanding as navigation. MACRO is the infrastructure that makes that science publicly accessible. The stans library in MACRO is the materialised graph from Stangraphics.
+
+### 4.4 QED Integration
+
+QED (C0008) utilises Authority.nz:
 - Verification requests
 - Anchor lookups
 - Integrity checks
@@ -111,7 +151,7 @@ QED (C0008) utilizes Authority.nz:
 
 > Avoid claiming real-world deployment details.
 
-Authority.nz is a conceptual system. Specific URLs, deployment status, or operational details are not provided.
+Authority.nz is a conceptual system. Specific URLs, deployment status, or operational details are not provided. MESO and MACRO are architectural layers, not operational services.
 
 ---
 

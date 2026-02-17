@@ -35,6 +35,7 @@ related:
   - C0009
   - C0013
   - C0006
+  - C0024
 claims:
   - "Lifeblood = proxy/gateway to any LLM provider"
   - "Cathedral = governance backend: capability gating, posture, boundaries, ledger, receipts, watcher"

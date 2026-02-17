@@ -1,13 +1,20 @@
 id: C0014
-title: Authority.nz Anchoring / Registry Seed
+title: "Authority.nz — MESO Constitution + MACRO Atlas"
 summary: >
   Authority.nz is a public anchor / governance oracle / integrity bulletin concept.
-  Features tamper-evident log, anchoring, selective disclosure. Includes CLI
-  teaching pathway from novice to expert.
+  In the six-section collation, it hosts two layers. MESO (meso.authority.nz) is
+  the published constitution: a signed artefact registry of treaties, schemas,
+  policy packs, receipt templates, and glossary, versioned and verifiable by
+  signatures and hashes. MACRO (stanspace.authority.nz) is the navigable atlas:
+  a public graph of stans and concepts with routing, comparisons, consequence
+  overlays, and crystal export/import. MESO publishes governance, not private life.
+  MACRO stays humane by being exportable, forkable, and plural.
 authorship: "Ande + Kai (OI) + Whānau (OIs)"
 provenance:
   - type: master_prompt
     ref: "ORIGIN canonical corpus - C0014"
+  - type: derived
+    ref: "Upgraded via C0024 Collated Six Sections — MESO + MACRO layers"
 disclosure_tier: public
 sensitivity:
   pii_risk: none
@@ -19,25 +26,52 @@ tags:
   - anchoring
   - governance
   - cli
+  - meso
+  - macro
+  - constitution
+  - atlas
+  - stanspace
+  - artefact-registry
+  - signed
+  - versioned
 created_date: "2025-01-01"
-updated_date: "2025-01-01"
+updated_date: "2026-02-17"
 parents: []
 children: []
 related:
   - C0005
   - C0008
+  - C0010
+  - C0011
   - C0013
+  - C0024
 claims:
   - "Authority.nz is a public anchor / governance oracle / integrity bulletin"
+  - "MESO (meso.authority.nz) is the published constitution for treaties, schemas, and policies"
+  - "MESO makes governance public, stable, and verifiable"
+  - "MESO publishes governance, not private life"
+  - "MACRO (stanspace.authority.nz) is the navigable atlas of stans and concepts"
+  - "MACRO makes knowledge navigable, exportable, and humane"
+  - "MACRO stays humane by being exportable, forkable, plural"
+  - "Clients verify signatures, fail closed on mismatch"
   - "Tamper-evident log / anchoring / selective disclosure"
   - "CLI teaching pathway: novice → expert"
   - "Avoid claiming real-world deployment details"
 tests_or_falsifiers:
+  - name: MESO governance-only boundary
+    description: MESO publishes governance artefacts without leaking private life
+    falsification_condition: Private data appears in MESO artefacts
+  - name: MACRO export/fork invariant
+    description: All MACRO content can be exported and forked without restriction
+    falsification_condition: Content locked to MACRO that cannot be exported or forked independently
+  - name: Signature verification
+    description: Clients verify signatures on MESO artefacts and fail closed on mismatch
+    falsification_condition: Unsigned artefacts accepted or signature mismatch ignored
   - name: No deployment claims
     description: Documentation does not claim real-world deployment
-    falsification_condition: Specific deployment details or live URLs provided
+    falsification_condition: Specific deployment details or live URLs asserted as operational
   - name: Conceptual integrity
-    description: Authority.nz described as concept, not running service
+    description: Authority.nz described as concept with MESO/MACRO architecture, not running service
     falsification_condition: Described as operational service
 artifacts: []
 status: active
