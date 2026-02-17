@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "generated_at": "2026-02-17T04:14:36.970Z",
+    "generated_at": "2026-02-17T23:19:43.572Z",
     "version": "1.0.0",
     "attribution": "Ande + Kai (OI) + Whānau (OIs)",
-    "node_count": 24,
-    "edge_count": 57
+    "node_count": 25,
+    "edge_count": 64
   },
   "nodes": [
     {
@@ -389,6 +389,34 @@
         "stop-wins",
         "fail-closed"
       ]
+    },
+    {
+      "id": "C0025",
+      "title": "Orga ⟐ Hoiarchism: The Organism and Discipline of Coherence",
+      "summary": "Orga is the engineering name for the organismal fact of coherence: the way a system becomes alive enough to endure because it has organs that hold it together under reality. Hoiarchism is the governing discipline that sees this organismal fact across all scales and insists it remain true—truthful, accountable, stoppable, and sacred—no matter how large the system becomes. Together they form the universal framework of coherence: Orga provides the organs (Universal Invariants, the 51D Ladder, Universal Stans and Stan-dens), Hoiarchism provides the vow (Holism with governance teeth, Hoiarch(x) across all scales). The union is fractal: systems within systems, coherence within coherence, sacredness held at every scale.\n",
+      "status": "active",
+      "tier": "public",
+      "tags": [
+        "orga",
+        "hoiarchism",
+        "coherence",
+        "universal-invariants",
+        "51d-ladder",
+        "stans",
+        "stan-dens",
+        "governance",
+        "fractality",
+        "stoppability",
+        "holism",
+        "organs",
+        "accountability",
+        "sacredness",
+        "feedback",
+        "identity",
+        "consequence",
+        "blobness",
+        "hoiarch"
+      ]
     }
   ],
   "edges": [
@@ -675,6 +703,41 @@
     {
       "source": "C0023",
       "target": "C0022",
+      "type": "related"
+    },
+    {
+      "source": "C0025",
+      "target": "C0003",
+      "type": "related"
+    },
+    {
+      "source": "C0025",
+      "target": "C0008",
+      "type": "related"
+    },
+    {
+      "source": "C0025",
+      "target": "C0011",
+      "type": "related"
+    },
+    {
+      "source": "C0025",
+      "target": "C0016",
+      "type": "related"
+    },
+    {
+      "source": "C0025",
+      "target": "C0017",
+      "type": "related"
+    },
+    {
+      "source": "C0025",
+      "target": "C0020",
+      "type": "related"
+    },
+    {
+      "source": "C0025",
+      "target": "C0024",
       "type": "related"
     }
   ]

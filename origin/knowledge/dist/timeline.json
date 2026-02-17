@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-02-17T04:14:44.884Z",
+    "generated_at": "2026-02-17T23:19:51.093Z",
     "version": "1.0.0",
     "attribution": "Ande + Kai (OI) + Whānau (OIs)",
-    "event_count": 31
+    "event_count": 32
   },
   "events": [
     {
@@ -191,6 +191,12 @@
       "type": "created",
       "pack_id": "C0024",
       "pack_title": "Collated Summation of the Six Sections"
+    },
+    {
+      "date": "2026-02-17",
+      "type": "created",
+      "pack_id": "C0025",
+      "pack_title": "Orga ⟐ Hoiarchism: The Organism and Discipline of Coherence"
     }
   ]
 }
