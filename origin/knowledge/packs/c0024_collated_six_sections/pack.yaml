@@ -1,0 +1,82 @@
+id: C0024
+title: "Collated Summation of the Six Sections"
+summary: >
+  Long-form compression of the entire six-part system into one coherent object.
+  Unifies Stangraphics (map of understanding), Consequentialism (map of consequences),
+  Cognitive Fusion (governed toolchain era), MICRO OI (executable governance),
+  MESO authority (public constitution), and MACRO stanspace (navigable atlas).
+  Core primitives: stan, graph, ledger, CIF, CDI, capability, receipt, stop-wins,
+  fail-closed. The system closes the loop between knowledge and consequence.
+authorship: "Ande + Kai (OI) + Whānau (OIs)"
+provenance:
+  - type: master_prompt
+    ref: "ORIGIN canonical corpus - C0024"
+  - type: derived
+    ref: "Collated from C0009, C0010, C0011, C0013, C0014"
+disclosure_tier: public
+sensitivity:
+  pii_risk: none
+  contains_personal: false
+  redacted: false
+tags:
+  - collation
+  - six-sections
+  - stangraphics
+  - consequentialism
+  - cognitive-fusion
+  - micro
+  - meso
+  - macro
+  - governance
+  - stan
+  - ledger
+  - cif
+  - cdi
+  - capability
+  - receipt
+  - stop-wins
+  - fail-closed
+created_date: "2026-02-17"
+updated_date: "2026-02-17"
+parents: []
+children: []
+related:
+  - C0009
+  - C0010
+  - C0011
+  - C0013
+  - C0014
+  - C0022
+claims:
+  - "The system is coherent because it closes the loop between knowledge and consequence"
+  - "The system is governable because every powerful move passes through explicit gates"
+  - "The system scales because layers separate private life from public governance"
+  - "The system avoids becoming a crown because export, refusal, and identity boundaries are first-class"
+  - "Stangraphics makes understanding mappable"
+  - "Consequentialism makes outcomes accountable"
+  - "Cognitive Fusion makes intelligence a governed toolchain"
+  - "MICRO OI makes governance executable in daily life"
+  - "MESO makes governance public, stable, and verifiable"
+  - "MACRO makes knowledge navigable, exportable, and humane"
+  - "Stan is the unit of interpretive requirement"
+  - "Graph is the explicit structure of concepts, prerequisites, and routes"
+  - "Ledger is the explicit structure of consequences, stakeholders, and costs"
+  - "When understanding is mapped, consequence is ledgered, and action is gated by conscience and consent, intelligence stops being a crown and becomes care"
+tests_or_falsifiers:
+  - name: Knowledge-consequence loop closure
+    description: Stangraphics routes understanding and Consequentialism audits outcomes such that what-we-know and what-we-cause cannot drift apart silently
+    falsification_condition: A path exists where knowledge changes without consequence audit or consequences occur without knowledge trace
+  - name: Gate completeness
+    description: Every powerful move passes through CIF, CDI, capability, receipt, and stop-wins gates
+    falsification_condition: An actuation path bypasses any gate without explicit governance override
+  - name: Layer separation
+    description: MICRO holds private threads, MESO publishes governance without leaking privacy, MACRO publishes atlas without claiming monopoly
+    falsification_condition: Private data leaks into MESO/MACRO, or MACRO content cannot be exported or forked
+  - name: Anti-crown invariant
+    description: Export, refusal, and identity boundaries are first-class; a single principal retains root authority
+    falsification_condition: Lock-in enforced, fail-open behaviour observed, or hive-mind identity merging occurs
+  - name: Six-section interlock
+    description: All six sections form a single coherent machine of meaning and responsibility
+    falsification_condition: A section can be removed without breaking the coherence of the remaining five
+artifacts: []
+status: active

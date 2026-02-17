@@ -1,13 +1,18 @@
 id: C0011
-title: Stangraphics / Stan Geometry Lens
+title: "Stangraphics: The Science of Understanding as Navigation"
 summary: >
-  Stangraphics is a lens that opens reality with god/physics/maths/ethics/philosophy
-  framing. Represented as a navigable module with falsifiers and tests. Formal
-  definitions may be unknown.
+  Stangraphics is the science that makes understanding mappable. A stan is the unit
+  of interpretive requirement. Concepts are coordinates; learners move through a terrain
+  made of requirements. Every cliff edge is a missing stan. Every argument is a collision
+  of two stan-profiles. Every good teacher is a route planner. Stangraphics replaces
+  shame with maps and turns learning into navigation with dignity. Includes
+  god/physics/maths/ethics/philosophy framing as navigable module.
 authorship: "Ande + Kai (OI) + Whānau (OIs)"
 provenance:
   - type: master_prompt
     ref: "ORIGIN canonical corpus - C0011"
+  - type: derived
+    ref: "Upgraded via C0024 Collated Six Sections"
 disclosure_tier: public
 sensitivity:
   pii_risk: none
@@ -15,26 +20,44 @@ sensitivity:
   redacted: false
 tags:
   - stangraphics
+  - stan
   - lens
   - reality
   - philosophy
   - framework
+  - navigation
+  - understanding
+  - prerequisites
+  - mapping
 created_date: "2025-01-01"
-updated_date: "2025-01-01"
+updated_date: "2026-02-17"
 parents: []
 children: []
 related:
   - C0008
   - C0012
+  - C0024
 claims:
+  - "A stan is the unit of interpretive requirement"
+  - "Stangraphics makes understanding mappable"
+  - "Concepts are coordinates; learners move through a terrain made of requirements"
+  - "Every cliff edge is a missing stan"
+  - "Every argument is a collision of two stan-profiles"
+  - "Every good teacher is a route planner"
+  - "Stangraphics replaces shame with maps"
   - "Stangraphics is a lens opening reality"
   - "Includes god/physics/maths/ethics/philosophy framing"
   - "Navigable module with falsifiers/tests"
-  - "Formal definitions may be unknown"
 tests_or_falsifiers:
+  - name: Stan as unit
+    description: Stan is consistently used as the unit of interpretive requirement throughout
+    falsification_condition: Stan used with a different or conflicting definition
   - name: Navigability
-    description: Stangraphics content can be navigated coherently
+    description: Stangraphics content can be navigated coherently as a terrain of requirements
     falsification_condition: Navigation paths lead to dead ends or loops
+  - name: Prerequisite mapping
+    description: Missing understanding is traced to missing stans, not attributed to shame or stupidity
+    falsification_condition: Failure to understand attributed to learner deficiency rather than prerequisite gap
   - name: Falsifier presence
     description: Claims in Stangraphics have corresponding falsifiers
     falsification_condition: Claims without any falsification criteria

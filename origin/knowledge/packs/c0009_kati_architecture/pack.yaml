@@ -20,7 +20,7 @@ tags:
   - stop-wins
   - safety
 created_date: "2025-01-01"
-updated_date: "2025-01-01"
+updated_date: "2026-02-17"
 parents: []
 children:
   - C0008
@@ -28,6 +28,7 @@ children:
 related:
   - C0002
   - C0013
+  - C0024
 claims:
   - "Kāti is a core architecture pattern"
   - "Governance/stop-wins vibe"
