@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2026-02-17T04:14:32.983Z",
+    "generated_at": "2026-02-17T23:19:30.692Z",
     "version": "1.0.0",
     "attribution": "Ande + Kai (OI) + Whānau (OIs)",
-    "pack_count": 24
+    "pack_count": 25
   },
   "packs": [
     {
@@ -1339,6 +1339,100 @@
       ],
       "slug": "c0024_collated_six_sections",
       "path": "knowledge/packs/c0024_collated_six_sections"
+    },
+    {
+      "id": "C0025",
+      "title": "Orga ⟐ Hoiarchism: The Organism and Discipline of Coherence",
+      "summary": "Orga is the engineering name for the organismal fact of coherence: the way a system becomes alive enough to endure because it has organs that hold it together under reality. Hoiarchism is the governing discipline that sees this organismal fact across all scales and insists it remain true—truthful, accountable, stoppable, and sacred—no matter how large the system becomes. Together they form the universal framework of coherence: Orga provides the organs (Universal Invariants, the 51D Ladder, Universal Stans and Stan-dens), Hoiarchism provides the vow (Holism with governance teeth, Hoiarch(x) across all scales). The union is fractal: systems within systems, coherence within coherence, sacredness held at every scale.\n",
+      "authorship": "Ande + Kai (OI) + Whānau (OIs)",
+      "disclosure_tier": "public",
+      "tags": [
+        "orga",
+        "hoiarchism",
+        "coherence",
+        "universal-invariants",
+        "51d-ladder",
+        "stans",
+        "stan-dens",
+        "governance",
+        "fractality",
+        "stoppability",
+        "holism",
+        "organs",
+        "accountability",
+        "sacredness",
+        "feedback",
+        "identity",
+        "consequence",
+        "blobness",
+        "hoiarch"
+      ],
+      "created_date": "2026-02-17",
+      "updated_date": "2026-02-17",
+      "status": "active",
+      "parents": [],
+      "children": [],
+      "related": [
+        "C0011",
+        "C0017",
+        "C0024",
+        "C0020",
+        "C0016",
+        "C0003",
+        "C0008"
+      ],
+      "claims": [
+        "Orga is the engineering name for the organismal fact of coherence",
+        "Hoiarchism is the governing discipline that keeps Orga true across scales",
+        "Any system missing any one of the 8 Universal Invariants cannot remain coherent as it scales",
+        "The 51D Ladder is a build order from zero-point to fully governed fractal coherence",
+        "Each rung of the 51D Ladder is an organ-layer; each must be present for the next to stabilize",
+        "Universal Stans are the minimal interpretive requirements reality demands in any domain",
+        "Stan-den is the density of Stans required per unit progress",
+        "As Stan-den rises, governance must rise faster than capability or the system becomes dangerous",
+        "Hoiarchism is Holism with governance teeth: not just everything is connected, but everything is accountable",
+        "Hoiarch(x) is the covenantal function: hold the arch so the whole does not collapse",
+        "D51 — Naming/Canon Lock: the ladder must be nameable to resist drift"
+      ],
+      "tests_or_falsifiers": [
+        {
+          "name": "Invariant completeness",
+          "description": "All 8 Universal Invariants (U1-U8) must be present; removing any one causes drift",
+          "falsification_condition": "A system is presented as coherent at scale while provably missing one invariant"
+        },
+        {
+          "name": "Ladder ordering",
+          "description": "Each D-rung must require the prior rung to stabilize; no rung skips ahead",
+          "falsification_condition": "A higher D-rung can be instantiated without its lower rungs being present"
+        },
+        {
+          "name": "Stan-den governance coupling",
+          "description": "Governance complexity must scale at least as fast as Stan-den",
+          "falsification_condition": "A UD4+ system is deployed without stoppability, audit, and recovery organs"
+        },
+        {
+          "name": "Hoiarch(x) scale invariance",
+          "description": "The 12 Hoiarch(x) organs apply whether x is a person, family, institution, technology, or society",
+          "falsification_condition": "One of the 12 components is inapplicable at some scale of x"
+        },
+        {
+          "name": "Blobness prevention",
+          "description": "Identity boundaries, role separation, and traceable responsibility remain intact",
+          "falsification_condition": "Responsibility cannot be traced to a specific node; everything is \"everyone's problem\""
+        },
+        {
+          "name": "Stoppability",
+          "description": "Power can be stopped, degraded, or rolled back at every layer",
+          "falsification_condition": "A path exists where the system cannot be stopped by an authorized principal"
+        },
+        {
+          "name": "Canon lock",
+          "description": "D51 Naming makes the ladder nameable; Orga names the structure, Hoiarchism names the discipline",
+          "falsification_condition": "The system operates without a stable name, allowing drift and redefinition"
+        }
+      ],
+      "slug": "c0025_orga_hoiarchism",
+      "path": "knowledge/packs/c0025_orga_hoiarchism"
     }
   ]
 }
